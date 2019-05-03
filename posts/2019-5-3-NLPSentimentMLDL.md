@@ -388,7 +388,7 @@ High level comparison
        <tr>
         <td>Differentiators</td>
         <td style="text-align:left;vertical-align:top;">
-        - Efficiency, quick training with good 90% accuracy</td>
+        - Efficiency, quick training with 90% accuracy</td>
         <td>- Enhance accuracy (94.8%) <br>
         - Deep Language Model </br>
         - Concatenated Pooling </br>

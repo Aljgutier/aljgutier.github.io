@@ -331,7 +331,7 @@ learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
 
 In summary, we see a significant improvement in predictive performance between ML and DL sentiment classification. The salient characteristics of each classifier are summarized in the table below. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or Deep-Learning. 
 
-Beginning with the ML Sentiment classifier, it cleans and process the data in preparation followed by removing stop words, removing punctuation, and creating Ngrams (1, 2, 3 words). The resulting vectorized tokens are then used to train a linear SVM classifier. In contrast, the ULM Sentiment Classifier develops an understanding of the language so that stop words are not removed (or lemmatized). Punctuation characteristics are captured with tokens, such as "BOS." 
+Beginning with the ML Sentiment classifier, it cleans and processes the data followed by removing stop words, removing punctuation, and creating Ngrams (1, 2, 3 words). The resulting vectorized tokens are then used to train a linear SVM classifier. In contrast, the ULM Sentiment Classifier develops an understanding of the language so that stop words are not removed (or lemmatized). Punctuation characteristics are captured with tokens, such as "BOS" (Beginning of Sentence).
 
 Relative to the ML classifier, the ULM Sentiment classifier employs several novel methods, as presented in 
 [ULMFit](https://arxiv.org/pdf/1801.06146.pdf).  

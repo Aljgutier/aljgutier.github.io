@@ -344,7 +344,7 @@ The ULM Sentiment Classifier employes several learning enhancements as discussed
  * Discrimitive fine-tuning. Different layers hold different types of information. Instead of tuning all layers at the same rate, discriminative learning, so that different layers are tuned different rates.
  * Gradual Unfreezing. Tuning all layers at once risks catastrophic forgetting of the pre-trained information. First, the last layer is unfrozen and trained, then the next to last layer, and so on. 
  * Slanted Triangular Learning. This method allows the model to quickly adapt to quickly converge to a suitable region of the parameter space.
- * Concatenated Pooling. Since the signal in text classification `is often contained in a few words, which may occur anywhere in the document, the method of concatenated pooling is employed. The hidden state of the last time step, the `m
+ * Concatenated Pooling. Since the signal in text classification is often contained in a few words, which may occur anywhere in the document, the method of concatenated pooling is employed. 
 
 The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the classification accuracy of all models published before the ULMFit model (94.1%). The State of the art ULMFit model adds one more technique for achieving better accuracy.  It trains two models:  one with a language model trained in the forward direction and another model trained by reversing the order of the text. Then, the final prediction is based on the average prediction of each model. This addition leads to a 95.4% accuracy.****
 

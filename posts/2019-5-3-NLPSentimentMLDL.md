@@ -181,7 +181,7 @@ Following the language model, is a classifier. The first classifier layer consis
 
 ### Deep Learning Language Model
 
-I give a brief overview of the language model in order to understand it within the context of the ULM Sentiment Classifier. A Jupyter notebook for training the language model is available on Github, [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb). However, for this post, we load in the pre-trained language model. A future post will demonstrate how to train the language model. A notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
+Herein is a brief overview of the language model in order to understand it within the context of the ULM Sentiment Classifier. A Jupyter notebook for training the language model is available on Github, [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb). However, for this post, we load in the pre-trained language model. A future post will demonstrate how to train the language model. A notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
 
 In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. The language model is created from a Recursive Neural Network. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier. The ULMFiT training process is duscussed in [Universal Language Model with Fine Tuning](https://arxiv.org/abs/1801.06146). 
 
@@ -190,7 +190,7 @@ In summary, a language model receives at its input a sequence of words. In this 
 
 Training of the Language Model required on the order of 20 hours on a Paperspace P4000 virtual desktop resource [Paperspace](https://www.paperspace.com) consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, after which the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
 
-Below, is the python code for defining and training the ULM Sentiment Classifier. We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7 Installation](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). In addition to importing fastai, there are several helper functions located in "./code/sentiment_imdb_helpers.py". For convenience, I list the helper functions in the appendix, at the end of this post
+Below, is the python code for defining and training the ULM Sentiment Classifier. We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7 Installation](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). In addition to importing fastai, there are several helper functions located in "./code/sentiment_imdb_helpers.py". The helper functions are listed in the appendix, at the end of this post
 
 ```python
 from fastai.text import *

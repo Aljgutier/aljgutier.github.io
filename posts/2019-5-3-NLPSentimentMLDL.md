@@ -373,7 +373,7 @@ High level comparison
    <tr>
         <td >Training</td>
         <td style="text-align:left;vertical-align:top;" > - CPU (Macbook Pro, 2.6 GHz Intel Core i7, with 32 G Ram) <br>
-            ~ minutes
+            ~ minute
         </td>
         <td>- Paperspace P4000 virtual desktop: NVIDIA P4000, 8 GB GPU, 1791 CUDA Cores) <br>
            ~24 hours: (~20 hours ULM, ~4 hours ANN Classifier)

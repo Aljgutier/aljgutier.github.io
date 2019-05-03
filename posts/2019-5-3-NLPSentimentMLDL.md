@@ -243,11 +243,11 @@ val_labels = np.squeeze(val_labels)
 
 ### Define the Classifier
 
-Next, we define the ULM Sentiment classifier. As previously mentioned, the ULM Sentiment Classifier consists of two major parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, where a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70.  
+As previously mentioned, the ULM Sentiment Classifier consists of two major parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70.  
 
-The classifier, "custom head," consists of two layers. The first layer of the classifier contains emb_sz x 3 (1200 ) ReLU activations and the second layer softmax activation that outputs probability over the two target classes (pos and neg). The output of the classifier corresponds to the largest probability. 
+The classifier, "custom head," consists of two layers. The first layer of the classifier contains emb_sz x 3 (1200) ReLU activations and the second layer softmax activation that outputs probabilities over the two target classes (pos and neg). The output of the classifier corresponds to the largest probability. 
 
-After setting the ULM Sentiment Classifier parameters, a data loader is created, `md`, where the dataset is passed to the data loader constructor, to generate a batch at a time.
+After setting the ULM Sentiment Classifier parameters, a data loader is created, `md`, where the dataset is passed to the data loader constructor, to generate one batch at a time.
 
 The reason for the 3 x emb_sz activations is to receive 3 sets of activations from the ULM, corresponding to concatenated pooling. These 3 sets of activations correspond to the last hidden state of the ULM, H, `maxpool(H)`, and `meanpool(H)`, where maxpool and meanpool operate on as large history as available in the GPU memory. The optimization function includes Adam Optimization, with gradient clipping of 25 (to prevent divergence). The regularization function `reg_fn` helps to avoid overfitting. The `max_seq` is an important parameter that defines the maximum sequence handled by the GPU at one time. The GPU memory needs to accommodate this sequence length.
 
@@ -281,7 +281,7 @@ learn.metrics = [accuracy]
 
 ***Learn - last layer***  
 
-We are now ready to start learning. A fastai 'learner" object combines our data model loader (`md`) and neural network object (`m`) into a `learner`  for which we can call `learner.fit()`. The ULMFiT model employs a gradual unfreezing approach, wherein first, the last layer ("classifier") weights are unfrozen, and the corresponding weights are adjusted. After one training epoch, we achieve a 92.88 % accuracy. This result is already better than ML example above. The learning rates are specified in a Numpy array, where each learning rate corresponds to a specific network layer from the first layer to the last layer, a technique so-called discriminative fine-tuning. 
+We are now ready to start learning. A fastai 'learner" object combines our data model loader (`md`) and neural network object (`m`) into a `learner`  for which we can call `learner.fit()`. The ULMFiT model employs a gradual unfreezing approach, wherein first, the last layer ("classifier") weights are unfrozen, and the corresponding weights are adjusted. After one training epoch, we achieve a 92.88 % accuracy. This result is already better than ML example above. The learning rates are specified in a Numpy array, where each learning rate corresponds to a specific network layer from the first layer to the last layer, a technique called "discriminative fine-tuning."
 
 
 ```python
@@ -329,21 +329,19 @@ learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
 
 # Summary of Results: DL vs ML Sentiment Classification
 
-In summary, we see a significant improvement in predictive performance between ML and DL sentiment classification. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or and Deep-Learning.  
+In summary, we see a significant improvement in predictive performance between ML and DL sentiment classification. The salient characteristics of each classifier are summarized in the table below. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or Deep-Learning. 
 
-It is inciteful to understand why we see this performance difference. Relative to the ML classifier, the DL model, ULM Sentiment classifier, employs several novel methods and are summarized in the table below. 
+Beginning with the ML Sentiment classifier, it cleans and process the data in preparation followed by removing stop words, removing punctuation, and creating Ngrams (1, 2, 3 words). The resulting vectorized tokens are then used to train a linear SVM classifier. In contrast, the ULM Sentiment Classifier develops an understanding of the language so that stop words are not removed (or lemmatized). Punctuation characteristics are captured with tokens, such as "BOS." 
 
-First, the ML Sentiment classifier cleans and process the data in preparation for NLTK removing stop words, removing punctuation, and creating Ngrams (1, 2, 3 words). The resulting vectorized tokens are then used to train a linear SVM classifier. In contrast, the ULM Sentiment Classifier develops an understanding of the language so that stop words are not removed (or lemmatized). Punctuation characteristics are indicated with tokens, such as "BOS." The output classifier for the ULM Sentiment classifier is designed to take the ULM activations and predict the probability of positive or negative review with a softmax classifier.  
-
-The ULM Sentiment Classifier employes several learning enhancements as discussed in 
-[ULMFit](https://arxiv.org/pdf/1801.06146.pdf). In summary, these are
+Relative to the ML classifier, the ULM Sentiment classifier employs several novel methods, as presented in 
+[ULMFit](https://arxiv.org/pdf/1801.06146.pdf).
  * Language Model. A pre-trained language model, trained on a large general domain corpus, Wiki, then fine-tuned for the target task.
  * Discrimitive fine-tuning. Different layers hold different types of information. Instead of tuning all layers at the same rate, discriminative learning, so that different layers are tuned different rates.
- * Gradual Unfreezing. Tuning all layers at once risks catastrophic forgetting of the pre-trained information. First, the last layer is unfrozen and trained, then the next to last layer, and so on. 
+ * Gradual Unfreezing. Tuning all layers at once risks catastrophic forgetting of the pre-trained information. Therefore, first, the last layer is unfrozen and trained, then the next to last layer, and so on. 
  * Slanted Triangular Learning. This method allows the model to quickly adapt to quickly converge to a suitable region of the parameter space.
  * Concatenated Pooling. Since the signal in text classification is often contained in a few words, which may occur anywhere in the document, the method of concatenated pooling is employed. 
 
-The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the classification accuracy of all models published before the ULMFit model (94.1%). The State of the art ULMFit model adds one more technique for achieving better accuracy.  It trains two models:  one with a language model trained in the forward direction and another model trained by reversing the order of the text. Then, the final prediction is based on the average prediction of each model. This addition leads to a 95.4% accuracy.
+The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the classification accuracy of all models published before the ULMFit model (94.1%). The State of the art ULMFit model adds one more technique for achieving even better accuracy.  It trains two models:  one with a language model trained in the forward direction and another model trained by reversing the order of the text. Then, the final prediction is based on the average prediction of each model. This addition leads to a 95.4% accuracy.
 
 
 <table>

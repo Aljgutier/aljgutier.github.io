@@ -326,8 +326,8 @@ learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
 ```
 
 
-    		epoch      trn_loss   val_loss   accuracy                                            
-      		  13        0.165997   0.146615   0.947905
+         epoch      trn_loss   val_loss   accuracy                                            
+           13        0.165997   0.146615   0.947905
 
 
 # Summary of Results: DL vs ML Sentiment Classification

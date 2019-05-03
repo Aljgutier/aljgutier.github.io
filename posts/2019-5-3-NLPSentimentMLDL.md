@@ -370,7 +370,7 @@ The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the clas
    </tr>
    <tr>
         <td >Training</td>
-        <td style="text-align:left;vertical-align:top;" > - CPU (Macbook Pro, 2.6 GHz Intel Core i7, with 32 G Ram) <br>
+        <td style="text-align:left;vertical-align:top;" > - CPU (Macbook Pro, 2.6 GHz Intel Core i7, with 32 G Ram <br>
             ~ minute
         </td>
         <td>- Paperspace P4000 virtual desktop: NVIDIA P4000, 8 GB GPU, 1791 CUDA Cores) <br>

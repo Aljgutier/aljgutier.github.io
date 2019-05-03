@@ -299,8 +299,8 @@ learn.fit(lrs, 1, wds=wd, cycle_len=1, use_clr=(8,3))
 # bs = 48, bptt = 70
 ```
 
-    epoch      trn_loss   val_loss   accuracy                      
-      0          0.273541   0.182889   0.92888 
+           epoch      trn_loss   val_loss   accuracy                      
+             0          0.273541   0.182889   0.92888 
 
 ***Learn - unfreeze one more layer***
 

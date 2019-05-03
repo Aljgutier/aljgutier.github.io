@@ -287,7 +287,6 @@ We are now ready to start learning. A fastai 'learner" object combines our data 
 
 
 ```python
-lr=3e-3
 wd = 0
 lrs=np.array([1e-4,1e-4,1e-4,1e-3,1e-2])
 

@@ -1,7 +1,7 @@
 <span style="display:block; color:blue; margin-top:-90px;"> </span>
 [about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../index.md)
 <figure>
- <img src="./images_NLPSentimentMLDL/CinemaImage.png"/>
+ <img src="/images/NLP_Sentiment_MLDL/CinemaImage.png"/>
 </figure>
 
 
@@ -26,7 +26,7 @@ Sentiment classification is a well-known text, NLP use case. However, the method
 # ML Sentiment Classification
 
 <figure>
- <img src="./images_NLPSentimentMLDL/NLP_Sentiment_ML.png"/>
+ <img src="/images/NLP_Sentiment_MLDL/NLP_Sentiment_ML.png"/>
  <figcaption><center>Figure 1. NLP Sentiment Classification Pipeline</center></figcaption>
  </figure>
 
@@ -167,7 +167,7 @@ The model achieves 90% accuracy on the test set.
 
 # ULM  Sentiment Classifier
 <figure>
- <img src="./images_NLPSentimentMLDL/ULM_Sentiment.png"/>
+ <img src="/images/NLP_Sentiment_MLDL/ULM_Sentiment.png"/>
  <figcaption><center>Figure 2. Universal Language Model Sentiment Classifier</center></figcaption>
  </figure>
 

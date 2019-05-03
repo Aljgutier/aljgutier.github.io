@@ -138,7 +138,7 @@ print("vecctorized:", X.shape)
 
 ### Step 3: Sentiment Classification
 
-Following, Vectorization we train an SVM model (Support Vector Machine, linear kernel) on a MacBook Pro, 2.6 GHz Intel Core i7, with 32 G Ram.  The tokenization takes 14.1 s CPU time, and classification with the SKlearn linear SVM takes 6.1 s CPU time. 
+Following vectorization we train an SVM model (Support Vector Machine, linear kernel) on a MacBook Pro, 2.6 GHz Intel Core i7, with 32 G Ram.  The tokenization takes 14.1 s CPU time, and classification with the SKlearn linear SVM takes 6.1 s CPU time. 
 
 ```python
 # Step 2:  Tokenize and Vectorize

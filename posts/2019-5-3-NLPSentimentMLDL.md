@@ -346,10 +346,8 @@ The ULM Sentiment Classifier employes several learning enhancements as discussed
  * Slanted Triangular Learning. This method allows the model to quickly adapt to quickly converge to a suitable region of the parameter space.
  * Concatenated Pooling. Since the signal in text classification is often contained in a few words, which may occur anywhere in the document, the method of concatenated pooling is employed. 
 
-The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the classification accuracy of all models published before the ULMFit model (94.1%). The State of the art ULMFit model adds one more technique for achieving better accuracy.  It trains two models:  one with a language model trained in the forward direction and another model trained by reversing the order of the text. Then, the final prediction is based on the average prediction of each model. This addition leads to a 95.4% accuracy.****
+The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the classification accuracy of all models published before the ULMFit model (94.1%). The State of the art ULMFit model adds one more technique for achieving better accuracy.  It trains two models:  one with a language model trained in the forward direction and another model trained by reversing the order of the text. Then, the final prediction is based on the average prediction of each model. This addition leads to a 95.4% accuracy.
 
-
-High level comparison
 
 <table>
  <caption>Table 1. ML and DL Sentiment classifier Comparison, Summary</caption>

@@ -312,8 +312,8 @@ learn.fit(lrs, 1, wds=wd, cycle_len=1, use_clr=(8,3))
 # bs = 48, bptt = 70
 ``` 
 
-    epoch      trn_loss   val_loss   accuracy                      
-      0           0.230917   0.165796   0.93692  
+           epoch      trn_loss   val_loss   accuracy                      
+             0           0.230917   0.165796   0.93692  
 
 ***Learn - unfreeze all layers***
 
@@ -322,12 +322,12 @@ Unfreezing the entire classifier, allows for the adjustment of all weights, from
 ```python
 learn.unfreeze()
 learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
-# bs = 40, bptt = 70
+# bs = 48, bptt = 70
 ```
 
 
-    epoch      trn_loss   val_loss   accuracy                                            
-      13        0.165997   0.146615   0.947905
+    		epoch      trn_loss   val_loss   accuracy                                            
+      		  13        0.165997   0.146615   0.947905
 
 
 # Summary of Results: DL vs ML Sentiment Classification

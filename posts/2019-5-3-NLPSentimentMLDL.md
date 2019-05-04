@@ -283,7 +283,7 @@ learn.metrics = [accuracy]
 
 ***Learn - last layer***  
 
-We are now ready to start learning. A fastai 'learner" object combines our data model loader (`md`) and neural network object (`m`) into a `learner`  for which we can call `learner.fit()`. The ULMFiT model employs a gradual unfreezing approach, wherein first, the last layer ("classifier") weights are unfrozen, and the corresponding weights are adjusted. After one training epoch, we achieve a 92.88 % accuracy. This result is already better than ML example above. The learning rates are specified in a Numpy array, where each learning rate corresponds to a specific network layer from the first layer to the last layer, a technique called "discriminative fine-tuning."
+We are now ready to start learning. A fastai `learner` object combines our data model loader (`md`) and neural network object (`m`) into a `learner`  for which we can call `learner.fit()`. The ULMFiT model employs a gradual unfreezing approach, wherein first, the last layer ("classifier") weights are unfrozen, and the corresponding weights are adjusted. After one training epoch, we achieve a 92.88 % accuracy. This result is already better than ML example above. The learning rates are specified in a Numpy array, where each learning rate corresponds to a specific network layer from the first layer to the last layer, a technique called "discriminative fine-tuning."
 
 
 ```python

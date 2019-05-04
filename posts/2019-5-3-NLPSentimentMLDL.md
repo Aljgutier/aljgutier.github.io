@@ -116,7 +116,7 @@ val_clean = preprocess_reviews(val_texts)  # test holdout set
 
 ### Step 2: Tokenize and Vectorize
 
-Following pre-processing the NLTK tokenizer generates Ngrams of length 1, 2, 3 followed by vectorization (numeric tokens).
+Following pre-processing the NLTK CountVectorizer, removes stop words, generates Ngrams of length 1, 2, 3, and vectorizes (numeric tokens).
 
 ```python
 # Step 2:  Tokenize and Vectorize

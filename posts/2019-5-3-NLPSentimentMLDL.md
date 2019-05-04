@@ -12,7 +12,7 @@ May 3, 2019
 We compare two sentiment classifiers, one based on a standard machine learning (ML) architecture built with Python's NLTK and Sklearn libraries and the other a deep learning (DL) model based on the [ULMFiT architecture](https://arxiv.org/abs/1801.06146). This ULM Sentiment Classifier builds on the Fastai library, a library which in turn utilizes [PyTorch](https://pytorch.org/). The objective is not to say one classifier is better than the other, but to understand state-of-the-art classification performance and the critical differences between the two classifiers. The goal is to demonstrate how to achieve world-class performance (deep learning or machine learning). This exercise is useful to applied data scientists interested in an easily accessible reference implementation with established benchmark performance.
 
 ### Dataset: IMDb, Large Movie Reviews
-We use the [IMDb Large Movie Reviews](http://ai.stanford.edu/~amaas/data/sentiment/) dataset. The dataset has 3 classes positive, negative and unsupervised (sentiment unknown). There are 75k training reviews (12.5k positive sentiment, 12.5k negative sentiment, 50k unlabeled) and 25k validation reviews(12.5k positive, 12.5k). Refer to the README file in the imdb corpus for further information about the dataset. 
+We use the [IMDb Large Movie Reviews](http://ai.stanford.edu/~amaas/data/sentiment/) dataset. The dataset has 3 classes positive, negative and unsupervised (sentiment unknown). There are 75k training reviews (12.5k positive sentiment, 12.5k negative sentiment, 50k unlabeled) and 25k validation reviews(12.5k positive, 12.5k). Refer to the README file in the IMDb corpus for further information about the dataset. 
 
 
 ### Additional Use Cases
@@ -131,11 +131,11 @@ print("vecctorized:", X.shape)
 ```
 
 
-	CPU times: user 14.9 s, sys: 135 ms, total: 15 s
-	Wall time: 15 s
-	CPU times: user 14.7 s, sys: 104 ms, total: 14.8 s
-	Wall time: 14.8 s
-	vecctorized: (25000, 5443695)
+	   CPU times: user 14.9 s, sys: 135 ms, total: 15 s
+	   Wall time: 15 s
+	   CPU times: user 14.7 s, sys: 104 ms, total: 14.8 s
+	   Wall time: 14.8 s
+	   vecctorized: (25000, 5443695)
 
 
 ### Step 3: Sentiment Classification
@@ -152,9 +152,9 @@ ngram_vectorizer.fit(train_clean)
 print("vecctorized:", X.shape)
 ```
 
-       CPU times: user 7.91 s, sys: 210 ms, total: 8.12 s
-       Wall time: 7.11 s
-       Final Accuracy: 0.90024
+          CPU times: user 7.91 s, sys: 210 ms, total: 8.12 s
+          Wall time: 7.11 s
+          Final Accuracy: 0.90024
 
 ```python
 # Step 3 Sentiment Classification
@@ -175,7 +175,7 @@ The model achieves 90% accuracy on the test set.
  </figure>
 
 
-The Deep-learning classifier is based on the (ULMFIT)[Universal Language Model with Fine Tuning](https://arxiv.org/abs/1801.06146) architecture and is illustrated in the figure above. ULMFiT comes from the Fastai initiative led by Jeremy Howard at the University of San Francisco, [State of the Art Text Classification with Universal Language Models](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html). The ULMFiT architecture utilizes a Recursive Neural Network with LSTM cells and herein we call this the ULM Sentiment Classifier. A key idea behind the ULMFiT architecture is a Universal Language Model trained on a general corpus and then fine-tuned for a target task. In this case, the target task is sentiment classification on the IMDb dataset. The classifier consists of two parts, a deep-learning language model, and an Artificial Neural Network (ANN) sentiment classifier. 
+The Deep-learning classifier is based on the (ULMFIT) [Universal Language Model with Fine Tuning](https://arxiv.org/abs/1801.06146) architecture and is illustrated in the figure above. ULMFiT comes from the Fastai initiative led by Jeremy Howard at the University of San Francisco, [State of the Art Text Classification with Universal Language Models](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html). The ULMFiT architecture utilizes a Recursive Neural Network with LSTM cells and herein we call this the ULM Sentiment Classifier. A key idea behind the ULMFiT architecture is a Universal Language Model trained on a general corpus and then fine-tuned for a target task. In this case, the target task is sentiment classification on the IMDb dataset. The classifier consists of two parts, a deep-learning language model, and an Artificial Neural Network (ANN) sentiment classifier. 
 
 This architecture and code overview is presented in [Fastai, DL2 lecture 10](https://forums.fast.ai/t/part-2-lesson-10-wiki/14364). In this post, the discussion focuses on the sentiment classification part. A pre-trained language model, trained as a separate exercise, is loaded by the ULM sentiment classifier. A subsequent post will demonstrate how to train the language model. In the meantime, a notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
 
@@ -188,7 +188,7 @@ Herein is a brief overview of the language model in order to understand it withi
 
 ### ULM Sentiment Classifier
 
-Training of the Language Model required on the order of 20 hours on a Paperspace P4000 virtual desktop resource [Paperspace](https://www.paperspace.com) consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
+Training of the Language Model required on the order of 20 hours on a [Paperspace](https://www.paperspace.com) P4000 virtual desktop resource  consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
 
 Below, is the python code for defining and training the ULM Sentiment Classifier. A corrresponding Jupyter notebook is available on Github, [ULM Sentiment Classifier Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb).  We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7 Installation](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). In addition to importing fastai, there are several helper functions located in "./code/sentiment\_imdb_helpers.py". The helper functions are listed in the appendix, at the end of this post
 
@@ -243,7 +243,7 @@ val_labels = np.squeeze(val_labels)
 
 ```
 
-### Define the UM Sentiment Classifier
+### Define the ULM Sentiment Classifier
 
 As previously mentioned, the ULM Sentiment Classifier consists of two major parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70.  
 

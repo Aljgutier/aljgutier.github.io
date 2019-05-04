@@ -5,9 +5,11 @@
 </figure>
 
 
-# State of the Art Sentiment Classification with ML and DL models
+<h1 style="color:	#0000FF; text-align:center;">State of the Art Sentiment Classification with ML and DL models </h1>
+
+May 3, 2019
  
-We compare two sentiment classifiers, one based on a standard machine learning (ML) architecture built with Python's NLTK and Sklearn libraries and the other a deep learning model based on the [ULMFiT architecture](https://arxiv.org/abs/1801.06146). This ULM Sentiment Classifier builds on the Fastai library, a library which in turn utilizes PyTorch. The objective is not to say one classifier is better than the other, but to understand state-of-the-art classification performance and the critical differences between the two classifiers. The goal is to demonstrate how to achieve world-class performance (deep learning or machine learning). This exercise is useful to applied data scientists interested in an easily accessible reference implementation with established benchmark performance.
+We compare two sentiment classifiers, one based on a standard machine learning (ML) architecture built with Python's NLTK and Sklearn libraries and the other a deep learning (DL) model based on the [ULMFiT architecture](https://arxiv.org/abs/1801.06146). This ULM Sentiment Classifier builds on the Fastai library, a library which in turn utilizes [PyTorch](https://pytorch.org/). The objective is not to say one classifier is better than the other, but to understand state-of-the-art classification performance and the critical differences between the two classifiers. The goal is to demonstrate how to achieve world-class performance (deep learning or machine learning). This exercise is useful to applied data scientists interested in an easily accessible reference implementation with established benchmark performance.
 
 ### Dataset: IMDb, Large Movie Reviews
 We use the [IMDb Large Movie Reviews](http://ai.stanford.edu/~amaas/data/sentiment/) dataset. The dataset has 3 classes positive, negative and unsupervised (sentiment unknown). There are 75k training reviews (12.5k positive sentiment, 12.5k negative sentiment, 50k unlabeled) and 25k validation reviews(12.5k positive, 12.5k). Refer to the README file in the imdb corpus for further information about the dataset. 
@@ -23,14 +25,14 @@ Sentiment classification is a well-known text, NLP use case. However, the method
 * Predicting actions based on customer service queries or support logs
 
 
-# ML Sentiment Classification
+<h1 style="color:	#0000FF;">ML Sentiment Classification </h1>
 
 <figure>
  <img src="/images/NLP_Sentiment_MLDL/NLP_Sentiment_ML.png" width="635">
  <figcaption><center>Figure 1. NLP Sentiment Classification Pipeline</center></figcaption>
  </figure>
 
-### ML Sentiment Classifier 
+
 The ML sentiment classifier is illustrated in Figure 1, beginning with pre-processing, then Tokenization & Vectorization, followed by sentiment classification. The architecture references the following blog posts [Sentiment Analysis with Python, Part I](https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184) and [Sentiment Analysis with Python, Part II](https://towardsdatascience.com/sentiment-analysis-with-python-part-2-4f71e7bde59a). 
 
 We begin by importing the the necessary python packages.
@@ -165,14 +167,14 @@ print ("Accuracy: %s"  % accuracy_score(val_labels, msvc.predict(X_val)))
 
 The model achieves 90% accuracy on the test set. 
 
-# ULM  Sentiment Classifier
+<h1 style="color:	#0000FF;"> ULM  Sentiment Classifier </h1>
+
 <figure>
  <img src="/images/NLP_Sentiment_MLDL/ULM_Sentiment.png" width="635">
  <figcaption><center>Figure 2. Universal Language Model Sentiment Classifier</center></figcaption>
  </figure>
 
 
-### ULM Sentiment Classifier
 The Deep-learning classifier is based on the (ULMFIT)[Universal Language Model with Fine Tuning](https://arxiv.org/abs/1801.06146) architecture and is illustrated in the figure above. ULMFiT comes from the Fastai initiative led by Jeremy Howard at the University of San Francisco, [State of the Art Text Classification with Universal Language Models](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html). The ULMFiT architecture utilizes a Recursive Neural Network with LSTM cells and herein we call this the ULM Sentiment Classifier. A key idea behind the ULMFiT architecture is a Universal Language Model trained on a general corpus and then fine-tuned for a target task. In this case, the target task is sentiment classification on the IMDb dataset. The classifier consists of two parts, a deep-learning language model, and an Artificial Neural Network (ANN) sentiment classifier. 
 
 This architecture and code overview is presented in [Fastai, DL2 lecture 10](https://forums.fast.ai/t/part-2-lesson-10-wiki/14364). In this post, the discussion focuses on the sentiment classification part. A pre-trained language model, trained as a separate exercise, is loaded by the ULM sentiment classifier. A subsequent post will demonstrate how to train the language model. In the meantime, a notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
@@ -184,7 +186,7 @@ Following the language model, is a classifier. The first classifier layer consis
 Herein is a brief overview of the language model in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  
 
 
-### Training the Sentiment Classifier
+### ULM Sentiment Classifier
 
 Training of the Language Model required on the order of 20 hours on a Paperspace P4000 virtual desktop resource [Paperspace](https://www.paperspace.com) consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
 
@@ -241,7 +243,7 @@ val_labels = np.squeeze(val_labels)
 
 ```
 
-### Define the Classifier
+### Define the UM Sentiment Classifier
 
 As previously mentioned, the ULM Sentiment Classifier consists of two major parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70.  
 
@@ -327,7 +329,7 @@ learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
            13        0.165997   0.146615   0.947905
 
 
-# Summary of Results: DL vs ML Sentiment Classification
+<h1 style="color:	#0000FF;">Summary of Results: DL vs ML Sentiment Classification </h1>
 
 In summary, we see a significant improvement in predictive performance between ML and DL sentiment classification. The salient characteristics of each classifier are summarized in the table below. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or Deep-Learning. 
 
@@ -346,7 +348,7 @@ The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the clas
 
 
 <table>
- <caption>Table 1. ML and DL Sentiment classifier Comparison, Summary</caption>
+ <caption>Table 1. ML and DL Sentiment classifier Comparison Summary</caption>
     <tr>
      <td width="14%"  style="text-align:center;vertical-align:center;" > <strong>Characteristic</strong></td>
         <td width="40%" style="text-align:center;vertical-align:center;" ><strong>ML Sentimeent Classifier</strong></td>
@@ -382,8 +384,8 @@ The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the clas
        <tr>
         <td>Differentiators</td>
         <td style="text-align:left;vertical-align:top;">
-        - Efficiency, quick training with 90% accuracy</td>
-        <td>- Enhance accuracy (94.8%) <br>
+        - Training efficiency with 90% accuracy</td>
+        <td>- 94.8% accuracy<br>
         - Deep Language Model </br>
         - Concatenated Pooling </br>
         - Gradual unfreezing </br>
@@ -393,7 +395,7 @@ The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the clas
     </tr>
 </table>
 
-# Appendix - Helper Functions
+<h1 style="color:	#0000FF;"> Appendix - Helper Functions </h1>
 
 #### df_all(), pre-processing, cleaning, and tokenization for DL Classifier
 ```python

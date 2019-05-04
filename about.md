@@ -12,4 +12,4 @@ Applied data science, machine learning, and AI experimenter. Understanding and a
 
 
 ### Linkedin
-[algerto gutierrez](https://www.linkedin.com/in/alberto-j-gutierrez)
+[alberto gutierrez](https://www.linkedin.com/in/alberto-j-gutierrez)

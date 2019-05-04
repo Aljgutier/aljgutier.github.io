@@ -339,7 +339,7 @@ Relative to the ML classifier, the ULM Sentiment classifier employs several nove
 [ULMFit](https://arxiv.org/pdf/1801.06146.pdf).  
 
  * Language Model. A pre-trained language model, trained on a large general domain corpus, Wiki, then fine-tuned for the target task.  
- * Discrimitive fine-tuning. Different layers hold different types of information. Instead of tuning all layers at the same rate, discriminative learning is applied, that is, different layers are tuned different rates.
+ * Discrimitive fine-tuning. Different layers hold different types of information. Instead of tuning all layers at the same rate, discriminative learning is applied, that is, different layers are tuned at different rates.
  * Gradual Unfreezing. Tuning all layers at once risks catastrophic forgetting of the pre-trained information. Therefore, first, the last layer is unfrozen and trained, then the next to last layer, and so on. 
  * Slanted Triangular Learning. This method allows the model to quickly adapt to quickly converge to a suitable region of the parameter space.
  * Concatenated Pooling. Since the signal in text classification is often contained in a few words, which may occur anywhere in the document, the method of concatenated pooling is employed. 
@@ -396,6 +396,7 @@ The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the clas
 </table>
 
 <h1 style="color:	#0000FF;"> Appendix - Helper Functions </h1>
+
 
 #### df_all(), pre-processing, cleaning, and tokenization for DL Classifier
 ```python

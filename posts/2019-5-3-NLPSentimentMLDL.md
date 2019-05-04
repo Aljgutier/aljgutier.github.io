@@ -279,7 +279,7 @@ learn.reg_fn = partial(seq2seq_reg, alpha=2, beta=1)
 learn.clip=25.
 learn.metrics = [accuracy]
 ```
-### Train the ULMFiT Classifier
+### Train
 
 ***Learn - last layer***  
 

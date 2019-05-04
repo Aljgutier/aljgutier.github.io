@@ -25,7 +25,7 @@ Sentiment classification is a well-known text, NLP use case. However, the method
 * Predicting actions based on customer service queries or support logs
 
 
-<h1 style="color:	#0000FF;">ML Sentiment Classification </h1>
+<h2 style="color:	#0000FF;">ML Sentiment Classification </h2>
 
 <figure>
  <img src="/images/NLP_Sentiment_MLDL/NLP_Sentiment_ML.png" width="635">
@@ -167,7 +167,7 @@ print ("Accuracy: %s"  % accuracy_score(val_labels, msvc.predict(X_val)))
 
 The model achieves 90% accuracy on the test set. 
 
-<h1 style="color:	#0000FF;"> ULM  Sentiment Classifier </h1>
+<h2 style="color:	#0000FF;"> ULM  Sentiment Classifier </h2>
 
 <figure>
  <img src="/images/NLP_Sentiment_MLDL/ULM_Sentiment.png" width="635">
@@ -329,7 +329,7 @@ learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
            13        0.165997   0.146615   0.947905
 
 
-<h1 style="color:	#0000FF;">Summary of Results: DL vs ML Sentiment Classification </h1>
+<h2 style="color:	#0000FF;">Summary of Results: DL vs ML Sentiment Classification </h2>
 
 In summary, we see a significant improvement in predictive performance between ML and DL sentiment classification. The salient characteristics of each classifier are summarized in the table below. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or Deep-Learning. 
 

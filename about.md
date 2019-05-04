@@ -8,4 +8,8 @@ Applied data science, machine learning, and AI experimenter. Understanding and a
 
 ### Contact me
 
-[aljgutier@yahoo.com](mailto:aljgutier@yahoo.com)
+[aljgutier@yahoo.com](mailto:aljgutier@yahoo.com)  
+
+
+### Linkedin
+[algerto gutierrez](https://www.linkedin.com/in/alberto-j-gutierrez)

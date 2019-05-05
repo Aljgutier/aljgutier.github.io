@@ -184,9 +184,7 @@ This architecture and code overview is presented in [Fastai, DL2 lecture 10](htt
 A brief description of the language model is useful in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  A subsequent post will discuss the language model. In the meantime, a notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
 
 
-### ULM Sentiment Classifier
-
-Training of the Language Model required on the order of 20 hours on a [Paperspace](https://www.paperspace.com) P4000 virtual desktop resource  consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
+### Setup the Notebook
 
 Below, is the python code for defining and training the ULM Sentiment Classifier. A corrresponding Jupyter notebook is available on Github, [ULM Sentiment Classifier Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb).  We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652) for installation instructions. In addition to importing fastai, there are several helper functions located in "./code/sentiment\_imdb_helpers.py". For convenience, the helper functions are listed in the appendix, at the end of this post
 
@@ -243,13 +241,9 @@ val_labels = np.squeeze(val_labels)
 
 ### Define the ULM Sentiment Classifier
 
-As previously discussed, the ULM Sentiment Classifier consists of two parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70.  
+As previously discussed, the ULM Sentiment Classifier consists of two parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70. After setting the ULM Sentiment Classifier parameters, a data loader is created, `md`, where the dataset is passed to the data loader constructor, to generate one batch at a time.
 
-The classifier, "custom head," consists of two layers. The first layer of the classifier contains emb_sz x 3 (1200) ReLU activations and the second layer softmax activation that outputs probabilities over the two target classes (pos and neg). The output of the classifier corresponds to the largest probability. 
-
-After setting the ULM Sentiment Classifier parameters, a data loader is created, `md`, where the dataset is passed to the data loader constructor, to generate one batch at a time.
-
-The reason for the 3 x emb_sz activations is to receive 3 sets of activations from the ULM, corresponding to concatenated pooling. These 3 sets of activations correspond to the last hidden state of the ULM, H, `maxpool(H)`, and `meanpool(H)`, where maxpool and meanpool operate on as large history as available in the GPU memory. The optimization function includes Adam Optimization, with gradient clipping of 25 (to prevent divergence). The regularization function `reg_fn` helps to avoid overfitting. The `max_seq` is an important parameter that defines the maximum sequence handled by the GPU. The GPU memory needs to accommodate this sequence length.
+The classifier, "custom head," consists of two layers. The first layer of the classifier contains emb_sz x 3 (1200) ReLU activations and the second layer softmax activation. The reason for the 3 x emb_sz activations is to receive 3 sets of activations from the ULM, corresponding to concatenated pooling. These 3 sets of activations correspond to the last hidden state of the ULM, H, `maxpool(H)`, and `meanpool(H)`, where maxpool and meanpool operate on as large history as available in the GPU memory. The optimization function includes Adam Optimization, with gradient clipping of 25 (to prevent divergence). The regularization function `reg_fn` helps to avoid overfitting. The `max_seq` is an important parameter that defines the maximum sequence handled by the GPU. The GPU memory needs to accommodate this sequence length.
 
 
 ```python
@@ -315,6 +309,8 @@ learn.fit(lrs, 1, wds=wd, cycle_len=1, use_clr=(8,3))
 ***Learn - unfreeze all layers***
 
 Unfreezing the entire classifier, allows for the adjustment of all weights, from the input to the output layer, and thereby acheiving state of the art accuracy of 94.8%.
+
+Training of the Language Model required on the order of 20 hours on a [Paperspace](https://www.paperspace.com) P4000 virtual desktop resource  consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
 
 ```python
 learn.unfreeze()

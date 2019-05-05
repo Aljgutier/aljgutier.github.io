@@ -5,7 +5,7 @@
 </figure>
 
 
-<h1 style="color:	#0000FF; text-align:center;">State of the Art Sentiment Classification with ML and DL models </h1>
+<h1 style="color:	#115BDC; text-align:center;">State of the Art Sentiment Classification with ML and DL models </h1>
 
 May 3, 2019
  
@@ -25,7 +25,7 @@ Sentiment classification is a well-known text, NLP use case. However, the method
 * Predicting actions based on customer service queries or support logs
 
 
-<h2 style="color:	#0000FF;">ML Sentiment Classification </h2>
+<h2 style="color:	#115BDC;">ML Sentiment Classification </h2>
 
 <figure>
  <img src="/images/NLP_Sentiment_MLDL/NLP_Sentiment_ML.png" width="635">
@@ -167,7 +167,7 @@ print ("Accuracy: %s"  % accuracy_score(val_labels, msvc.predict(X_val)))
 
 The model achieves 90% accuracy on the test set. 
 
-<h2 style="color:	#0000FF;"> ULM  Sentiment Classifier </h2>
+<h2 style="color:	#115BDC;"> ULM  Sentiment Classifier </h2>
 
 <figure>
  <img src="/images/NLP_Sentiment_MLDL/ULM_Sentiment.png" width="635">
@@ -175,22 +175,20 @@ The model achieves 90% accuracy on the test set.
  </figure>
 
 
-The Deep-learning classifier is based on the (ULMFIT) [Universal Language Model with Fine Tuning](https://arxiv.org/abs/1801.06146) architecture and is illustrated in the figure above. ULMFiT comes from the Fastai initiative led by Jeremy Howard at the University of San Francisco, [State of the Art Text Classification with Universal Language Models](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html). The ULMFiT architecture utilizes a Recursive Neural Network with LSTM cells and herein we call this the ULM Sentiment Classifier. A key idea behind the ULMFiT architecture is a Universal Language Model trained on a general corpus and then fine-tuned for a target task. In this case, the target task is sentiment classification on the IMDb dataset. The classifier consists of two parts, a deep-learning language model, and an Artificial Neural Network (ANN) sentiment classifier. 
+The Deep-learning classifier is based on the (ULMFIT) [Universal Language Model with Fine Tuning](https://arxiv.org/abs/1801.06146) architecture and is illustrated in the figure above. ULMFiT comes from the Fastai initiative led by Jeremy Howard at the University of San Francisco, [State of the Art Text Classification with Universal Language Models](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html).  The key idea is Universal Language Model trained on a general corpus and then fine-tuned for a target task. The architecture consists of an embeddings layer and a Recursive Neural Network with LSTM cells. In this case, the target task is sentiment classification on the IMDb dataset. The classifier consists of two parts, a deep-learning language model, and an Artificial Neural Network (ANN) sentiment classifier. Herein we call this the ULM Sentiment Classifier.
 
-This architecture and code overview is presented in [Fastai, DL2 lecture 10](https://forums.fast.ai/t/part-2-lesson-10-wiki/14364). In this post, the discussion focuses on the sentiment classification part. A pre-trained language model, trained as a separate exercise, is loaded by the ULM sentiment classifier. A subsequent post will demonstrate how to train the language model. In the meantime, a notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
-
-Following the language model, is a classifier. The first classifier layer consists of  ReLU activations followed by softmax activation layer that outputs a probability distribution over the target classes ("positive" and "negative" sentiment). The final output of the classifier corresponds to the largest probability from the softmax layer.
+This architecture and code overview is presented in [Fastai, DL2 lecture 10](https://forums.fast.ai/t/part-2-lesson-10-wiki/14364). In this post, the discussion focuses on the sentiment classification part. A pre-trained language model, trained as a separate exercise, is loaded by the ULM Sentiment Classifier. The first classifier layer consists of  ReLU activations followed by softmax activation layer that outputs a probability distribution over the target classes ("positive" and "negative" sentiment). The final output of the classifier corresponds to the largest probability from the softmax layer.
 
 ### Deep Learning Language Model
 
-Herein is a brief overview of the language model in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  
+A brief description of the language model is useful in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  A subsequent post will discuss the language model. In the meantime, a notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
 
 
 ### ULM Sentiment Classifier
 
 Training of the Language Model required on the order of 20 hours on a [Paperspace](https://www.paperspace.com) P4000 virtual desktop resource  consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
 
-Below, is the python code for defining and training the ULM Sentiment Classifier. A corrresponding Jupyter notebook is available on Github, [ULM Sentiment Classifier Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb).  We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7 Installation](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). In addition to importing fastai, there are several helper functions located in "./code/sentiment\_imdb_helpers.py". The helper functions are listed in the appendix, at the end of this post
+Below, is the python code for defining and training the ULM Sentiment Classifier. A corrresponding Jupyter notebook is available on Github, [ULM Sentiment Classifier Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb).  We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652) for installation instructions. In addition to importing fastai, there are several helper functions located in "./code/sentiment\_imdb_helpers.py". For convenience, the helper functions are listed in the appendix, at the end of this post
 
 ```python
 from fastai.text import *
@@ -216,9 +214,9 @@ col_names = ['labels','text']
 
 ### Load, pre-process, tokenize
 
-The process starts with data preprocessing (HTML removed, and documents vectorized). This is a straightforward operation consisting of parsing with regexp then Spacy tokenizer. The processing is encapsulated in the `df_all()` helper functions (see Appendix, below). The Fastai library enhances the Spacy processing  ("Tokenizer") for multiprocessing, which significantly speeds up the processing. Any movie review document requires to be processing by `df_all()` for the training of the ULM Sentiment Classifier or Prediction. We also set the chunksize to 24,000 and pass it to Pandas to process a chunk of reviews at a time. This is especially necessary when training the LM (language model). 
+The process starts with data preprocessing (HTML removed, and documents vectorized). This is a straightforward operation consisting of parsing with regexp then Spacy tokenizer. The processing is encapsulated in the `get_all()` helper functions (see Appendix, below). The Fastai library enhances the Spacy processing  ("Tokenizer") for multiprocessing, which significantly speeds up the processing. Any movie review document requires processing by `get_all()` prior to training of the ULM Sentiment Classifier or prior to Prediction. We also set the chunksize to 24,000 and pass it to Pandas to process a chunk of reviews at a time. This is especially necessary when training the LM (language model). 
 
-Next, the vocabulary is loaded, where `itos` is a mapping of integer (token) to string token, for each word in the vocabulary and `stoi`, is the reverse mapping. These mappings are generated as part of the language modeling training process.  Text for each document is extracted from the data frame into the  Numpy array `trn_class` and `trn_val` with the use of comprehensions. Training and validation labels are contained in `trn_labels` and `val_labels`. 
+Next, the vocabulary is loaded, where `itos` is a dictionary mapping of integer (token) to string token, for each word in the vocabulary and `stoi`, is the reverse mapping. These mappings are generated as part of the language modeling training process.  Text for each document is extracted from the data frame into the  Numpy array `trn_class` and `trn_val` with the use of comprehensions. Training and validation labels are contained in `trn_labels` and `val_labels`. 
 
 ```python
  Code: DL Sentiment Classification Code
@@ -245,13 +243,13 @@ val_labels = np.squeeze(val_labels)
 
 ### Define the ULM Sentiment Classifier
 
-As previously mentioned, the ULM Sentiment Classifier consists of two major parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70.  
+As previously discussed, the ULM Sentiment Classifier consists of two parts, the pre-trained ULM ("backbone"), plus classifier ("custom head"). This is similar to transfer learning, for example as with a computer vision model, a pre-trained Deep Learning model is loaded with pre-trained weights followed by the addition of a task-specific output stage. The entire model (backbone + custom head) is then tuned for the specific task, sentiment classification.  We set the dimensions of backbone, the same as the pre-trained ULM model including embedding size of 400, 3 hidden layers (`nl` = 3), with 1150 activations each (`nh` = 1150). The bptt (backpropagate through time parameter) is set to 70.  
 
 The classifier, "custom head," consists of two layers. The first layer of the classifier contains emb_sz x 3 (1200) ReLU activations and the second layer softmax activation that outputs probabilities over the two target classes (pos and neg). The output of the classifier corresponds to the largest probability. 
 
 After setting the ULM Sentiment Classifier parameters, a data loader is created, `md`, where the dataset is passed to the data loader constructor, to generate one batch at a time.
 
-The reason for the 3 x emb_sz activations is to receive 3 sets of activations from the ULM, corresponding to concatenated pooling. These 3 sets of activations correspond to the last hidden state of the ULM, H, `maxpool(H)`, and `meanpool(H)`, where maxpool and meanpool operate on as large history as available in the GPU memory. The optimization function includes Adam Optimization, with gradient clipping of 25 (to prevent divergence). The regularization function `reg_fn` helps to avoid overfitting. The `max_seq` is an important parameter that defines the maximum sequence handled by the GPU at one time. The GPU memory needs to accommodate this sequence length.
+The reason for the 3 x emb_sz activations is to receive 3 sets of activations from the ULM, corresponding to concatenated pooling. These 3 sets of activations correspond to the last hidden state of the ULM, H, `maxpool(H)`, and `meanpool(H)`, where maxpool and meanpool operate on as large history as available in the GPU memory. The optimization function includes Adam Optimization, with gradient clipping of 25 (to prevent divergence). The regularization function `reg_fn` helps to avoid overfitting. The `max_seq` is an important parameter that defines the maximum sequence handled by the GPU. The GPU memory needs to accommodate this sequence length.
 
 
 ```python
@@ -329,7 +327,7 @@ learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
            13        0.165997   0.146615   0.947905
 
 
-<h2 style="color:	#0000FF;">Summary of Results: DL vs ML Sentiment Classification </h2>
+<h2 style="color:	#115BDC;">Summary of Results: DL vs ML Sentiment Classification </h2>
 
 In summary, we see a significant improvement in predictive performance between ML and DL sentiment classification. The salient characteristics of each classifier are summarized in the table below. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or Deep-Learning. 
 
@@ -395,10 +393,10 @@ The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the clas
     </tr>
 </table>
 
-<h1 style="color:	#0000FF;"> Appendix - Helper Functions </h1>
+<h1 style="color:	#115BDC;"> Appendix - Helper Functions </h1>
 
 
-#### df_all(), pre-processing, cleaning, and tokenization for DL Classifier
+#### get_all(), pre-processing, cleaning, and tokenization for DL Classifier
 ```python
 re1 = re.compile(r'  +')
 

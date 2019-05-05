@@ -86,7 +86,7 @@ train_labels = train_labels[idx]
 
 ```
 
-Next,punctuation and HTML fields are removed. The pre-processing results in two data frames `train_clean`, and `val_clean`. 
+Next, punctuation and HTML fields are removed. The pre-processing results in two data frames `train_clean`, and `val_clean`. 
 
 ```python
 # htmlfix function

@@ -186,7 +186,7 @@ A brief description of the language model is useful in order to understand it wi
 
 ### Notebook Setup
 
-Below, is the python code for defining and training the ULM Sentiment Classifier. A corrresponding Jupyter notebook is available on Github, [ULM Sentiment Classifier Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb).  We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652) for installation instructions. In addition to importing fastai, there are several helper functions located in "./code/sentiment\_imdb_helpers.py". For convenience, the helper functions are listed in the appendix, at the end of this post
+Below, is the python code for defining and training the ULM Sentiment Classifier. A corrresponding Jupyter notebook is available on Github, [ULM Sentiment Classifier Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb).  We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). In addition to importing fastai, there are several helper functions located in "./code/sentiment\_imdb_helpers.py". For convenience, the helper functions are listed in the appendix, at the end of this post
 
 ```python
 from fastai.text import *

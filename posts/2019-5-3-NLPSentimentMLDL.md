@@ -181,7 +181,7 @@ This architecture and code overview is presented in [Fastai, DL2 lecture 10](htt
 
 ### Deep Learning Language Model
 
-A brief description of the language model is useful in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  A subsequent post will discuss the language model. In the meantime, a notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
+A brief description of the language model is useful in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  A subsequent post will discuss the language model. In the meantime, a notebook for training the ULM is available on Github [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
 
 
 ### Notebook Setup

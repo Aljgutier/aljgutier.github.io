@@ -245,7 +245,7 @@ As previously discussed, the ULM Sentiment Classifier consists of two parts, the
 
 The classifier, custom head, consists of two layers. The first layer of the classifier contains emb\_sz x 3 (1200) ReLU activations and the second layer softmax activation. The reason for the 3 x emb_sz activations is to receive 3 sets of activations from the ULM, corresponding to concatenated pooling. These 3 sets of activations correspond to the last hidden state of the ULM, H, `maxpool(H)`, and `meanpool(H)`, where maxpool and meanpool operate on as large history as available in the GPU memory. The optimization function includes Adam Optimization, with gradient clipping of 25 (to prevent divergence). The regularization function `reg_fn` helps to avoid overfitting. The `max_seq` is an important parameter that defines the maximum sequence handled by the GPU. The GPU memory needs to accommodate this sequence length.
 
-A fastai `learner` object combines our data model loader (`md`) and neural network object (`m`) into a `learner`  for which we can call `learner.fit()`.
+A fastai `learner` object combines our data model loader (`md`) and RNN classifier (`m`) into a `learner`  for which we can call `learner.fit()`.
 
 ```python
 bptt,em_sz,nh,nl = 70,400,1150,3

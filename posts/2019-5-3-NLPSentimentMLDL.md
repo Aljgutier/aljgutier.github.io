@@ -184,7 +184,7 @@ This architecture and code overview is presented in [Fastai, DL2 lecture 10](htt
 A brief description of the language model is useful in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  A subsequent post will discuss the language model. In the meantime, a notebook for training the ULM is contained here [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
 
 
-### Setup the Notebook
+### Notebook Setup
 
 Below, is the python code for defining and training the ULM Sentiment Classifier. A corrresponding Jupyter notebook is available on Github, [ULM Sentiment Classifier Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment_Classifier.ipynb).  We start by importing the Fastai library and setting high-level variables. We are running Fastai 0.7. See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652) for installation instructions. In addition to importing fastai, there are several helper functions located in "./code/sentiment\_imdb_helpers.py". For convenience, the helper functions are listed in the appendix, at the end of this post
 

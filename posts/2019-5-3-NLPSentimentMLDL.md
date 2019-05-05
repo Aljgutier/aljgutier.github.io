@@ -181,7 +181,7 @@ This architecture and code overview is presented in [Fastai, DL2 lecture 10](htt
 
 ### Deep Learning Language Model
 
-A brief description of the language model is useful in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier.  A subsequent post will discuss the language model. In the meantime, a notebook for training the ULM is available on Github [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
+A brief description of the language model is useful in order to understand it within the context of the ULM Sentiment Classifier. In summary, a language model receives at its input a sequence of words. In this case, the sequence of words is a movie review and for each successive input word it attempts to predict the next word. Following the training of the ULM, the last layer is discarded, and replaced with the the sentiment classifier. A subsequent post will discuss the language model. In the meantime, a notebook for training the ULM is available on Github [ULM Notebook](https://github.com/Aljgutier/aljpspacedl2/blob/master/b-ULM-Sentiment.ipynb)
 
 
 ### Notebook Setup
@@ -214,7 +214,7 @@ col_names = ['labels','text']
 
 The process starts with data preprocessing (HTML removed, and documents vectorized). This is a straightforward operation consisting of parsing with regexp then Spacy tokenizer. The processing is encapsulated in the `get_all()` helper functions (see Appendix, below). The Fastai library enhances the Spacy processing  ("Tokenizer") for multiprocessing, which significantly speeds up the processing. Any movie review document requires processing by `get_all()` prior to training of the ULM Sentiment Classifier or prior to Prediction. We also set the chunksize to 24,000 and pass it to Pandas to process a chunk of reviews at a time. This is especially necessary when training the LM (language model). 
 
-Next, the vocabulary is loaded, where `itos` is a dictionary mapping of integer (token) to string token, for each word in the vocabulary and `stoi`, is the reverse mapping. These mappings are generated as part of the language modeling training process.  Text for each document is extracted from the data frame into the  Numpy array `trn_class` and `trn_val` with the use of comprehensions. Training and validation labels are contained in `trn_labels` and `val_labels`. 
+Next, the vocabulary is loaded, where `itos` is a dictionary mapping of integer (token) to string token for each word in the vocabulary. This mapping is created as part of the language modeling training process. Next`stoi`, is the reverse mapping is generated. Text for each document is extracted from the data frame into the  Numpy array `trn_class` and `trn_val` with the use of comprehensions. Training and validation labels are contained in `trn_labels` and `val_labels`. 
 
 ```python
  Code: DL Sentiment Classification Code

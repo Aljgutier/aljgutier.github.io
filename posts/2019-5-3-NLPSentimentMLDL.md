@@ -17,7 +17,7 @@ We use the [IMDb Large Movie Reviews](http://ai.stanford.edu/~amaas/data/sentime
 
 ### Additional Use Cases
 
-Sentiment classification is a well-known text, NLP use case. However, the methods for NLP Sentiment classification naturally adapt for new valuable use cases. Some use cases that follow from sentiment classification are:
+Sentiment classification is a well-known text, NLP use case. However, the methods for NLP Sentiment classification are naturally adapted for new valuable use cases. Some use cases that follow from sentiment classification are:
 
 * Legal document discovery, predicting discoverable documents from previously labeled documents.
 * Fintech NLP sentiment and forecasting, for example, identify headlines or news documents that positively or negatively affect equities.

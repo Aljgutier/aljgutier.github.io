@@ -2,7 +2,7 @@
 title: "Sentiment Classification Deep Learning and Machine Learning"
 date: "2019-05-3 18:08:41 +0200"
 author: Al Gutierrez
-description: Sentiment classificaiton with Deep Learning, Jupyter notebook, Support Vector Machine, Fastai, PyTorch, State-of-the-Art performance
+description: Sentiment classificaiton with Deep Learning, Jupyter notebook, Support Vector Machine, Fastai, PyTorch, State-of-the-Art performance, Universal Language Model
 ...
 
 <span style="display:block; color:blue; margin-top:-90px;"> </span>
@@ -35,7 +35,7 @@ Sentiment classification is a well-known text, NLP use case. However, the method
 <h2 style="color:	#115BDC;">ML Sentiment Classification </h2>
 
 <figure>
- <img src="/images/NLP_Sentiment_MLDL/NLP_Sentiment_ML.png" width="635">
+ <img  alt="Machine Learning Sentiment Classificaion Pipeline" title="ML Sentiment Classification Pipeline" src="/images/NLP_Sentiment_MLDL/NLP_Sentiment_ML.png" width="635">
  <figcaption><center>Figure 1. NLP Sentiment Classification Pipeline</center></figcaption>
  </figure>
 
@@ -177,7 +177,7 @@ The model achieves 90% accuracy on the test set.
 <h2 style="color:	#115BDC;"> ULM  Sentiment Classifier </h2>
 
 <figure>
- <img src="/images/NLP_Sentiment_MLDL/ULM_Sentiment.png" width="635">
+ <img alt="Deep Learning Sentiment Classificaion with Language Model" title="Deep Learning Sentiment Classificaion with Language Model" src="/images/NLP_Sentiment_MLDL/ULM_Sentiment.png" width="635">
  <figcaption><center>Figure 2. Universal Language Model Sentiment Classifier</center></figcaption>
  </figure>
 

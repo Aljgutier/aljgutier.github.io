@@ -1,3 +1,9 @@
+---
+title: "State of the Art Sentiment Classification with ML and DL models"
+date: "2019-05-3 18:08:41 +0200"
+author: Al Gutierrez
+...
+
 <span style="display:block; color:blue; margin-top:-90px;"> </span>
 [about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../index.md)
 <figure>

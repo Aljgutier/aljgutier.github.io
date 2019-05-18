@@ -1,5 +1,5 @@
 ---
-title: "State of the Art Sentiment Classification with ML and DL models"
+title: "State of the Art Sentiment Classification with Deep Learning  and Machine Learning models"
 date: "2019-05-3 18:08:41 +0200"
 author: Al Gutierrez
 ...

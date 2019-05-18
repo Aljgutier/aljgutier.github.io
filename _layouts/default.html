@@ -25,6 +25,10 @@
     <meta name="twitter:creator" content="@algutierrez111">
     <meta name="twitter:card" content="summary">
 
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
+
     {% seo %}
   </head>
 

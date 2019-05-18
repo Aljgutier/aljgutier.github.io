@@ -2,6 +2,7 @@
 title: "Sentiment Classification Deep Learning and Machine Learning"
 date: "2019-05-3 18:08:41 +0200"
 author: Al Gutierrez
+description: Sentiment classificaiton with Deep Learning, Jupyter notebook, Support Vector Machine, Fastai, PyTorch, State-of-the-Art performance
 ...
 
 <span style="display:block; color:blue; margin-top:-90px;"> </span>

@@ -1,5 +1,5 @@
 ---
-title: "Sentiment Classification Deep Learning and Machine Learning"
+title: "Deep Learning Sentiment Classification Language Models"
 date: "2019-05-3 18:08:41 +0200"
 author: Al Gutierrez
 description: Sentiment classificaiton with Deep Learning, Jupyter notebook, Support Vector Machine, Fastai, PyTorch, State-of-the-Art performance, Universal Language Model
@@ -12,7 +12,7 @@ description: Sentiment classificaiton with Deep Learning, Jupyter notebook, Supp
 </figure>
 
 
-<h1 style="color:	#115BDC; text-align:center;">State of the Art Sentiment Classification with ML and DL models </h1>
+<h1 style="color:	#115BDC; text-align:center;">State of the Art NLP Sentiment Classification with Deep Learning Language Models</h1>
 
 May 3, 2019
  

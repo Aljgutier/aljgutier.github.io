@@ -422,7 +422,7 @@ In summary, the deep learning with embeddings model produces world-class predict
    <td>Architecture</td>
    <td>Deep learning with embeddings <br>- Embeddings layer <br> 
       - 2 Fully connected layers, 1000 and 500 ReLU activations <br>
-      - Output layer 1, sigmoid activation <br>
+      - Output layer 1 sigmoid activation <br>
    </td>
  </tr>
  <tr>

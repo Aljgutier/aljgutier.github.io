@@ -42,7 +42,7 @@ In the prediction or forecasting problem, the pre-processing stage consists of i
 
 # Rossmann Dataset
 
-The Rossman, Kaggle dataset is chosen for the following reasons. A dataset with benchmarked performance with realistic complexity is preferred. For example, there are several well-known data sets for the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set, and Handwritten digits dataset. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data with numerous published examples.
+The Rossman, Kaggle dataset is chosen for the following reasons. A dataset with benchmarked performance with realistic complexity is preferred. For example, there are several well-known data sets for the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set, and Handwritten digits dataset. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
 
 Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring forecasting problems; for example, it is referenced in the following use cases. 
 

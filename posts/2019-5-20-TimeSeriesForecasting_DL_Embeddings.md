@@ -17,7 +17,7 @@ In this article we study a state-of-the-art predictive analytics pipeline for st
 
 #### Use Cases
 
-Forecasting and prediction problems include fundamentally and essential use cases, such as
+Forecasting and prediction problems include fundamental and essential use cases, such as
 
 * stock price/index forecasting
 * sales forecasting

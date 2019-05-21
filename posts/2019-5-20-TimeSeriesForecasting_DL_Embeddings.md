@@ -12,7 +12,7 @@ description: Time series forecasting, Deep Learning, Embeddings, Random Forest, 
  <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
-In this article, we study a state-of-the-art predictive analytics pipeline for structured data. Structured data represents the most common data format in the industry. Below, we walk through the Python code based on the Fastai library and demonstrate how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset. We discuss the deep-learning architecture, training, performance, and comparison of the predictive performance to a machine learning tree-based model. 
+In this article we study a state-of-the-art predictive analytics pipeline for structured data. Structured data represents the most common data format in the industry. Below, we walk through the Python code based on the Fastai library and demonstrate how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset. We discuss the deep-learning architecture, training, performance, and comparison of the predictive performance to a machine learning tree-based model. 
 
 
 #### Use Cases
@@ -309,7 +309,7 @@ cat_sz
 
 ### What's the big idea with Embeddings? 
 
-The performance gains of deep Learning, concerning forecasting, is primarily attributed to entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables. Consider, for example, the following intuition. A common technique for representing a categorical variable is one-hot encoding.  For the case of a movie title one-bhot encoding quickly results in a sparse representation consisting of a row with thousands of columns in width with one non-zero element representing one movie title.
+The performance gains of deep Learning, concerning forecasting, is primarily attributed to entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables. Consider, for example, the following intuition. A common technique for representing a categorical variable is one-hot encoding.  For the case of a movie title one-hot encoding quickly results in a sparse representation consisting of a row with thousands of columns in width with one non-zero element representing one movie title.
 
 In contrast, an entity embedding represents the relationship between movies with a low-dimension vector, such as genre. In this case, a movie may be represented with a vector representing genres:  western, action, drama, sci-fi, cinematography, etc. When input to a machine learning algorithm, these low dimension entity embeddings representations enable the algorithm to exploit relationships between categorical elements. 
 

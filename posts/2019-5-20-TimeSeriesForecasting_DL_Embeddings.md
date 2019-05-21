@@ -26,7 +26,6 @@ Forecasting and prediction problems include a broad set of use cases, such as
 * customer churn prediction
 * sentiment prediction
 * risk scoring
-* supply chain prediction
 * customer segmentation demand prediction
 
 ### Deep Learning for Structured Data

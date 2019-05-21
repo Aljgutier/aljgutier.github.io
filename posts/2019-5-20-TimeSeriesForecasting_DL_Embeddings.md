@@ -32,7 +32,7 @@ Forecasting and prediction problems include a broad set of use cases, such as
 
 ### Predictive Analytics and Forecasting
 
-In this article, we solve a forecasting problem. However, the approach followed herein applies equally to both forecasting and prediction. Forecasting involves predicting the future value of the dependent variables based on historical independent variables and or the historical dependent variable (auto-regressive). The forecasting problem is a subset of the prediction problem, wherein the prediction problem does not include a time component. 
+In this article, we solve a forecasting problem. However, the approach applies equally to both forecasting and prediction. Forecasting involves predicting the future value of the dependent variables based on historical independent variables and or the historical dependent variable (auto-regressive). The forecasting problem is a subset of the prediction problem, wherein the prediction problem does not include a time component. 
 
 In the prediction or forecasting problem, the pre-processing stage consists of independent variable transformations including aggregations, time differences, and lags to produce a single row of data with potentially many independent variables corresponding to one or more dependent variables. For the forecasting problem, this single row is suitable for forecasting the dependent variable. Although there is a significant dependence on properly engineering the model features (independent variables), after feature engineering the predictive model algorithm structure is the same for prediction or forecasting. Thus, the methods herein apply to both types of problems
 

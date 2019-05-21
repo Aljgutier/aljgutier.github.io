@@ -12,7 +12,7 @@ description: Time series forecasting, Deep Learning, Embeddings, Random Forest, 
  <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
-In this article we study a state-of-the-art predictive analytics pipeline for structured data. Structured data represents the most common data format in the industry. Below, we walk through the Python code based on the Fastai library and demonstrate how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset. We discuss the deep-learning architecture, training, performance, and comparison of the predictive performance to a machine learning tree-based model. 
+In this article we study a state-of-the-art predictive analytics pipeline for structured data. Structured data represents the most common data format in the industry. Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) and demonstrate how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the predictive performance to a machine learning tree-based model. 
 
 
 #### Use Cases

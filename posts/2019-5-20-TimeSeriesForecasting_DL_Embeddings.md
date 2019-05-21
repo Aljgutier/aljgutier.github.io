@@ -40,7 +40,8 @@ In this article, we solve a forecasting problem. However, the approach followed 
 
 In the prediction or forecasting problem, the pre-processing stage consists of independent variable transformations including aggregations, time differences, and lags to produce a single row of data with potentially many independent variables corresponding to one or more dependent variables. For the forecasting problem, this single row is suitable for forecasting the dependent variable. Although there is a significant dependence on properly engineering the model features (independent variables), after feature engineering the predictive model algorithm is essentially the same for prediction or forecasting. Thus, the methods herein apply to both types of problems
 
-# Rossmann Dataset
+
+### Rossmann Dataset
 
 The Rossman, Kaggle dataset is chosen for the following reasons. A dataset with benchmarked performance with realistic complexity is preferred. For example, there are several well-known data sets for the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set, and Handwritten digits dataset. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
 
@@ -53,7 +54,7 @@ Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring foreca
  
 Additionally, the Rossman, Kaggle dataset is the only open source time-series dataset with several published evaluations and benchmarks by the data science community. Utilizing this dataset enables focusing on the Deep Learning and Entity Embeddings while taking as a given pre-processing and basic understanding of the data that are established by other published exercises.
 
-# Data Processing and Machine Learning Overview
+<h1 style="color:	#115BDC;">Data Processing and Machine Learning Overview</h1>
 
 <figure>
  <img alt="Time-series forecast machine learning pipeline." title="Time-series forecast machine learning pipeline." src="/images/TimeSeriesForecasting/TSeriesForecastMLPipeline.png" width="635">
@@ -72,7 +73,7 @@ from fastai.column_data import *
 PATH='data/rossmann/'
 ```
 
-# Data Pre-Processing
+<h1 style="color:	#115BDC;">Data Pre-Processing</h1>
 
 Though we do not discuss the code for the data pre-processing transformations in detail, it is essential to understand the data, including the pre-processing and preparation for machine learning. These pre-processing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering ("Pre-processing") is taken as a given.
 
@@ -124,8 +125,7 @@ joined_test = pd.read_feather(f'{PATH}joined_test')
 ```
 The columns (i.e., variables) of the `joined` table include `Sales` the dependent variable and all other variables (independent variables). The independent variables within each row are processed from their original form in X' (as described in the previous paragraph) so that one row of independent variables is intended to predict the corresponding dependent variable, `Sales` (in the same row).
 
-
-# Prepare for Machine Learning
+<h1 style="color:	#115BDC;">Prepare for Machine Learning</h1>
 
 The next stage of the pipeline, "Prepare for ML and Prediction" takes as input the tabular data in the `joined` table. Machine learning algorithms perform better when the continuous value inputs are normalized and the categorical values are numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1.
 
@@ -207,7 +207,7 @@ y_range = (0, max_log_y*1.2)
 ```
 
 
-# Tree based model (Random Forest)
+<h1 style="color:	#115BDC;">Tree based model (Random Forest)</h1>
 
 At this point, the data is ready for machine learning. Training a Random Forest model is is useful to establish a performance baseline. The dependent variable is the log of Sales (yl) and the independent variables are in the df Dataframe. The indexes in `val_idx` are used to split between training and validation. A Random Forest regressor with 40 estimators, 2 samples per leaf yields an RMSPE score of 0.1086. It is worthwhile noting that the [tree models do not require one-hot encoding of categorical values](https://roamanalytics.com/2016/10/28/are-categorical-variables-getting-lost-in-your-random-forests/), because they operate on the concept of partitioning the decision space. Since at this point the categorical variables are numerical values the model can operate directly on the `df` dataframe. 
 
@@ -230,7 +230,7 @@ mrf.score(trn, y_trn), mrf.score(val, y_val), mrf.oob_score_, exp_rmspe(preds, y
     0.10863755294456862)
 
 
-# Deep Learning with Embeddings
+<h1 style="color:	#115BDC;">Deep Learning with Embeddings</h1>
 
 <figure>
  <img alt="Deep learning neural network time-series forecasting arhchitecture" title="Deep learning neural network time-series forecasting arhchitecture"  src="/images/TimeSeriesForecasting/DLNN_Forecast_wEmbeddings.png" width="635">
@@ -405,7 +405,7 @@ predictions
        [ 8448.557 ],
        ...,
 
-# Summary and Conclusions
+<h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
 In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). Though it is significantly more complex than the RF model, the training time is approximately the same on a basic GPU vs. Random Forest on CPU. The key differentiating method for achieving the performance gain is the use of entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables and enable machine learning algorithms to exploit relationships between categorical items.
 

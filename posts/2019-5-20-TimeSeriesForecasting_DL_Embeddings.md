@@ -31,7 +31,7 @@ Forecasting and prediction problems include fundamental and essential use cases,
 
 ### Deep Learning for Structured Data
 
-It is well-known that deep learning has achieved significant breakthroughs for computer vision and NLP, achieving human-like performance. However, it is not as widely known that deep learning, with the use of entity embeddings, can provide significant predictive performance as compared to traditional machine learning approaches for structured data. Entity Embeddings empower Deep Learning to achieve a significant predictive performance improvement, [Fastai Categorical Embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/). Structured data, is also known as "tabular data," and is commonly hosted in a relational database. 
+It is well-known that deep learning has achieved significant breakthroughs for computer vision and NLP, achieving human-like performance. However, it is not as widely known that deep learning, with the use of entity embeddings, can provide significant predictive performance relative to traditional machine learning approaches for structured data. Entity Embeddings empower Deep Learning to achieve a significant predictive performance improvement, [Fastai Categorical Embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/). Structured data, is also known as "tabular data," and is commonly hosted in a relational database. 
 
 
 ### Predictive Analytics and Forecasting

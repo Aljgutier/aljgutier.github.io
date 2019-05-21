@@ -51,7 +51,7 @@ Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring foreca
  * [Stanford CS229, Final Projects based on Rossman store sales](http://cs229.stanford.edu/projects2015.html)
  * [Journal publications, Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf)
  
-Additionally, the Rossman, Kaggle dataset is the only open source time-series dataset with several published evaluations and benchmarks by the data science community. Utilizing this dataset enabled focusing on the Deep Learning and Entity Embeddings while taking as a given pre-processing and basic understanding of the data that are established based on other published exercises.
+Additionally, the Rossman, Kaggle dataset is the only open source time-series dataset with several published evaluations and benchmarks by the data science community. Utilizing this dataset enables focusing on the Deep Learning and Entity Embeddings while taking as a given pre-processing and basic understanding of the data that are established by other published exercises.
 
 # Data Processing and Machine Learning Overview
 

@@ -57,9 +57,9 @@ Additionally, the Rossman, Kaggle dataset is the only open source time-series da
  <figcaption><center>Figure 1. Time-series forecasting machine-learning pipeline </center></figcaption>
  </figure>
  
-Figure 1. illustrates the data processing pipeline including loading the raw data, X' (representing data prior to time T), pre-processing, preparing the data for machine learning and prediction, and forecasting of the future value ŷ for time t ≥ T. This article is primarily concerned with the 3rd step, the forecasting model and in particular entity embeddings within a deep-learning architecture. In order to appreciate the benefits of the deep-learning model, it is useful to compare it to an ensemble tree-based model, a Random Forest. 
+Figure 1. illustrates the data processing pipeline including loading the raw data, X' (representing data prior to time T), preprocessing, preparing the data for machine learning and prediction, and forecasting of the future value ŷ for time t ≥ T. This article is primarily concerned with the 3rd step, the forecasting model and in particular entity embeddings within a deep-learning architecture. In order to appreciate the benefits of the deep-learning model, it is useful to compare it to an ensemble tree-based model, a Random Forest. 
 
-This deep-learning architecture is adjustable to fit the problem (size and the number of the layers), but otherwise is structurally fixed. That's not to say that an alternate forecasting model is not effective. The first processing step, data pre-processing, is very much problem and domain specific. In the case of structured data, data pre-processing, including feature engineering, can have a significant impact on overall model performance. Like the DL forecasting architecture, the second step in the pipeline, "Preparing for Machine Learning," does not change with the domain and consists repeatable methods, such as normalization of continuous variables and numericalization of categorical variables.
+This deep-learning architecture is adjustable to fit the problem (size and the number of the layers), but otherwise is structurally fixed. That's not to say that an alternate forecasting model is not effective. The first processing step, data preprocessing, is very much problem and domain specific. In the case of structured data, data preprocessing, including feature engineering, can have a significant impact on overall model performance. Like the DL forecasting architecture, the second step in the pipeline, "Preparing for Machine Learning," does not change with the domain and consists repeatable methods, such as normalization of continuous variables and numericalization of categorical variables.
 
 The coding begins with importing the fastai library (based on Fastai version 0.7). See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable,`PATH` that points to the dataset. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
 
@@ -69,9 +69,9 @@ from fastai.column_data import *
 PATH='data/rossmann/'
 ```
 
-<h1 style="color:	#115BDC;">Data Pre-Processing</h1>
+<h1 style="color:	#115BDC;">Data preProcessing</h1>
 
-Though we do not discuss the code for the data pre-processing transformations in detail, it is essential to understand the data, including the preprocessing and preparation for machine learning. These preprocessing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering is taken as a given.
+Though we do not discuss the code for the data preprocessing transformations in detail, it is essential to understand the data, including the preprocessing and preparation for machine learning. These preprocessing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering is taken as a given.
 
 Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competion, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
 
@@ -369,7 +369,7 @@ pred_test
 
 ### Predict
 
-Below, is illustrated how to load a saved model and apply it to a new set of data. One additional step necessary for new data is to pre-process and prepare it for prediction, with the same pre-processing and preparation functions as the training and test sets. For convenience, the test data is used below (already pre-processed).
+Below, is illustrated how to load a saved model and apply it to a new set of data. One additional step necessary for new data is to preprocess and prepare it for prediction, with the same preprocessing and preparation functions as the training and test sets. For convenience, the test data is used below (already preprocessed).
 
 ```python
 md = ColumnarModelData.from_data_frame(PATH, val_idx, df, yl.astype(np.float32), cat_flds=cat_vars, bs=128,
@@ -414,7 +414,7 @@ In summary, the deep learning with embeddings model produces world-class predict
  </tr>
  <tr>
    <td>Machine Learning Pipeline </td>
-   <td>- Data Pre-processing <br>
+   <td>- Data preprocessing <br>
        - Prepare data for ML and Prediction <br>
        - Machine Learning and Prediction <br>
  </tr>
@@ -428,7 +428,7 @@ In summary, the deep learning with embeddings model produces world-class predict
  <tr>
    <td> Data Set </td>
    <td> - Rossman, Kaggle dataset <br>
-        - Pre-processing steps taken from 3rd place winner <br>
+        - preprocessing steps taken from 3rd place winner <br>
         - 844,438 raining rows, 22 categorical features, 16 continuous features
      </td>
  </tr>

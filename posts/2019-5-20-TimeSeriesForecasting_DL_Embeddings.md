@@ -19,10 +19,10 @@ In this article we study a state-of-the-art predictive analytics pipeline for st
 
 Forecasting and prediction problems include a broad set of use cases, such as
 
-* stock price/index forecasting
+* equity price forecasting
 * sales forecasting
 * demand forecasting
-* price prediction
+* market price predictions
 * customer churn prediction
 * sentiment prediction
 * risk scoring
@@ -32,23 +32,23 @@ Forecasting and prediction problems include a broad set of use cases, such as
 
 ### Predictive Analytics and Forecasting
 
-In this article, we solve a forecasting problem. However, the approach applies equally to both forecasting and prediction. Forecasting involves predicting the future value of the dependent variables based on historical independent variables and or the historical dependent variable (auto-regressive). The forecasting problem is a subset of the prediction problem, wherein the prediction problem does not include a time component. 
+In this article, we solve a forecasting problem. However, the methods  apply equally to forecasting and prediction. Forecasting involves predicting the future value of the dependent variable(s) based on historical independent variables and or the historical dependent variable (auto-regression). The forecasting problem includes a time component and is a subset of the prediction problem, wherein the prediction problem does not include a time component. 
 
-In the prediction or forecasting problem, the pre-processing stage consists of independent variable transformations including aggregations, time differences, and lags to produce a single row of data with potentially many independent variables corresponding to one or more dependent variables. For the forecasting problem, this single row is suitable for forecasting the dependent variable. Although there is a significant dependence on properly engineering the model features (independent variables), after feature engineering the predictive model algorithm structure is the same for prediction or forecasting. Thus, the methods herein apply to both types of problems
+In the prediction and forecasting problem, the preprocessing stage of the pipeline consists of transformation of the independent variables including various aggregations. In the case of forecasting these may also include time differences and lags. In ether case preprocessing produces a single row of data with potentially many independent variables corresponding to one or more dependent variables. The single row of independent variables is designed for predicting the dependent variable(s). Although success of the overall prediction solution is dependent on properly engineering these predictive features (independent variables), after feature engineering, the predictive model algorithm structure is the same for prediction or forecasting. Thus, the methods herein apply to both types of problems
 
 
 ### Rossmann Dataset
 
-The Rossman, Kaggle dataset is chosen for the following reasons. A dataset with benchmarked performance with realistic complexity is preferred. For example, there are several well-known data sets for the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set, and Handwritten digits dataset. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
+The Rossman, Kaggle dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentimient classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
 
-Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring forecasting problems; for example, it is referenced in the following use cases. 
+Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring forecasting problems; case in point, it is referenced in the following use cases. 
 
  * [Rossmann store sales competition](https://www.kaggle.com/c/rossmann-store-sales)
  * [Fastai introduction to Deep Learning for Tabular Data](https://www.fast.ai/2018/04/29/categorical-embeddings/)
  * [Stanford CS229, Final Projects based on Rossman store sales](http://cs229.stanford.edu/projects2015.html)
  * [Journal publications, Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf)
  
-Additionally, the Rossman, Kaggle dataset is the only open source time-series dataset with several published evaluations and benchmarks by the data science community. Utilizing this dataset enables focusing on the Deep Learning and Entity Embeddings while taking as a given pre-processing and basic understanding of the data that are established by other published exercises.
+Additionally, the Rossman, Kaggle dataset is the only open source time-series dataset with several published evaluations and benchmarks by the data science community. Utilizing this dataset enables focusing on the deep learning and entity embeddings while taking as a given preprocessing and basic understanding of the data that are established by other published exercises.
 
 <h1 style="color:	#115BDC;">Data Processing and Machine Learning Overview</h1>
 
@@ -61,7 +61,7 @@ Figure 1. illustrates the data processing pipeline including loading the raw dat
 
 This deep-learning architecture is adjustable to fit the problem (size and the number of the layers), but otherwise is structurally fixed. That's not to say that an alternate forecasting model is not effective. The first processing step, data pre-processing, is very much problem and domain specific. In the case of structured data, data pre-processing, including feature engineering, can have a significant impact on overall model performance. Like the DL forecasting architecture, the second step in the pipeline, "Preparing for Machine Learning," does not change with the domain and consists repeatable methods, such as normalization of continuous variables and numericalization of categorical variables.
 
-The coding begins with importing the fastai library, which is based on Fastai version 0.7. See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable,`PATH` that points to the dataset. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
+The coding begins with importing the fastai library (based on Fastai version 0.7). See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable,`PATH` that points to the dataset. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
 
 ```python
 from fastai.structured import *
@@ -71,9 +71,9 @@ PATH='data/rossmann/'
 
 <h1 style="color:	#115BDC;">Data Pre-Processing</h1>
 
-Though we do not discuss the code for the data pre-processing transformations in detail, it is essential to understand the data, including the pre-processing and preparation for machine learning. These pre-processing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering ("Pre-processing") is taken as a given.
+Though we do not discuss the code for the data pre-processing transformations in detail, it is essential to understand the data, including the preprocessing and preparation for machine learning. These preprocessing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering is taken as a given.
 
-Input to the pre-processing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman, competion, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
+Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competion, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
 
 
 <table>

@@ -369,7 +369,7 @@ pred_test
 
 ### Predict
 
-Following training and test is prediction (forecasting in this case) when new data comes in. Below, are listed the necessary steps, including loading the saved model and creating new forecasts. Additionally, though not shown below, is to preprocess and prepare the data with an identical pipeline as that used for training. For convenience, we predict based on the test data (already preprocessed).
+Following training and test is prediction (forecasting in this case) when new data comes in. Below, are listed the necessary steps, including loading the saved model and creating new forecasts. Additionally, though not shown below, is to preprocess and prepare the data with an identical pipeline as that used for training. For convenience, we predict based on the test data (already preprocessed and prepared for ML).
 
 ```python
 md = ColumnarModelData.from_data_frame(PATH, val_idx, df, yl.astype(np.float32), cat_flds=cat_vars, bs=128,

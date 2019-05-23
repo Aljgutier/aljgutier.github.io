@@ -123,7 +123,7 @@ The columns (i.e., variables) of the `joined` table include `Sales` the dependen
 
 <h1 style="color:	#115BDC;">Prepare for Machine Learning</h1>
 
-The next stage of the pipeline, "Prepare for ML and Prediction" takes as input the tabular data in the `joined` table. Machine learning algorithms perform better when the continuous value inputs are normalized and the categorical values are numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1.
+The next stage of the pipeline, "Prepare for ML and Prediction" takes as input the tabular data in the `joined` table. Machine learning algorithms perform better when the continuous value inputs are normalized and require the categorical values to be numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1.
 
 ### Categorical and Continuous Variables
 
@@ -205,7 +205,7 @@ y_range = (0, max_log_y*1.2)
 
 <h1 style="color:	#115BDC;">Tree based model (Random Forest)</h1>
 
-At this point, the data is ready for machine learning. Training a Random Forest model is is useful to establish a performance baseline. The dependent variable is the log of Sales (yl) and the independent variables are in the df Dataframe. The indexes in `val_idx` are used to split between training and validation. A Random Forest regressor with 40 estimators, 2 samples per leaf yields an RMSPE score of 0.1086. It is worthwhile noting that the [tree models do not require one-hot encoding of categorical values](https://roamanalytics.com/2016/10/28/are-categorical-variables-getting-lost-in-your-random-forests/), because they operate on the concept of partitioning the decision space. Since at this point the categorical variables are numerical values the model can operate directly on the `df` dataframe. 
+At this point, the data is ready for machine learning. Training a Random Forest model is useful to establish a performance baseline. The dependent variable is the log of Sales (yl) and the independent variables are in the df dataframe. The indexes in `val_idx` are used to split between training and validation. A Random Forest regressor with 40 estimators, 2 samples per leaf yields an RMSPE score of 0.1086. It is worthwhile noting that the [tree models do not require one-hot encoding of categorical values](https://roamanalytics.com/2016/10/28/are-categorical-variables-getting-lost-in-your-random-forests/), because they operate on the concept of partitioning the decision space. Also, at this point the categorical variables are numerical values so the model can operate directly on the `df` dataframe. 
 
 ```python
 from sklearn.ensemble import RandomForestRegressor
@@ -270,7 +270,7 @@ As illustrated in the diagram, there is an embeddings table for each categorical
   
 Below are listed the width's, `cat_sz`, for each embeddings table.
 
-The first layer of the fully connected layer is set to 1000 activations with ReLU non-linear function, and the second fully connected layer is set to 500 activations (also ReLU), and 1 sigmoid output. The output range is defined with y-range.
+The first fully connected layer is set to 1000 activations with ReLU non-linear functions, and the second fully connected layer is set to 500 activations (also ReLU), and 1 sigmoid output. The output range is defined with y-range.
 
 
 ```python
@@ -305,9 +305,9 @@ cat_sz
 
 ### What's the big idea with Embeddings? 
 
-The performance gains of deep Learning, concerning forecasting, is primarily attributed to entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables. Consider, for example, the following intuition. A common technique for representing a categorical variable is one-hot encoding.  For the case of a movie title one-hot encoding quickly results in a sparse representation consisting of a row with thousands of columns in width with one non-zero element representing one movie title.
+The performance gains of deep Learning are primarily attributed to entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables. Consider, for example, the following intuition. A common technique for representing a categorical variable is one-hot encoding.  For the case of a movie title one-hot encoding quickly results in a sparse representation consisting of a row with thousands of columns in width with one non-zero element representing one movie title.
 
-In contrast, an entity embedding represents the relationship between movies with a low-dimension vector, such as genre. In this case, a movie may be represented with a vector representing genres:  western, action, drama, sci-fi, cinematography, etc. When input to a machine learning algorithm, these low dimension entity embeddings representations enable the algorithm to exploit relationships between categorical elements. 
+In contrast, an entity embedding represents the relationship between movies with a low-dimension vector, such as, for example, genre. In this case, a movie title is encoded with a low-dimensional vector representing genres:  western, action, drama, sci-fi, cinematography, etc. When they are input to a machine learning algorithm, these low dimension entity embeddings representations enable the algorithm to exploit relationships between categorical elements. 
 
 ### Fit
 
@@ -369,7 +369,7 @@ pred_test
 
 ### Predict
 
-Below, is illustrated how to load a saved model and apply it to a new set of data. One additional step necessary for new data is to preprocess and prepare it for prediction, with the same preprocessing and preparation functions as the training and test sets. For convenience, the test data is used below (already preprocessed).
+Following training and test is prediction (forecasting in this case) when new data comes in. Below, are listed the necessary steps, including loading the saved model and creating new forecasts. Additionally, though not shown below, is to preprocess and prepare the data with an identical pipeline as that used for training. For convenience, we predict based on the data (already preprocessed).
 
 ```python
 md = ColumnarModelData.from_data_frame(PATH, val_idx, df, yl.astype(np.float32), cat_flds=cat_vars, bs=128,
@@ -403,7 +403,7 @@ predictions
 
 <h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
-In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). Though it is significantly more complex than the RF model, the training time is approximately the same on a basic GPU vs. Random Forest on CPU. The key differentiating method for achieving the performance gain is the use of entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables and enable machine learning algorithms to exploit relationships between categorical items.
+In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). Though it is significantly more complex than the RF model, the training time is approximately the same on a basic GPU vs. Random Forest trained on a CPU. The key differentiating method for achieving the performance gain is the use of entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables and enable machine learning algorithms to exploit relationships between categorical items.
 
 <table>
  <caption> Table 1. Summary of Deep Learning time-series forecasting model</caption>
@@ -417,6 +417,7 @@ In summary, the deep learning with embeddings model produces world-class predict
    <td>- Data preprocessing <br>
        - Prepare data for ML and Prediction <br>
        - Machine Learning and Prediction <br>
+    </td>
  </tr>
  <tr>
    <td>Architecture</td>

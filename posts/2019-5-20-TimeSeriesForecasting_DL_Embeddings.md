@@ -69,7 +69,7 @@ from fastai.column_data import *
 PATH='data/rossmann/'
 ```
 
-<h1 style="color:	#115BDC;">Data preProcessing</h1>
+<h1 style="color:	#115BDC;">Data Preprocessing</h1>
 
 Though we do not discuss the code for the data preprocessing transformations in detail, it is essential to understand the data, including the preprocessing and preparation for machine learning. These preprocessing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering is taken as a given.
 

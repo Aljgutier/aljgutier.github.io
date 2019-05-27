@@ -6,7 +6,7 @@ description: Time series forecasting, Deep Learning, Embeddings, Random Forest, 
 ...
 <h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings</h1>
 
-
+Date: May 20, 2019
 <figure>
  <img alt="Time-series graph, Rosmman, top and bottom store sales" title="Time-series graph, Rosmman, top and bottom store sales" src="/images/TimeSeriesForecasting/TSeriesChart.png" width="635">
  <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>

@@ -390,9 +390,9 @@ The State of the art ULMFit model adds one more technique for achieving even bet
         <td style="text-align:left;vertical-align:top;">
         - Training efficiency with 90% accuracy</td>
         <td>- 94.8% accuracy<br>
-        - Deep Language Model </br>
-        - Concatenated Pooling </br>
-        - Gradual unfreezing </br>
+        - Deep Language Model <br>
+        - Concatenated Pooling <br>
+        - Gradual unfreezing <br>
         - Discriminitive fine-tuning <br>
         - Slanted triangular learning <br>
         </td>

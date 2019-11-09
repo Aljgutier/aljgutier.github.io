@@ -14,7 +14,7 @@ description: Collaborative Filtering, Deep Learning, Embeddings, Machine Learnin
 
 by Alberto Gutierrez, November 8, 2019
 <figure>
- <img alt="CF Matrix Factorization, Latent Factors" title="Time-series graph, Rosmman, top and bottom store sales" src="/images/CollaborativeFilter/CFSystem.png" width="635">
+ <img alt="Recommender system diagram" title="Time-series graph, Rosmman, top and bottom store sales" src="/images/CollaborativeFilter/CFSystem.png" width="635">
  <figcaption><center></center></figcaption>
  </figure>
 
@@ -409,7 +409,7 @@ The deep learning collaborative filter models (DLCF 1,2, and 3) significantly ou
  <figcaption><center>Figure 2. Collaborative filter ML and DL model relative performance comparison</center></figcaption>
  </figure>
 
-By evaluating and comparing a conventional machine learning to deep-learning collaborative filter model, we've gained an appreciation for the differentiating characteristics of the models. To not lose sight of the bigger picture benefits, we also summarized the business applications where these models apply. The use of the PyTorch and Fastai libraries are employed for code evaluations. A detailed Jupyter notebook is available (see the link above) with the full code listing for each example presented here. The results demonstrate how constructs such as embeddings, bias, and optimization functions built into deep-learning artificial neural networks work together to provide a superior RMSE loss performance as compared to the matrix factorization method. We also demonstrated how to enhance the deep-learning collaborative filter models with additional inputs and to scale them with additional hidden layers and nodes per hidden layer. 
+By evaluating and comparing a conventional machine learning and deep-learning collaborative filter models, we've gained an appreciation for the differentiating characteristics of the models. To not lose sight of the bigger picture benefits, we also summarized the business applications where these models apply. The use of the PyTorch and Fastai libraries are employed for code evaluations. A detailed Jupyter notebook is available (see the link above) with the full code listing for each example presented here. The results demonstrate how constructs such as embeddings, bias, and optimization functions built into deep-learning artificial neural networks work together to provide a superior RMSE loss performance as compared to the matrix factorization method. We also demonstrated how to enhance the deep-learning collaborative filter models with additional inputs and to scale them with additional hidden layers and nodes per hidden layer. 
 
 
 

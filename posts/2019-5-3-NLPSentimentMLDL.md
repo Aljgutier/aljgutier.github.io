@@ -5,8 +5,9 @@ author: Al Gutierrez
 description: Sentiment classificaiton with Deep Learning, Support Vector Machine, Fastai, PyTorch, State-of-the-Art performance, Universal Language Model, Jupyter
 ...
 
-<span style="display:block; color:blue; margin-top:-90px;"> </span>
+<span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../index.md)
+
 <figure>
  <img src="/images/NLP_Sentiment_MLDL/CinemaImage.png"  width="635">
 </figure>
@@ -14,7 +15,7 @@ description: Sentiment classificaiton with Deep Learning, Support Vector Machine
 
 <h1 style="color:	#115BDC; text-align:center;">State of the Art NLP Sentiment Classification with Deep Learning Language Models</h1>
 
-May 3, 2019
+by Alberto Gutierrez, May 3, 2019
  
 We compare two sentiment classifiers, one based on a standard machine learning (ML) architecture built with Python's NLTK and Sklearn libraries and the other a deep learning (DL) model based on the [ULMFiT architecture](https://arxiv.org/abs/1801.06146). This ULM Sentiment Classifier builds on the Fastai library, a library which in turn utilizes [PyTorch](https://pytorch.org/). The objective is not to say one classifier is better than the other, but to understand state-of-the-art classification performance and the critical differences between the two classifiers. The goal is to demonstrate how to achieve world-class performance (deep learning or machine learning). This exercise is useful to applied data scientists interested in an easily accessible reference implementation with established benchmark performance.
 

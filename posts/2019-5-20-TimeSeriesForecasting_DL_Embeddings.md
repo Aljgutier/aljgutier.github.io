@@ -1,12 +1,14 @@
 ---
 title: "Time-series Deep Learning Embeddings"
 date: "2019-05-3 18:08:41 +0000"
-author: Al Gutierrez
+author: Alberto Gutierrez
 description: Time series forecasting, Deep Learning, Embeddings, Random Forest,  Fastai, Pytorch, Jupyter Notebook
 ...
-<h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings</h1>
+<span style="display:block; color:blue; margin-top:-40px;"> </span>
+[about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../index.md)
 
-Date: May 20, 2019
+<h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings</h1>
+by Alberto Gutierrez  May 20, 2019
 <figure>
  <img alt="Time-series graph, Rosmman, top and bottom store sales" title="Time-series graph, Rosmman, top and bottom store sales" src="/images/TimeSeriesForecasting/TSeriesChart.png" width="635">
  <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
@@ -433,11 +435,13 @@ In summary, the deep learning with embeddings model produces world-class predict
         - 844,438 raining rows, 22 categorical features, 16 continuous features
      </td>
  </tr>
+ <tr>
    <td> Training </td>
    <td> - Paperspace P4000 virtual desktop: NVIDIA P4000, 8 GB GPU, 1791 CUDA Cores, and 30 GB, Intel Xeon E5-2623 v4 CPU <br>
         - ~10 minutes  <br>
         - SGDR with restarts and cosine anealing
     </td>
+  </tr>
 </table>
 
 

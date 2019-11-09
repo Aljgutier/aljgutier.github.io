@@ -2,9 +2,9 @@
 [home](index.md)
 
 
-### Al Gutierrez
+### Alberto Gutierrez
 
-Applied data science, machine learning, and AI experimenter. Understanding and applying data algorithms at the practical and theoretical level.
+Applied data science, machine learning, and AI.
 
 ### Contact me
 

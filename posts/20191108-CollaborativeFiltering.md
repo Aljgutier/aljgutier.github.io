@@ -45,7 +45,7 @@ When first entering an e-commerce site,a collaborative filter model is often emp
 
 #### Software
 
-We make use of the [Fastai Library](https://www.fast.ai/) library that sits above [Pytorch](https://pytorch.org/) to evaluate the models. Much credit goes to Fastai for motivating this exercise based on a class discussion and example [Fastai collaborative filter github](https://github.com/fastai/fastai/blob/master/courses/dl1/lesson5-movielens.ipynb). A complete [Jupyter notebook](https://github.com/Aljgutier/aljpspacedl1/blob/master/b-collaborative-filter.ipynb) for the code discussed in the examples herein is available in Github.
+We make use of the [Fastai Library](https://www.fast.ai/) library that sits above [Pytorch](https://pytorch.org/) to evaluate the models. Much credit goes to Fastai for motivating this exercise based on a class discussion and example [Fastai collaborative filter github](https://github.com/fastai/fastai/blob/master/courses/dl1/lesson5-movielens.ipynb). Additionally, a complete [Jupyter notebook](https://github.com/Aljgutier/aljpspacedl1/blob/master/b-collaborative-filter.ipynb) for the code discussed in the examples below is available in Github.
 
 #### Dataset  
 For this exercise we employ the Movielens 100K data set. 

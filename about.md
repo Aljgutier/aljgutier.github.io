@@ -12,4 +12,4 @@ Applied data science, machine learning, and AI.
 
 
 ### Linkedin
-[alberto gutierrez](https://www.linkedin.com/in/alberto-j-gutierrez)
+[Alberto Gutierrez](https://www.linkedin.com/in/alberto-j-gutierrez)

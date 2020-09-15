@@ -6,7 +6,7 @@ description: Collaborative Filtering, Deep Learning, Embeddings, Machine Learnin
 ...
 
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
-[about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../index.md)
+[about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
 
 

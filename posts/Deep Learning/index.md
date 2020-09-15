@@ -6,16 +6,11 @@
 
 #### Posts
 
-[Deep Learning](posts/Deep Learning/index.md)
 
-[Deep Learning](posts/Financial Markets/index.md)
+[NLP Sentiment Classification with DL and ML Models](2019-5-3-NLPSentimentMLDL.md)
 
-[Deep Learning](posts/Product Marketing/index.md)
+[Time-Series Forecasting with Deep-Learning and Entity Embeddings](2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
 
-[NLP Sentiment Classification with DL and ML Models](posts/Deep Learning/2019-5-3-NLPSentimentMLDL.md)
-
-[Time-Series Forecasting with Deep-Learning and Entity Embeddings](posts/Deep Learning/2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
-
-[Collaborative Filtering with ML and DL Models](posts/Deep Learning/20191108-CollaborativeFiltering.md)
+[Collaborative Filtering with ML and DL Models](20191108-CollaborativeFiltering.md)
 
 

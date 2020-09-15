@@ -4,10 +4,9 @@
 
 <br/>
 
-#### Posts
 
-[Deep Learning](posts/Deep Learning/index.md)
+### [Deep Learning](posts/Deep Learning/index.md)
 
-[Financial Markets](posts/Financial Markets/index.md)
+### [Financial Markets](posts/Financial Markets/index.md)
 
-[Product Marketing](posts/Product Marketing/index.md)
+### [Product Marketing](posts/Product Marketing/index.md)

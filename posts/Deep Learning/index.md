@@ -1,16 +1,17 @@
+---
+title: "Deep Learning Sentiment Classification Language Models"
+date: "2019-05-3 18:08:41 +0200"
+author: Al Gutierrez
+description: Deep Learning, Sentiment Classification, Forecasting, Recommendations
+...
 
-<span style="display:block; color:blue; margin-top:-90px;"> </span>
-[about me](about.md)
-
-<br/>
+<span style="display:block; color:blue; margin-top:-40px;"> </span>
+[about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
 #### Posts
 
+[DL and ML Timeseries Forecasting](2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
 
-[NLP Sentiment Classification with DL and ML Models](2019-5-3-NLPSentimentMLDL.md)
+[DL and ML Sentiment Classification](2019-5-3-NLPSentimentMLDL.md)
 
-[Time-Series Forecasting with Deep-Learning and Entity Embeddings](2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
-
-[Collaborative Filtering with ML and DL Models](20191108-CollaborativeFiltering.md)
-
-
+[DL and ML Collaborative Filtering](20191108-CollaborativeFiltering.md)

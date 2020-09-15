@@ -8,10 +8,10 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
-#### Posts
+## Deep Learning
 
-[DL and ML Timeseries Forecasting](2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
+[Timeseries Forecasting with Deep Learning and ML](2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
 
-[DL and ML Sentiment Classification](2019-5-3-NLPSentimentMLDL.md)
+[Sentiment Classification with Deep Learning ULMFIT and ML](2019-5-3-NLPSentimentMLDL.md)
 
-[DL and ML Collaborative Filtering](20191108-CollaborativeFiltering.md)
+[Collaborative Filtering Deep Learning Model](20191108-CollaborativeFiltering.md)

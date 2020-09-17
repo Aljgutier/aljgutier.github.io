@@ -7,6 +7,10 @@ description: Time series forecasting, Deep Learning, Embeddings, Random Forest, 
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
+<script type="text/javascript" charset="utf-8" 
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
+https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
+
 <h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings</h1>
 by Alberto Gutierrez  May 20, 2019
 <figure>

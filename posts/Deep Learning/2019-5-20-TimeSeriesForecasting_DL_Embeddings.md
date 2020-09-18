@@ -49,7 +49,7 @@ What is the the Rossman dataset? Rossman is the largest drugstore in Germany and
 
 Why this dataset? The Rossman, Kaggle dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentimient classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
 
-Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring forecasting problems; case in point, it is referenced in the following use cases. 
+Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring predictive analytics forecasting problems; case in point, it is referenced in the following use cases. 
 
  * [Rossmann store sales competition](https://www.kaggle.com/c/rossmann-store-sales)
  * [Fastai introduction to Deep Learning for Tabular Data](https://www.fast.ai/2018/04/29/categorical-embeddings/)

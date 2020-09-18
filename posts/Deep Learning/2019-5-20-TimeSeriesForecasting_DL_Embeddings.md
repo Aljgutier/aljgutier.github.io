@@ -41,7 +41,7 @@ Forecasting problems include a broad set of use cases, such as the examples list
 
 In the prediction and forecasting problem, the preprocessing stage of the pipeline consists of transformation of the independent variables including various aggregations. In the case of forecasting these also include time differences and lags. In ether case preprocessing produces a single row of data with potentially many independent variables corresponding to one or more dependent variables. 
 
-The single row of independent variables is designed for predicting the dependent variable(s). The success of the overall prediction solution is dependent on properly engineering these predictive features ("feature engineering). However, the predictive model and analytics pipeline is essentially the same for prediction or forecasting. In the case of forecasting the index is a timeseries, and the prediction is a forward prediction in time.
+The single row of independent variables is designed for predicting the dependent variable(s). The success of the overall prediction solution is dependent on properly engineering these predictive features ("feature engineering"). However, the predictive model and analytics pipeline is similar for prediction or forecasting. In the case of forecasting the index is a timeseries, and the prediction is a forward prediction in time.
 
 ### Rossmann Dataset
 

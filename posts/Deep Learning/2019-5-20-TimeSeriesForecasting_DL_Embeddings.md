@@ -18,30 +18,30 @@ by Alberto Gutierrez  May 20, 2019
  <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
-In this article we study a state-of-the-art predictive analytics pipeline for structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data. Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model. 
+In this article we study a state-of-the-art predictive analytics pipeline for time sries structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
+
+In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting based on predictive analytics methods for a complex multivaariate problem.
+
+Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model. 
 
 
 #### Use Cases
 
-Forecasting and prediction problems include a broad set of use cases, such as
+Forecasting problems include a broad set of use cases, such as
 
-* equity price forecasting
-* sales forecasting
-* demand forecasting
-* market price predictions
-* customer churn prediction
-* sentiment prediction
-* risk scoring
-* customer segmentation demand prediction
-
+* Equity price forecasting
+* Sales forecasting
+* Demand forecasting for manufacturing production 
+* Demand forecasting for inventory management
+* Demand forecastig for infrastructure planning and utilizaiton
+* Demand forecastng for and workforce planning
 
 
 ### Predictive Analytics and Forecasting
 
-In this article, we solve a forecasting problem. However, the methods  apply equally to forecasting and prediction. Forecasting involves predicting the future value of the dependent variable(s) based on historical independent variables and or the historical dependent variable (auto-regression). The forecasting problem includes a time component and is a subset of the prediction problem, wherein the prediction problem does not include a time component. 
+In the prediction and forecasting problem, the preprocessing stage of the pipeline consists of transformation of the independent variables including various aggregations. In the case of forecasting these also include time differences and lags. In ether case preprocessing produces a single row of data with potentially many independent variables corresponding to one or more dependent variables. 
 
-In the prediction and forecasting problem, the preprocessing stage of the pipeline consists of transformation of the independent variables including various aggregations. In the case of forecasting these may also include time differences and lags. In ether case preprocessing produces a single row of data with potentially many independent variables corresponding to one or more dependent variables. The single row of independent variables is designed for predicting the dependent variable(s). Although success of the overall prediction solution is dependent on properly engineering these predictive features (independent variables), after feature engineering, the predictive model algorithm structure is the same for prediction or forecasting. Thus, the methods herein apply to both types of problems
-
+The single row of independent variables is designed for predicting the dependent variable(s). The success of the overall prediction solution is dependent on properly engineering these predictive features ("feature engineering). However, the predictive model and analytics pipeline is essentially the same for prediction or forecasting. In the case of forecasting the index is a timeseries, and the prediction is a forward prediction in time.
 
 ### Rossmann Dataset
 
@@ -53,8 +53,7 @@ Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring foreca
  * [Fastai introduction to Deep Learning for Tabular Data](https://www.fast.ai/2018/04/29/categorical-embeddings/)
  * [Stanford CS229, Final Projects based on Rossman store sales](http://cs229.stanford.edu/projects2015.html)
  * [Journal publications, Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf)
- 
-Additionally, the Rossman, Kaggle dataset is the only open source time-series dataset with several published evaluations and benchmarks by the data science community. Utilizing this dataset enables focusing on the deep learning and entity embeddings while taking as a given preprocessing and basic understanding of the data that are established by other published exercises.
+
 
 <h1 style="color:	#115BDC;">Data Processing and Machine Learning Overview</h1>
 
@@ -63,9 +62,9 @@ Additionally, the Rossman, Kaggle dataset is the only open source time-series da
  <figcaption><center>Figure 1. Time-series forecasting machine-learning pipeline </center></figcaption>
  </figure>
  
+The prediction pipeline is common for both models studied in this post. The difference will be in one case an RF (Random Forest) model is used, and in the other a Deep Learning model is employed.
+ 
 Figure 1. illustrates the data processing pipeline including loading the raw data, X' (representing data prior to time T), preprocessing, preparing the data for machine learning and prediction, and forecasting of the future value ŷ for time t ≥ T. This article is primarily concerned with the 3rd step, the forecasting model and in particular entity embeddings within a deep-learning architecture. In order to appreciate the benefits of the deep-learning model, it is useful to compare it to an ensemble tree-based model, a Random Forest. 
-
-This deep-learning architecture is adjustable to fit the problem (size and the number of the layers), but otherwise is structurally fixed. That's not to say that an alternate forecasting model is not effective. The first processing step, data preprocessing, is very much problem and domain specific. In the case of structured data, data preprocessing, including feature engineering, can have a significant impact on overall model performance. Like the DL forecasting architecture, the second step in the pipeline, "Preparing for Machine Learning," does not change with the domain and consists repeatable methods, such as normalization of continuous variables and numericalization of categorical variables.
 
 The coding begins with importing the fastai library (based on Fastai version 0.7). See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable,`PATH` that points to the dataset. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
 
@@ -80,7 +79,6 @@ PATH='data/rossmann/'
 Though we do not discuss the code for the data preprocessing transformations in detail, it is essential to understand the data, including the preprocessing and preparation for machine learning. These preprocessing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering is taken as a given.
 
 Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competion, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
-
 
 <table>
    <caption> Table 1. Input Data Tables </caption>
@@ -129,7 +127,7 @@ The columns (i.e., variables) of the `joined` table include `Sales` the dependen
 
 <h1 style="color:	#115BDC;">Prepare for Machine Learning</h1>
 
-The next stage of the pipeline, "Prepare for ML and Prediction" takes as input the tabular data in the `joined` table. Machine learning algorithms perform better when the continuous value inputs are normalized and require the categorical values to be numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1.
+The next stage of the pipeline as input the joined tabular data from the previous section. Machine learning algorithms perform better when the continuous value inputs are normalized and require the categorical values to be numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1.
 
 ### Categorical and Continuous Variables
 
@@ -225,21 +223,26 @@ preds = mrf.predict(val)
 mrf.score(trn, y_trn), mrf.score(val, y_val), mrf.oob_score_, exp_rmspe(preds, y_val)
 ```
 
-
     (0.9821234961372078,
     0.9316993731280493,
     0.9241039979971587,
     0.10863755294456862)
 
+<figure>
+ <img alt="Random Forest Model Feature Importances" title="Random Forest Model Feature Importances"  src="/images/TimeSeriesForecasting/RF_Rossman_Feature_Importance.png" width="635">
+ <figcaption><center>Figure 2. Deep-learning neural network time-series forecasting architecture</center></figcaption>
+ </figure>
+
+Figure 2 illustrates the feature importance corresponding to the RF model. There is likely some improvement from feature reduction through a technique such as PCA. At this point our goal is to reproduce the results from Fastai and create a model that can re-used for other problems so we will forego this step at this time. It is also known from experience that RF models tend to perform well despite the presence of a modest amount of multi-colinearity amongst the ML features.
 
 <h1 style="color:	#115BDC;">Deep Learning with Embeddings</h1>
 
 <figure>
  <img alt="Deep learning neural network time-series forecasting arhchitecture" title="Deep learning neural network time-series forecasting arhchitecture"  src="/images/TimeSeriesForecasting/DLNN_Forecast_wEmbeddings.png" width="635">
- <figcaption><center>Figure 2. Deep-learning neural network time-series forecasting architecture</center></figcaption>
+ <figcaption><center>Figure 3. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 
-The deep learning (DL) with Embeddings architecture is illustrated in Figure 2. The DL model receives as input the feature variables generated from the previous stage of processing and is comprised of continuous and categorical variables, `(cvs ... cats...)`. The architecture is based on the [Fastai embeddings for structured data](https://www.fast.ai/2018/04/29/categorical-embeddings/) architecture. The first layer is an embeddings layer followed by two  fully connected layers, and then the output layer. 
+The deep learning (DL) with Embeddings architecture is illustrated in Figure 3. The DL model receives as input the feature variables generated from the previous stage of processing and is comprised of continuous and categorical variables, `(cvs ... cats...)`. The architecture is based on the [Fastai embeddings for structured data](https://www.fast.ai/2018/04/29/categorical-embeddings/) architecture. The first layer is an embeddings layer followed by two  fully connected layers, and then the output layer. 
 
 ### Deep Learning Model
 
@@ -265,6 +268,8 @@ m = md.get_learner(emb_szs, len(df.columns)-len(cat_vars),
                    0.04, 1, [1000,500], [0.001,0.01], y_range=y_range)
 lr = 1e-3
 ```
+
+
 
 As illustrated in the diagram, there is an embeddings table for each categorical value. The embeddings are setup and work as follows:
 
@@ -375,7 +380,7 @@ pred_test
 
 ### Predict
 
-Following training and test is prediction (forecasting in this case) when new data comes in. Below, are listed the necessary steps, including loading the saved model and creating new forecasts. Additionally, though not shown below, is to preprocess and prepare the data with an identical pipeline as that used for training. For convenience, we predict based on the test data (already preprocessed and prepared for ML).
+Following training and test is prediction (forecasting in this case) when new data comes in. Below, are listed the necessary steps, including loading the saved model and creating new forecasts. Additionally, though not shown below, is to preprocess and prepare the data with an identical pipeline as that used for training. For convenience, to illustrate the mechanics of prediction, we predict based on the test data (already preprocessed and prepared for ML).
 
 ```python
 md = ColumnarModelData.from_data_frame(PATH, val_idx, df, yl.astype(np.float32), cat_flds=cat_vars, bs=128,
@@ -409,10 +414,32 @@ predictions
 
 <h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
-In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). Though it is significantly more complex than the RF model, the training time is approximately the same on a basic GPU vs. Random Forest trained on a CPU. The key differentiating method for achieving the performance gain is the use of entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables and enable machine learning algorithms to exploit relationships between categorical items.
+In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF.
 
 <table>
  <caption> Table 1. Summary of Deep Learning time-series forecasting model</caption>
+ <tr>
+   <td style="text-align:center;vertical-align:top;"><Strong>Model </Strong> </td>
+   <td style="text-align:center;vertical-align:top;"><Strong>RMSPE</Strong></td>
+ 
+ </tr>
+ <tr>
+   <td>Random Forest </td>
+   <td>0.1086 <br>
+    </td>
+ </tr>
+  <tr>
+   <td>Deep Learning </td>
+   <td>0.0998 <br>
+    </td>
+ </tr>
+
+</table>
+
+Though it is significantly more complex than the RF model, the training time is approximately the same on a basic GPU vs. Random Forest trained on a CPU. The key differentiating method for achieving the performance gain is the use of entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables and enable machine learning algorithms to exploit relationships between categorical items.
+
+<table>
+ <caption> Table 2. Summary of Deep Learning time-series forecasting model</caption>
  <tr>
    <td style="text-align:center;vertical-align:top;"><Strong>Characteristic </Strong> </td>
    <td style="text-align:center;vertical-align:top;"><Strong>Description</Strong></td>

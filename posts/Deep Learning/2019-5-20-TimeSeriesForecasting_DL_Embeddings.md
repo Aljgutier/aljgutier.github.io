@@ -22,19 +22,19 @@ In this article we study a state-of-the-art predictive analytics pipeline for ti
 
 In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting based on predictive analytics methods for a complex multivaariate problem.
 
-Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model. 
+Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest). 
 
 
 #### Use Cases
 
-Forecasting problems include a broad set of use cases, such as
+Forecasting problems include a broad set of use cases, such as the examples listed below, and many more.
 
 * Equity price forecasting
 * Sales forecasting
 * Demand forecasting for manufacturing production 
 * Demand forecasting for inventory management
 * Demand forecastig for infrastructure planning and utilizaiton
-* Demand forecastng for and workforce planning
+* Demand forecastng for workforce planning
 
 
 ### Predictive Analytics and Forecasting
@@ -127,7 +127,7 @@ The columns (i.e., variables) of the `joined` table include `Sales` the dependen
 
 <h1 style="color:	#115BDC;">Prepare for Machine Learning</h1>
 
-The next stage of the pipeline as input the joined tabular data from the previous section. Machine learning algorithms perform better when the continuous value inputs are normalized and require the categorical values to be numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1.
+The next stage of the pipeline begins with the joined tabular data from the previous section. Machine learning algorithms perform better when the continuous value inputs are normalized and require the categorical values to be numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1. Both of these steps are performed below.
 
 ### Categorical and Continuous Variables
 
@@ -233,7 +233,7 @@ mrf.score(trn, y_trn), mrf.score(val, y_val), mrf.oob_score_, exp_rmspe(preds, y
  <figcaption><center>Figure 2. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 
-Figure 2 illustrates the feature importance corresponding to the RF model. There is likely some improvement from feature reduction through a technique such as PCA. At this point our goal is to reproduce the results from Fastai and create a model that can re-used for other problems so we will forego this step at this time. It is also known from experience that RF models tend to perform well despite the presence of a modest amount of multi-colinearity amongst the ML features.
+Figure 2 illustrates the feature importance corresponding to the RF model. There is likely some improvement from feature reduction through a technique such as PCA. At this point our goal is to reproduce the results from Fastai and create a model that can reused for other problems so we will forego this step at this time. It is also known from experience that RF models tend to perform well despite the presence of a modest amount of multi-colinearity amongst the ML features.
 
 <h1 style="color:	#115BDC;">Deep Learning with Embeddings</h1>
 

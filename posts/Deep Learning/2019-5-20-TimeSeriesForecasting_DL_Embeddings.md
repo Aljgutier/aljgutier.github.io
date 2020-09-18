@@ -18,14 +18,14 @@ by Alberto Gutierrez  May 20, 2019
  <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
-In this article we study a state-of-the-art predictive analytics pipeline for time sries structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
+In this article we study a state-of-the-art predictive analytics pipeline for time sries structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data. 
 
 In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting based on predictive analytics methods for a complex multivaariate problem.
 
 Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest). 
 
 
-#### Use Cases
+#### Other Timeseries Forecasting Use Case Examples
 
 Forecasting problems include a broad set of use cases, such as the examples listed below, and many more.
 
@@ -45,7 +45,9 @@ The single row of independent variables is designed for predicting the dependent
 
 ### Rossmann Dataset
 
-The Rossman, Kaggle dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentimient classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
+What is the the Rossman dataset? Rossman is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In, 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossman challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the dataset to Kaggle. The data contains approximately 1 million rows at a size of 38 MB. 
+
+Why this dataset? The Rossman, Kaggle dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentimient classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
 
 Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring forecasting problems; case in point, it is referenced in the following use cases. 
 
@@ -53,6 +55,7 @@ Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring foreca
  * [Fastai introduction to Deep Learning for Tabular Data](https://www.fast.ai/2018/04/29/categorical-embeddings/)
  * [Stanford CS229, Final Projects based on Rossman store sales](http://cs229.stanford.edu/projects2015.html)
  * [Journal publications, Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf)
+ * [Harvard CS109 Canvas Course Files](https://canvas.harvard.edu/courses/12656/files/2822190/download?verifier=YnKtGBBF3fzpM6Wnlc4lAFdRWfkK1f0ah8YodOoY&wrap=1)
 
 
 <h1 style="color:	#115BDC;">Data Processing and Machine Learning Overview</h1>

@@ -463,7 +463,7 @@ Though it is significantly more complex than the RF model, the training time is 
    <td> Data Set </td>
    <td> - Rossman, Kaggle dataset <br>
         - preprocessing steps taken from 3rd place winner <br>
-        - 844,438 raining rows, 22 categorical features, 16 continuous features
+        - 844,438 raining rows, 22 categorical features, 16 continuous features 
      </td>
  </tr>
  <tr>

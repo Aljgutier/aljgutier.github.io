@@ -185,16 +185,16 @@ $$  \enspace\enspace   EQN-1 \hspace{3em} RMSPE =   \sqrt{\frac{1}{n}\sum_{k=1}^
 
 This metric is suitable when predicting values across a large range of orders of magnitudes, such as Sales. It avoids penalizing large differences in prediction when both the predicted and the true number are large: for example, predicting 5 when the true value is 50 is penalized more than predicting 500 when the true value is 545.
 
-The RMSPE metric is not directly available from machine learning libraries. For example, it is not availble form Fastai, PyTorch, or Sklearn. The optimization function typically available for regressor functions is RMSE (Root Mean Square Error). Therefore, it is typical to use log properties as follows.
+The RMSPE metric is not directly available from machine learning libraries. For example, it is not available form fastai, PyTorch, or Sklearn. The optimization function typically available for regressor functions is RMSE (Root Mean Square Error). Therefore, it is typical to use log properties as follows.
 
-For example, for $\sum_i{ \frac{ŷ_i } {y_i} }$
-we use the property  $ln(\frac{a}{b}) = ln(a) - ln(b)$, and therefore
+For example, for percent error $\sum_i{ \frac{ŷ_i } {y_i} }$
+we use the property  $ln(\frac{a}{b}) = ln(a) - ln(b)$. Percent error is given by
 
 $$
   \enspace\enspace   EQN-2 \hspace{3em} \sum_i{ ln \left(  \frac{ŷ_i} {y_i} \right)  } = \sum_i{\left(ln(ŷ_i) - ln(y_i)   \right)}
 $$           
 
-The implication is that when we take the log of the dependent variable y, then we get RMSPE for free and taking the inverse log, that is $exp^{log(RMSPE)}$ we get the RMSE.
+The implication is that when we take the log of the dependent variable y, then we get RMSPE for free and taking the inverse log, that is $exp^{log(RMSPE)}$ we get the RMSPE, the desired metric.
 
 For convenience, we define the following functions.
 

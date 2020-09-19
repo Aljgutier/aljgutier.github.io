@@ -25,7 +25,7 @@ In this post we compare the performance of a best in class ML model and a Deep l
 Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest). 
 
 
-#### Other Timeseries Forecasting Use Case Examples
+#### Examples of Other Timeseries Forecasting Use Cases
 
 Forecasting problems include a broad set of use cases, such as the examples listed below, and many more.
 

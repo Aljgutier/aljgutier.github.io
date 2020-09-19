@@ -79,9 +79,9 @@ PATH='data/rossmann/'
 
 <h1 style="color:	#115BDC;">Data Preprocessing</h1>
 
-Though we do not discuss the code for the data preprocessing transformations in detail, it is essential to understand the data, including the preprocessing and preparation for machine learning. These preprocessing methods serve as examples for other similar problems and domains. However, for this article, the feature engineering is taken as a given.
+Though we do not discuss the code for the data preprocessing transformations in detail, it is essential to understand the data, including the preprocessing and ML preparation. However, for this article, the feature engineering is taken as a given.
 
-Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competion, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
+We take the pre-processing and data preperation from the Kaggle 3rd place winners because they published their notebook and published a technical paper. The code is contained in the fastai [lesson3-rossmann.ipynb]() Jupyter notebook. For convenience, a Jupyter notebook with only the preprocessing commands is available [here](https://github.com/Aljgutier/aljpspacedl1). Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competion, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
 
 <table>
    <caption> Table 1. Input Data Tables </caption>
@@ -120,13 +120,13 @@ Input to the preprocessing is from the tables listed below. Additional informati
    
 </table>
 
-First, the data files are read into a Pandas dataframe. The use of unique data sources can potentially have a good payoff for predictive performance. In this case, Kaggle competitors employed [Google Trends to identify weeks and states correlated with Rossman](https://www.kaggle.com/c/rossmann-store-sales/discussion/17130) and weather informaiton. This information is transformed into machine learning features during the prprocessing step followed by normalization (continuous variables) and numericalization of categorical variables. The preprocessing is taken directly from the 3rd place competitor, and the code is contained in the fastai [lesson3-rossmann.ipynb]() Jupyter notebook. For convenience, a Jupyter notebook with only the preprocessing commands is available [here](https://github.com/Aljgutier/aljpspacedl1). The preprocessing employs typical methods for this type of data, for example, table joins, running averages, time until next event, and time since the last event. The outputs of the preprocessing section are saved in the "joined" and "joined_test" files in "feather" format, which are then loaded into the Jupyter notebook for the next step of processing ("Prepare for ML and Prediction").
+First, the data files are read into a Pandas dataframe. The use of unique data sources can potentially have a good payoff for predictive performance. In this case, Kaggle competitors employed [Google Trends to identify weeks and states correlated with Rossman](https://www.kaggle.com/c/rossmann-store-sales/discussion/17130) and weather informaiton. This information is transformed into machine learning features during the ML preperation step followed by normalization (continuous variables) and numericalization of categorical variables. The processing employs typical methods for this type of data, for example, table joins, running averages, time until next event, and time since the last event. The outputs of the preprocessing and preperation section are saved in the "joined" and "joined_test" files in "feather" format, which are then loaded into the Jupyter notebook for the next step of processing ("Prepare for ML and Prediction").
 
 ```python
 joined = pd.read_feather(f'{PATH}/joined')
 joined_test = pd.read_feather(f'{PATH}joined_test')
 ```
-The columns (i.e., variables) of the `joined` table include `Sales` the dependent variable and all other variables (independent variables). The independent variables within each row are processed from their original form in X' (as described in the previous paragraph) so that one row of independent variables is intended to predict the corresponding dependent variable, `Sales` (in the same row).
+The columns (i.e., variables) of the `joined` table include `Sales` the dependent variable and all other variables (independent variables). The independent variables within each row are processed from their original form in *X'* (as described in the previous paragraph) so that one row of independent variables is intended to predict the corresponding dependent variable, `Sales` (in the same row).
 
 <h1 style="color:	#115BDC;">Prepare for Machine Learning</h1>
 

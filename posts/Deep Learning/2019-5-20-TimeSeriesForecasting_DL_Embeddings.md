@@ -194,7 +194,7 @@ $$
   \enspace\enspace   EQN-2 \hspace{3em} \sum_i{ ln \left(  \frac{ŷ_i} {y_i} \right)  } = \sum_i{\left(ln(ŷ_i) - ln(y_i)   \right)}
 $$           
 
-The implication is that when we take the log of the dependent variable y, then we get RMSPE for free and taking the inverse log, that is $exp^{log(RMSPE)}$ we get the RMSPE, the desired metric.
+The implication is that when we take the log of the percent error, then we get RMSPE for free. That is, taking the inverse log $exp^{log(RMSPE)}$ we get the RMSPE, the desired metric.
 
 For convenience, we define the following functions.
 

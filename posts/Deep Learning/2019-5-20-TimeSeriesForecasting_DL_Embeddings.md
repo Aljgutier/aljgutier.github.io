@@ -1,4 +1,4 @@
----
+utilizationforecasting---
 title: "Time-series Deep Learning Embeddings"
 date: "2019-05-3 18:08:41 +0000"
 author: Alberto Gutierrez
@@ -20,7 +20,7 @@ by Alberto Gutierrez  May 20, 2019
 
 In this article we study a state-of-the-art predictive analytics pipeline for time series structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
 
-In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting based on predictive analytics methods for a complex multivaariate problem.
+In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting based on predictive analytics methods for a complex multivariate problem.
 
 Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest).
 
@@ -33,8 +33,8 @@ Forecasting problems include a broad set of use cases, such as the examples list
 * Sales forecasting
 * Demand forecasting for manufacturing production
 * Demand forecasting for inventory management
-* Demand forecastig for infrastructure planning and utilizaiton
-* Demand forecastng for workforce planning
+* Demand forecasting for infrastructure planning and utilizaiton
+* Demand forecasting for workforce planning
 
 
 ### Predictive Analytics and Forecasting
@@ -47,7 +47,7 @@ The single row of independent variables is designed for predicting the dependent
 
 What is the the Rossman dataset? Rossman is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In, 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossman challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the dataset to Kaggle. The data contains approximately 1 million rows at a size of 38 MB.
 
-Why this dataset? The Rossman, Kaggle dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentimient classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
+Why this dataset? The Rossman, Kaggle dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentiment classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
 
 Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring predictive analytics forecasting problems; case in point, it is referenced in the following use cases.
 
@@ -81,7 +81,7 @@ PATH='data/rossmann/'
 
 Though we do not discuss the code for the data preprocessing transformations in detail, it is essential to understand the data, including the preprocessing and ML preparation. However, for this article, the feature engineering is taken as a given.
 
-We take the pre-processing and data preperation from the Kaggle 3rd place winners because they published their notebook and published a technical paper. The code is contained in the fastai [lesson3-rossmann.ipynb]() Jupyter notebook. For convenience, a Jupyter notebook with only the preprocessing commands is available [here](https://github.com/Aljgutier/aljpspacedl1). Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competion, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
+We take the pre-processing and data preparation from the Kaggle 3rd place winners because they published their notebook and published a technical paper. The code is contained in the fastai [lesson3-rossmann.ipynb]() Jupyter notebook. For convenience, a Jupyter notebook with only the preprocessing commands is available [here](https://github.com/Aljgutier/aljpspacedl1). Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competition, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
 
 <table>
    <caption> Table 1. Input Data Tables </caption>
@@ -120,7 +120,7 @@ We take the pre-processing and data preperation from the Kaggle 3rd place winner
 
 </table>
 
-First, the data files are read into a Pandas dataframe. The use of unique data sources can potentially have a good payoff for predictive performance. In this case, Kaggle competitors employed [Google Trends to identify weeks and states correlated with Rossman](https://www.kaggle.com/c/rossmann-store-sales/discussion/17130) and weather informaiton. This information is transformed into machine learning features during the ML preperation step followed by normalization (continuous variables) and numericalization of categorical variables. The processing employs typical methods for this type of data, for example, table joins, running averages, time until next event, and time since the last event. The outputs of the preprocessing and preperation section are saved in the "joined" and "joined_test" files in "feather" format, which are then loaded into the Jupyter notebook for the next step of processing ("Prepare for ML and Prediction").
+First, the data files are read into a Pandas dataframe. The use of unique data sources can potentially have a good payoff for predictive performance. In this case, Kaggle competitors employed [Google Trends to identify weeks and states correlated with Rossman](https://www.kaggle.com/c/rossmann-store-sales/discussion/17130) and weather information. This information is transformed into machine learning features during the ML preparation step followed by normalization (continuous variables) and numericalization of categorical variables. The processing employs typical methods for this type of data, for example, table joins, running averages, time until next event, and time since the last event. The outputs of the preprocessing and preparation section are saved in the "joined" and "joined_test" files in "feather" format, which are then loaded into the Jupyter notebook for the next step of processing ("Prepare for ML and Prediction").
 
 ```python
 joined = pd.read_feather(f'{PATH}/joined')
@@ -130,7 +130,7 @@ The columns (i.e., variables) of the *joined* table include *Sales* the dependen
 
 <h1 style="color:	#115BDC;">Prepare for Machine Learning</h1>
 
-The next stage of the pipeline begins with the joined tabular data from the previous section. Machine learning algorithms perform better when the continuous value inputs are normalized and require the categorical values to be numericalized. Furthermore, artifcial neural networks require the inputs to be zero mean with standard deviation of 1. Both of these steps are performed below.
+The next stage of the pipeline begins with the joined tabular data from the previous section. Machine learning algorithms perform better when the continuous value inputs are normalized and require the categorical values to be numericalized. Furthermore, artificial neural networks require the inputs to be zero mean with standard deviation of 1. Both of these steps are performed below.
 
 ### Categorical and Continuous Variables
 
@@ -236,7 +236,7 @@ mrf.score(trn, y_trn), mrf.score(val, y_val), mrf.oob_score_, exp_rmspe(preds, y
  <figcaption><center>Figure 2. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 
-Figure 2 illustrates the feature importance corresponding to the RF model. There is likely some improvement from feature reduction through a technique such as PCA. At this point our goal is to reproduce the results from Fastai and create a model that can reused for other problems so we will forego this step at this time. It is also known from experience that RF models tend to perform well despite the presence of a modest amount of multi-colinearity amongst the ML features.
+Figure 2 illustrates the feature importance corresponding to the RF model. There is likely some improvement from feature reduction through a technique such as PCA. At this point our goal is to reproduce the results from fastai and create a model that can reused for other problems so we will forego this step at this time. It is also known from experience that RF models tend to perform well despite the presence of a modest amount of multi-collinearity amongst the ML features.
 
 <h1 style="color:	#115BDC;">Deep Learning with Embeddings</h1>
 
@@ -470,7 +470,7 @@ Though it is significantly more complex than the RF model, the training time is 
    <td> Training </td>
    <td> - Paperspace P4000 virtual desktop: NVIDIA P4000, 8 GB GPU, 1791 CUDA Cores, and 30 GB, Intel Xeon E5-2623 v4 CPU <br>
         - ~10 minutes  <br>
-        - SGDR with restarts and cosine anealing
+        - SGDR with restarts and cosine annealing
     </td>
   </tr>
 </table>

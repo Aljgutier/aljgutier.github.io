@@ -7,7 +7,7 @@ description: Time series forecasting, Deep Learning, Embeddings, Random Forest, 
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
-<script type="text/javascript" charset="utf-8" 
+<script type="text/javascript" charset="utf-8"
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
@@ -18,11 +18,11 @@ by Alberto Gutierrez  May 20, 2019
  <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
-In this article we study a state-of-the-art predictive analytics pipeline for time series structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data. 
+In this article we study a state-of-the-art predictive analytics pipeline for time series structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
 
 In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting based on predictive analytics methods for a complex multivaariate problem.
 
-Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest). 
+Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest).
 
 
 #### Examples of Other Timeseries Forecasting Use Cases
@@ -31,7 +31,7 @@ Forecasting problems include a broad set of use cases, such as the examples list
 
 * Equity price forecasting
 * Sales forecasting
-* Demand forecasting for manufacturing production 
+* Demand forecasting for manufacturing production
 * Demand forecasting for inventory management
 * Demand forecastig for infrastructure planning and utilizaiton
 * Demand forecastng for workforce planning
@@ -39,17 +39,17 @@ Forecasting problems include a broad set of use cases, such as the examples list
 
 ### Predictive Analytics and Forecasting
 
-In the prediction and forecasting problem, the preprocessing stage of the pipeline consists of transformation of the independent variables including various aggregations. In the case of forecasting these also include time differences and lags. In ether case preprocessing produces a single row of data with potentially many independent variables corresponding to one or more dependent variables. 
+In the prediction and forecasting problem, the preprocessing stage of the pipeline consists of transformation of the independent variables including various aggregations. In the case of forecasting these also include time differences and lags. In ether case preprocessing produces a single row of data with potentially many independent variables corresponding to one or more dependent variables.
 
 The single row of independent variables is designed for predicting the dependent variable(s). The success of the overall prediction solution is dependent on properly engineering these predictive features ("feature engineering"). However, the predictive model and analytics pipeline is similar for prediction or forecasting. In the case of forecasting the index is a timeseries, and the prediction is a forward prediction in time.
 
 ### Rossmann Dataset
 
-What is the the Rossman dataset? Rossman is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In, 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossman challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the dataset to Kaggle. The data contains approximately 1 million rows at a size of 38 MB. 
+What is the the Rossman dataset? Rossman is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In, 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossman challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the dataset to Kaggle. The data contains approximately 1 million rows at a size of 38 MB.
 
 Why this dataset? The Rossman, Kaggle dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentimient classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data and there are numerous published examples.
 
-Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring predictive analytics forecasting problems; case in point, it is referenced in the following use cases. 
+Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring predictive analytics forecasting problems; case in point, it is referenced in the following use cases.
 
  * [Rossmann store sales competition](https://www.kaggle.com/c/rossmann-store-sales)
  * [Fastai introduction to Deep Learning for Tabular Data](https://www.fast.ai/2018/04/29/categorical-embeddings/)
@@ -64,12 +64,12 @@ Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring predic
  <img alt="Time-series forecast machine learning pipeline." title="Time-series forecast machine learning pipeline." src="/images/TimeSeriesForecasting/TSeriesForecastMLPipeline.png" width="635">
  <figcaption><center>Figure 1. Time-series forecasting machine-learning pipeline </center></figcaption>
  </figure>
- 
-The pipeline is common for both models studied in this post. The difference will be in one case an RF (Random Forest) model is used, and in the other a Deep Learning model is employed.
- 
-Figure 1. illustrates the data processing and ML/AI pipeline including loading the raw data, X' (representing data prior to time T), preprocessing, preparing the data for machine learning and prediction, and forecasting of the future value ŷ for time t ≥ T. This article is primarily concerned with the 3rd step, the forecasting model and in particular entity embeddings within a deep-learning architecture. In order to appreciate the benefits of the deep-learning model, it is useful to compare it to an ensemble tree-based model, a Random Forest. 
 
-The coding begins with importing the fastai library (based on Fastai version 0.7). See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable,`PATH` that points to the dataset. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
+The pipeline is common for both models studied in this post. The difference will be in one case an RF (Random Forest) model is used, and in the other a Deep Learning model is employed.
+
+Figure 1. illustrates the data processing and ML/AI pipeline including loading the raw data, X' (representing data prior to time T), preprocessing, preparing the data for machine learning and prediction, and forecasting of the future value ŷ for time t ≥ T. This article is primarily concerned with the 3rd step, the forecasting model and in particular entity embeddings within a deep-learning architecture. In order to appreciate the benefits of the deep-learning model, it is useful to compare it to an ensemble tree-based model, a Random Forest.
+
+The coding begins with importing the fastai library (based on Fastai version 0.7). See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable, *PATH* that points to the dataset. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
 
 ```python
 from fastai.structured import *
@@ -117,7 +117,7 @@ We take the pre-processing and data preperation from the Kaggle 3rd place winner
       <td> test.csv </td>
       <td> Store, DayOfWeek, Date, Sales, Customers, Open, Promo, StateHoliday, SchoolHoliday </td>
    </tr>
-   
+
 </table>
 
 First, the data files are read into a Pandas dataframe. The use of unique data sources can potentially have a good payoff for predictive performance. In this case, Kaggle competitors employed [Google Trends to identify weeks and states correlated with Rossman](https://www.kaggle.com/c/rossmann-store-sales/discussion/17130) and weather informaiton. This information is transformed into machine learning features during the ML preperation step followed by normalization (continuous variables) and numericalization of categorical variables. The processing employs typical methods for this type of data, for example, table joins, running averages, time until next event, and time since the last event. The outputs of the preprocessing and preperation section are saved in the "joined" and "joined_test" files in "feather" format, which are then loaded into the Jupyter notebook for the next step of processing ("Prepare for ML and Prediction").
@@ -126,7 +126,7 @@ First, the data files are read into a Pandas dataframe. The use of unique data s
 joined = pd.read_feather(f'{PATH}/joined')
 joined_test = pd.read_feather(f'{PATH}joined_test')
 ```
-The columns (i.e., variables) of the `joined` table include `Sales` the dependent variable and all other variables (independent variables). The independent variables within each row are processed from their original form in *X'* (as described in the previous paragraph) so that one row of independent variables is intended to predict the corresponding dependent variable, `Sales` (in the same row).
+The columns (i.e., variables) of the *joined* table include *Sales* the dependent variable and all other variables (independent variables). The independent variables within each row are processed from their original form in *X'* (as described in the previous paragraph) so that one row of independent variables is intended to predict the corresponding dependent variable, *Sales* (in the same row).
 
 <h1 style="color:	#115BDC;">Prepare for Machine Learning</h1>
 
@@ -134,7 +134,7 @@ The next stage of the pipeline begins with the joined tabular data from the prev
 
 ### Categorical and Continuous Variables
 
-The categorical variables and numerical variables are listed in the `cat_vars` list and `contin_vars` list.  These variables are selected from the `joined` table as features for machine learning and prediction.
+The categorical variables and numerical variables are listed in the *cat_vars* list and *contin_vars* list.  These variables are selected from the *joined* table as features for machine learning and prediction.
 
 ```python
 cat_vars = ['Store', 'DayOfWeek', 'Year', 'Month', 'Day', 'StateHoliday', 'CompetitionMonthsOpen',
@@ -143,7 +143,7 @@ cat_vars = ['Store', 'DayOfWeek', 'Year', 'Month', 'Day', 'StateHoliday', 'Compe
     'SchoolHoliday_fw', 'SchoolHoliday_bw']
 
 contin_vars = ['CompetitionDistance', 'Max_TemperatureC', 'Mean_TemperatureC', 'Min_TemperatureC',
-   'Max_Humidity', 'Mean_Humidity', 'Min_Humidity', 'Max_Wind_SpeedKm_h', 
+   'Max_Humidity', 'Mean_Humidity', 'Min_Humidity', 'Max_Wind_SpeedKm_h',
    'Mean_Wind_SpeedKm_h', 'CloudCover', 'trend', 'trend_DE',
    'AfterStateHoliday', 'BeforeStateHoliday', 'Promo', 'SchoolHoliday']
 
@@ -152,15 +152,15 @@ n = len(joined); n
 
 ### Training, Validation and Test Set
 
-Next, the training and validation sets are created, with use of the fastai `proc_df()` function, which performs the following functions.
+Next, the training and validation sets are created, with use of the fastai *proc_df()* function, which performs the following functions.
 
-* The dependent variable is put in into an array, `y` and independent variables are put into the dataframe, `df`.  
+* The dependent variable is put in into an array, *y* and independent variables are put into the dataframe, *df*.  
 * Continuous variables are normalized (zero mean and standard deviation = 1), and categorical variables are enumerated.  
-* Continuous variable missing values are filled with the median, and categorical id of 0 is reserved for categorical variable missing values. 
-* The dictionary `nas` is a mapping of the N/A's and the associated median.
-*  `mapper` is a DataFrameMapper, which stores the mean and standard deviation of the continuous variables and can be used for scaling during test time.
+* Continuous variable missing values are filled with the median, and categorical id of 0 is reserved for categorical variable missing values.
+* The dictionary *nas* is a mapping of the N/A's and the associated median.
+*  *mapper* is a DataFrameMapper, which stores the mean and standard deviation of the continuous variables and can be used for scaling during test time.
 
-The `val_idx` variable are indexes identifying the part of `df` (training set) to be used for validation. In this forecasting problem, the validation indexes correspond to the same time frame (different year) as in the test set (from `joined_test`) and in this case the test set time frames are defined by Kaggle. 
+The *val_idx* variable are indexes identifying the part of *df* (training set) to be used for validation. In this forecasting problem, the validation indexes correspond to the same time frame (different year) as in the test set (from *joined_test*) and in this case the test set time frames are defined by Kaggle.
 
 ```python
 df, y, nas, mapper = proc_df(joined_samp, 'Sales', do_scale=True)
@@ -172,10 +172,10 @@ df_test, _, nas, mapper = proc_df(joined_test, 'Sales', do_scale=True, skip_flds
                                   mapper=mapper, na_dict=nas)
 val_idx = np.flatnonzero(
     (df.index<=datetime.datetime(2014,9,17)) & (df.index>=datetime.datetime(2014,8,1)))                                  
-                                  
+
 ```
 
-### Optimization Function and Log y 
+### Optimization Function and Log y
 
 One additional transformation is necessary prior to machine learning. The optimization function for evaluation of results is RMSPE (Root Mean Square Percentage Error). The Kaggle submissions are evaluated on the Normalized Root Mean Squared Percent Error (RMSPE), calculated as follows:
 
@@ -186,14 +186,14 @@ This metric is suitable when predicting values across a large range of orders of
 
 The RMSPE metric is not directly available from machine learning libraries. For example, it is not availble form Fastai, PyTorch, or Sklearn. The optimization function typically available for regressor functions is RMSE (Root Mean Square Error). Therefore, it is typical to use log properties as follows.
 
-For example, for $$ \sum_i{ \frac{ŷ_i } {y_i} } 
-$$ we use the property  $$ln(\frac{a}{b}) = ln(a) - ln(b)$$, and therefore
+For example, for $\sum_i{ \frac{ŷ_i } {y_i} }$
+we use the property  $ln(\frac{a}{b}) = ln(a) - ln(b)$, and therefore
 
-$$ 
-  \enspace\enspace   EQN-2 \hspace{3em} \sum_i{ ln \left(  \frac{ŷ_i} {y_i} \right)  } = \sum_i{\left(ln(ŷ_i) - ln(y_i)   \right)} 
+$$
+  \enspace\enspace   EQN-2 \hspace{3em} \sum_i{ ln \left(  \frac{ŷ_i} {y_i} \right)  } = \sum_i{\left(ln(ŷ_i) - ln(y_i)   \right)}
 $$           
 
-The implication is that when we take the log of the dependent variable y, then we get RMSPE for free and taking the inverse log, that is $$exp^{log(RMSPE)}$$ we get the RMSE.
+The implication is that when we take the log of the dependent variable y, then we get RMSPE for free and taking the inverse log, that is $exp^{log(RMSPE)}$ we get the RMSE.
 
 For convenience, we define the following functions.
 
@@ -212,7 +212,7 @@ y_range = (0, max_log_y*1.2)
 
 <h1 style="color:	#115BDC;">Tree based model (Random Forest)</h1>
 
-At this point, the data is ready for machine learning. Training a Random Forest model is useful to establish a performance baseline. The dependent variable is the log of Sales (yl) and the independent variables are in the df dataframe. The indexes in `val_idx` are used to split between training and validation. A Random Forest regressor with 40 estimators, 2 samples per leaf yields an RMSPE score of 0.1086. It is worthwhile noting that the [tree models do not require one-hot encoding of categorical values](https://roamanalytics.com/2016/10/28/are-categorical-variables-getting-lost-in-your-random-forests/), because they operate on the concept of partitioning the decision space. Also, at this point the categorical variables are numerical values so the model can operate directly on the `df` dataframe. 
+At this point, the data is ready for machine learning. Training a Random Forest ML model is useful to establish a performance baseline, and one consistent with the published performance benchmark. The dependent variable is the log of Sales (yl) and the independent variables are in the df dataframe. The indexes in *val_idx* are used to split between training and validation. A Random Forest regressor with 40 estimators, 2 samples per leaf yields an RMSPE score of 0.1086. It is worthwhile noting that the [tree models do not require one-hot encoding of categorical values](https://roamanalytics.com/2016/10/28/are-categorical-variables-getting-lost-in-your-random-forests/), because they operate on the concept of partitioning the decision space. Also, at this point the categorical variables are numerical values so the model can operate directly on the *df* dataframe.
 
 ```python
 from sklearn.ensemble import RandomForestRegressor
@@ -245,11 +245,11 @@ Figure 2 illustrates the feature importance corresponding to the RF model. There
  <figcaption><center>Figure 3. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 
-The deep learning (DL) with Embeddings architecture is illustrated in Figure 3. The DL model receives as input the feature variables generated from the previous stage of processing and is comprised of continuous and categorical variables, `(cvs ... cats...)`. The architecture is based on the [Fastai embeddings for structured data](https://www.fast.ai/2018/04/29/categorical-embeddings/) architecture. The first layer is an embeddings layer followed by two  fully connected layers, and then the output layer. 
+The deep learning (DL) with Embeddings architecture is illustrated in Figure 3. The DL model receives as input the feature variables generated from the previous stage of processing and is comprised of continuous and categorical variables, *(cvs ... cats...)*. The architecture is based on the [Fastai embeddings for structured data](https://www.fast.ai/2018/04/29/categorical-embeddings/) architecture. The first layer is an embeddings layer followed by two  fully connected layers, and then the output layer.
 
 ### Deep Learning Model
 
-The deep learning model is defined with the Fastai ColumnarModelData() class. It receives as input the `PATH`,  validation indexes, Numpy array of independent variables (`df.values`),  batch size, and test set (`df_test`). Next, a `learner` object is created with `md.get_learner()`. The learner receives as input the size  ("cardinality") of each categorical variable.
+The deep learning model is defined with the Fastai ColumnarModelData() class. It receives as input the *PATH*,  validation indexes, Numpy array of independent variables (*df.values*),  batch size, and test set (*df_test*). Next, a *learner* object is created with *md.get_learner()*. The learner receives as input the size  ("cardinality") of each categorical variable.
 
 
 ```python
@@ -261,7 +261,7 @@ cat_sz = [(c, len(joined_samp[c].cat.categories)+1) for c in cat_vars]
 emb_szs = [(c, min(50, (c+1)//2)) for _,c in cat_sz]
 
 # Inputs to the learner:
-#    No. of continuous variables =  total Variables - Categoricals. 
+#    No. of continuous variables =  total Variables - Categoricals.
 number: Sales
 #    Categorical variable dropouts is set to .04
 #    Output of the last linear layer, is 1, for predicting single output value
@@ -272,17 +272,15 @@ m = md.get_learner(emb_szs, len(df.columns)-len(cat_vars),
 lr = 1e-3
 ```
 
-
-
 As illustrated in the diagram, there is an embeddings table for each categorical value. The embeddings are setup and work as follows:
 
-* By rule of thumb, the width of each table is sized proportionally to the cardinality of the corresponding categorical variable (cardinality divided by 2 plus 1) up to a width of 50. The value 0 is reserved for unknown. 
-* The number of rows is the cardinality of the categorical variable. 
-* Each categorical variable serves as a lookup to the i-th row of values (ek\_ij) corresponding to the k-th categorical variable. 
-* The output from each table, embeddings row, are effectively concatenated with the continuous values to form the input into the fully connected layers. 
-* The embedding values (ek_ij) are optimized as part of the deep-learning model stochastic gradient descent training. 
-  
-Below are listed the width's, `cat_sz`, for each embeddings table.
+* By rule of thumb, the width of each table is sized proportionally to the cardinality of the corresponding categorical variable (cardinality divided by 2 plus 1) up to a width of 50. The value 0 is reserved for unknown.
+* The number of rows is the cardinality of the categorical variable.
+* Each categorical variable serves as a lookup to the i-th row of values (ek\_ij) corresponding to the k-th categorical variable.
+* The output from each table, embeddings row, are effectively concatenated with the continuous values to form the input into the fully connected layers.
+* The embedding values (ek_ij) are optimized as part of the deep-learning model stochastic gradient descent training.
+
+Below are listed the width's, *cat_sz*, for each embeddings table.
 
 The first fully connected layer is set to 1000 activations with ReLU non-linear functions, and the second fully connected layer is set to 500 activations (also ReLU), and 1 sigmoid output. The output range is defined with y-range.
 
@@ -317,11 +315,11 @@ cat_sz
      ('SchoolHoliday_bw', 9)]
 
 
-### What's the big idea with Embeddings? 
+### What's the big idea with Embeddings?
 
 The performance gains of deep Learning are primarily attributed to entity embeddings. Entity embeddings are a low-dimensional representation of the high dimensional space of categorical variables. Consider, for example, the following intuition. A common technique for representing a categorical variable is one-hot encoding.  For the case of a movie title one-hot encoding quickly results in a sparse representation consisting of a row with thousands of columns in width with one non-zero element representing one movie title.
 
-In contrast, an entity embedding represents the relationship between movies with a low-dimension vector, such as, for example, genre. In this case, a movie title is encoded with a low-dimensional vector representing genres:  western, action, drama, sci-fi, cinematography, etc. When they are input to a machine learning algorithm, these low dimension entity embeddings representations enable the algorithm to exploit relationships between categorical elements. 
+In contrast, an entity embedding represents the relationship between movies with a low-dimension vector, such as, for example, genre. In this case, a movie title is encoded with a low-dimensional vector representing genres:  western, action, drama, sci-fi, cinematography, etc. When they are input to a machine learning algorithm, these low dimension entity embeddings representations enable the algorithm to exploit relationships between categorical elements.
 
 ### Fit
 
@@ -344,8 +342,8 @@ m.fit(lr, 3, metrics=[exp_rmspe])
         0      0.011076   0.015949   0.113352  
         1      0.009257   0.012345   0.10875                          
         2      0.008702   0.011414   0.102238     
-                            
-Next, the cycle_len =1 parameter enables [SGDR with restarts](https://medium.com/@hiromi_suenaga/deep-learning-2-part-1-lesson-2-eeae2edd2be4), whereby the learning rate is decreased with Cosine Anealing profile over a `cycle_len`measured in Epochs. Following a cycle the learning rate is returned to `lr` to begin another cycle.
+
+Next, the *cycle_len* =1 parameter enables [SGDR with restarts](https://medium.com/@hiromi_suenaga/deep-learning-2-part-1-lesson-2-eeae2edd2be4), whereby the learning rate is decreased with Cosine Anealing profile over a *cycle_len* measured in Epochs. Following a cycle the learning rate is returned to *lr* to begin another cycle.
 
 ```python
 m.fit(lr, 5, metrics=[exp_rmspe], cycle_len=1)
@@ -360,10 +358,9 @@ m.fit(lr, 5, metrics=[exp_rmspe], cycle_len=1)
 
 After 5 epochs we obtain an RMSPE of 0.0963 representing approximately 11% improvement over the Random Forest. The Random Forest, though receives as input the numericalized categories, does not employ embeddings.
 
-
 ### Test
 
-On the test data we obtain an RMSPE of 0.0998. 
+On the test data we obtain an RMSPE of 0.0998.
 
 ```python
 md = ColumnarModelData.from_data_frame(PATH, val_idx, df, yl.astype(np.float32), cat_flds=cat_vars, bs=128,
@@ -417,14 +414,14 @@ predictions
 
 <h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
-In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF.
+In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
 
 <table>
  <caption> Table 1. Summary of Deep Learning time-series forecasting model</caption>
  <tr>
    <td style="text-align:center;vertical-align:top;"><Strong>Model </Strong> </td>
    <td style="text-align:center;vertical-align:top;"><Strong>RMSPE</Strong></td>
- 
+
  </tr>
  <tr>
    <td>Random Forest </td>
@@ -446,7 +443,7 @@ Though it is significantly more complex than the RF model, the training time is 
  <tr>
    <td style="text-align:center;vertical-align:top;"><Strong>Characteristic </Strong> </td>
    <td style="text-align:center;vertical-align:top;"><Strong>Description</Strong></td>
- 
+
  </tr>
  <tr>
    <td>Machine Learning Pipeline </td>
@@ -457,7 +454,7 @@ Though it is significantly more complex than the RF model, the training time is 
  </tr>
  <tr>
    <td>Architecture</td>
-   <td>Deep learning with embeddings <br>- Embeddings layer <br> 
+   <td>Deep learning with embeddings <br>- Embeddings layer <br>
       - 2 Fully connected layers, 1000 and 500 ReLU activations <br>
       - Output layer 1 sigmoid activation <br>
    </td>
@@ -477,6 +474,3 @@ Though it is significantly more complex than the RF model, the training time is 
     </td>
   </tr>
 </table>
-
-
-

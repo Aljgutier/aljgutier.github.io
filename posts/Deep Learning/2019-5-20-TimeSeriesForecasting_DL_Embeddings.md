@@ -20,7 +20,7 @@ by Alberto Gutierrez  May 20, 2019
 
 In this article we study a state-of-the-art predictive analytics pipeline for time series structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
 
-In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting based on predictive analytics for a problem with a rich set of exogenous .
+In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting for a problem with a rich set of exogenous variables.
 
 Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest).
 
@@ -35,7 +35,6 @@ Forecasting problems include a broad set of use cases, such as the examples list
 * Demand forecasting for inventory management
 * Demand forecasting for infrastructure planning and utilizaiton
 * Demand forecasting for workforce planning
-
 
 ### Predictive Analytics and Forecasting
 

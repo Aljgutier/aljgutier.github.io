@@ -5,7 +5,7 @@ author: Alberto Gutierrez
 description: Financial markets, bull and bear markets, Jupyter notebook, machine learning, matplotlib
 ...
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
-[about me](../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
+[about me](../../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
 <script type="text/javascript" charset="utf-8"
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,

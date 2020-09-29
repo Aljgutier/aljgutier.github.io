@@ -10,4 +10,4 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 
 ## Financial Markets
 
-#### under development
+[Market Cycle Analysis with Python](20200930-MarketCycle.md	index.md)

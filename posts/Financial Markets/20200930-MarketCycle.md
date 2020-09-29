@@ -20,7 +20,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
 by Alberto Gutierrez,  September 30, 2020
 
- # Introduction 
+# Introduction 
 
   This article is the first part of a three-part series of articles. Part 1 (this post) introduces software for analyzing Bull and Bear market conditions in Python. Ultimately the objective is to build a machine-learning algorithm to predict up (Bull) and down (Bear) market conditions. Creating the market prediction algorithm will employ a standard data science process described in Part 2.  An essential tool for building the market cycle model is the fmcyle.py module, introduced in this article, for analyzing market data ("close price"). Part 2 explores and combines additional data sources for use by the prediction model. In part 3, the machine learning algorithm is developed and backtested.
 

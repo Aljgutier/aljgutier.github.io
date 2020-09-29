@@ -254,6 +254,7 @@ fmplot(dfmc,variables,titles=title,stemlw=2,fb=recessions,
           plottypes=['mktcycle','line'],legend_fontsize=14,llocs=['upper left','best'], hspace=0, titlein=True, figsize=(18,10),titledate=True)
 ```
 
+
 <figure>
  <img alt="Bull and Bear Markets 1950 to 2020 SP500" title="Bull and Bear Market Cycles, SP500 1950-2020" src="/images/FinancialMarkets/MarketCycleAndSPClose.png" width="635">
  <figcaption>Figure 3. Subplots: market cycle plot and Close Price line plot.</figcaption>
@@ -275,6 +276,8 @@ fmplot(dfmc,variables,startdate=startdate,enddate=enddate,legend_fontsize=14,
                figsize=figsize,fb=recessions,sharex=True, hspace=0,ylims=['',(-3,5)],xtick_labelsize=18,
                titles=titles,titlexy=[(0.5,0.9),(0.5,0.8)],height_ratios=[2,1],hlines =['',4.5])
 ```
+
+adfsdaf
 
 <figure>
  <img alt="Bull and Bear Markets COVID 2020, February to March" title="Bull and Bear Market Cycles, Feb to March 2020" src="/images/FinancialMarkets/MktCycleZoomin.png" width="635">

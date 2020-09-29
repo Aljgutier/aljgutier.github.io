@@ -272,17 +272,17 @@ titles=['S&P 500 Close Price','S&P 500 Normalized Bull and Bear Return']
 variables=['Close','mcnr']
 fmplot(dfmc,variables,startdate=startdate,enddate=enddate,legend_fontsize=14,
                plottypes=['line','mktcycle'],stemlw=8,llocs=['upper left','upper right'],
-               figsize=figsize,fb=recessions,sharex=True, hspace=0,ylims=['',(-3,5)],
+               figsize=figsize,fb=recessions,sharex=True, hspace=0,ylims=['',(-3,5)],xtick_labelsize=18,
                titles=titles,titlexy=[(0.5,0.9),(0.5,0.8)],height_ratios=[2,1],hlines =['',4.5])
 ```
 
 <figure>
- <img alt="Bull and Bear Markets 1950 to 2020 SP500" title="Bull and Bear Market Cycles, SP500 1950-2020" src="/images/FinancialMarkets/MktCycleZoomin.png" width="635">
- <figcaption>Figure 4a. S&P500 close price and market cycle from February 1, 2020 to March 1, 2020.</figcaption>
+ <img alt="Bull and Bear Markets COVID 2020, February to March" title="Bull and Bear Market Cycles, Feb to March 2020" src="/images/FinancialMarkets/MktCycleZoomin.png" width="635">
+ <figcaption>Figure 4b. S&P500 close price and market cycle from February 1, 2020 to March 1, 2020</figcaption>
  </figure>
 
  <figure>
-  <img alt="Bull and Bear Markets 1950 to 2020 SP500" title="Bull and Bear Market Cycles, SP500 1950-2020" src="/images/FinancialMarkets/MktCycleZoomin2.png" width="635">
+  <img alt="Bull and Bear Markets COVID 2020 BEAR" title="Bull and Bear Market Cycles, SP500 1950-2020" src="/images/FinancialMarkets/MktCycleZoomin2.png" width="635">
   <figcaption>Figure 4b. S&P500 close price and market cycle from February 1, 2020 to April 1, 2020</figcaption>
   </figure>
 

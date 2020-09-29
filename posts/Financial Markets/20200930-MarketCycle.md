@@ -12,14 +12,16 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLor
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
 <h1 style="color:	#115BDC;">Analyzing Bull and Bear Market Cycles in Python</h1>
-by Alberto Gutierrez,  September 30, 2020
+
 <figure>
  <img alt="Bull and Bear Markets 1950 to 2020 SP500" title="Bull and Bear Market Cycles, SP500 1950-2020" src="/images/FinancialMarkets/MarketCycle2.png" width="635">
- <figcaption><center>SP500 Bull and Bear Market Cycles from 1950 to 2020</center></figcaption>
+
  </figure>
 
- # Introduction
- 
+by Alberto Gutierrez,  September 30, 2020
+
+ # Introduction 
+
   This article is the first part of a three-part series of articles. Part 1 (this post) introduces software for analyzing Bull and Bear market conditions in Python. Ultimately the objective is to build a machine-learning algorithm to predict up (Bull) and down (Bear) market conditions. Creating the market prediction algorithm will employ a standard data science process described in Part 2.  An essential tool for building the market cycle model is the fmcyle.py module, introduced in this article, for analyzing market data ("close price"). Part 2 explores and combines additional data sources for use by the prediction model. In part 3, the machine learning algorithm is developed and backtested.
 
   Bull and Bear market conditions apply to stock markets such as the S&P 500 or NASDAQ. See [Investopedia](https://www.investopedia.com/insights/digging-deeper-bull-and-bear-markets/#:~:text=A%20bull%20market%20is%20a,stocks%20are%20declining%20in%20value.) for a general definition of Bull and Bear markets. In summary, the market will be in one of the two conditions where the market typically stays in an upward Bull market condition for an extended period, often years. However, the market can switch to a downward trending cycle with typical periods ranging from as short as a month to over a year and termed a "Bear" market condition.

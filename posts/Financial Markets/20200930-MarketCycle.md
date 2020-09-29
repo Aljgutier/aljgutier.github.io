@@ -277,9 +277,13 @@ fmplot(dfmc,variables,startdate=startdate,enddate=enddate,legend_fontsize=14,
                titles=titles,titlexy=[(0.5,0.9),(0.5,0.8)],height_ratios=[2,1],hlines =['',4.5])
 ```
 
-adfsdaf
 
-<figure>
+ <figure>
+ <img alt="Bull and Bear Markets COVID 2020, February to March" title="Bull and Bear Market Cycles, Feb to March 2020" src="/images/FinancialMarkets/MktCycleZoomin.png" width="635">
+ <figcaption>Figure 4b. S&P500 close price and market cycle from February 1, 2020 to March 1, 2020</figcaption>
+ </figure>
+
+ <figure>
  <img alt="Bull and Bear Markets COVID 2020, February to March" title="Bull and Bear Market Cycles, Feb to March 2020" src="/images/FinancialMarkets/MktCycleZoomin.png" width="635">
  <figcaption>Figure 4b. S&P500 close price and market cycle from February 1, 2020 to March 1, 2020</figcaption>
  </figure>

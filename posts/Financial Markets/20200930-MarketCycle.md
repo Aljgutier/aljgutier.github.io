@@ -19,7 +19,7 @@ by Alberto Gutierrez,  September 30, 2020
  </figure>
 
  # Introduction
- This article is the first part of a three-part series of articles. Part 1 (this post) introduces software for analyzing Bull and Bear market conditions in Python. Ultimately the objective is to build a machine-learning algorithm to predict up (Bull) and down (Bear) market conditions. Creating the market prediction algorithm will employ a standard data science process described in Part 2.  An essential tool for building the market cycle model is the fmcyle.py module, introduced in this article, for analyzing market data ("close price"). Part 2 explores and combines additional data sources for use by the prediction model. In part 3, the machine learning algorithm is developed and backtested.
+  This article is the first part of a three-part series of articles. Part 1 (this post) introduces software for analyzing Bull and Bear market conditions in Python. Ultimately the objective is to build a machine-learning algorithm to predict up (Bull) and down (Bear) market conditions. Creating the market prediction algorithm will employ a standard data science process described in Part 2.  An essential tool for building the market cycle model is the fmcyle.py module, introduced in this article, for analyzing market data ("close price"). Part 2 explores and combines additional data sources for use by the prediction model. In part 3, the machine learning algorithm is developed and backtested.
 
   Bull and Bear market conditions apply to stock markets such as the S&P 500 or NASDAQ. See [Investopedia](https://www.investopedia.com/insights/digging-deeper-bull-and-bear-markets/#:~:text=A%20bull%20market%20is%20a,stocks%20are%20declining%20in%20value.) for a general definition of Bull and Bear markets. In summary, the market will be in one of the two conditions where the market typically stays in an upward Bull market condition for an extended period, often years. However, the market can switch to a downward trending cycle with typical periods ranging from as short as a month to over a year and termed a "Bear" market condition.
 
@@ -107,7 +107,7 @@ dfmc,dfmcsummary=fmcycles(df=dfsp500,symbol='GSPC',compute=compute, mc_filename=
 
 # Market Cycle Summary
 
-Below, we display the *dfmcsummary* dataframe, which contains a summary of the market cycles. We will explore the detailed market cycles in the *dfmc* dataframe using the *fmplot()* function below. The *dfmcsummary* summary is in agreement with published S&P500 Bull and Bear markets. For example, compare to the the
+ Below, we display the *dfmcsummary* dataframe, which contains a summary of the market cycles. We will explore the detailed market cycles in the *dfmc* dataframe using the *fmplot()* function below. The *dfmcsummary* summary is in agreement with published S&P500 Bull and Bear markets. For example, compare to the the
 [Seeking Alpha](https://seekingalpha.com/article/4199997-historical-bull-and-bear-markets-of-s-and-p-500) article, which contains a listing of historical Bull and Bear market S&P500 markets.
 
 ```
@@ -285,7 +285,7 @@ fmplot(dfmc,variables,startdate=startdate,enddate=enddate,legend_fontsize=14,
 
   # Machine Learning Variables
 
-  Several variables that will be useful for machine learning are graphed below. It is essential to understand which variables are appropriate for machine learning and which ones are not.
+   Several variables that will be useful for machine learning are graphed below. It is essential to understand which variables are appropriate for machine learning and which ones are not.
 
   The *mkt* variable is employed as the target variable (dependent variable) variable for machine learning. That is, a machine learning algorithm is trained to predict *mkt*.  If a machine perfectly predicts this variable, it amounts to trading only when the market is in an upwardly trending condition and in very significant gains. Such a situation would result in "beating the market." Perfectly predicting *mkt* is extremely difficult, but it is possible to predict it with high accuracy, as we will see in Part 3.
 
@@ -315,9 +315,9 @@ fmplot(dfmc,variables,titles=title,startdate=startdate,enddate=enddate,stemlw=2,
  <figcaption><center> </center></figcaption>
  </figure>
 
- #Summary and Conclusions
+ # Summary and Conclusions
 
- In summary, this post is the first in a three-part series. This article (Part 1) contributes two functions for analyzing financial stock cycles. The *fmcycle()* function analyzes close price information to identify Bull and Bear market conditions, while *fmplot()* offers an easy to use plotting tool necessary for visualizing time series based stock market data. The ultimate objective of this blog series is to develop a machine learning model for the prediction of Bull and Bear market conditions. Part 2 explores data sources and aggregations for the predictive model, and Part 3 develops the model and tests the financial performance trough backtesting.
+  In summary, this post is the first in a three-part series. This article (Part 1) contributes two functions for analyzing financial stock cycles. The *fmcycle()* function analyzes close price information to identify Bull and Bear market conditions, while *fmplot()* offers an easy to use plotting tool necessary for visualizing time series based stock market data. The ultimate objective of this blog series is to develop a machine learning model for the prediction of Bull and Bear market conditions. Part 2 explores data sources and aggregations for the predictive model, and Part 3 develops the model and tests the financial performance trough backtesting.
 
  The result of applying *fmcycle()* to the S&P 500 data downloaded from Yahoo Finance is generating the detailed and summary market cycle dataframes, dfmc and dfmcsummary. The summary data frame contains start and end Bull and Bear market cycles, including *mcnr* (Market Cycle Normalized Return) at the end of each cycle. These results for start, end, and normalized return for each cycle match those reported elsewhere back to 1950. The detailed dataframe contains the *mkt* variable for each trading day marked as either +1 or -1, indicating the market is in a Bull (upward trend) condition or Bear (downward trend) condition.
 

@@ -20,7 +20,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
 by Alberto Gutierrez,  September 30, 2020
 
-# Introduction 
+# Introduction
 
   This article is the first part of a three-part series of articles. Part 1 (this post) introduces software for analyzing Bull and Bear market conditions in Python. Ultimately the objective is to build a machine-learning algorithm to predict up (Bull) and down (Bear) market conditions. Creating the market prediction algorithm will employ a standard data science process described in Part 2.  An essential tool for building the market cycle model is the fmcyle.py module, introduced in this article, for analyzing market data ("close price"). Part 2 explores and combines additional data sources for use by the prediction model. In part 3, the machine learning algorithm is developed and backtested.
 
@@ -259,7 +259,7 @@ fmplot(dfmc,variables,titles=title,stemlw=2,fb=recessions,
  <figcaption>Figure 3. Subplots: market cycle plot and Close Price line plot.</figcaption>
  </figure>
 
- # Zoom In
+# Zoom In
 
  The previous graph displays the entire length of the dataframe from the start date in 1950 to the end date in 2020. It is useful to zoom in and examine narrow ranges of time. Below we zoom into a one-month interval from February 1, 2020, to March 1, 2020 (Figure 4a). The top graph plots *Close* as a line graph and the bottom subgraph plots *mcnr* as mktcyle plot. Here we can see the first day of the COVID Bear beginning on Thursday, February 20. We also can observe the rapid market crash ensuing after February 20. The market was up 400% relative to the start of the Bull on March 9, 2009 (see dfmcsummary above). In the following graph (Figure 4b), we observe the entire Bear market cycle along with the close price by setting dates between February 1, 2020, and April 1, 2020.
 
@@ -286,7 +286,7 @@ fmplot(dfmc,variables,startdate=startdate,enddate=enddate,legend_fontsize=14,
   <figcaption>Figure 4b. S&P500 close price and market cycle from February 1, 2020 to April 1, 2020</figcaption>
   </figure>
 
-  # Machine Learning Variables
+# Machine Learning Variables
 
    Several variables that will be useful for machine learning are graphed below. It is essential to understand which variables are appropriate for machine learning and which ones are not.
 
@@ -318,7 +318,7 @@ fmplot(dfmc,variables,titles=title,startdate=startdate,enddate=enddate,stemlw=2,
  <figcaption><center> </center></figcaption>
  </figure>
 
- # Summary and Conclusions
+# Summary and Conclusions
 
   In summary, this post is the first in a three-part series. This article (Part 1) contributes two functions for analyzing financial stock cycles. The *fmcycle()* function analyzes close price information to identify Bull and Bear market conditions, while *fmplot()* offers an easy to use plotting tool necessary for visualizing time series based stock market data. The ultimate objective of this blog series is to develop a machine learning model for the prediction of Bull and Bear market conditions. Part 2 explores data sources and aggregations for the predictive model, and Part 3 develops the model and tests the financial performance trough backtesting.
 

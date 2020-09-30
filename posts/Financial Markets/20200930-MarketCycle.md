@@ -85,15 +85,14 @@ display(dfsp500.tail(2))
 
 # Analyze, Save, and Load the Market Cycles
 
-    The fmcycle.py module contains the *fmcycles()* function and it receives as input the *dfsp500* dataframe. When *compute* = 1 the market data is analyzed. The function returns the detailed ("daily") market cycle dataframe *dfmc* and summary market cycle dataframe *dfmcsummary*. Each is automatically saved to a csv file. If *compute* = 0 then *fmcycles()* expects to receive filenames to import the detailed and summary market cycle datafames.
+The fmcycle.py module contains the *fmcycles()* function and it receives as input the *dfsp500* dataframe. When *compute* = 1 the market data is analyzed. The function returns the detailed ("daily") market cycle dataframe *dfmc* and summary market cycle dataframe *dfmcsummary*. Each is automatically saved to a csv file. If *compute* = 0 then *fmcycles()* expects to receive filenames to import the detailed and summary market cycle datafames and in this case does not analyze the input dataframe.
 
-    The three key parameters used for analyzing the daily market data are
-    *mcdown_p*, *mcup_p*, and *variable*, defined as follows:
-    * *mcdown_p* = the percent decline from market high determining a Bear market condition.
-    * *mcup_p* = the percent increase from market low determining a Bull market.
-    * the variable in the input data frame, *df*, to analyze, by default = *Close*
+The three key parameters used for analyzing the daily market data are *mcdown_p*, *mcup_p*, and *variable*, defined as follows:
+  * *mcdown_p* = the percent decline from market high determining a Bear market condition.
+  * *mcup_p* = the percent increase from market low determining a Bull market.
+  * the *variable* in the input data frame, *df*, to analyze, by default = *Close*
 
-    It is possible to set *mcdown_p* and *mcup_p* to other cycles, such as 10% corrections, rather than the 20% Bull and Bear conditions. Furthermore, it is also entirely possible to analyze the up and down cyclic performance of any security in this manner other than the ^GSPC. For long term evaluation of an Equity, instead of a market index, the correct variable for analysis will be *Adj Close*.
+It is possible to set *mcdown_p* and *mcup_p* to other cycles, such as 10% corrections, rather than the 20% Bull and Bear conditions. Furthermore, it is also entirely possible to analyze the up and down cyclic performance of any security in this manner other than the ^GSPC. For long term evaluation of an Equity, instead of a market index, the correct variable for analysis will be *Adj Close*.
 
 ```
 f_dfmc="./data/GSPC_dfmc2020.5_1950_2020-8-24.csv"
@@ -109,7 +108,7 @@ dfmc,dfmcsummary=fmcycles(df=dfsp500,symbol='GSPC',compute=compute, mc_filename=
 
 # Market Cycle Summary
 
- Below, we display the *dfmcsummary* dataframe, which contains a summary of the market cycles. We will explore the detailed market cycles in the *dfmc* dataframe using the *fmplot()* function below. The *dfmcsummary* summary is in agreement with published S&P500 Bull and Bear markets. For example, compare to the the
+Below, we display the *dfmcsummary* dataframe, which contains a summary of the market cycles. We will explore the detailed market cycles in the *dfmc* dataframe using the *fmplot()* function below. The *dfmcsummary* summary is in agreement with published S&P500 Bull and Bear markets. For example, compare to the the
 [Seeking Alpha](https://seekingalpha.com/article/4199997-historical-bull-and-bear-markets-of-s-and-p-500) article, which contains a listing of historical Bull and Bear market S&P500 markets.
 
 ```

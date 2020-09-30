@@ -34,7 +34,7 @@ by Alberto Gutierrez,  September 30, 2020
   * [Analyze Save and Load Market Cycles](#analyze-save-and-load-market-cycles)
   * [Market Cycle Summary](#market-cycle-summary)
   * [Market Cycle Visualization](#market-cycle-visualization)
-  * [Recessions: Annotations and Fill-Between](#recessions:-annotations-and-fill-between)
+  * [Recessions: Annotations and Fill-Between](#recessions-annotations-and-fill-between)
   * [Subplots with MktCycle and Line Plots](#subplots-with-mktcycle-and-line-plots)
   * [Zoom In](#zoom-in)
   * [Machine Learning Variables](#machine-learning-variables)

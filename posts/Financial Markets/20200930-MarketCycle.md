@@ -59,12 +59,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime as dt
 from datetime import timedelta as td
-import seaborn as sns
 %run fmplot
 %run fmcycle
 ```
 
-Next, we import the S&P500 data. The data (symbol "^GSPC") has been downloaded from Yahoo finance and placed in the "data" directory. The market data begins on 1950-01-03 and ends on 2020-08-24.
+Next, we import the S&P500 data by downloading the symbol "^GSPC" from Yahoo finance and save it in the "data" directory (./data relative to the python working directory). For this exercise, the market data begins on 1950-01-03 and ends on 2020-08-24.
 
 ```
 # Read in S&P 500 Data
@@ -84,9 +83,9 @@ display(dfsp500.tail(2))
     2020-08-21	3397.16	3399.96	3379.31	3386.01	3.705420e+09	3397.16
     2020-08-24	3431.28	3432.09	3413.12	3418.09	3.728690e+09	3431.28
 
-    # Analyze, Save, and Load the Market Cycles
+# Analyze, Save, and Load the Market Cycles
 
-    The fmcycle.py module contains the *fmcycles()* function. We give as input the *dfsp500* dataframe. When *compute* = 1 the market data is analyzed, detailed ("daily") market cycle information *dfmc* and summary market cycle dataframes *dfmcsummary* are returned, and each is saved to a csv file. If *compute* = 0 then *fmcycles()* expects to receive filenames to import the detailed and summary market cycle datafames.
+    The fmcycle.py module contains the *fmcycles()* function and it receives as input the *dfsp500* dataframe. When *compute* = 1 the market data is analyzed. The function returns the detailed ("daily") market cycle dataframe *dfmc* and summary market cycle dataframe *dfmcsummary*. Each is automatically saved to a csv file. If *compute* = 0 then *fmcycles()* expects to receive filenames to import the detailed and summary market cycle datafames.
 
     The three key parameters used for analyzing the daily market data are
     *mcdown_p*, *mcup_p*, and *variable*, defined as follows:
@@ -324,7 +323,7 @@ fmplot(dfmc,variables,titles=title,startdate=startdate,enddate=enddate,stemlw=2,
 
   In summary, this post is the first in a three-part series. This article (Part 1) contributes two functions for analyzing the market. The *fmcycle()* function analyzes close price information to identify Bull and Bear market conditions, while *fmplot()* offers an easy to use plotting tool necessary for visualizing time series based stock market data. The ultimate objective of this blog series is to develop a machine learning model for the prediction of Bull and Bear market conditions. Part 2 explores and analyzes additional data sources for use by the predictive model, and Part 3 develops the predictive model and tests the resulting financial performance with backtesting.
 
- The result of applying *fmcycle()* to the S&P 500 data downloaded from Yahoo Finance is the detailed and summary market cycle dataframes, dfmc and dfmcsummary. The summary dataframe contains start and end Bull and Bear market cycles, including *mcnr* (Market Cycle Normalized Return). The results for start, end, and normalized return for each Bear and Bull market cycle match those reported elsewhere back to 1950. The detailed dataframe contains the *mkt* variable for each trading day marked as either +1 or -1, indicating the market is in a Bull (upward trend) condition or Bear (downward trend) condition. The detailed data frame also contains the daily *mcnr* relative to the start of the current cycle.
+ The result of applying *fmcycle()* to the S&P 500 data downloaded from Yahoo Finance is the generation of the detailed and summary market cycle dataframes, dfmc and dfmcsummary. The summary dataframe contains start and end Bull and Bear market cycles, including *mcnr* (Market Cycle Normalized Return). The results for start, end, and normalized return for each Bear and Bull market cycle match those reported elsewhere back to 1950. The detailed dataframe contains the *mkt* variable for each trading day marked as either +1 or -1, indicating the market is in a Bull (upward trend) condition or Bear (downward trend) condition. The detailed data frame also contains the daily *mcnr* relative to the start of the current cycle.
 
  Essential insights are gained by plotting the dfmc, *mcnr* variable with the *fmplot()* and observing the detailed market cycle behavior. Numerous insights are observed from annotations for Bull Markets and recessions, which are useful for understanding market behavior and thus building a market cycle prediction model. Additional insight is learned by zooming into specific dates and comparing the *mktcycle* plot with line plots of the market *close* price.
 

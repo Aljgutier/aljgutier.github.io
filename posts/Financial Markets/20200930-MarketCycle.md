@@ -142,7 +142,7 @@ display(dfmcsummary)
       2020-02-19	-1.0	 2020-02-19	2020-03-23	3386.149902	2237.399902	-0.339250
       2020-03-23	 1.0	 2020-03-23	NaT	        2237.399902	NaN      	   NaN
 
-For each row we have the start date, end date, start price, and end price of the market variable (Close price). The *mkt* variable indicates if the market is in an up trending (1.0, Bull) condition or in a down trending (-1.0, Bear) condition. The *mcnr* (market cycle normalized return) variable is the normalized return of the Close price at the end of the cycle relative to the start date.  
+For each row we have the start date, end date, start price, and end price of the market variable (close price). The *mkt* variable indicates if the market is in an up trending (1.0, Bull) condition or in a down trending (-1.0, Bear) condition. The *mcnr* (market cycle normalized return) variable is the normalized return of the close price, at the end of the cycle, relative to the start date.  
 
 # Market Cycle Visualization
 

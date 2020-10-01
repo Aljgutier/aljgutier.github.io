@@ -176,7 +176,7 @@ It is useful to add additional information to the plot, especially to generate p
 
 A typical addition is to show recessions. fmplot.py contains the *get_recessions()* function, which returns a list of recessions in the form of tuples (start date, end date). These are graphed using the fb (fill between) option.
 
-Next, we create lists of text annotations with descriptive titles for the Bull and Bear cycles, and recessions. The list elements include a tuple with the corresponding x and y coordinate, corresponding to where the annotation will be placed on the graph, and a text string. The text string may contain a "\n" character to designate a line return.
+Below, we create a list of text annotations with descriptive titles for the Bull and Bear cycles, and recessions. The list elements include a tuple with the corresponding x and y coordinate, corresponding to where the annotation will be placed on the graph, and a text string. The text string may contain a "\n" character to designate a line return.
 
 ```
 # Recession Data

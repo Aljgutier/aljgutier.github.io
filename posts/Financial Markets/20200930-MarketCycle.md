@@ -45,7 +45,7 @@ This article's content is listed below, including links to the software, several
  The programs and corresponding Jupyter nobebook are available as open source via Github at the following links
  * [fmcycle.py](https://github.com/Aljgutier/Pyquant/blob/master/fmcycle.py)
  * [fmplot.py](https://github.com/Aljgutier/Pyquant/blob/master/fmplot.py)
- * [mktcycle.ipynb](https://github.com/Aljgutier/Pyquant/blob/master/Market%20Cycle%20Notebook.ipynb)
+ * [Market Cycle Notebook.ipynb](https://github.com/Aljgutier/Pyquant/blob/master/Market%20Cycle%20Notebook.ipynb)
 
 
 # Initialization and Data Import

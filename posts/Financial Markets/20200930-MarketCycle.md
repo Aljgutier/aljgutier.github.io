@@ -51,7 +51,7 @@ This article's content is listed below, including links to the software, several
 # Initialization and Data Import
  The python code for the examples below is contained in the "Market Cycle Notebook" (link above) and available for download on Github.
 
- As with a typical data analysis, we begin by importing packages and modules. Since fmcycle.py and fmplot.py are not yet available within a Python package, it is required to download them and put them into a directory contained in the PYTHONPATH. Downloading the modules into the python/Jupyter working directory is typically the most straightforward approach.
+ As with a typical data analysis, we begin by importing packages and modules. Since fmcycle.py and fmplot.py are not yet available within a Python package, it is required to download them and put them into a directory contained in the PYTHONPATH. Downloading the modules into the Jupyter or Python working directory is typically the most straightforward approach.
 
 ```
 import pandas as pd

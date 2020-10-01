@@ -85,12 +85,12 @@ display(dfsp500.tail(2))
 
 # Analyze, Save, and Load the Market Cycles
 
-The fmcycle.py module contains the *fmcycles()* function and it receives as input the *dfsp500* dataframe. When *compute* = 1 the market data is analyzed. The function returns the detailed ("daily") market cycle dataframe *dfmc* and summary market cycle dataframe *dfmcsummary*. Each is automatically saved to a csv file. If *compute* = 0 then *fmcycles()* expects to receive filenames to import the detailed and summary market cycle datafames and in this case does not analyze the input dataframe.
+The fmcycle.py module contains the *fmcycles()* function and it receives as input the *dfsp500* dataframe. When *compute* = 1 the market data is analyzed and the function returns the detailed ("daily") market cycle dataframe *dfmc* and summary market cycle dataframe *dfmcsummary*. Each dataframe is automatically saved to a csv file. If *compute* = 0 then *fmcycles()* expects to receive filenames to import the detailed and summary market cycle datafames and in this case does not analyze the input dataframe.
 
 The three key parameters used for analyzing the daily market data are *mcdown_p*, *mcup_p*, and *variable*, defined as follows:
-  * *mcdown_p* = the percent decline from market high determining a Bear market condition.
-  * *mcup_p* = the percent increase from market low determining a Bull market.
-  * the *variable* in the input data frame, *df*, to analyze, by default = *Close*
+  * *mcdown_p* = the percent decline from market high determining a Bear market condition, default = 0.20.
+  * *mcup_p* = the percent increase from market low determining a Bull market, default = 0.205.
+  * *variable* = the name of the variable contained in the input data frame, *df*, to analyze, by default = *Close*
 
 It is possible to set *mcdown_p* and *mcup_p* to other cycles, such as 10% corrections, rather than the 20% Bull and Bear conditions. Furthermore, it is also entirely possible to analyze the up and down cyclic performance of any security in this manner other than the ^GSPC. For long term evaluation of an Equity, instead of a market index, the correct variable for analysis will be *Adj Close*.
 
@@ -108,7 +108,7 @@ dfmc,dfmcsummary=fmcycles(df=dfsp500,symbol='GSPC',compute=compute, mc_filename=
 
 # Market Cycle Summary
 
-Below, we display the *dfmcsummary* dataframe, which contains a summary of the market cycles. We will explore the detailed market cycles in the *dfmc* dataframe using the *fmplot()* function below. The *dfmcsummary* summary is in agreement with published S&P500 Bull and Bear markets. For example, compare to the the
+Below, is displayed the *dfmcsummary* dataframe, which contains a summary of the market cycles. We will explore the detailed market cycles in the *dfmc* dataframe using the *fmplot()* function below. The *dfmcsummary* summary is in agreement with published S&P500 Bull and Bear markets. For example, compare to the the
 [Seeking Alpha](https://seekingalpha.com/article/4199997-historical-bull-and-bear-markets-of-s-and-p-500) article, which contains a listing of historical Bull and Bear market S&P500 markets.
 
 ```
@@ -146,7 +146,7 @@ For each row we have the start date, end date, start price, and end price of the
 
 # Market Cycle Visualization
 
-We plot the detailed market cycle information with *fmplot()*, which is defined on top of [matplotlib](https://matplotlib.org/). We define a market cycle plot by use of a stem chart, with the use of colored stems, without a marker (at the top of the stem). To plot a market cycle style plot we set *plottype* ="mktcycle." We call the *fmplot()* function with the *variable* = *mcnr*. The *mcnr* variable was derived by *fmcycle()* and is contained in the detailed market cycle dataframe, dfmc. This variable is set to zero at the beginning of each market cycle. For a Bull market the variable increases (blue), until the last market high, prior to a 20% drop. Similarly, *mcnr* decreases from zero (red) until the market low prior to the market risng by 20.5% from the low. This is a classic chart used to visualize Bull and Bear markets, for example, look at the [Inveso](https://www.invesco.com/us-rest/contentdetail?contentId=049233173f5c3510VgnVCM100000c2f1bf0aRCRD&audienceType=investors) chart for comparison.
+We plot the detailed market cycle information with *fmplot()*, which is defined on top of [matplotlib](https://matplotlib.org/). A market cycle plot, *plottype* ='mktcycle', designates a stem chart, with the use of colored stems, without a marker (at the top of the stem). We call the *fmplot()* function with the *variable* = *mcnr*. The *mcnr* variable was derived by *fmcycle()* and is contained in the detailed market cycle dataframe, dfmc. This variable is set to zero at the beginning of each market cycle. For a Bull market the variable increases (blue), until the last market high, prior to a 20% drop. Similarly, *mcnr* decreases from zero (red) until the market low prior to the market rising by 20.5% from the low. This is a classic chart used to visualize Bull and Bear markets, for example, look at the [Inveso](https://www.invesco.com/us-rest/contentdetail?contentId=049233173f5c3510VgnVCM100000c2f1bf0aRCRD&audienceType=investors) chart for comparison.
 
 There are several additional options used in the example below. Setting *titlein* = TRUE appends the beginning and ending date of the input dataframe to the title. Most other inputs are easily understood. Documentation for all the input parameters is visible with Jupyter Shit+Tab feature.
 
@@ -164,11 +164,11 @@ fmplot(dfmc,variables,titles=title,
  </figure>
 
 
- From this graph, it is evident that characterizing the market cycles requires retroactive analysis.
+From this graph, it is evident that characterizing the market cycles requires retroactive analysis.
 
-For example, finding a Bear market (down-trending market), assuming we start during Bull (blue) market condition, starting from earlier dates to later dates, we identify a market-high close price (initialize to the close price corresponding to the first day). Then, moving forward day-by-day, we monitor the close price relative to the previous high each day until a new high is found or the market falls by 20% relative to the market high. On the day the market falls by 20% relative to the market high, a Bear market is detected. At this point, we go back (retroactively) and fill in the dates from the high to the present day and mark the days as *mkt* = -1. The market days before the high are marked as *mkt* = 1, corresponding to the Bull market. The Bear market starts on the next market day following the previous high. The *mcnr* variable is set equal to zero at the beginning of the market cycle and, from that point forward to the present, indicates the percent decrease from the market high.
+For example, finding a Bear market (down-trending market), assuming we start during Bull upward trending (blue) market condition, starting from earlier dates to later dates, we identify a market-high close price. Initialize the market high to the close price corresponding to the first day. Then, moving forward day-by-day, we monitor the close price relative to the previous high until a new high is found or the market falls by 20% relative to the market high. On the day the market falls by 20% relative to the market high, a Bear market is detected. At this point, we go back (retroactively) and fill in the dates from the high to the present day and mark the days as *mkt* = -1. The market days before the high are marked as *mkt* = 1, corresponding to the Bull market. The Bear market starts on the next market day following the previous high. The *mcnr* variable is set equal to zero at the beginning of the Bear market cycle, and from that point forward to the present, indicates the percent decrease from the market high.
 
-Similarly, once in a Bear market (downward trending market), a Bull market is detected when the market increases by greater than 20% relative to the market low. Once the market has increased by 20% from the market low, we go back (retroactively) and fill in the dates from the low to the present day and mark the days as *mkt* = 1. The market days before the market low, from the previous market high, are marked as *mkt* = -1, corresponding to the Bull market. The *mcnr* variable is set equal to zero at the beginning of the market cycle and, from that point forward to the present, indicates the percent increase from the market low.  
+Similarly, once in a Bear market (downward trending market), a Bull market is detected when the market increases by greater than 20% relative to the market low. Once the market has increased by 20% from the market low, we go back (retroactively) and fill in the dates from the low to the present day and mark the days as *mkt* = 1. The market days before the market low, from the previous market high, are marked as *mkt* = -1, corresponding to the Bull market. The *mcnr* variable is set equal to zero at the beginning of the Bull market cycle, and from that point forward to the present, indicates the percent increase from the market low.  
 
 # Recessions: Annotations and Fill-Between
 
@@ -176,7 +176,7 @@ It is useful to add additional information to the plot, especially to generate p
 
 A typical addition is to show recessions. fmplot.py contains the *get_recessions()* function, which returns a list of recessions in the form of tuples (start date, end date). These are graphed using the fb (fill between) option.
 
-Next, we create lists of text annotations with descriptive titles for the Bull and Bear cycles and recessions. The list elements include a tuple including the corresponding x and y coordinate for the annotation and a text string. The text strings may contain a "\n" character to designate a line return.
+Next, we create lists of text annotations with descriptive titles for the Bull and Bear cycles, and recessions. The list elements include a tuple with the corresponding x and y coordinate, corresponding to where the annotation will be placed on the graph, and a text string. The text string may contain a "\n" character to designate a line return.
 
 ```
 # Recession Data
@@ -231,19 +231,19 @@ fmplot(dfmc,variables,titles=title,fb=recessions,
  <figcaption> Figure 2. Bull and Bear market plot with annotations.</figcaption>
  </figure>
 
- Several insights result from this graph. Our objective is not to deep dive into classic market analysis, but especially to make observations that will aid in designing a machine learning model.
-  * The first most apparent observations is the cyclic behavior of the market. It tends to rise, upward trend line (blue) then goes into a downward trend (red), followed by a repetition of the cycle.
+ Several insights result from this graph. Our objective here is not to deep dive into classic market analysis, but especially to make observations that will aid in designing a machine learning model.
+  * The first most apparent observation is the cyclic behavior of the market. It tends to rise, upward trend line (blue) then goes into a downward trend (red), followed by a repetition of the cycle.
   * The upward trend's length typically occurs for several years, wherein a growing market is the normal situation, but is interrupted by shorter length downward trends or crashes.
   * Recessions can occur without causing a market crash. For example, the Gulf War Recession or the post-Korean war recession occurred during Bull markets. Recessions tend to be reactionary to the market, rather than a leading indicator of the market. Often there are market crashes without recessions, and sometimes a recession follows a market crash.
-  * We learn from various annotations that often outside forces are the instigators of crashes. A case in point is the 2020 COVID Pandemic. In this case, external forces had an enormous impact on the financial market. The pandemic crisis had nothing to do with financial markets, but the effect due to social distancing strongly impacted the workforce and business operations across most industries.
-  * In some cases, the same trends that are driving the market up are the ones that bring the market down. Such a case is the 2007 - 2009 Financial Crisis, where the U.S. housing market, sub-prime mortgages, drove the market up and then brought the market down with the collapse of the U.S. housing market.
-  * In many cases, assets are overvalued and are termed [asset bubbles](https://www.investopedia.com/articles/personal-finance/062315/five-largest-asset-bubbles-history.asp). In such cases, certain metrics, for example, price-to-earnings ratio, increase significantly above historical levels leading to straightforward prediction and consequently higher market impact. A case in point is the DoT Com Bubble, which led to unjustified multi-billion dollar valuations for some young companies that went public. Looking at Figure 3, we observe it took from 2000 to late 2007 to regain the lost market value lost in the Dot Com Bubble.
+  * We learn from various annotations that often outside forces are the instigators of crashes. A case in point is the 2020 COVID Pandemic. The pandemic crisis had nothing to do with financial markets, but the effect due to social distancing strongly impacted the workforce and business operations across most industries.
+  * In some cases, the same trends that are driving the market up are the ones that bring the market down. Such a case is the 2007 - 2009 Financial Crisis, where the U.S. housing market, sub-prime mortgage investments, drove the market up and then brought the market down with the collapse of the U.S. housing market.
+  * In many cases, assets are overvalued and are termed [asset bubbles](https://www.investopedia.com/articles/personal-finance/062315/five-largest-asset-bubbles-history.asp). In such cases, certain metrics, for example, price-to-earnings ratio, increase significantly above historical levels leading to straightforward prediction and market impact. A case in point is the DoT Com Bubble, which led to unjustified multi-billion dollar valuations for some young companies that went public. Looking at Figure 3, we observe it took from 2000 to late 2007 to regain the lost market value from the Dot Com Bubble.
 
  From these observations, it is evident that outside factors have a strong influence on the market. Thus, additional data sources that capture the effects of external forces should be useful for predicting market downturns. We will explore additional data sources in part 2 of this series.
 
 # Subplots with MktCycle and Line Plots
 
-When analyzing variables and trends, it is useful to compare multiple market variables. For example, it is beneficial to examine the *mcnr* and compare it to the close price. Here we provide *fmplot()* a list of variables to be plotted along with a list of plot types. We also set *hspace* = 0, calling for no space between the subplots. More details for these features are available by examining the *fmplot()* "docstrings" with the Jupyter shift+Tab feature.
+When analyzing variables and trends, it is useful to compare multiple market variables. For example, it is beneficial to examine the *mcnr* and compare it to the close price. Here we provide *fmplot()* a list of variables to be plotted along with a list of plot types. We also set *hspace* = 0, indicating no space between the subplots. More details for these features are available by examining the *fmplot()* "docstrings" with the Jupyter shift+Tab feature.
 
 ```
 title=['Bull and Bear Normalized Returns', 'Close Price']
@@ -260,7 +260,7 @@ fmplot(dfmc,variables,titles=title,stemlw=2,fb=recessions,
 
 # Zoom In
 
- The previous graph displays the entire length of the dataframe from the start date in 1950 to the end date in 2020. It is useful to zoom in and examine narrow ranges of time. Below we zoom into a one-month interval from February 1, 2020, to March 1, 2020 (Figure 4a). The top graph plots *Close* as a line graph and the bottom subgraph plots *mcnr* as mktcyle plot. Here we can see the first day of the COVID Bear beginning on Thursday, February 20. We also can observe the rapid market crash ensuing after February 20. The market was up 400% relative to the start of the Bull on March 9, 2009 (see dfmcsummary above). In the following graph (Figure 4b), we observe the entire Bear market cycle along with the close price by setting dates between February 1, 2020, and April 1, 2020.
+ The previous graph displays the entire length of the dataframe from the start date in 1950 to the end date in 2020. It is useful to zoom in and examine narrow ranges of time. Below we zoom into a one-month interval from February 1, 2020, to March 1, 2020 (Figure 4a). The top graph plots *Close* as a line graph and the bottom subplot graphs *mcnr* as mktcyle plot. Here we can see the first day of the COVID Bear beginning on Thursday, February 20. We also can observe the rapid market crash ensuing after February 20. The market was up 400% relative to the start of the Bull on March 9, 2009. In the next graph (Figure 4b), we observe the entire Bear market cycle along with the close price by setting dates between February 1, 2020, and April 1, 2020.
 
 ```
 figsize=(18,8)
@@ -288,13 +288,13 @@ fmplot(dfmc,variables,startdate=startdate,enddate=enddate,legend_fontsize=14,
 
 # Machine Learning Variables
 
-   Several variables that will be useful for machine learning are graphed below. It is essential to understand which variables are appropriate for machine learning and which ones are not.
+   Several variables generated by *fmcycle()* are useful for creating a machine learning model of the market cycles. It is also essential to understand which variables are appropriate for machine learning and which ones are not.
 
-  The *mkt* variable is employed as the target variable (dependent variable) variable for machine learning. That is, a machine learning algorithm is trained to predict *mkt*.  If a machine perfectly predicts this variable, it amounts to trading only when the market is in an upwardly trending condition and in very significant gains. Such a situation would result in "beating the market." Perfectly predicting *mkt* is extremely difficult, but it is possible to predict it with high accuracy, as we will see in Part 3.
+  The *mkt* variable is employed as the target variable (dependent variable) variable in the training of the machine learning model. That is, a machine learning algorithm is trained to predict *mkt*.  If a machine perfectly predicts this variable, it amounts to trading only when the market is in an upwardly trending condition Bull market and in very significant gains. Such a situation would result in "beating the market" over the long term, including at least one or more Bull and Bear cycles. Perfectly predicting *mkt* is extremely difficult, but it is possible to predict it with high accuracy, as we will see in Part 3.
 
   *Close*, *mucdown*, *mdcup*, and *mcupm* are useful as machine learning features, meaning predictor variables, after proper normalization. These signals are described as follows.
-  * *Close* - this variable is simply the daily market close price and will need to be properly normalized for use as a machine learning feature variable.
-  * *mcupm* - This signal is generated by *fmcycles()* and marks the point in time when the market is known to be in up or down condition, without retroactive analysis. For example, the market is in a Bull upward trend condition, and a Bear market is not yet detected.
+  * *Close* - this variable is the daily market close price and will need to be properly normalized for use as a machine learning feature variable.
+  * *mcupm* - This signal is generated by *fmcycles()* and marks the point in time when the market is in an up or down condition, without retroactive analysis. This signal is not perfectly aligned with *mkt* as seen in the graph. For example, the market is in a Bull upward trend condition, and a Bear market is not yet detected, so *mcupm* lags *mkt*.
   * *mucdown* - This signal is generated by *fmcycles()*. When in a Bull market condition, *mucdown* is the percent down from the previously detected market high.
   * *mdcup* - This signal is generated by *fmcycles()*. When in a Bear market condition, *mdcup* is the percent up form the previously detected low.
 
@@ -326,4 +326,4 @@ fmplot(dfmc,variables,titles=title,startdate=startdate,enddate=enddate,stemlw=2,
 
  Essential insights are gained by plotting the dfmc, *mcnr* variable with the *fmplot()* and observing the detailed market cycle behavior. Numerous insights are observed from annotations for Bull Markets and recessions, which are useful for understanding market behavior and thus building a market cycle prediction model. Additional insight is learned by zooming into specific dates and comparing the *mktcycle* plot with line plots of the market *close* price.
 
- The *fmcycles* function also generates variables that are essential for developing a market cycle prediction model. The *mkt* variable is employed in a machine learning prediction model, as the target variable (i.e., "label"). It is important to note that the *mcnr* variable is not appropriate to use as a prediction variable, since it is derived retroactively from future dates, as is the target variable *mkt*. Additional variables generated by *fmcycle()* and useful for machine learning are *mucdown*, *mcdup*, and *mcupm* signals, as described earlier in this article. These variables will be explored further in Parts 2 and 3 of this article series.
+ The *fmcycles* function generates variables that are essential for developing a market cycle prediction model. The *mkt* variable is employed in a machine learning prediction model, as the target variable (i.e., "label"). It is important to note that the *mcnr* variable is not appropriate to use as a prediction variable, since it is derived retroactively from future dates, and would result in leakage. Additional variables generated by *fmcycle()* that are useful for machine learning are *mucdown*, *mcdup*, and *mcupm*. These variables will be explored further in Parts 2 and 3 of this article series.

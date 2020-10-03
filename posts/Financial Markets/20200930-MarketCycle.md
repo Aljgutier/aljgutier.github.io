@@ -243,7 +243,7 @@ fmplot(dfmc,variables,titles=title,fb=recessions,
   * The 1987 Black Monday Bear is a result of several outside influences including computerized trading, fears of the devaluation of the dollar, and military tensions with Iraq.
   * The 1980-82 Volker Bear is attributed to the Fed raising interest rates in order to slow inflation, but then making it difficult to borrow money contributing to a high employment rate and a market slow down.
 
- From these observations, it is evident that outside factors have a strong influence on the market. In some cases, market downturns are due to world events such as military conflicts, world politics, and worldwide pandemics. In some cases new technologies, such as computerized trading, react quickly to cause a stock sell off with devastating effect. In other cases monetary decisions designed to be helpful have harmful side effects. To some degree following each market crash new policies, practices, and corrections are adopted to prevent future crashes.
+ From these observations, it is evident that outside factors have a strong influence on the market. In some cases, market downturns are due to world events such as military conflicts, world politics, and worldwide pandemics. In some cases new technologies such as computerized trading react quickly to cause a stock sell off with devastating effect. In other cases monetary decisions designed to be helpful have harmful side effects. To some degree following each market crash new policies, practices, and corrections are adopted to prevent future crashes.
 
  From all these observations, there are at least two general points for developing a market cycle prediction model.
  * a model will likely have to learn quickly as a new market situation develops.

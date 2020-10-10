@@ -22,7 +22,7 @@ In this article we study a state-of-the-art predictive analytics pipeline for ti
 
 In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting for a problem with a rich set of exogenous variables.
 
-Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann dataset, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest).
+Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann data set, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest).
 
 
 #### Examples of Other Timeseries Forecasting Use Cases
@@ -44,13 +44,13 @@ It is worth noting that a typical approach to forecasting is employment of ARIMA
 
 The single row of independent variables is designed for predicting the dependent variable(s). The success of the overall prediction solution is dependent on properly engineering these predictive features ("feature engineering"). However, the predictive model and analytics pipeline is similar for prediction or forecasting. In the case of forecasting the index is a timeseries, and the prediction is a forward prediction in time.
 
-### Rossmann Dataset
+### Rossmann data set
 
-What is the the Rossman dataset? Rossman is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossman challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the dataset to Kaggle. The data contains approximately 1 million rows at a size of 38 MB.
+What is the the Rossman data set? Rossman is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossman challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the data set to Kaggle. The data contains approximately 1 million rows at a size of 38 MB.
 
-Why this dataset? The Rossman dataset is chosen for the following reasons. A well understood dataset with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentiment classification. These datasets tend to be excellent for exploring data algorithms because the data science community understands the data, the respective algorithms and performance, and there are numerous published examples with open source code.
+Why this data set? The Rossman data set is chosen for the following reasons. A well understood data set with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentiment classification. These s tend to be excellent for exploring data algorithms because the data science community understands the data, the respective algorithms and performance, and there are numerous published examples with open source code.
 
-Similarly, the Rossmann, Kaggle dataset is becoming popular for exploring predictive analytics forecasting problems; case in point, it is referenced in the following use cases.
+Similarly, the Rossmann, Kaggle data set is becoming popular for exploring predictive analytics forecasting problems; case in point, it is referenced in the following use cases.
 
  * [Rossmann store sales competition](https://www.kaggle.com/c/rossmann-store-sales)
  * [Fastai introduction to Deep Learning for Tabular Data](https://www.fast.ai/2018/04/29/categorical-embeddings/)
@@ -70,7 +70,7 @@ The pipeline is common for both models studied in this post. The difference will
 
 Figure 1. illustrates the data processing and ML/AI pipeline including loading the raw data, X' (representing data prior to time T), preprocessing, preparing the data for machine learning and prediction, and forecasting of the future value ŷ for time t ≥ T. This article is primarily concerned with the 3rd step, the forecasting model and in particular entity embeddings within a deep-learning architecture. In order to appreciate the benefits of the deep-learning model, it is useful to compare it to an ensemble tree-based model, a Random Forest.
 
-The coding begins with importing the fastai library (based on Fastai version 0.7). See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable, *PATH* that points to the dataset. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
+The coding begins with importing the fastai library (based on Fastai version 0.7). See installations instructions here [Fastai 0.7](https://forums.fast.ai/t/fastai-v0-7-install-issues-thread/24652). We also set a variable, *PATH* that points to the data set. The data is available from Kaggle, and for convenience, can be downloaded in one .tgz file from [here](http://files.fast.ai/part2/lesson14/rossmann.tgz).
 
 ```python
 from fastai.structured import *
@@ -390,7 +390,7 @@ m = md.get_learner(emb_szs, len(df.columns)-len(cat_vars),
                    0.04, 1, [1000,500], [0.001,0.01], y_range=y_range)
 m.load('val0')
 
-# columnar dataset
+# columnar data set
 cds = ColumnarDataset.from_data_frame(df_test,cat_vars)
 # data loader
 dl = DataLoader(cds,batch_size=128)
@@ -415,7 +415,7 @@ predictions
 
 <h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
-In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman dataset. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
+In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman data set. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
 
 <table>
  <caption> Table 1. Summary of Deep Learning time-series forecasting model</caption>
@@ -462,7 +462,7 @@ Though it is significantly more complex than the RF model, the training time is 
  </tr>
  <tr>
    <td> Data Set </td>
-   <td> - Rossman, Kaggle dataset <br>
+   <td> - Rossman, Kaggle data set <br>
         - preprocessing steps taken from 3rd place winner <br>
         - 844,438 raining rows, 22 categorical features, 16 continuous features
      </td>

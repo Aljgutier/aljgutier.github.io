@@ -15,7 +15,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 by Alberto Gutierrez  May 20, 2019
 <figure>
  <img alt="Time-series graph, Rosmman, top and bottom store sales" title="Time-series graph, Rosmman, top and bottom store sales" src="/images/TimeSeriesForecasting/TSeriesChart.png" width="635">
- <figcaption><center>Rossman Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
+ <figcaption><center>Rossmann Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
 In this article we study a state-of-the-art predictive analytics pipeline for time series structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
@@ -44,17 +44,17 @@ It is worth noting that a typical approach to forecasting is employment of ARIMA
 
 The single row of independent variables is designed for predicting the dependent variable(s). The success of the overall prediction solution is dependent on properly engineering these predictive features ("feature engineering"). However, the predictive model and analytics pipeline is similar for prediction or forecasting. In the case of forecasting the index is a timeseries, and the prediction is a forward prediction in time.
 
-### Rossmann data set
+### Rossmann Data Set
 
-What is the the Rossman data set? Rossman is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossman challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the data set to Kaggle. The data contains approximately 1 million rows at a size of 38 MB.
+What is the the Rossmann data set? Rossmann is the largest drugstore in Germany and operates 3,000 drug stores in 7 European countries. In 2015 the store managers were tasked with predicting daily sales for up to six weeks in advance. Subsequently, Rossmann challenged Kaggle to predict 6 weeks of daily sales for 1,115 stores located across Germany, and thus released the data set to Kaggle. The data contains approximately 1 million rows at a size of 38 MB.
 
-Why this data set? The Rossman data set is chosen for the following reasons. A well understood data set with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentiment classification. These s tend to be excellent for exploring data algorithms because the data science community understands the data, the respective algorithms and performance, and there are numerous published examples with open source code.
+Why this data set? The Rossmann data set is chosen for the following reasons. A well understood data set with benchmarked performance and realistic complexity is preferred. For example, this is the case for several well-known data sets commonly used in the development of AI and ML models. Some examples include CIFAR for image processing, Wordnet for NLP, the Iris data set for prediction, handwritten digits for classification, and IMDb for sentiment classification. These s tend to be excellent for exploring data algorithms because the data science community understands the data, the respective algorithms and performance, and there are numerous published examples with open source code.
 
 Similarly, the Rossmann, Kaggle data set is becoming popular for exploring predictive analytics forecasting problems; case in point, it is referenced in the following use cases.
 
  * [Rossmann store sales competition](https://www.kaggle.com/c/rossmann-store-sales)
  * [Fastai introduction to Deep Learning for Tabular Data](https://www.fast.ai/2018/04/29/categorical-embeddings/)
- * [Stanford CS229, Final Projects based on Rossman store sales](http://cs229.stanford.edu/projects2015.html)
+ * [Stanford CS229, Final Projects based on Rossmann store sales](http://cs229.stanford.edu/projects2015.html)
  * [Journal publications, Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf)
  * [Harvard CS109 Canvas Course Files](https://canvas.harvard.edu/courses/12656/files/2822190/download?verifier=YnKtGBBF3fzpM6Wnlc4lAFdRWfkK1f0ah8YodOoY&wrap=1)
 
@@ -82,7 +82,7 @@ PATH='data/rossmann/'
 
 Though we do not discuss the code for the data preprocessing transformations in detail, it is essential to understand the data, including the preprocessing and ML preparation. However, for this article, the feature engineering is taken as a given.
 
-We take the pre-processing and data preparation from the Kaggle 3rd place winners because they published their notebook and published a technical paper. The code is contained in the fastai [lesson3-rossmann.ipynb]() Jupyter notebook. For convenience, a Jupyter notebook with only the preprocessing commands is available [here](https://github.com/Aljgutier/aljpspacedl1). Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossman competition, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
+We take the pre-processing and data preparation from the Kaggle 3rd place winners because they published their notebook and published a technical paper. The code is contained in the fastai [lesson3-rossmann.ipynb]() Jupyter notebook. For convenience, a Jupyter notebook with only the preprocessing commands is available [here](https://github.com/Aljgutier/aljpspacedl1). Input to the preprocessing is from the tables listed below. Additional information regarding these tables are further discussed on the [Kaggle, Rossmann competition, data page](https://www.kaggle.com/c/rossmann-store-sales/data)
 
 <table>
    <caption> Table 1. Input Data Tables </caption>
@@ -121,7 +121,7 @@ We take the pre-processing and data preparation from the Kaggle 3rd place winner
 
 </table>
 
-First, the data files are read into a Pandas dataframe. The use of unique data sources can potentially have a good payoff for predictive performance. In this case, Kaggle competitors employed [Google Trends to identify weeks and states correlated with Rossman](https://www.kaggle.com/c/rossmann-store-sales/discussion/17130) and weather information. This information is transformed into machine learning features during the ML preparation step followed by normalization (continuous variables) and numericalization of categorical variables. The processing employs typical methods for this type of data, for example, table joins, running averages, time until next event, and time since the last event. The outputs of the preprocessing and preparation section are saved in the "joined" and "joined_test" files in "feather" format, which are then loaded into the Jupyter notebook for the next step of processing ("Prepare for ML and Prediction").
+First, the data files are read into a Pandas dataframe. The use of unique data sources can potentially have a good payoff for predictive performance. In this case, Kaggle competitors employed [Google Trends to identify weeks and states correlated with Rossmann](https://www.kaggle.com/c/rossmann-store-sales/discussion/17130) and weather information. This information is transformed into machine learning features during the ML preparation step followed by normalization (continuous variables) and numericalization of categorical variables. The processing employs typical methods for this type of data, for example, table joins, running averages, time until next event, and time since the last event. The outputs of the preprocessing and preparation section are saved in the "joined" and "joined_test" files in "feather" format, which are then loaded into the Jupyter notebook for the next step of processing ("Prepare for ML and Prediction").
 
 ```python
 joined = pd.read_feather(f'{PATH}/joined')
@@ -415,7 +415,7 @@ predictions
 
 <h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
-In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossman data set. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
+In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossmann data set. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
 
 <table>
  <caption> Table 1. Summary of Deep Learning time-series forecasting model</caption>
@@ -462,7 +462,7 @@ Though it is significantly more complex than the RF model, the training time is 
  </tr>
  <tr>
    <td> Data Set </td>
-   <td> - Rossman, Kaggle data set <br>
+   <td> - Rossmann, Kaggle data set <br>
         - preprocessing steps taken from 3rd place winner <br>
         - 844,438 raining rows, 22 categorical features, 16 continuous features
      </td>

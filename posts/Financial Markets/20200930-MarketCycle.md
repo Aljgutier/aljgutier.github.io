@@ -263,7 +263,7 @@ fmplot(dfmc,variables,titles=title,stemlw=2,fb=recessions,
 
 
 <figure>
- <img alt="Bull and Bear Markets 1950 to 2020 SP500" title="Bull and Bear Market Cycles, SP500 1950-2020" src="/images/FinancialMarkets/MarketCycleAndSPClose.png" width="635">
+ <img alt="Bull and Bear Markets 1950 to 2020 SP500 and close price" title="Bull and Bear Market Cycles, SP500 1950-2020 and close price" src="/images/FinancialMarkets/MarketCycleAndSPClose.png" width="635">
  <figcaption>Figure 3. Subplots: market cycle plot and close price.</figcaption>
  </figure>
 

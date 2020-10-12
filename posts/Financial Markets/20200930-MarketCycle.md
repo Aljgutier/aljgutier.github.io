@@ -316,8 +316,9 @@ enddate=dt.datetime(2020,8,1)
 title=['Bull and Bear Normalized Returns', 'Close',' MKT', 'mucdown and mdcup from last high or low']
 variables=['mcnr','Close','mkt',['mucdown','mdcup']]
 fmplot(dfmc,variables,titles=title,startdate=startdate,enddate=enddate,stemlw=2,fb=recessions,
-          plottypes=['mktcycle','line','line','line'],
-          hspace=0.00,titlein=False, figsize=(18,12),titledate=True)
+          plottypes=['mktcycle','line','line','line'],xtick_labelsize=18,
+          hspace=0.025,sharex=True,titlein=True, titlexy=[(0.5,0.85),'','',''],
+          figsize=(18,12))
 
 ```
 

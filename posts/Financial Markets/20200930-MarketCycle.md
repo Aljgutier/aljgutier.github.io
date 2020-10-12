@@ -251,7 +251,7 @@ fmplot(dfmc,variables,titles=title,fb=recessions,
 
 # Subplots with MktCycle and Line Plots
 
-When analyzing variables and trends, it is useful to compare multiple market variables. For example, it is beneficial to examine the *mcnr* and compare it to the close price. Here we provide *fmplot()* a list of variables to be plotted along with a list of plot types. We also set *hspace* indicaing a small amount of space between subplots, and set *sharex* = True for sharing the x-axis for all graphs. More details for these features are available by examining the *fmplot()* "docstrings" with the Jupyter shift+Tab feature.
+When analyzing variables and trends, it is useful to compare multiple market variables. For example, it is beneficial to examine the *mcnr* and compare it to the close price. Here we provide *fmplot()* a list of variables to be plotted along with a list of plot types. We also set *hspace* indicating a small amount of space between subplots, and set *sharex* = True for sharing the x-axis for all graphs. More details for these features are available by examining the *fmplot()* "docstrings" with the Jupyter shift+Tab feature.
 
 ```
 title=['Bull and Bear Normalized Returns', 'Close Price']

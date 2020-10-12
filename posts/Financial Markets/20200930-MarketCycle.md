@@ -257,7 +257,8 @@ When analyzing variables and trends, it is useful to compare multiple market var
 title=['Bull and Bear Normalized Returns', 'Close Price']
 variables=['mcnr','Close']
 fmplot(dfmc,variables,titles=title,stemlw=2,fb=recessions,
-          plottypes=['mktcycle','line'],legend_fontsize=14,llocs=['upper left','best'], hspace=0, titlein=True, figsize=(18,10),titledate=True)
+          plottypes=['mktcycle','line'],legend_fontsize=14,llocs=['upper left','best'],
+          xtick_labelsize=18, hspace=0.025, sharex=True,titlein=True, figsize=(18,10),titledate=True)
 ```
 
 

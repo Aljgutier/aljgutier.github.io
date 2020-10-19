@@ -76,4 +76,4 @@ Finally, insights are generated in almost every step of the process. Insights ar
 
 [3] Aurelien Geron, [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/Aurelien G), O'Reilly Media, Inc. 2nd Edition.
 
-[4]Bryent Dykes, [Actionable Insights](https://www.forbes.com/sites/brentdykes/2016/04/26/actionable-insights-the-missing-link-between-data-and-business-value/#39f705df51e5), Forbes, April 26, 2016.
+[4] Bryent Dykes, [Actionable Insights](https://www.forbes.com/sites/brentdykes/2016/04/26/actionable-insights-the-missing-link-between-data-and-business-value/#39f705df51e5), Forbes, April 26, 2016.

@@ -74,6 +74,6 @@ Finally, insights are generated in almost every step of the process. Insights ar
 
 [2] Dr. Datman, [Data Science Modeling Process and Six Consultative Roles](https://towardsdatascience.com/data-science-modeling-process-fa6e8e45bf02), Towards Data Science, November 12, 2018
 
-[3] Aurelien Geron, [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/Aurelien G), O'Reilly Media, Inc. 2nd Edition.
+[3] Aurelien Geron, [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/), O'Reilly Media, Inc. 2nd Edition, September 2019.
 
 [4] Bryent Dykes, [Actionable Insights](https://www.forbes.com/sites/brentdykes/2016/04/26/actionable-insights-the-missing-link-between-data-and-business-value/#39f705df51e5), Forbes, April 26, 2016.

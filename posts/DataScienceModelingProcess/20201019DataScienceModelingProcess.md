@@ -64,8 +64,9 @@ Model deployment requires integrating the model into the business process. This 
 ### Model Operations
 Once the model is in production, it will need constant monitoring to ensure that it performs as expected. Some models learn (i.e., train) and adapt in production. However, several situations will require enhancement or tuning of the model. For example, such cases include the data statistics or user behavior changing such that improved model design, model hyper-parameters, or a different type of model is needed. New types of models may be discovered that bring better performance and ROI, such as deep learning AI-based models, which use additional information such as language and sentiment. If the model does not automatically retrain, the model performance may slowly drift to require a regular update. Another typical reason to update the model is new predictive data becoming available so that the data pipeline is updated and new features are available.
 
+
 ### Insights
-Finally, insights are generated in almost every step of the process. Insights are often visualized in charts or graphs, and become powerful when they are timely, drive action, and are integrated into stories.$^{4}$ A useful tool for communicating and discovering isights is a data dashboard, with drill-downs that facilitate data exploration by a non-data scientist or domain expert. Insights can also be operationalized by delivering personalized alerts and reports to business functional managers and or customers.  
+Finally, insights are generated in almost every step of the process. Insights are often visualized in charts or graphs, become powerful when they are timely, drive action, and are integrated into stories.$^{4}$ A useful tool for communicating and discovering insights is a data dashboard, with drill-downs that facilitate data exploration by a non-data scientist or domain expert. Insights can also be operationalized by delivering personalized alerts and reports to functional business managers and or customers.
 
 
 # References

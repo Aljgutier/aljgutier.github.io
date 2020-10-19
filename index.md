@@ -10,3 +10,5 @@
 ### [Financial Markets](posts/Financial Markets/index.md)
 
 ### [Product Marketing](posts/Product Marketing/index.md)
+
+### [Data Science Modeling Process](posts/DataScienceModelingProcess/20201019DataScienceModelingProcess.md)

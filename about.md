@@ -13,3 +13,7 @@ Applied data science, machine learning, and AI.
 
 ### Linkedin
 [Alberto Gutierrez](https://www.linkedin.com/in/alberto-j-gutierrez)
+
+
+### Github
+[aljgutier github](https://github.com/Aljgutier)

@@ -18,7 +18,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
  </figure>
 
-by Alberto Gutierrez,  September 30, 2020
+by Alberto Gutierrez, September 30, 2020
 
 # Introduction
 
@@ -55,7 +55,7 @@ This article's content is listed below, including links to the software, several
 
  As with a typical data analysis, we begin by importing packages and modules. Since fmcycle.py and fmplot.py are not yet available within a Python package, it is required to download them and put them into a directory contained in the PYTHONPATH. Downloading the modules into the Jupyter or Python working directory is typically the most straightforward approach.
 
-```
+```PYTHON
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -96,7 +96,7 @@ The three key parameters used for analyzing the daily market data are *mcdown_p*
 
 It is possible to set *mcdown_p* and *mcup_p* to other cycles, such as 10% corrections, rather than the 20% Bull and Bear conditions. Furthermore, it is also entirely possible to analyze the up and down cyclic performance of any security in this manner other than the ^GSPC. For long term evaluation of an Equity, instead of a market index, the correct variable for analysis will be *Adj Close*.
 
-```
+```python
 f_dfmc="./data/GSPC_dfmc2020.5_1950_2020-8-24.csv"
 f_dfmcs="./data/GSPC_dfmcs2020.5_1950_2020-8-24.csv"
 
@@ -113,7 +113,7 @@ dfmc,dfmcsummary=fmcycles(df=dfsp500,symbol='GSPC',compute=compute, mc_filename=
 Below, is displayed the *dfmcsummary* dataframe, which contains a summary of the market cycles. We will explore the detailed market cycles in the *dfmc* dataframe using the *fmplot()* function below. The *dfmcsummary* summary is in agreement with published S&P500 Bull and Bear markets. For example, compare to the the
 [Seeking Alpha](https://seekingalpha.com/article/4199997-historical-bull-and-bear-markets-of-s-and-p-500) article, which contains a listing of historical Bull and Bear market S&P500 markets.
 
-```
+```python
 display(dfmcsummary)
 ```
 
@@ -152,7 +152,7 @@ We plot the detailed market cycle information with *fmplot()*, which is defined 
 
 There are several additional options used in the example below. Setting *titlein* = True appends the beginning and ending date of the input dataframe to the title. Most other inputs are easily understood. Documentation for all the input parameters is visible with Jupyter Shit+Tab feature.
 
-```
+```python
 title=['Bull and Bear Normalized Returns']
 variables=['mcnr']
 fmplot(dfmc,variables,titles=title,
@@ -180,7 +180,7 @@ A typical addition is to show recessions. fmplot.py contains the *get_recessions
 
 Below, we create a list of text annotations with descriptive titles for the Bull and Bear cycles, and recessions. The list elements include a tuple with the corresponding x and y coordinate, corresponding to where the annotation will be placed on the graph, and a text string. The text string may contain a "\n" character to designate a line return.
 
-```
+```python
 # Recession Data
 # get recessions and put in dataframe to make it look pretty
 
@@ -219,7 +219,7 @@ recessionannotations.append((dt.datetime(2018,1,1),4.2,'2020\nCOVID-19\nRecessio
 
 The *fmplot()* function with fb and annotation options generates the classic Bear and Bull market cycle chart, including a display of recessions and descriptive text.
 
-```
+```python
 title=['Bull and Bear Normalized Returns']
 variables=['mcnr']
 fmplot(dfmc,variables,titles=title,fb=recessions,
@@ -253,7 +253,7 @@ fmplot(dfmc,variables,titles=title,fb=recessions,
 
 When analyzing variables and trends, it is useful to compare multiple market variables. For example, it is beneficial to examine the *mcnr* and compare it to the close price. Here we provide *fmplot()* a list of variables to be plotted along with a list of plot types. We also set *hspace* indicating a small amount of space between subplots, and set *sharex* = True for sharing the x-axis for all subplots. More details for these features are available by examining the *fmplot()* "docstrings" with the Jupyter shift+Tab feature.
 
-```
+```python
 title=['Bull and Bear Normalized Returns', 'Close Price']
 variables=['mcnr','Close']
 fmplot(dfmc,variables,titles=title,stemlw=2,fb=recessions,
@@ -271,7 +271,7 @@ fmplot(dfmc,variables,titles=title,stemlw=2,fb=recessions,
 
  The previous graph displays the entire length of the dataframe from the start date in 1950 to the end date in 2020. It is useful to zoom in and examine narrow ranges of time. Below we zoom into a one-month interval from February 1, 2020, to March 1, 2020 (Figure 4a). The top graph plots *Close* as a line graph and the bottom subplot graphs *mcnr* as mktcyle plot. Here we can see the first day of the COVID Bear beginning on Thursday, February 20. We also can observe the rapid market crash ensuing after February 20. The market was up 400% relative to the start of the Bull on March 9, 2009. In the next graph (Figure 4b), we observe the entire Bear market cycle along with the close price by setting dates between February 1, 2020, and April 1, 2020.
 
-```
+```python
 figsize=(18,8)
 startdate=dt.datetime(2020,2,1)
 enddate=dt.datetime(2020,3,1)
@@ -309,7 +309,7 @@ fmplot(dfmc,variables,startdate=startdate,enddate=enddate,legend_fontsize=14,
 
   The variable that should not be used for machine learning is *mcnr*. The *mcnr* variable, as described above, is derived by retroactively identifying the market condition. It must not be used for prediction, or "leakage" will occur. Leakage is when the dependent variable leaks back into the machine learning features. In such a case, the machine learning algorithm will unfairly learn and appear to work very well during the training phase, but it will usually perform less effectively in the real world prediction phase due to poor generalization.
 
-```
+```python
 startdate=dt.datetime(2017,2,1)
 enddate=dt.datetime(2020,8,1)
 
@@ -340,16 +340,16 @@ The *fmcycles* function generates variables that are essential for developing a 
 
 # Market References
 
-[Asset Bubbles, Investopedia](https://www.investopedia.com/articles/personal-finance/062315/five-largest-asset-bubbles-history.asp)
+[1] [Asset Bubbles](https://www.investopedia.com/articles/personal-finance/062315/five-largest-asset-bubbles-history.asp), Investopedia
 
-[Invesco, Listing of Bear and Bull Market Cycles ](https://www.invesco.com/us-rest/contentdetail?contentId=049233173f5c3510VgnVCM100000c2f1bf0aRCRD&audienceType=investors)
+[2] [Invesco, Listing of Bear and Bull Market Cycles ](https://www.invesco.com/us-rest/contentdetail?contentId=049233173f5c3510VgnVCM100000c2f1bf0aRCRD&audienceType=investors), Invesco
 
-[Past Recessions, Investopedia](https://www.investopedia.com/articles/economics/08/past-recessions.asp)
+[3] [Past Recessions](https://www.investopedia.com/articles/economics/08/past-recessions.asp), Investopedia
 
-[History of Bear Markets since 1929, Fox Business](https://www.foxbusiness.com/markets/history-of-bear-markets-since-1929)
+[4] [History of Bear Markets since 1929](https://www.foxbusiness.com/markets/history-of-bear-markets-since-1929), Fox Business
 
-[The Golden Bear, Marotta on Money](https://www.marottaonmoney.com/the-golden-bear-the-bear-market-of-1973/)
+[5] [The Golden Bear](https://www.marottaonmoney.com/the-golden-bear-the-bear-market-of-1973/), Marotta on Money
 
-[The Dot Com Bubble, Marotta on Money](https://www.marottaonmoney.com/the-dot-com-bubble-the-bear-market-of-2001/)
+[6] [The Dot Com Bubble](https://www.marottaonmoney.com/the-dot-com-bubble-the-bear-market-of-2001/), Marotta on Money
 
-[Historic Bear Markets, NBC News](http://www.nbcnews.com/id/37740147/ns/business-stocks_and_economy/t/historic-bear-markets/#.X1k--RPYrUI)
+[7] [Historic Bear Markets](http://www.nbcnews.com/id/37740147/ns/business-stocks_and_economy/t/historic-bear-markets/#.X1k--RPYrUI), NBC News

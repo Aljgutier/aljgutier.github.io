@@ -55,7 +55,7 @@ This article's content is listed below, including links to the software, several
 
  As with a typical data analysis, we begin by importing packages and modules. Since fmcycle.py and fmplot.py are not yet available within a Python package, it is required to download them and put them into a directory contained in the PYTHONPATH. Downloading the modules into the Jupyter or Python working directory is typically the most straightforward approach.
 
-```PYTHON
+```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -67,7 +67,7 @@ from datetime import timedelta as td
 
 Next, we import the S&P500 data by downloading the symbol "^GSPC" from Yahoo finance and save it in the "data" directory (./data relative to the python working directory). For this exercise, the market data begins on 1950-01-03 and ends on 2020-08-24.
 
-```
+```python
 # Read in S&P 500 Data
 dfsp500 = pd.read_csv('./data/GSPC_1950-1-3_to_2020-8-24.csv',index_col=0,parse_dates=True)
 display(dfsp500.head(2))

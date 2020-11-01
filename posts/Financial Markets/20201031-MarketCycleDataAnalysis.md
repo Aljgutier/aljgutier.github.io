@@ -486,62 +486,62 @@ tmp_remove_cols=['Close','High','Low','Open','Volume','Earnings']
 corr_matrix = df_ml.drop(columns=tmp_remove_cols,axis=1).corr()
 print(corr_matrix['mkt'].sort_values( ascending = False))
 ```
-['mkt' 'mcupm' 'mcnr' 'mucdown' 'mdcup' 'PE' 'PE_mom' 'Earnings_mom'
- 'T10Y3M' 'GDP' 'gdp_qoq' 'recession1q' 'recession2q' 'UNRATE'
- 'unrate_pchange' 'CPIAUCSL' 'cpimom' 'UMCSENT' 'umcsent_pchange'
- 'Close_nma1' 'Volume_nma1' 'Close_nma5' 'Volume_nma5' 'Close_nma10'
- 'Volume_nma10' 'Close_nma15' 'Volume_nma15' 'Close_nma20' 'Volume_nma20'
- 'Close_nma30' 'Volume_nma30' 'Close_nma50' 'Volume_nma50' 'Close_nma200'
- 'Volume_nma200' 'rma_sma50_sma200' 'rma_sma20_sma50' 'PDI50' 'NDI50'
- 'ADX' 'Close_lrstd25' 'Close_lrstd63' 'Close_lrstd126'
- 'Close_lrstd25_avgvel5' 'Close_lrstd63_avgvel5' 'Close_lrstd126_avgvel5']    
-    mkt                       1.000000
-    mcnr                      0.407377
-    Close_nma200              0.384183
-    Close_nma50               0.365427
-    Close_nma30               0.336877
-    rma_sma50_sma200          0.336456
-    rma_sma20_sma50           0.319561
-    mcupm                     0.303942
-    Close_nma20               0.297762
-    Close_nma15               0.272517
-    Close_nma10               0.238956
-    PDI50                     0.238481
-    umcsent_pchange           0.185696
-    Close_nma5                0.181201
-    UNRATE                    0.139746
-    UMCSENT                   0.134231
-    GDP                       0.109271
-    CPIAUCSL                  0.108861
-    Close_nma1                0.087609
-    Volume_nma200             0.080180
-    T10Y3M                    0.068570
-    Earnings_mom              0.067040
-    Volume_nma50              0.037872
-    Volume_nma30              0.026944
-    recession2q               0.025583
-    ADX                       0.025054
-    Volume_nma20              0.019722
-    PE_mom                    0.017526
-    Volume_nma15              0.015658
-    Volume_nma10              0.009042
-    gdp_qoq                   0.007912
-    Volume_nma5               0.003342
-    Volume_nma1               0.001041
-    NDI50                    -0.029316
-    PE                       -0.036005
-    unrate_pchange           -0.047461
-    Close_lrstd25_avgvel5    -0.064506
-    recession1q              -0.086878
-    mdcup                    -0.089539
-    Close_lrstd63_avgvel5    -0.091399
-    Close_lrstd126_avgvel5   -0.120839
-    Close_lrstd126           -0.130164
-    Close_lrstd63            -0.160196
-    cpimom                   -0.182724
-    Close_lrstd25            -0.196038
-    mucdown                  -0.282421
-    Name: mkt, dtype: float6
+      ['mkt' 'mcupm' 'mcnr' 'mucdown' 'mdcup' 'PE' 'PE_mom' 'Earnings_mom'
+       'T10Y3M' 'GDP' 'gdp_qoq' 'recession1q' 'recession2q' 'UNRATE'
+       'unrate_pchange' 'CPIAUCSL' 'cpimom' 'UMCSENT' 'umcsent_pchange'
+       'Close_nma1' 'Volume_nma1' 'Close_nma5' 'Volume_nma5' 'Close_nma10'
+       'Volume_nma10' 'Close_nma15' 'Volume_nma15' 'Close_nma20' 'Volume_nma20'
+       'Close_nma30' 'Volume_nma30' 'Close_nma50' 'Volume_nma50' 'Close_nma200'
+       'Volume_nma200' 'rma_sma50_sma200' 'rma_sma20_sma50' 'PDI50' 'NDI50'
+       'ADX' 'Close_lrstd25' 'Close_lrstd63' 'Close_lrstd126'
+       'Close_lrstd25_avgvel5' 'Close_lrstd63_avgvel5' 'Close_lrstd126_avgvel5']    
+          mkt                       1.000000
+          mcnr                      0.407377
+          Close_nma200              0.384183
+          Close_nma50               0.365427
+          Close_nma30               0.336877
+          rma_sma50_sma200          0.336456
+          rma_sma20_sma50           0.319561
+          mcupm                     0.303942
+          Close_nma20               0.297762
+          Close_nma15               0.272517
+          Close_nma10               0.238956
+          PDI50                     0.238481
+          umcsent_pchange           0.185696
+          Close_nma5                0.181201
+          UNRATE                    0.139746
+          UMCSENT                   0.134231
+          GDP                       0.109271
+          CPIAUCSL                  0.108861
+          Close_nma1                0.087609
+          Volume_nma200             0.080180
+          T10Y3M                    0.068570
+          Earnings_mom              0.067040
+          Volume_nma50              0.037872
+          Volume_nma30              0.026944
+          recession2q               0.025583
+          ADX                       0.025054
+          Volume_nma20              0.019722
+          PE_mom                    0.017526
+          Volume_nma15              0.015658
+          Volume_nma10              0.009042
+          gdp_qoq                   0.007912
+          Volume_nma5               0.003342
+          Volume_nma1               0.001041
+          NDI50                    -0.029316
+          PE                       -0.036005
+          unrate_pchange           -0.047461
+          Close_lrstd25_avgvel5    -0.064506
+          recession1q              -0.086878
+          mdcup                    -0.089539
+          Close_lrstd63_avgvel5    -0.091399
+          Close_lrstd126_avgvel5   -0.120839
+          Close_lrstd126           -0.130164
+          Close_lrstd63            -0.160196
+          cpimom                   -0.182724
+          Close_lrstd25            -0.196038
+          mucdown                  -0.282421
+          Name: mkt, dtype: float6
 
 
 ##### Correlation Heatmap

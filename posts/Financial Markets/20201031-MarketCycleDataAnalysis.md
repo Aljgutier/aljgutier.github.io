@@ -355,6 +355,13 @@ fmplot(df_ml,variables=['mcnr','PE','PE_mom','Earnings','Earnings_mom'],plottype
 <figcaption>Figure 1. Un-employment rate and consumer sentiment.</figcaption>
 </figure>
 
+<figure>
+ <img alt="Momentum Variables, 2005 to 2012" title="Market Momentum Variables" src="/images/FinancialMarkets/UnRateSentCPI.png" width="700">
+
+ </figure>
+
+
+
 ##### Price Earnings
 
 The price to earnings ratio, *PE* variable, is a ratio that measures the current market price relative to trailing earnings. The S&P 500 historical average P/E ratio, going back to 1971, is 19.4. For various reasons, the ratio will deviate from this average. We make several observations that will help towards deriving ML features.

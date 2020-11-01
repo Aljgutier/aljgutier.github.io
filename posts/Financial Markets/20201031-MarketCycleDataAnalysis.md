@@ -354,7 +354,7 @@ fmplot(df_ml,variables=['mcnr','PE','PE_mom','Earnings','Earnings_mom'],plottype
 
 
 <figure>
- <img alt="Unemployment Rate and Consumer Sentiment", title="Unemployment Rate and Consumer Sentiment" src="/images/FinancialMarkets/UnRateSentCPI.png" width="700">
+ <img alt="Unemployment Rate and Consumer Sentiment" title="Unemployment Rate and Consumer Sentiment" src="/images/FinancialMarkets/UnRateSentCPI.png" width="700">
 <figcaption>Figure 1. Un-employment rate and consumer sentiment.</figcaption>
 </figure>
 

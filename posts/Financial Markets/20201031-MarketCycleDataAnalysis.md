@@ -353,8 +353,6 @@ fmplot(df_ml,variables=['mcnr','PE','PE_mom','Earnings','Earnings_mom'],plottype
 
 
 
-
-
 <figure>
  <img alt="Unemployment Rate and Consumer Sentiment", title="Unemployment Rate and Consumer Sentiment" src="/images/FinancialMarkets/UnRateSentCPI.png" width="700">
 <figcaption>Figure 1. Un-employment rate and consumer sentiment.</figcaption>
@@ -387,7 +385,7 @@ fmplot(df_ml,variables=['mcnr','PE','Earnings','Earnings_mom'],plottypes=['mktcy
 ```
 
 <figure>
- <img alt="S&P 500 Price Earnings Ratio", title="S&P 500 Price Earnings Ratio", src="/images/FinancialMarkets/SP_PriceEarnings.png" width="700">
+ <img alt="S&P 500 Price Earnings Ratio" title="S&P 500 Price Earnings Ratio", src="/images/FinancialMarkets/SP_PriceEarnings.png" width="700">
 <figcaption>Figure 2. S&P 500 Price Earnings Ratio</figcaption>
 </figure>
 

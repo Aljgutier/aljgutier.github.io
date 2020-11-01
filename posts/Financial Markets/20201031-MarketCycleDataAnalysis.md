@@ -358,11 +358,6 @@ fmplot(df_ml,variables=['mcnr','PE','PE_mom','Earnings','Earnings_mom'],plottype
 <figcaption>Figure 1. Un-employment rate and consumer sentiment.</figcaption>
 </figure>
 
-<figure>
- <img alt="Economic Indicators, 1995 to 2020" title="Market Momentum Variables" src="/images/FinancialMarkets/UnRateSentCPI.png" width="700">
-
- </figure>
-
 
 
 ##### Price Earnings
@@ -385,7 +380,7 @@ fmplot(df_ml,variables=['mcnr','PE','Earnings','Earnings_mom'],plottypes=['mktcy
 ```
 
 <figure>
- <img alt="S&P 500 Price Earnings Ratio" title="S&P 500 Price Earnings Ratio", src="/images/FinancialMarkets/SP_PriceEarnings.png" width="700">
+ <img alt="S&P 500 Price Earnings Ratio" title="S&P 500 Price Earnings Ratio" src="/images/FinancialMarkets/SP_PriceEarnings.png" width="700">
 <figcaption>Figure 2. S&P 500 Price Earnings Ratio</figcaption>
 </figure>
 
@@ -414,7 +409,7 @@ fmplot(df_ml,variables,titles=titles,startdate=startdate,
 ```
 
 <figure>
- <img alt="Momentum", title="Momentum", src="/images/FinancialMarkets/MomentumVariables.png" width="700">
+ <img alt="Momentum" title="Momentum", src="/images/FinancialMarkets/MomentumVariables.png" width="700">
 <figcaption>Figure 3. Consumer price index.</figcaption>
 </figure>
 
@@ -437,7 +432,7 @@ fmplot(df_ml,['Close',['PDI50','NDI50']],titles=titles,startdate=startdate,
 ```
 
 <figure>
- <img alt="ADX", title="ADX", src="/images/FinancialMarkets/ADX.png" width="700">
+ <img alt="ADX" title="ADX" src="/images/FinancialMarkets/ADX.png" width="700">
 <figcaption>Figure 4. ADX - Average Directional Index.</figcaption>
 </figure>
 
@@ -459,7 +454,7 @@ fmplot(df_ml,['Close',['Close_lrstd25','Close_lrstd63','Close_lrstd126'],['Close
 ```
 
 <figure>
- <img alt="Volatility", title= "VolatilityX", src="/images/FinancialMarkets/Volatility.png" width="700">
+ <img alt="Volatility" title= "VolatilityX" src="/images/FinancialMarkets/Volatility.png" width="700">
 <figcaption>Figure 5. Volatility.</figcaption>
 </figure>
 
@@ -568,7 +563,7 @@ plt.show()
 ```
 
 <figure>
- <img alt="Corellation heat map", title= "Correlation heat map", src="/images/FinancialMarkets/CorrelationHeatMap.png" width="700">
+ <img alt="Corellation heat map" title= "Correlation heat map" src="/images/FinancialMarkets/CorrelationHeatMap.png" width="700">
 <figcaption>Figure 6. Correlation heat map.</figcaption>
 </figure>
 
@@ -637,7 +632,7 @@ The top left curve approximates the total correlation to a future date. Together
 * The economic indicators, bottom right, show a strong correlation without a time shift. Some of the variables, such as the Yield curve and Consumer Price index, show a strong correlation over a long period into the future.
 
 <figure>
- <img alt="Time shift correlation to target variable", title= "Timie shift correlation to target variable", src="/images/FinancialMarkets/TimeCorrelationToTarget.png" width="700">
+ <img alt="Time shift correlation to target variable" title= "Timie shift correlation to target variable" src="/images/FinancialMarkets/TimeCorrelationToTarget.png" width="700">
 <figcaption>Figure 7. Correlation to shifted target variable.</figcaption>
 </figure>
 

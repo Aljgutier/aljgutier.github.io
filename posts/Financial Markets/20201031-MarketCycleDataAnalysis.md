@@ -77,11 +77,11 @@ import quandl
 ```
 The python code for the examples discussed in this article is contained in the "SP500_MktCycle_Data" notebook (link above).
 
-We begin by importing packages and modules. Since fmget.py, fmtransforms.py, fmcycle.py, and fmplot.py are not available within a python package. Thus, using the software requires downloading into a directory contained in the PYTHONPATH. Downloading the modules into the Jupyter or python working directory is typically the most straightforward approach.
+We begin by importing packages and modules. The fmget.py, fmtransforms.py, fmcycle.py, and fmplot.py are not available within a python package. Thus, using the software requires downloading into a directory contained in the PYTHONPATH. Downloading the modules into the Jupyter or Python working directory is typically the most straightforward approach.
 
 # Data important
 
-Data import will demonstrate how to import data from public APIs using functions within the fmget.py module and transform the data for subsequent analysis with functions within the fmtransforms.py module.
+The data import example herein demonstrates how to import data from public APIs using functions within the fmget.py module and transform the data for subsequent analysis with functions within the fmtransforms.py module.
 
 ### Importing Raw Data from APIs
 
@@ -205,7 +205,7 @@ if update_data==True:
 
 ### Market Cycles
 
-file or computed from newly available S&P price data. The *compute* variable is set equal to 1, indicating to derive market cycles from S&P close price. When *compute* = 0, the market cycle information is loaded from a saved file. This latter option is convenient to save time since it takes a few minutes to compute the market cycles for the market history going back to 1950. However, when analyzing the data and restarting the notebook, it is unnecessary to recompute the market cycles when the market data has not changed. The fmcyle() function was discussed in detail in the previous post [Analyzing Bull and Bear Market Cycles in python](https://aljgutier.github.io/posts/Financial%20Markets/20200930-MarketCycle/). A couple of rows of the detailed market cycle dataframe (dfmc) are listed following the code block.
+In the code block bellow, the market cycles are imported from a file or computed from newly available S&P price data. When the *compute* variable is set equal to 1, the cycles are derived from S&P close price. When *compute* = 0, the market cycle information is loaded from a saved file. This latter option is convenient to save time since it takes a few minutes to compute the market cycles for the market history going back to 1950. However, when analyzing the data and restarting the notebook, it is unnecessary to recompute the market cycles when the market data has not changed. The fmcyle() function was discussed in detail in the previous post [Analyzing Bull and Bear Market Cycles in python](https://aljgutier.github.io/posts/Financial%20Markets/20200930-MarketCycle/). A couple rows of the detailed market cycle dataframe (dfmc) are listed following the code block.
 
 ```python
 #Market Cycles

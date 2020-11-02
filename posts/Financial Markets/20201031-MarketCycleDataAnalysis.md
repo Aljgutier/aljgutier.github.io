@@ -437,7 +437,7 @@ fmplot(df_ml,['Close',['PDI50','NDI50']],titles=titles,startdate=startdate,
 
 ##### Volatility
 
-As described previously, the market volatility is measured with the log return standard deviation and illustrated in Figure 6. During the 2007 - 2009 Financial Crisis, the volatility increases as the market crashes, but volatility falls as the market recovers. As with some of the previous variables, movement velocity (direction) is an important clue. The increasing or decreasing volatility is captured in the "velocity" (difference or derivative) of the log return standard deviation, Close_lrstdxx_avgvel5 variables, and also includes a 5-day running average.
+The market volatility is measured with the log return standard deviation and illustrated in Figure 6. During the 2007 - 2009 Financial Crisis, the volatility increases as the market crashes, but volatility falls as the market recovers. As with some of the previous variables, movement velocity (direction) is an important clue. The increasing or decreasing volatility is captured in the "velocity" (difference or derivative) of the log return standard deviation, Close_lrstdxx_avgvel5 variables, and also includes a 5-day running average.
 
 
 ```python

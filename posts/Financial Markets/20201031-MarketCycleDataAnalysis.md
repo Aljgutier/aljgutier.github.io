@@ -354,16 +354,16 @@ fmplot(df_ml,variables=['mcnr','PE','PE_mom','Earnings','Earnings_mom'],plottype
 
 
 <figure>
- <img alt="Unemployment Rate and Consumer Sentiment" title="Unemployment Rate and Consumer Sentiment" src="/images/FinancialMarkets/UnRateSentCPI.png" width="700">
-<figcaption>Figure 1. Un-employment rate and consumer sentiment.</figcaption>
+ <img alt="Economic indicators relative to market cycles" title="Economic indicators relative to market cycles" src="/images/FinancialMarkets/UnRateSentCPI.png" width="700">
+<figcaption>Figure 1. Economic indicators relative to market cycles.</figcaption>
 </figure>
 
 
 
 ##### Price Earnings
 
-The price to earnings ratio, *PE* variable, is a ratio that measures the current market price relative to trailing earnings. The S&P 500 historical average P/E ratio, going back to 1971, is 19.4. For various reasons, the ratio will deviate from this average. We make several observations that will help towards deriving ML features.
-* The PE ratio is based on price from forward-looking expectations and can turn inordinately positive during the initial part of the upcycle.  Earnings typically fall when the economy slows down, and thus prices based on future valuations can lead to an inordinately high P/E, when the trailing earnings have fallen. Though awkward from a financial perspective, this situation can serve as useful predictive input to the ML model. For example, in Figure 2, as expected, we see earnings fall during market down cycles, and herein.
+The price to earnings ratio, *PE* variable, is a ratio that measures the current market price relative to trailing earnings. The S&P 500 historical average P/E ratio, going back to 1971, is 19.4. For various reasons, the ratio will deviate from this average. Herein we make several observations that will help towards deriving ML features.
+* The PE ratio is based on price from forward-looking expectations and can turn inordinately positive during the initial part of an up cycle.  Earnings typically fall when the economy slows down, and thus prices based on future valuations can lead to an inordinately high P/E ratio, when the trailing earnings have fallen and forward expectations are high. Though awkward from a financial perspective, this situation can serve as useful predictive input to the ML model. For example, in Figure 2, as expected, we see earnings fall during market down cycles, and with positive forward looking earnings expectations prices will be high leading to an inordinately high P/E ratio.
 * It is interesting to observe that the P/E ratio was flat before the crashes in 2001, 2007, and 2020.
 * In other situations, Prices can be too optimistic when the expectation of future profits is unreasonably high.
 * The directional change in the *PE* indicates of the valuations to future earnings are increasing or decreasing.

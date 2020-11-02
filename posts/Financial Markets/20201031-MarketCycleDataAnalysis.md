@@ -568,7 +568,7 @@ plt.show()
 </figure>
 
 
-##### Feature Correlations to Shifted Target Variable
+##### Correlation to Shifted Target Variable
 
 Many of the ML Feature variables are moving averages intended to represent price movements over different periods. Depending on the averaging window, the variable will have an optimal correlation with the target variable sometime in the future. Figure 7 illustrates the correlation with the target variable in the future.
 

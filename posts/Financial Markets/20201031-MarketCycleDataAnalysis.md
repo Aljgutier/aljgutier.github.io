@@ -83,7 +83,7 @@ We begin by importing packages and modules. The fmget.py, fmtransforms.py, fmcyc
 
 The data import example herein demonstrates how to import data from public APIs using functions within the fmget.py module and transform the data for subsequent analysis with functions within the fmtransforms.py module.
 
-### Importing Raw Data from APIs
+#### Importing Raw Data from APIs
 
 The code block below first imports data from the existing set of saved data files. If the parameter *update_data* is equal to True, then the current data is augmented with new information acquired from several publicly available APIs. Setting the *start* and *end* datetime variables indicates to get data only over the corresponding dates. fmget.py facilitates a simple data management level by appending new data to the existing data sources and saving the updated data into the specified directory. The files' names are updated automatically based on the acquired data, start, and end dates in the corresponding dataframe. This process enables archiving data for when recovery is needed or the API sources are unavailable.
 
@@ -203,7 +203,7 @@ if update_data==True:
     index
     2020-03-01	89.1
 
-### Market Cycles
+#### Market Cycles
 
 In the code block bellow, the market cycles are imported from a file or computed from newly available S&P price data. When the *compute* variable is set equal to 1, the cycles are derived from S&P close price. When *compute* = 0, the market cycle information is loaded from a saved file. This latter option is convenient to save time since it takes a few minutes to compute the market cycles for the market history going back to 1950. However, when analyzing the data and restarting the notebook, it is unnecessary to recompute the market cycles when the market data has not changed. The fmcyle() function was discussed in detail in the previous post [Analyzing Bull and Bear Market Cycles in python](https://aljgutier.github.io/posts/Financial%20Markets/20200930-MarketCycle/). A couple rows of the detailed market cycle dataframe (dfmc) are listed following the code block.
 

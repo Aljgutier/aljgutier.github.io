@@ -92,16 +92,16 @@ To get started, when existing data is not yet available, new data can be downloa
 The data import is facilitated by several functions within the fmget.py module, as follows.
 * **Yahoo** - yahoo_getappend() acquires data from a specific symbol from Yahoo Finance and appends it to the existing data.
 * **Quandl** - quandl_sppe_getappend() acquires price to earnings data from the Quandle API. A Quandle API Key will be required. The  API key is loaded from a file in the current working directory (see code below).
-* **FRED** - fred_getappend() acquires data ("series") from the FRED (St. Louis Federal Reserve Bank of St. Louis). This API also requires an API key. Similarly, the API key is loaded from a current working directory (see code below).
+* **FRED** - fred_getappend() acquires data ("series") from the FRED (St. Louis Federal Reserve Bank of St. Louis). This API also requires an API key. Similarly, the API key is loaded from a file in the current working directory (see code below).
 
-The following data is acquired.
-* S&P 500 daily stock prices, acquired from S&P500 Yahoo, updated daily.
-* S&P500 Price/Earnings is acquired from Quandl. The P/E ratio is reported monthly. Fmget then extrapolates an earnings number (for the past year) from the trailing year P/E, and then the daily P/E is computed using the S&P 500  close price.
-* T10Y3M - The spread between 10-year treasury yield to 3-month treasury yield, reported daily, acquired from the FRED API.
-* GDP - global domestic product, reported quarterly and acquired from the FRED API.
-* UNRATE - unemployment rate reported monthly, acquired from the FRED API.
-* CPIAUCSL - consumer price index, reported monthly and acquired from the FRED API.
-* UMCSENT - University of Michigan consumer sentiment, reported monthly, acquired from the FRED API.
+The following data are acquired from open APIs.
+* **S&P 500 daily stock prices**, acquired from S&P500 Yahoo, updated daily.
+* **S&P 500 Price/Earnings** is acquired from Quandl. The P/E ratio is reported monthly. Fmget then extrapolates an earnings number (for the past year) from the trailing year P/E, and then the daily P/E is computed using the S&P 500  close price.
+* **T10Y3M** - The spread between 10-year treasury yield to 3-month treasury yield, reported daily, acquired from the FRED API.
+* **GDP** - Gross Domestic Product, reported quarterly and acquired from the FRED API.
+* **UNRATE** - Unemployment Rate reported monthly, acquired from the FRED API.
+* **CPIAUCSL** - Consumer Price Index (CPI), reported monthly and acquired from the FRED API.
+* **UMCSENT** - University of Michigan consumer sentiment, reported monthly, acquired from the FRED API.
 
 On some occasions, data may be reported less frequently than indicated above due to extenuating circumstances, for example, as during the COVID-19 pandemic. Such situations have occurred for the acquisition of P/E and Consumer Sentiment. In such cases, we proceed by filling forward until new data is available.
 
@@ -327,14 +327,14 @@ Finally, the complete list of variables included in the *df_ml* dataframe is lis
 # Data Analysis
 
 Though there are numerous data from various sources, it will help organize our analysis into a few salient categories.
-* **Economic Indicators** - Indicators such as gross domestic product, consumer sentiment, yield Curve, and employment that impact the market performance
+* **Economic Indicators** - Indicators such as gross domestic product, consumer sentiment, yield curve, and employment that impact the market performance
 * **Price/Earnings**  - The market PE ratio represents the forward-looking price valuation to trailing earnings.
-* **Market Momentum**  - Market trend indicators include moving averages and average directional index, measuring the market direction.
+* **Market Momentum**  - Market trend indicators include moving averages and average directional index.
 * **Volatility** - Volatility is a measure of market stability.
 
 ##### Economic Indicators
 
-We previously imported several economic indicators, and these, along with some data transformations, are illustrated in Figure 1.  It is useful to Zoom into a period, including a few market cycles, and observe the market behavior relative to the economic indicators.
+We previously imported several economic indicators, and these, along with data transformations are illustrated in Figure 1.  It is useful to Zoom into a period, including a few market cycles, and observe the market behavior relative to the economic indicators.
 * The unemployment rate (*UNRATE*),  illustrates correlation to the market up and down cycle. As noted in Part 1, the unemployment rate is a lagging indicator. *UNRATE* falls and seems to reach a low point before a market crash, as the market hits its peak. On the other hand, unemployment tends to rise when the market hits a low point. We capture the unemployment rate's direction in the variable *unrate_pchange* ("Unemployment Percent Change").
 * Consumer sentiment  (*UMCSENT*) falls during down cycles and often at the peak of the market is running at close to 100%. As with the unemployment rate, the directional change in the unemployment rate is significant. Consumer sentiment falls during a market down cycle and rises as the market comes out of a down period.
 * The consumer price index (CPI) variable (*CPIAUCSL*) shows a long term rising trend and will need to be detrended to be useful as an ML feature. To this end, the *cpimom* variable contains the percent change from one month to the next.

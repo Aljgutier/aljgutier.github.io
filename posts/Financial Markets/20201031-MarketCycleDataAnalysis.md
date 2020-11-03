@@ -326,7 +326,7 @@ Finally, the complete list of variables included in the *df_ml* dataframe is lis
 
 # Data Analysis
 
-Though there are numerous data from various sources, it will help organize our analysis into a few salient categories.
+Though there are numerous data from various sources, it will help to organize our analysis into a few salient categories, as follows.
 * **Economic Indicators** - Indicators such as gross domestic product, consumer sentiment, yield curve, and employment that impact the market performance
 * **Price/Earnings**  - The market PE ratio represents the forward-looking price valuation to trailing earnings.
 * **Market Momentum**  - Market trend indicators include moving averages and average directional index.

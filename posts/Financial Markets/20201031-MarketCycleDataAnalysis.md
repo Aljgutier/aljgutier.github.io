@@ -312,7 +312,7 @@ print(df_ml.columns)
      'Close_lrstd126_avgvel5'],
     dtype='object')
 
-The transformations and joins are performed in the code block are briefly described below. Each of the transformations is supported by functions contained in the fmtransforms.py module.
+The transformations and joins are performed in the code block (above) are briefly described below. Each of the transformations is supported by functions contained in the fmtransforms.py module.
 * The fmjoinff() function joins the detailed market cycle dataframe *df_mc*, and SP 500 price-earnings dataframe. The fmjoinff() function will fill forward and drop NA columns corresponding to any non-market days. We also generate and include the PE month over month and earnings month over month variables. However, in this specific case, the *df_ml* and *df_spee_daily* there no NAs and, therefore, no drops.
 * The gdprecession() function calculates the quarterly percent change *gdp_qoq* (GDP this quarter / GDP last quarter - 1) and adds it to the df_gdp dataframe. These variables are joined to the *df_ml* dataframe with fmjoinff(). In this case, there is only one GDP reported per quarter. The fill forward functionality will fill the missing values so that there are valid GDP numbers for each day, corresponding to the previously reported GDP.
 * Similarly, month over month consumer price index is calculated by the *cpimom()* function and joined into the *df_ml* data frame with fill forward to fill in missing values.

@@ -236,9 +236,9 @@ display(df_mc.tail(2))
 
 # Data Transformations and Joins
 
-Now that we have the necessary data, we need to apply several transformations to make it useful. For reference, we reviewed the data [science modeling process](https://aljgutier.github.io/posts/DataScienceModelingProcess/20201019DataScienceModelingProcess/) in a previous article. In this article, the process of Exploratory Data Analysis (EDA) occurs between this section on Data Transformations and the next section on Data Analysis based on experimentation combined with analysis. The data transformations and joining of the data shown below are the results of the EDA process.
+Now that we have the necessary data, we need to apply several transformations to make it useful. For reference, we reviewed the data [science modeling process](https://aljgutier.github.io/posts/DataScienceModelingProcess/20201019DataScienceModelingProcess/) in a previous article. In this article, the process of Exploratory Data Analysis (EDA) occurs in this section ("Data Transformations and Joins") and the next section ("Data Analysis").
 
-The transformations and joins will generate one dataframe, *df_ml*, with all the machine learning features. It is essential to keep in mind that the feature extraction exercise will create the ML features. We will use our intuition to derive features that provide insight into the market performance, and many such features will be derived. However, in the feature selection process, during model development, we will decide to use some, not all, of the features based on their usefulness to the predictive model.  
+The transformations and joins will generate one dataframe, *df_ml*, with all the machine learning features. It is essential to keep in mind that the feature extraction exercise will create the ML features, where the main focus is creating variables that appear useful for ML. However, potentially more variables than necessary may result. However, in the feature selection process, during model development, we will decide to use some, not all, of the features based on their usefulness to the predictive model.  
 
 
 ```python

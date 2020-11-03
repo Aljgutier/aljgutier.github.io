@@ -81,7 +81,7 @@ We begin by importing packages and modules. The fmget.py, fmtransforms.py, fmcyc
 
 # Data important
 
-The data import example herein demonstrates how to import data from public APIs using functions within the fmget.py module and transform the data for subsequent analysis with functions within the fmtransforms.py module.
+The data import examples herein demonstrate how to import data from public APIs using functions within the fmget.py module and transform the data for subsequent analysis with functions from the fmtransforms.py module.
 
 #### Importing Raw Data from APIs
 

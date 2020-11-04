@@ -338,7 +338,7 @@ We previously imported several economic indicators, and these, along with data t
 * The unemployment rate (*UNRATE*),  illustrates correlation to the market up and down cycle. As noted in Part 1, the unemployment rate is a lagging indicator. *UNRATE* falls and seems to reach a low point before a market crash, as the market hits its peak. On the other hand, unemployment tends to rise when the market hits a low point. We capture the unemployment rate's direction in the variable *unrate_pchange* ("Unemployment Percent Change").
 * Consumer sentiment  (*UMCSENT*) falls during down cycles and often at the peak of the market is running at close to 100%. As with the unemployment rate, the directional change in the unemployment rate is significant. Consumer sentiment falls during a market down cycle and rises as the market comes out of a down period.
 * The consumer price index (CPI) variable (*CPIAUCSL*) shows a long term rising trend and will need to be detrended to be useful as an ML feature. To this end, the *cpimom* variable contains the percent change from one month to the next.
-* Like the CPI, the GDP requires detrending, and the *gdp_qoq* variable contains a quarter on quarter percent change.
+* Like the CPI, the GDP requires detrending, and therein the *gdp_qoq* variable contains a quarter on quarter percent change.
 
 
 ```python

@@ -20,35 +20,35 @@ by Alberto Gutierrez, November 8, 2019
 
 ## <font color="#115BDC">Introduction</font>
 
-Our objective in this exercise is to understand, through evaluation and coding, how deep-learning recommender models can improve on the performance of conventional machine learning collaborative filter recommender models. However, before diving into the coding, it is helpful to set the context by first identifying business applications where recommendation algorithms are applied. Next, we discuss a few common recommender algorithms to understand where the collaborative filter fits within the context of these solutions. Following this introduction, we evaluate the performance of a conventional machine learning recommender model, a matrix factorization collaborative filter. Then we evaluate several deep-learning models that offer progressively more capabilities with improved predictive performance. From this evaluation, we observe several essential features of the deep-learning models that are responsible for performance improvement.
+Our objective in this exercise is to understand, through evaluation and coding, how deep-learning recommender models can improve on the performance of conventional machine learning collaborative filter recommender models. However, before diving into the coding, it is helpful to set the context by first identifying business applications where recommendation algorithms are applied. Next, we discuss a few common recommender algorithms to understand where the collaborative filter fits within the context of these solutions. Following this introduction, we evaluate the performance of a conventional machine learning recommender model, a matrix factorization collaborative filter. Then we evaluate several deep-learning models that offer progressively better predictive capability. From this evaluation, we observe several features of the deep-learning models that are responsible for their performance improvement over the basic Matrix Factorization approach.
 
 
 #### Business Applications  
 
-In the last several years, recommendation systems, along with other predictive algorithms, have become an essential staple in several business applications. From the technical point of view, we are motivated to provide better algorithms, and this, in turn, leads to better business results within these applications. For example, several business applications where the technology is applied are enumerated below.
+In the last several years, recommendation systems, along with other predictive algorithms, have become an essential staple in several business applications. From the technical point of view, we are motivated to provide better algorithms, and this, in turn, leads to better business results. For example, several business applications where recommender technology is applied are enumerated below.
 
  * e-commerce - shopping, retail, groceries
- * Movie recommendation 
+ * Movie recommendation
  * Mobile app content delivery
  * Customer engagement, customer journey analytics
  * Dating (matchmaking)
- * Advertising - offers, upsell, cross-sell offers
- * Music recommendation 
+ * Advertising - offers, up-sell, cross-sell offers
+ * Music recommendation
 
-The business goal is to maximize the chances that the consumer will click, like, buy, or open the recommended content. Ultimately, the recommendation system contributes to improved customer engagement, revenue, and total lifetime value (TLV). For example, as a rule of thumb, [engaged customers represent 23% premium](https://news.gallup.com/businessjournal/172637/why-customer-engagement-matters.aspx) in the share of wallet compared to an average customer. 
+The business goal is to maximize the chances that the consumer will click, like, buy, or open the recommended content. Ultimately, the recommendation system contributes to improved customer engagement, revenue, and total lifetime value (TLV). For example, as a rule of thumb, [engaged customers represent 23% premium](https://news.gallup.com/businessjournal/172637/why-customer-engagement-matters.aspx) in the share of wallet compared to an average customer.
 
 #### Collaborative Filter Algorithms  
 
-In the context of business applications there is no one size fits all model. Therefore, to get some appreciation for where the collaborative filter fits with other prominant recommendation algorithm types, it is useful to identify common recommender algorithms chosen during a simplified e-commerce customer journey.  The type of model chosen is largely dependent on the use case so as to bring better benefit to the consumer.
+In the context of business applications there is no one size fits all model. Therefore, to get some appreciation for where the collaborative filter fits with other prominent recommendation algorithm types, it is useful to identify common recommender algorithms chosen during a simplified e-commerce customer journey. The type of model chosen is largely dependent on the use case so as to bring better benefit to the consumer.
 
-When first entering an e-commerce site,a collaborative filter model is often employed to give a recommendation based on an optimized prediction of what the user will like based on the combination of other user's choices and item genres. This classic approach is known as Latent Factors, where the matrix factorization approach became popular as a result of the [Netflix competition](https://datajobs.com/data-science-repo/Recommender-Systems-Netflix.pdf). As the consumer proceeds on their journey, and as they interact with content, then this is an opportunity to present recommendations based on item-item preferences, that is, other items "like the one you are looking at." On the other hand, as the consumer proceeds on the journey, there may be opportunities to help them decide with user-item similarity. In this case, items are recommended based on other users that are similar to the active user. For example, [user-item and item-item based filtering](https://medium.com/@cfpinela/recommender-systems-user-based-and-item-based-collaborative-filtering-5d5f375a127f) is an overview of recommended items based on similar users or items that are similar to other items, respectively. 
+When first entering an e-commerce site, a collaborative filter model is often employed to give a recommendation based on an optimized prediction of what the user will like based on the combination of other user's choices and item genres. This classic approach is known as Latent Factors, where the matrix factorization approach became popular as a result of the [Netflix competition](https://datajobs.com/data-science-repo/Recommender-Systems-Netflix.pdf). As the consumer proceeds on their journey, and as they interact with content, then this is an opportunity to present recommendations based on item-item preferences, that is, other items "like the one you are looking at." On the other hand, as the consumer proceeds on the journey, there may be opportunities to help them decide with user-item similarity. In this case, items are recommended based on other users that are similar to the active user. For example, [user-item and item-item based filtering](https://medium.com/@cfpinela/recommender-systems-user-based-and-item-based-collaborative-filtering-5d5f375a127f) is an overview of recommended items based on similar users or items that are similar to other items, respectively.
 
 #### Software
 
 We make use of the [Fastai Library](https://www.fast.ai/) library that sits above [Pytorch](https://pytorch.org/) to evaluate the models. Much credit goes to Fastai for motivating this exercise based on a class discussion and example [Fastai collaborative filter github](https://github.com/fastai/fastai/blob/master/courses/dl1/lesson5-movielens.ipynb). Additionally, a complete [Jupyter notebook](https://github.com/Aljgutier/aljpspacedl1/blob/master/b-collaborative-filter.ipynb) for the code discussed in the examples below is available in Github.
 
 #### Dataset  
-For this exercise we employ the Movielens 100K data set. 
+For this exercise we employ the Movielens 100K data set.
 
 ```python
 ratings.head()
@@ -59,9 +59,9 @@ ratings.head()
 		1	6	 4.0	964982224
 		1	47	 5.0	964983815
 		1	50	 5.0	964982931
-		
+
 #### Benchmarks  
-We want to ensure that the performance of the models is competitive to best in class performance, so we compare our model performance to world-class benchmarks. For the [MovieLens 100K dataset](https://grouplens.org/datasets/movielens/100k/) (as used in this article) the popular [Librec] (https://www.librec.net/release/v1.3/example.html) system reports best in class performance of RMSE = 0.91, which is helpful to gauge the effectiveness of the models evaluated here. 
+We want to ensure that the performance of the models is competitive to best in class performance, so we compare our model performance to world-class benchmarks. For the [MovieLens 100K dataset](https://grouplens.org/datasets/movielens/100k/) (as used in this article) the popular [Librec](https://www.librec.net/release/v1.3/example.html) system reports best in class performance of RMSE = 0.91, which is helpful to gauge the effectiveness of the models evaluated here. 
 
 ## <font color="#115BDC">Matrix Factorization Collaborative Filter</font>
 
@@ -71,14 +71,14 @@ We begin by analyzing the performance of the matrix factorization latent factors
  <img alt="CF Matrix Factorization, Latent Factors" title="Collaborative Filter, Predictive Analytics, Movie Lens" src="/images/CollaborativeFilter/CFMatrixFactorization.png" width="635">
  <figcaption><center><b>Figure 1</b>. Collaborative filter matrix factorization, latent factors</center></figcaption>
  </figure>
- 
-#### Latent Factors, matrix factorization with SGD 
-   
-With reference to the figure above, the matrix factorization method forms an approximation to the sparse ratings matrix, R. For example, in a simplistic way, we can think of the latent factors as genres of dimension K, such as Western, SciFi, and Drama. _User Factors_ correspond to the extent that a user likes the genre. _Item Factors_ correspond to the extent that a movie corresponds to the genre. An approximation to the ratings matrix is formed by the multiplication of the User Factor and Item Factor matrices, where the number of latent factors, K, is a design parameter (i.e., hyperparameter). The content of the user factor matrices is found with algorithms such as ALS (Alternating Least Squares) and are readily available via open-source software frameworks such as with the [Spark, MLiB -  Collaborative Filter with ALS and Latent Factors](https://spark.apache.org/docs/2.2.0/ml-collaborative-filtering.html). 
+
+#### Latent Factors, matrix factorization with SGD
+
+With reference to the figure above, the matrix factorization method forms an approximation to the sparse ratings matrix, R. For example, in a simplistic way, we can think of the latent factors as genres of dimension K, such as Western, SciFi, and Drama. _User Factors_ correspond to the extent that a user likes the genre. _Item Factors_ correspond to the extent that a movie corresponds to the genre. An approximation to the ratings matrix is formed by the multiplication of the User Factor and Item Factor matrices, where the number of latent factors, K, is a design parameter (i.e., hyperparameter). The content of the user factor matrices is found with algorithms such as ALS (Alternating Least Squares) and are readily available via open-source software frameworks such as with the [Spark, MLiB -  Collaborative Filter with ALS and Latent Factors](https://spark.apache.org/docs/2.2.0/ml-collaborative-filtering.html).
 
 #### Matrix Factorization Collaborative Filter Model
 
-Below is the collaborative filter matrix factorization model. The class utilizes the PyTorch nn.Module, and makes use of nn.Embeddings to hold the user and items matrices. The forward method receives categorical variables ("cats") and continuous variables ("conts") though we do not use the continuous variables. Since the Fastai library provide both types of variables, we keep the continuous variables available for potential use at a later time. The forward function returns the matrix multiplication of the two matrices. 
+Below is the collaborative filter matrix factorization model. The class utilizes the PyTorch nn.Module, and makes use of nn.Embeddings to hold the user and items matrices. The forward method receives categorical variables ("cats") and continuous variables ("conts") though we do not use the continuous variables. Since the Fastai library provide both types of variables, we keep the continuous variables available for potential use at a later time. The forward function returns the matrix multiplication of the two matrices.
 
 
 ```python
@@ -115,15 +115,15 @@ n_movies=int(ratings.movieId.nunique())
 
 #### Training and Performance
 
-To evaluate the model performance, we first define hyperparameters, such as embedding size, which is the "latent factors," where we set K = 50. The validation indexes are a random sample of the training data, 20% by default.  After creating the dependent and independent variables, we use the Fastai ColumnarModelData class as our data loader. The ColumnarDataModel class can handle continuous and categorical variables. It reads data from the data frame and iterates over batches and epochs in the training process. 
+To evaluate the model performance, we first define hyperparameters, such as embedding size, which is the "latent factors," where we set K = 50. The validation indexes are a random sample of the training data, 20% by default.  After creating the dependent and independent variables, we use the Fastai ColumnarModelData class as our data loader. The ColumnarDataModel class can handle continuous and categorical variables. It reads data from the data frame and iterates over batches and epochs in the training process.
 
-We call the Fastai _Fit()_ method, which takes as arguments the model, data loader class, and loss function. The Fastai _Fit()_ method is capable of applying numerous optimization methods. Here we use the SGD (stochastic gradient descent) method with weight decay. In effect, the training stage finds the latent factors or weights of the _User_ and _Item_ matrices that minimize the loss function, MSE (mean-square error), and also tune the weights of our neural network. 
+We call the Fastai _Fit()_ method, which takes as arguments the model, data loader class, and loss function. The Fastai _Fit()_ method is capable of applying numerous optimization methods. Here we use the SGD (stochastic gradient descent) method with weight decay. In effect, the training stage finds the latent factors or weights of the _User_ and _Item_ matrices that minimize the loss function, MSE (mean-square error), and also tune the weights of our neural network.
 
 The results below show an RMSE of 1.2 (square root of 1.43) for the matrix factorization model, K = 50, and Movie Lens dataset. This result is a significantly larger RMSE loss than the best in class results of 0.91 in [Librec] (https://www.librec.net/release/v1.3/example.html).
 
 ```python
 val_idxs = get_cv_idxs(len(ratings)) # default 20% of dataset
-wd=2e-4         # weight decay 
+wd=2e-4         # weight decay
 n_factors = 50  # dimensionality of embeddings matrix
 
 x = ratings.drop(['rating', 'timestamp'],axis=1)
@@ -140,7 +140,7 @@ fit(model, data, 10, opt, F.mse_loss)
     	2      		1.171994   	1.446952                                 
     	3      		1.113008   	1.444233                                 
     	4      		1.022484   	1.434512                                  
-    
+
 ## <font color="#115BDC">Deep Learning Collaborative Filter (DLCF) </font>
 
 The DLCF model (illustrated below) resembles the Matrix Factorization CF model described above but is more general because it accepts additional inputs, and performs more than simple matrix multiplication. It also has multiple hidden layers. The first layer of the deep-learning model is a set of embedding matrices for the user and item latent factors (the same as before), and other inputs, in this case, the "day" variable. In general, yet additional input variables, such as demographic information, season, holidays, could be added. The hidden layers are fully connected RELU cells, and the output layer is a single Sigmoid cell. As illustrated, the model in the figure is the most general of the three, which we consider.      
@@ -149,7 +149,7 @@ The DLCF model (illustrated below) resembles the Matrix Factorization CF model d
  <img alt="CF Matrix Factorization, Latent Factors" title="Deep-learning Collaborative Filter Latent Factors" src="/images/CollaborativeFilter/CollaborativeFilterDLModel.png" width="635">
  <figcaption><center>Figure 2. Collaborative Filtering Deep Learning Model</center></figcaption>
  </figure>
- 
+
 Henceforth, we evaluate the performance of three deep learning models, whose configurations are summarized in the table below, each with progressive capabilities. First, we gain an appreciation for a basic deep-learning latent factor model (DLCF1) without additional inputs; that is, it has the same inputs as the matrix factorization model. Then we add the day of the week as an input to the model (DLCF2). Finally, we add additional layers and cells per layer (DLCF3).   
 
 
@@ -183,7 +183,7 @@ Henceforth, we evaluate the performance of three deep learning models, whose con
 
 ### DLCF Model 1 (DLCF1)  
 
-The code for our DLCF1 model is listed below. It contains input embeddings and one hidden layer. The constructor receives input parameters for initializing the embeddings matrices. For example, _n\_users_ corresponds to the number of users (rows), and _n\_factors_ is "K" the width of the user and item embeddings matrices. The dropout regularization percentages for the embeddings layer (p1) and hidden layer (p2) are also input. 
+The code for our DLCF1 model is listed below. It contains input embeddings and one hidden layer. The constructor receives input parameters for initializing the embeddings matrices. For example, _n\_users_ corresponds to the number of users (rows), and _n\_factors_ is "K" the width of the user and item embeddings matrices. The dropout regularization percentages for the embeddings layer (p1) and hidden layer (p2) are also input.
 
 ```python
 def get_emb(ni,nf):
@@ -199,17 +199,17 @@ class DLCF1(nn.Module):
         self.lin2 = nn.Linear(nh, 1)
         self.drop1 = nn.Dropout(p1)
         self.drop2 = nn.Dropout(p2)
-        
+
     def forward(self, cats, conts):
         users,movies = cats[:,0],cats[:,1]
         x = self.drop1(torch.cat([self.u(users),self.m(movies)], dim=1))
         x = self.drop2(F.relu(self.lin1(x)))
         return F.sigmoid(self.lin2(x)) * (max_rating-min_rating+1) + min_rating-0.5
-    
+
     # this is genuine NN, though not very deep, 1 hidden layer
 ```
 
-Several additional hyperparameters are defined next, including validation indexes, and weight decay. 
+Several additional hyperparameters are defined next, including validation indexes, and weight decay.
 
 ```python
 val_idxs = get_cv_idxs(len(ratings)) # default 20% of dataset, see get_cv_idx in dataset.py
@@ -250,14 +250,14 @@ def get_emb(ni,nf):
     return e
 
 class DLCF2(nn.Module):
-    def __init__(self, n_users, n_movies, n_days, nfu, nfm, nfd, 
+    def __init__(self, n_users, n_movies, n_days, nfu, nfm, nfd,
                 nh = [10], drops = [.1, .5]):
         super().__init__()
-        # create embeddings 
+        # create embeddings
         (self.u, self.m, self.d) = [get_emb(*o) for o in [
             (n_users, nfu), (n_movies, nfm), (n_days, nfd)]]
         # default to 1 hidden layer
-   
+
         self.lin1 = nn.Linear(nfu + nfm + nfd, nh[0])
         self.emb_drop = nn.Dropout(drops[0])
 
@@ -311,10 +311,10 @@ For achieving the best performance results, the training and validation set shou
 ```python
 from sklearn.model_selection import StratifiedShuffleSplit
 category='day'
-split = StratifiedShuffleSplit(n_splits = 1, test_size = 0.8, random_state = 42) 
+split = StratifiedShuffleSplit(n_splits = 1, test_size = 0.8, random_state = 42)
 
-for val_idxs, _ in split.split(ratings, ratings[category]): 
-    df_val = ratings.iloc[val_idxs].copy() 
+for val_idxs, _ in split.split(ratings, ratings[category]):
+    df_val = ratings.iloc[val_idxs].copy()
 print(len(val_idxs))
 val_idxs
 ```
@@ -327,7 +327,7 @@ nfu = 50 #  dimensionality of embeddings matrix
 nfm = 50  
 nfd = 4
 wd=2e-4
-model = DLCF2(n_users, n_movies,n_days,nfu,nfm,nfd, nh=[30], 
+model = DLCF2(n_users, n_movies,n_days,nfu,nfm,nfd, nh=[30],
                        drops = [0.05, 0.5]).cuda()
 opt = optim.Adam(model.parameters(), 1e-3, weight_decay=wd)
 fit(model, data, 5, opt, F.mse_loss)
@@ -345,7 +345,7 @@ fit(model, data, 5, opt, F.mse_loss)
 This case is similar to the previous one. We do not change any of the inputs to the network. However, we modify the network to include an additional hidden layer, and each of the layers is larger, with 50 cells and 30 cells for the first and second hidden layers.  
 
 ```python
-model = DLCF2(n_users, n_movies,n_days,nfu,nfm,nfd, nh=[50, 30], 
+model = DLCF2(n_users, n_movies,n_days,nfu,nfm,nfd, nh=[50, 30],
                        drops = [ .05, .2, .5]).cuda()
 opt = optim.Adam(model.parameters(), 1e-3, weight_decay=wd)
 ```
@@ -362,7 +362,7 @@ fit(model, data, 5, opt, F.mse_loss)
     		2      0.74575    0.735508                                  
     		3      0.720929   0.736082                                  
     		4      0.70611    0.735818  
-    		
+
 ## <font color="#115BDC">Summary: Collaborative Filtering with Deep Learning and Machine Learning</font>
 
 In summary, we evaluated four collaborative filter models, a conventional machine learning model (matrix factorization) and three deep-learning models. For convenience, the table below lists the salient attributes of each CF model and the critical performance differentiators.  Additionally, the RMSE loss for the models is illustrated in the figure below, and the corresponding RMSE listed in the accompanying table
@@ -409,8 +409,4 @@ The deep learning collaborative filter models (DLCF 1,2, and 3) significantly ou
  <figcaption><center>Figure 2. Collaborative filter ML and DL model relative performance comparison</center></figcaption>
  </figure>
 
-By evaluating and comparing a conventional matrix factorization model to deep-learning collaborative filter models, we've gained an appreciation for the differentiating characteristics of the models. To not lose sight of the bigger picture benefits, we also summarized the business applications where these models apply. The use of the PyTorch and Fastai libraries are employed to facillitate the code evaluations. A detailed Jupyter notebook is available (see the link above) with the full code listing for each example presented here. The results demonstrate how constructs such as embeddings, bias, and optimization functions work together to provide a superior RMSE loss performance as compared to the matrix factorization method. We also demonstrated how to enhance the deep-learning collaborative filter models with additional inputs to create a hybrid Collaborative Filter + Predctive Model and to scale them with additional hidden layers and nodes per hidden layer. 
-
-
-
-
+By evaluating and comparing a conventional matrix factorization model to deep-learning collaborative filter models, we've gained an appreciation for the differentiating characteristics of the models. To not lose sight of the bigger picture benefits, we also summarized the business applications where these models apply. The use of the PyTorch and Fastai libraries are employed to facillitate the code evaluations. A detailed Jupyter notebook is available (see the link above) with the full code listing for each example presented here. The results demonstrate how constructs such as embeddings, bias, and optimization functions work together to provide a superior RMSE loss performance as compared to the matrix factorization method. We also demonstrated how to enhance the deep-learning collaborative filter models with additional inputs to create a hybrid Collaborative Filter + Predctive Model and to scale them with additional hidden layers and nodes per hidden layer.

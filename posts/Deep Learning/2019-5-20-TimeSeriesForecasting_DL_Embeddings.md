@@ -14,7 +14,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 <h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings</h1>
 by Alberto Gutierrez  May 20, 2019
 <figure>
- <img alt="Time-series graph, Rosmmann, top and bottom store sales" title="Time-series graph, Rosmmann, top and bottom store sales" src="file:///images/TimeSeriesForecasting/TSeriesChart.png" width="635">
+ <img alt="Time-series graph, Rosmmann, top and bottom store sales" title="Time-series graph, Rosmmann, top and bottom store sales" src="/images/TimeSeriesForecasting/TSeriesChart.png" width="635">
  <figcaption><center>Rossmann Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 

@@ -14,7 +14,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 <h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings</h1>
 by Alberto Gutierrez  May 20, 2019
 <figure>
- <img alt="Time-series graph, Rosmmann, top and bottom store sales" title="Time-series graph, Rosmmann, top and bottom store sales" src="./images_tseriesforecasting/TSeriesChart.png" width="635">
+ <img alt="Time-series graph, Rosmmann, top and bottom store sales" title="Time-series graph, Rosmmann, top and bottom store sales" src="file:///images/TimeSeriesForecasting/TSeriesChart.png" width="635">
  <figcaption><center>Rossmann Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
@@ -62,7 +62,7 @@ Similarly, the Rossmann, Kaggle data set is becoming popular for exploring predi
 <h1 style="color:	#115BDC;">Data Processing and ML/AI Pipeline</h1>
 
 <figure>
- <img alt="Time-series forecast machine learning pipeline." title="Time-series forecast machine learning pipeline." src="./images_tseriesforecasting/TSeriesForecastMLPipeline.png" width="635">
+ <img alt="Time-series forecast machine learning pipeline." title="Time-series forecast machine learning pipeline." src="file:///images/TimeSeriesForecasting/TSeriesForecastMLPipeline.png" width="635">
  <figcaption><center>Figure 1. Time-series forecasting machine-learning pipeline </center></figcaption>
  </figure>
 
@@ -233,7 +233,7 @@ mrf.score(trn, y_trn), mrf.score(val, y_val), mrf.oob_score_, exp_rmspe(preds, y
     0.10863755294456862)
 
 <figure>
- <img alt="Random Forest Model Feature Importances" title="Random Forest Model Feature Importances"  src="./images_tseriesforecasting/RF_Rossman_Feature_Importance.png" width="635">
+ <img alt="Random Forest Model Feature Importances" title="Random Forest Model Feature Importances"  src="file:///images/TimeSeriesForecasting/RF_Rossman_Feature_Importance.png" width="635">
  <figcaption><center>Figure 2. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 
@@ -242,7 +242,7 @@ Figure 2 illustrates the feature importance corresponding to the RF model. There
 <h1 style="color:	#115BDC;">Deep Learning with Embeddings</h1>
 
 <figure>
- <img alt="Deep learning neural network time-series forecasting arhchitecture" title="Deep learning neural network time-series forecasting arhchitecture"  src="./images_tseriesforecasting/DLNN_Forecast_wEmbeddings.png" width="635">
+ <img alt="Deep learning neural network time-series forecasting arhchitecture" title="Deep learning neural network time-series forecasting arhchitecture"  src="file:///images/TimeSeriesForecasting/DLNN_Forecast_wEmbeddings.png" width="635">
  <figcaption><center>Figure 3. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 

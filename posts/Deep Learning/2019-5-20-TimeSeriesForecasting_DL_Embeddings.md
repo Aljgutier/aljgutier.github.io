@@ -233,7 +233,7 @@ mrf.score(trn, y_trn), mrf.score(val, y_val), mrf.oob_score_, exp_rmspe(preds, y
     0.10863755294456862)
 
 <figure>
- <img alt="Random Forest Model Feature Importances" title="Random Forest Model Feature Importances"  src="file:///images/TimeSeriesForecasting/RF_Rossman_Feature_Importance.png" width="635">
+ <img alt="Random Forest Model Feature Importances" title="Random Forest Model Feature Importances"  src="/images/TimeSeriesForecasting/RF_Rossman_Feature_Importance.png" width="635">
  <figcaption><center>Figure 2. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 
@@ -242,7 +242,7 @@ Figure 2 illustrates the feature importance corresponding to the RF model. There
 <h1 style="color:	#115BDC;">Deep Learning with Embeddings</h1>
 
 <figure>
- <img alt="Deep learning neural network time-series forecasting arhchitecture" title="Deep learning neural network time-series forecasting arhchitecture"  src="file:///images/TimeSeriesForecasting/DLNN_Forecast_wEmbeddings.png" width="635">
+ <img alt="Deep learning neural network time-series forecasting arhchitecture" title="Deep learning neural network time-series forecasting arhchitecture"  src="/images/TimeSeriesForecasting/DLNN_Forecast_wEmbeddings.png" width="635">
  <figcaption><center>Figure 3. Deep-learning neural network time-series forecasting architecture</center></figcaption>
  </figure>
 

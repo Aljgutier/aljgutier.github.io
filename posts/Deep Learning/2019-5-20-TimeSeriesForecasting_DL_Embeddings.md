@@ -62,7 +62,7 @@ Similarly, the Rossmann, Kaggle data set is becoming popular for exploring predi
 <h1 style="color:	#115BDC;">Data Processing and ML/AI Pipeline</h1>
 
 <figure>
- <img alt="Time-series forecast machine learning pipeline." title="Time-series forecast machine learning pipeline." src="file:///images/TimeSeriesForecasting/TSeriesForecastMLPipeline.png" width="635">
+ <img alt="Time-series forecast machine learning pipeline." title="Time-series forecast machine learning pipeline." src="/images/TimeSeriesForecasting/TSeriesForecastMLPipeline.png" width="635">
  <figcaption><center>Figure 1. Time-series forecasting machine-learning pipeline </center></figcaption>
  </figure>
 

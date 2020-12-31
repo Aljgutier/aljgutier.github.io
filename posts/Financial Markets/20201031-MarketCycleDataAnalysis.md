@@ -11,7 +11,7 @@ description: Financial markets, Data Science Process, DSM, Data Science Modeling
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
-<h1 style="color:	#115BDC;">Market Cycle Prediction Model - Objectives and Data Analysis</h1>
+<h1 style="color:	#115BDC;">Market Cycle Prediction Model - Data Analysis</h1>
 
 <figure>
  <img alt="Momentum Variables, 2005 to 2012" title="Market Momentum Variables" src="/images/FinancialMarkets/MomentumVariables.png" width="700">

@@ -2,7 +2,7 @@
 title: "Market Cycle Prediction Model"
 date: "2020-10-31"
 author: Alberto Gutierrez
-description: Financial markets, Data Science Process, DSM, Data Science Modeling Process, Stock market, Exploratory Data Analysis, bull and bear markets, Jupyter notebook, machine learning, matplotlib
+description: Financial markets, Data Science Process, DSM, Data Science Modeling Process, Stock market, Exploratory Data Analysis, bull and bear markets, Prediction, Jupyter notebook, machine learning, matplotlib
 ...
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
@@ -28,7 +28,7 @@ The articles in this series include the following:
 * Second article - [Market Cycle Prediction Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/).
 * Third article (this article) - [Market Cycle Prediction Model](#introduction).
 
-In this article, we begin by loading the ML Dataframe developed in the previous article ( [Market Cycle Model - Data - Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/)) followed by preparing the ML training and test data. We will then use supervised learning methods to train several tree-based predictive models, including a Decision Tree, Random Forest, and XG Boost classification models. XG Boost is the best performing model. While training the models, we will select the ML features to optimize predictive performance. We consider feature importance and multi-collinearity for selecting the ML features. The training performance is measured in the form of Accuracy, Recall, and Precision.
+In this article, we begin by loading the ML Dataframe developed in the previous article ([Market Cycle Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/)) followed by preparing the ML training and test data. We will then use supervised learning methods to train several tree-based predictive models, including a Decision Tree, Random Forest, and XG Boost classification models. XG Boost is the best performing model. While training the models, we will select the ML features to optimize predictive performance. We consider feature importance and multi-collinearity for selecting the ML features. The training performance is measured in the form of Accuracy, Recall, and Precision.
 
 The ML models achieve a high degree of accuracy, where the XG Boost model achieves accuracy above 99% and recall and precision above 98%. Next, the financial performance is gauged with financial backtesting. The levels of accuracy achieved are successful for anticipating all historical bear markets going back to 1957. The models provide a significant improvement in investment performance when compared to an S&P 500 index. In addition to the raw model output, a smoothed prediction is generated to avoid short-term buying and selling, such as sell one day and buy the next. A 5-day smoothing is sufficient for eliminating short-term trading over the market history going back to 1957. This article and the article series is concluded with a summary of all three articles.
 
@@ -71,7 +71,7 @@ In the previous article, we processed the S&P 500 data and created machine learn
 A couple of data manipulations are made at this stage. By evaluating some initial ML models, it is observed that the T10Y3M variable does not contribute to model accuracy, so it is dropped. Since the T10Y3M variable is available from 1982 forward, it is useful to drop it so that the ML prediction can start earlier. The consumer sentiment is available from 1953, so it will limit the start of the ML prediction data. Additionally, the feature extraction contains several long term averages resulting in an initial processing period without useful data. Thus, the data start date is set to 1955.
 
 
-```Python
+```python
 filename='./data/df_ml_2020115_195013_to_2020114.csv'
 dfMLXY = pd.read_csv(filename,index_col=0,parse_dates=True)
 print(dfMLXY.shape)
@@ -277,8 +277,9 @@ The prediction signals anticipate market conditions providing early warning inve
 
 
 Table 1: Prediction signals summary during the 2020 Bear market cycle.
+
 |Signal            |   Date          | days from high   | days before/after low|  
-|:-----------------| --------------- | ----------------|----------------------|
+|:------------| ----------- | ------------|---------------|
 | *mkt_1*: 1 to -1  | Feb 19, 2020   | 0-day            | 24-days before   |
 | *p_1*: 1 to 0    | Feb 21, 2020    | 2-days           | 22-days before   |
 | *p_1_s*: 1 to 0   | Feb 24, 2020   | 4-days           | 20-days before   |
@@ -323,7 +324,7 @@ The XGB model feature importance is illustrated in Figure 2. Each of the ML Feat
 
 The Market Cycle model's ultimate measure of value is the ability to generate superior returns, in this case relative to the S&P 500 index. The *fmbacktest()* receives an input dataframe with daily close prices and a trade signal. In this case we shift the *p_1* or *p_1_s* and the variables become *p* and *p_s*.  The *fmbacktest()* function receives as input the name of the "strategy" variable, which in our case is either *p* or *p_s*. If the strategy variable = 1, then the strategy investment receives a price change equal to the day's market performance. The *fmbacktest()* function returns a summary dataframe with yearly results and a detailed dataframe with daily results. Each dataframe contains the S&P 500 returns and the strategy return achieved by applying the buy-sell signal  *p* or *p_s*.
 
-In the code block below, we provide as input the dfxyp dataframe and indicate the name of the price variable, trade signal, *p*, and backtest start and end dates from 2020-1-1 to 2020-11-4. The results are listed below the code block. The S&P 500 index at the beginning of the period is $3230.78. At the end of the period, the S&P 500 experiences the COVID Bear and then recovers, ending at $3,443.78. Meanwhile, trading with the trade signal *p* achieves an ending value of $4,912.49. Thus, trading with ML prediction signal results in a 52% increase over the period versus a 6.58% return for the S&P 500 index.
+In the code block below, we provide as input the dfxyp dataframe (dataframe with x dependent variables, y dependent variable y, and prediction results) and indicate the name of the price variable, trade signal, *p*, and backtest start and end dates from 2020-1-1 to 2020-11-4. The results are listed below the code block. The S&P 500 index at the beginning of the period is \$3230.78. At the end of the period, the S&P 500 experiences the COVID Bear and then recovers, ending at \$3,443.78. Meanwhile, trading with the trade signal *p* achieves an ending value of \$4,912.49. Thus, trading with ML prediction signal results in a 52% increase over the period versus a 6.58% return for the S&P 500 index.
 
 ```python
 price_variable='Close'
@@ -332,12 +333,12 @@ dftsummary,dfbt=fmbacktest(dfxyp[se[0]:se[1]].copy(),price_variable,'p')
 dftsummary.T
 ```
     start_date	        2020-01-01
-    end_date	          2020-11-04
+    end_date	         2020-11-04
     start_price	        3230.78
-    end_price	          3443.44
+    end_price	         3443.44
     start_strategyvalue	3230.78
-    end_strategyvalue	  4912.49
-    r	                  0.0658
+    end_strategyvalue	 4912.49
+    r	                 0.0658
     r_strategy	        0.5205
 
 Next, over the same period (2020-1-1 to 2020-11-4) the smoothed prediction signal, *p_s* is backtested.  Recall that the *p_s* signal eliminates short-term buy-sell cycles. Often this is desired rather than making a short-term potentially large investment and de-investment. The *p_s* trade signal provides a return of 26.77% vs. 6.58% for the S&P 500 index. The smooth signal provides the benefit of eliminating short-term buy cycles at the cost of accuracy, which translates to reduced investment performance relative to the *p* raw model output.
@@ -349,12 +350,12 @@ dftsummary,dfbt=fmbacktest(dfxyp[se[0]:se[1]].copy(),price_variable,'p_s')
 dftsummary.T
 ```
     start_date	        2020-01-01
-    end_date	          2020-11-04
+    end_date	         2020-11-04
     start_price	        3230.78
-    end_price	          3443.44
+    end_price	         3443.44
     start_strategyvalue	3230.78
-    end_strategyvalue	  4095.63
-    r	                  0.0658231
+    end_strategyvalue	 4095.63
+    r	                 0.0658231
     r_strategy	        0.2677
 
 
@@ -368,22 +369,22 @@ We next look at the performance over several years, from 2000 to 2020-11-4. Inve
     Table 2: Backtesting XGB Model smoothed prediction, p, 2000 - 2020-11-4
 
     Year  s_price	 e_price	s_strategy_v  e_strategy_v	 r	        r_strategy
-    2000	1469.25	 1320.28  1469.25	        1514.34	    -0.1014   	0.0307
+    2000	1469.25	 1320.28   1469.25	        1514.34	    -0.1014   	0.0307
     2001	1320.28  1148.08	1514.34	        1717.51	    -0.1304	    0.1341
-    2002	1148.08	 879.82	  1717.51	        1817.85	    -0.2337	    0.0584
+    2002	1148.08	 879.82	   1717.51	        1817.85	    -0.2337	    0.0584
     2003	879.82	 1111.92	1817.85	        2297.40      0.2638	    0.2638
     2004	1111.92	 1211.92	2297.40	        2504.02	     0.0899	    0.0899
     2005	1211.92	 1248.29	2504.02	        2579.17	     0.0300	    0.0300
     2006	1248.29	 1418.30	2579.17	        2930.43	     0.1362	    0.1362
     2007	1418.30	 1468.36	2930.43	        3117.92	     0.0353	    0.064
-    2008	1468.36	 903.25	  3117.92	        3531.58	    -0.3849	    0.1327
+    2008	1468.36	 903.25	   3117.92	        3531.58	    -0.3849	    0.1327
     2009	903.25	 1115.16	3531.58	        5511.84	     0.2345	    0.5607
     2010	1115.1	 1257.64	5511.84	        6216.4	     0.1279	    0.1278
-    2011	1257.64	 1257.6	  6216.4	        6216.2	    -0.00003	 -0.00003
+    2011	1257.64	 1257.6	   6216.4	        6216.2	    -0.00003	 -0.00003
     2012	1257.6	 1426.19	6216.2	        7049.52	     0.1341	    0.1341
     2013	1426.19	 1848.36	7049.52	        9136.27	     0.2960	    0.2960
-    2014	1848.36	 2058.9	  9136.27	       10176.95	     0.1139	    0.1139
-    2015	2058.9	 2043.9	  10176.95	     10103.00	    -0.0073	   -0.0073
+    2014	1848.36	 2058.9	   9136.27	       10176.95	     0.1139	    0.1139
+    2015	2058.9	 2043.9	    10176.95	     10103.00	    -0.0073	   -0.0073
     2016	2043.94	 2238.83	10103.00	     11066.33	     0.0954	    0.0954
     2017	2238.83	 2673.61	11066.33	      13215.41	   0.1942	    0.1942
     2018	2673.61	 2506.85	13215.41	      12391.13	  -0.0624	   -0.0624

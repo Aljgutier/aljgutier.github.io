@@ -370,7 +370,7 @@ We next look at the performance over several years, from 2000 to 2020-11-4. Inve
 
     Year  s_price	 e_price	s_strategy_v  e_strategy_v	 r	        r_strategy
     2001  1469.25  1320.28   1469.25        1514.34     -0.1014     0.0307
-    2001	1320.28  1148.08	 1514.34        1717.51	    -0.1304	    0.1341
+    2001  1320.28  1148.08   1514.34        1717.51     -0.1304     0.1341
     2002	1148.08	  879.82	 1717.51        1817.85	    -0.2337	    0.0584
     2003	 879.82	 1111.92	 1817.85        2297.40      0.2638     0.2638
     2004	1111.92	 1211.92   2297.40        2504.02     0.0899	    0.0899
@@ -393,7 +393,7 @@ We next look at the performance over several years, from 2000 to 2020-11-4. Inve
     * 2020 data up to 2020-11-4
 
 
-Similarly, investing with the smoothed prediction signal *p_s* results in a gain relative to the S&P 500 index. The strategy return is always greater than the S&P 500 index return for years with a Bear cycle and equal to the S&P 500 index return for years without a Bear cycle. Investing $1,469.25 in a market index in the year 2000 results in $16,885.39 on November 4, 2020, while the S&P 500 achieves a value of $3,443.44.
+Similarly, investing with the smoothed prediction signal *p_s* results in a gain relative to the S&P 500 index. The strategy return is always greater than the S&P 500 index return for years with a Bear cycle and equal to the S&P 500 index return for years without a Bear cycle. Investing \$1,469.25 in a market index in the year 2000 results in \$16,885.39 on November 4, 2020, while the S&P 500 achieves a value of $3,443.44.
 
 ```python
     se=(dt.datetime(2000,1,1),dt.datetime(2020,12,31))

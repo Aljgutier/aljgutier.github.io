@@ -166,9 +166,11 @@ model='XGB' #
 print("...")
 nmodeltraindays=1
 
+dfTrain=dfXaligned.drop(low_imp_cols,axis=1)
+
 print('dfTrain.shape =',dfTrain.shape)  
 print('dfTrain.columns =',dfTrain.columns)
-dfXYTR,dfTR,clf = fmclftraintest(dfXaligned,dfYaligned,'y_1',predict_s,predict_e, model=model,modeltrain_ndays=nmodeltraindays,v=1)
+dfXYTR,dfTR,clf = fmclftraintest(dfTrain,dfYaligned,'y_1',predict_s,predict_e, model=model,modeltrain_ndays=nmodeltraindays,v=1)
 
 #display(dfTR[['p_1','y_1','model_date']].tail(10))
 # Join the training results with some of the original data

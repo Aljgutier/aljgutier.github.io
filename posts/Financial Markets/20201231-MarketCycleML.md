@@ -332,16 +332,16 @@ se=(dt.datetime(2020,1,1),dt.datetime(2020,11,4))
 dftsummary,dfbt=fmbacktest(dfxyp[se[0]:se[1]].copy(),price_variable,'p')
 dftsummary.T
 ```
-| |  |
+|  |  |
 | ---- |----|
-|start_date	| 2020-01-01|
-|end_date	|2020-11-04|
-|start_price|$3,230.78|
-|end_price|$3,443.44|
-|start_strategyvalue|$3,230.78|
-|end_strategyvalue|$4,912.49|
-|r|0.0658|
-|r_strategy|0.5205|
+| start_date	| 2020-01-01|
+| end_date	  |2020-11-04|
+| start_price | 3,230.78|
+| end_price   | 3,443.44|
+| start_strategyvalue | 3,230.78|
+| end_strategyvalue | 4,912.49|
+| r| 0.0658 |
+| r_strategy| 0.5205|
 
 Next, over the same period (2020-1-1 to 2020-11-4) the smoothed prediction signal, *p_s* is backtested.  Recall that the *p_s* signal eliminates short-term buy-sell cycles. Often this is desired rather than making a short-term potentially large investment and de-investment. The *p_s* trade signal provides a return of 26.77% vs. 6.58% for the S&P 500 index. The smooth signal provides the benefit of eliminating short-term buy cycles at the cost of accuracy, which translates to reduced investment performance relative to the *p* raw model output.
 

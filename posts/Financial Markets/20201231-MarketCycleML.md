@@ -377,7 +377,7 @@ Table 2: Backtesting XGB Model prediction, *p*, 2000 - 2020-11-4
 
 
 
-|Year |s_price|e_price|s_strategy_v|e_strategy_v|r|r_strategy|  
+|Year | s_price |  e_price | s_strategy_v| e_strategy_v | r | r_strategy|  
 |-----|-------|-------|-------------|------------|--------|------|  
 |2001 |1469.25|1320.28|1469.25      |1514.34     |-0.1014 |0.0307|
 |2001|1320.28|1148.08 |1514.34      |1717.51     |-0.1304| 0.1341|

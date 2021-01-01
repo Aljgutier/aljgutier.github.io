@@ -324,11 +324,9 @@ The XGB model feature importance is illustrated in Figure 2. Each of the ML Feat
 
 The Market Cycle model's ultimate measure of value is the ability to generate superior returns, in this case relative to the S&P 500 index. The *fmbacktest()* receives an input dataframe with daily close prices and a trade signal. In this case we shift the *p_1* or *p_1_s* and the variables become *p* and *p_s*.  The *fmbacktest()* function receives as input the name of the "strategy" variable, which in our case is either *p* or *p_s*. If the strategy variable = 1, then the strategy investment receives a price change equal to the day's market performance. The *fmbacktest()* function returns a summary dataframe with yearly results and a detailed dataframe with daily results. Each dataframe contains the S&P 500 returns and the strategy return achieved by applying the buy-sell signal  *p* or *p_s*.
 
-In the code block below, we provide as input the dfxyp dataframe (dataframe with x dependent variables, y dependent variable y, and prediction results) and indicate the name of the price variable, trade signal, *p*, and backtest start and end dates from 2020-1-1 to 2020-11-4. The results are listed below the code block. The S&P 500 index at the beginning of the period is
-$3230.78.
-At the end of the period, the S&P 500 experiences the COVID Bear and then recovers, ending at
-$3,443.78.
-Meanwhile, trading with the trade signal *p* achieves an ending value of $4,912.49. Thus, trading with ML prediction signal results in a 52% increase over the period versus a 6.58% return for the S&P 500 index.
+In the code block below, we provide as input the dfxyp dataframe (dataframe with x dependent variables, y dependent variable y, and prediction results) and indicate the name of the price variable, trade signal, *p*, and backtest start and end dates from 2020-1-1 to 2020-11-4. The results are listed below the code block. The S&P 500 index at the beginning of the period is 3230.78.
+At the end of the period, the S&P 500 experiences the COVID Bear and then recovers, ending at 3,443.78.
+Meanwhile, trading with the trade signal *p* achieves an ending value of 4,912.49. Thus, trading with ML prediction signal results in a 52% increase over the period versus a 6.58% return for the S&P 500 index.
 
 ```python
 price_variable='Close'
@@ -370,10 +368,8 @@ dftsummary.T
 |r_strategy	|0.2677|
 
 
-We next look at the performance over several years, from 2000 to 2020-11-4. Investing
-$1469.25 in a market index at the beginning of the year 2000 results in
-$3,443.44 by November 4, 2020. If the investment is managed with the *p* buy signal, the ending value is
-$24,281. The year 2000 experienced a Bear market cycle, and S&P 500 lost 10% while the ML (*p*) returned 3.07%. The ML return is greater than the S&P 500 return for each year there is a Bear cycle - 2000, 2001, 2002, 2008, 2009, and 2020. For years without a Bear cycle, the S&P 500 market return, r, is identical to the strategy (ML) return, r_strategy.
+We next look at the performance over several years, from 2000 to 2020-11-4. Investing 1469.25 in a market index at the beginning of the year 2000 results in
+3,443.44 by November 4, 2020. If the investment is managed with the *p* buy signal, the ending value is 24,281. The year 2000 experienced a Bear market cycle, and S&P 500 lost 10% while the ML (*p*) returned 3.07%. The ML return is greater than the S&P 500 return for each year there is a Bear cycle - 2000, 2001, 2002, 2008, 2009, and 2020. For years without a Bear cycle, the S&P 500 market return, r, is identical to the strategy (ML) return, r_strategy.
 
 ```python
     se=(dt.datetime(2000,1,1),dt.datetime(2020,12,31))

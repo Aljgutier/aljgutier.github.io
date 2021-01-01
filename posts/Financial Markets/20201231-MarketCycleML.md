@@ -404,7 +404,7 @@ Similarly, investing with the smoothed prediction signal *p_s* results in a gain
     Table 3: Backtesting XGB Model smoothed prediction, p_s, 2000 - 2020-11-4
 
     Year  s_price	 e_price	 s_strategy_v  e_strategy_v	 r	      r_strategy
-    2000	1469.25	  1320.28   1469.25        1487.92      -0.1014    0.0127
+    2000	1469.25   1320.28   1469.25        1487.92      -0.1014    0.0127
     2001	1320.28	  1148.08	  1487.92	       1677.04    	 -0.130	   0.1271
     2002	1148.08	  879.82	  1677.04	       1740.73	     -0.233	   0.0379
     ...

@@ -373,13 +373,12 @@ We next look at the performance over several years, from 2000 to 2020-11-4. Inve
 ```
 
 
-
 Table 2: Backtesting XGB Model prediction, *p*, 2000 - 2020-11-4
 
 
 
-|Year |s_price|e_price|s_strategy_v|e_strategy_v|r|r_strategy|
-|-----|-------|-------|-------------|------------|------|------|
+|Year |s_price|e_price|s_strategy_v|e_strategy_v|r|r_strategy|  
+|-----|-------|-------|-------------|------------|------|------|  
 |2001|1469.25|1320.28|1469.25 |1514.34 |-0.1014 |0.0307|
 |2001|1320.28|1148.08 |1514.34 |1717.51 |-0.1304| 0.1341|
 |2002|1148.08	|879.82	|1717.51 | 1817.85| -0.2337	|0.0584|

@@ -402,7 +402,9 @@ Table 2: Backtesting XGB Model prediction, *p*, 2000 - 2020-11-4
 * 2020 data up to 2020-11-4
 
 
-Similarly, investing with the smoothed prediction signal *p_s* results in a gain relative to the S&P 500 index. The strategy return is always greater than the S&P 500 index return for years with a Bear cycle and equal to the S&P 500 index return for years without a Bear cycle. Investing \$1,469.25 in a market index on January 1, 2000 results in \$16,885.39 on November 4, 2020, while the S&P 500 achieves a value of \$3,443.44.
+Similarly, investing with the smoothed prediction signal *p_s* results in a gain relative to the S&P 500 index. The strategy return is always greater than the S&P 500 index return for years with a Bear cycle and equal to the S&P 500 index return for years without a Bear cycle. Investing \$1,469.25
+
+sxin a market index on January 1, 2000 results in \$16,885.39 on November 4, 2020, while the S&P 500 achieves a value of \$3,443.44.
 
 ```python
     se=(dt.datetime(2000,1,1),dt.datetime(2020,12,31))

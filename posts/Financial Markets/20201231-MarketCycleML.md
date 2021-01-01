@@ -372,7 +372,11 @@ We next look at the performance over several years, from 2000 to 2020-11-4. Inve
     dftsummary[['start_price','end_price','start_strategyvalue', 'end_strategyvalue', 'r', 'r_strategy']]
 ```
 
+
+
 Table 2: Backtesting XGB Model prediction, *p*, 2000 - 2020-11-4
+
+
 
 |Year |s_price|e_price|s_strategy_v|e_strategy_v|r|r_strategy|
 |-----|-------|-------|-------------|------------|------|------|
@@ -462,7 +466,7 @@ Second article - [Market Cycle Prediction Model - Data Analysis](https://aljguti
 
 With the functions included in the *fmtransforms* module, the data is analyzed, merged, and transformed into a single dataframe representing a set of ML Features, one row per market day. Data analysis includes analysis of feature correlations and time alignment, which are essential for feature selection and feature alignment during model building. The ML dataframe is saved for subsequent use in developing the ML model.
 
-Third article (this article) - [Market Cycle Prediction Model](#introduction). This article is the last in the series and describes developing and testing the ML model. The model development process begins with loading the ML dataframe saved in the previous step. Several functions from the *fmml* module are employed to develop the ML model. Features are aligned with the *malign()* function, The  *fmclftraintest()* function manages model training and test process, and model performance is reported with the *fmclfperformance()* function. Several tree-based ML models are trained and tested. These include Decision Tree, Random Forest, and XG Boost. Feature selection resulted in 20 ML Features (predictor variables) for the XG Boost model (the best performing model). The model successfully achieves an impressive set of performance measures, including a high accuracy (99.5%), recall (98.2%), precision (98.7%), f1-score (98.4%), and successfully anticipates Bear and Bull market cycles from 1957 through 2020. The models are backtested with the use of the *fmbacktest()* function and are shown to provide a significantly better return compared to the S&5 500 index.
+Third article (this article) - [Market Cycle Prediction Model](#introduction). This article is the last in the series and describes developing and testing the ML model. The model development process begins with loading the ML dataframe saved in the previous step. Several functions from the *fmml* module are employed to develop the ML model. Features are aligned with the *malign()* function, The  *fmclftraintest()* function manages model training and test process, and model performance is reported with the *fmclfperformance()* function. Several tree-based ML models are trained and tested. These include Decision Tree, Random Forest, and XG Boost. Feature selection resulted in 20 ML Features (predictor variables) for the XG Boost model (the best performing model). The model successfully achieves an impressive set of performance measures, including a high accuracy (99.5%), recall (98.2%), precision (98.7%), f1-score (98.4%), and successfully anticipates Bear and Bull market cycles from 1957 through 2020. The models are backtested with the use of the *fmbacktest()* function and are shown to provide a significantly better return compared to the S&P 500 index.
 
 The three objectives set out at the beginning of the process are satisfied. The software introduced is available on Github - [Pyquant](https://github.com/Aljgutier/Pyquant). All data used in the modeling process is acquired from open-source APIs. A market cycle prediction model is developed and shows significantly improved financial returns relative to the S&P 500 market index.
 

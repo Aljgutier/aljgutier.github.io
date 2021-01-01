@@ -332,10 +332,12 @@ se=(dt.datetime(2020,1,1),dt.datetime(2020,11,4))
 dftsummary,dfbt=fmbacktest(dfxyp[se[0]:se[1]].copy(),price_variable,'p')
 dftsummary.T
 ```
+
+
 |  |  |
-| ---- |----|
-| start_date	| 2020-01-01|
-| end_date	  |2020-11-04|
+| ---- |----|  
+| start_date	| 2020-01-01 |
+| end_date	  | 2 020-11-04 |
 | start_price | 3,230.78|
 | end_price   | 3,443.44|
 | start_strategyvalue | 3,230.78|

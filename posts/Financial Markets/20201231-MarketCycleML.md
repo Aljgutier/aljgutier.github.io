@@ -149,7 +149,7 @@ print("num low importance cols =",len(low_imp_cols))
 
 # Model Train and Test
 
-The *fmclftraintest()* function from the *fmml* module facilitates training and testing the market cycle classification model. The *mkt* parameter indicates that the market is in a Bull or Bear condition, and is thus the training label. The function takes as input the ML Features contained in the dfXaligned dataframe, the training labels in the dfYaligned dataframe, and a  prediction start date and end date. Additionally, it receives as input the type of model to build. The *modeltraindays* parameter causes the the model to be trained daily, after the market close.
+The *fmclftraintest()* function from the *fmml* module facilitates training and testing the market cycle classification model. The *mkt* parameter indicates that the market is in a Bull or Bear condition, and is thus the training label. The function takes as input the ML Features contained in the dfXaligned dataframe (after droping low importance variables), the training labels in the dfYaligned dataframe, and a  prediction start date and end date. Additionally, it receives as input the type of model to build. The *modeltraindays* parameter causes the the model to be trained daily, after the market close.
 
 **Training Procedure**
 

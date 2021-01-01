@@ -289,7 +289,7 @@ Table 1: Prediction signals summary during the 2020 Bear market cycle.
 
 # Feature Importance
 
-The ML dataframe load in at the beginning of this exercise contained 52 columns, including the dependent variable, *mkt*. The number of features, and the specific features included, will vary for each model. 20 ML Features are selected for the best performing XG Boost model. The Feature selection results from an iterative process, including model training, removing low importance features, or features with high multi-collinearity until the model performance begins to suffer
+The ML dataframe load at the beginning of this exercise contained 52 columns, including the dependent variable, *mkt*. The number of features, and the specific features included, will vary for each model. 20 ML Features are selected for the best performing XG Boost model. The Feature selection results from an iterative process, including model training, removing low importance features, or features with high multi-collinearity until the model performance begins to suffer
 
 <figure>
  <img alt="Market Cycle Prediction Results" src="/images/FinancialMarkets/MktCycleModelFeatureImportance.png" width="700">

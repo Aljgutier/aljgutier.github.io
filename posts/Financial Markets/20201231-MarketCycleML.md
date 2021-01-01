@@ -25,8 +25,8 @@ This article is the third part of a three-part series of articles with the overr
 
 The articles in this series include the following:
 * First Article - [Analyzing Bear and Bull Markets in Python](https://aljgutier.github.io/posts/Financial%20Markets/20200930-MarketCycle/)
-* Second article - [Market Cycle Prediction Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/).
-* Third article (this article) - [Market Cycle Prediction Model](#introduction).
+* Second article - [Market Cycle Prediction Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/)
+* Third article (this article) - [Market Cycle Prediction Model](#introduction)
 
 In this article, we begin by loading the ML dataframe developed in the previous article ([Market Cycle Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/)) followed by preparing the ML training and test data. We will then use supervised learning methods to train several tree-based predictive models, including a Decision Tree, Random Forest, and XG Boost classification models. While training the models, we will select the ML features to optimize predictive performance. We consider feature importance and multi-collinearity for selecting the ML features. The training performance is measured in the form of Accuracy, Recall, and Precision.
 

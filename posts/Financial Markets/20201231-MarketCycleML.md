@@ -332,14 +332,16 @@ se=(dt.datetime(2020,1,1),dt.datetime(2020,11,4))
 dftsummary,dfbt=fmbacktest(dfxyp[se[0]:se[1]].copy(),price_variable,'p')
 dftsummary.T
 ```
-    start_date	        2020-01-01
-    end_date	         2020-11-04
-    start_price	        3230.78
-    end_price	         3443.44
-    start_strategyvalue	3230.78
-    end_strategyvalue	 4912.49
-    r	                 0.0658
-    r_strategy	        0.5205
+| |  |
+| ---- |----|
+|start_date	| 2020-01-01|
+|end_date	|2020-11-04|
+|start_price|$3,230.78|
+|end_price|$3,443.44|
+|start_strategyvalue|$3,230.78|
+|end_strategyvalue|$4,912.49|
+|r|0.0658|
+|r_strategy|0.5205|
 
 Next, over the same period (2020-1-1 to 2020-11-4) the smoothed prediction signal, *p_s* is backtested.  Recall that the *p_s* signal eliminates short-term buy-sell cycles. Often this is desired rather than making a short-term potentially large investment and de-investment. The *p_s* trade signal provides a return of 26.77% vs. 6.58% for the S&P 500 index. The smooth signal provides the benefit of eliminating short-term buy cycles at the cost of accuracy, which translates to reduced investment performance relative to the *p* raw model output.
 
@@ -349,14 +351,17 @@ se=(dt.datetime(2020,1,1),dt.datetime(2020,11,4))
 dftsummary,dfbt=fmbacktest(dfxyp[se[0]:se[1]].copy(),price_variable,'p_s')
 dftsummary.T
 ```
-    start_date	        2020-01-01
-    end_date	         2020-11-04
-    start_price	        3230.78
-    end_price	         3443.44
-    start_strategyvalue	3230.78
-    end_strategyvalue	 4095.63
-    r	                 0.0658231
-    r_strategy	        0.2677
+
+| |  |
+| ---- |----|
+|start_date	|2020-01-01|
+|end_date|2020-11-04|
+|start_price|3230.78|
+|end_price|3443.44|
+|start_strategyvalue|3230.78|
+|end_strategyvalue|4095.63|
+|r| 0.0658231|
+|r_strategy	|0.2677|
 
 
 We next look at the performance over several years, from 2000 to 2020-11-4. Investing \$1469.25 in a market index at the beginning of the year 2000 results in \$3,443.44 by November 4, 2020. If the investment is managed with the *p* buy signal, the ending value is \$24,281. The year 2000 experienced a Bear market cycle, and S&P 500 lost 10% while the ML (*p*) returned 3.07%. The ML return is greater than the S&P 500 return for each year there is a Bear cycle - 2000, 2001, 2002, 2008, 2009, and 2020. For years without a Bear cycle, the S&P 500 market return, r, is identical to the strategy (ML) return, r_strategy.
@@ -366,31 +371,32 @@ We next look at the performance over several years, from 2000 to 2020-11-4. Inve
     dftsummary,dfbt=fmbacktest(dfxyp[se[0]:se[1]].copy(),price_variable,'p')
     dftsummary[['start_price','end_price','start_strategyvalue', 'end_strategyvalue', 'r', 'r_strategy']]
 ```
-    Table 2: Backtesting XGB Model smoothed prediction, p, 2000 - 2020-11-4
 
-    Year  s_price	 e_price	s_strategy_v  e_strategy_v	 r	        r_strategy
-    2001  1469.25  1320.28   1469.25        1514.34     -0.1014     0.0307
-    2001  1320.28  1148.08   1514.34        1717.51     -0.1304     0.1341
-    2002	1148.08	  879.82	 1717.51        1817.85	    -0.2337	    0.0584
-    2003	 879.82	 1111.92	 1817.85        2297.40      0.2638     0.2638
-    2004	1111.92	 1211.92   2297.40        2504.02     0.0899	    0.0899
-    2005	1211.92	 1248.29	 2504.02        2579.17	     0.0300	    0.0300
-    2006	1248.29	 1418.30	 2579.17        2930.43	     0.1362	    0.1362
-    2007	1418.30	 1468.36	 2930.43        3117.92	     0.0353	    0.064
-    2008	1468.36	  903.25	 3117.92        3531.58	    -0.3849	    0.1327
-    2009	 903.25	 1115.16	 3531.58        5511.84	     0.2345	    0.5607
-    2010	 1115.1	 1257.64 	 5511.84         6216.4	     0.1279	    0.1278
-    2011	1257.64	  1257.6	  6216.4         6216.2	   -0.00003	  -0.00003
-    2012	 1257.6	 1426.19	  6216.2        7049.52	     0.1341	    0.1341
-    2013	1426.19	 1848.36	 7049.52        9136.27	     0.2960	    0.2960
-    2014	1848.36	  2058.9	 9136.27       10176.95      0.1139	    0.1139
-    2015	 2058.9	  2043.9	10176.95       10103.00     -0.0073	   -0.0073
-    2016	2043.94	 2238.83	10103.00       11066.33      0.0954	    0.0954
-    2017	2238.83	 2673.61	11066.33       13215.41	     0.1942	    0.1942
-    2018	2673.61	 2506.85	13215.41       12391.13	    -0.0624	   -0.0624
-    2019	2506.85	 3230.78	12391.13       15969.44	     0.2888	    0.2888
-    *2020	3230.78	 3443.44	15969.44       24281.98	     0.0658	    0.5205
-    * 2020 data up to 2020-11-4
+Table 2: Backtesting XGB Model prediction, *p*, 2000 - 2020-11-4
+
+|Year |s_price|e_price|s_strategy_v|e_strategy_v|r|r_strategy|
+|-----|-------|-------|-------------|------------|------|------|
+|2001|1469.25|1320.28|1469.25 |1514.34 |-0.1014 |0.0307|
+|2001||1320.28|1148.08 |1514.34 |1717.51 |-0.1304| 0.1341|
+|2002|1148.08	|879.82	|1717.51 | 1817.85| -0.2337	|0.0584|
+|2003	|879.82	|1111.92|1817.85 |2297.40 | 0.2638 |0.2638|
+|2004|1111.92| 1211.92 |2297.40 |2504.02| 0.0899|  0.0899|
+|2005|1211.92|1248.29	|2504.02 |2579.17	|0.0300	|0.0300|
+|2006|1248.29|1418.30	|2579.17 | 2930.43| 0.1362|  0.1362|
+|2007|1418.30	|1468.36|2930.43| 3117.92	| 0.0353| 0.064|
+|2008|1468.36	| 903.25|3117.92 | 3531.58|-0.3849| 0.1327|
+|2010	|1115.1|1257.64 |5511.84  |6216.4| 0.1279	|0.1278|
+|2011|1257.64	|1257.6	|6216.4 | 6216.2|-0.00003| -0.00003|
+|2012	|1257.6	|1426.19|6216.2  | 7049.52	|0.1341	|0.1341|
+|2013|1426.19|1848.36|7049.52  |9136.27	| 0.2960|0.2960|
+|014|1848.36	|2058.9|9136.27 |10176.95 | 0.1139	|0.1139|
+|2015	|2058.9	| 2043.9|10176.95 | 10103.00 |-0.0073| -0.0073|
+|2016|2043.94	|2238.83|10103.00 | 11066.33| 0.0954	|0.0954|
+|2017|2238.83	|2673.61|11066.33 | 13215.41	| 0.1942| 0.1942|
+|2018|2673.61	| 2506.85|13215.41| 12391.13|-0.0624|-0.0624|
+|2019|2506.85	|3230.78|12391.13 | 15969.44| 0.2888	| 0.2888|
+|*2020|3230.78|3443.44|15969.44 | 24281.98	| 0.0658	|0.5205|
+* 2020 data up to 2020-11-4
 
 
 Similarly, investing with the smoothed prediction signal *p_s* results in a gain relative to the S&P 500 index. The strategy return is always greater than the S&P 500 index return for years with a Bear cycle and equal to the S&P 500 index return for years without a Bear cycle. Investing \$1,469.25 in a market index on January 1, 2000 results in \$16,885.39 on November 4, 2020, while the S&P 500 achieves a value of \$3,443.44.
@@ -403,13 +409,15 @@ Similarly, investing with the smoothed prediction signal *p_s* results in a gain
 ```
     Table 3: Backtesting XGB Model smoothed prediction, p_s, 2000 - 2020-11-4
 
-    Year  s_price	 e_price	 s_strategy_v  e_strategy_v	 r	      r_strategy
-    2000  1469.25   1320.28   1469.25        1487.92      -0.1014    0.0127
-    2001	1320.28	  1148.08	  1487.92	       1677.04    	 -0.130	   0.1271
-    2002	1148.08	  879.82	  1677.04	       1740.73	     -0.233	   0.0379
-    ...
-    *2020	3230.78	  3443.44	 13319.79	      16885.39	     0.0658	   0.2677
-    * 2020 data up to 2020-11-4
+|Year |s_price| e_price	|s_strategy_v |e_strategy_v	|r| r_strategy|
+|----|--------|---------|------------|--------------|----|---------|
+|2000 |1469.25 |1320.28 |1469.25 | 1487.92 |-0.1014 |0.0127|
+|2001	|1320.28	|1148.08|1487.92	| 1677.04| -0.130	|  0.1271|
+|2002	|1148.08|879.82| 1677.04|  1740.73| -0.233| 0.0379|
+|...|
+| *2020|3230.78|3443.44|13319.79	| 16885.39| 0.0658|0.2677|
+
+*2020 data up to 2020-11-4
 
 **Financial Performance Graphs**  
 
@@ -445,7 +453,8 @@ This article series's key objectives are to develop an ML model for predicting B
 First Article - [Analyzing Bear and Bull Markets in Python](https://aljgutier.github.io/posts/Financial%20Markets/20200930-MarketCycle/).  In this article, the *fmcycles()* function for analyzing Bear and Bull market cycles is introduced. The Bear (downward trending) and Bull (upward trending) cycles are identified from daily stock data. A classic Bull and Bear market annotated chart with normalized market cycle returns are graphed with the *fmplot()* function. Several variables useful as ML are derived by the *fmplot()* function, including *mkt* the market cycle truth variable (dependent variable, label), *mcupm* a delayed version of *mkt* useful, *mdcup* the price percent increase from the previous market low during a Bear cycle, and *mucdown* the price percent decrease from the previous market high during a Bull cycle.
 
 Second article - [Market Cycle Prediction Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/). After establishing the objects (business and technical), data wrangling and exploratory data analysis are the first steps to developing an effective ML model. Data is input from a few open-source APIs with the help of the *fmget* module, including Yahoo Finance, Quandl, and FRED. Financial data data includes:
-Daily stock data (open, close, volume, high, low).
+
+* Daily stock data (open, close, volume, high, low)
 * Unemployment rate
 * Consumer sentiment
 * Consumer price index

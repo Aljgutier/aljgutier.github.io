@@ -28,7 +28,7 @@ The articles in this series include the following:
 * Second article - [Market Cycle Prediction Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/).
 * Third article (this article) - [Market Cycle Prediction Model](#introduction).
 
-In this article, we begin by loading the ML Dataframe developed in the previous article ([Market Cycle Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/)) followed by preparing the ML training and test data. We will then use supervised learning methods to train several tree-based predictive models, including a Decision Tree, Random Forest, and XG Boost classification models. While training the models, we will select the ML features to optimize predictive performance. We consider feature importance and multi-collinearity for selecting the ML features. The training performance is measured in the form of Accuracy, Recall, and Precision.
+In this article, we begin by loading the ML dataframe developed in the previous article ([Market Cycle Model - Data Analysis](https://aljgutier.github.io/posts/Financial%20Markets/20201031-MarketCycleDataAnalysis/)) followed by preparing the ML training and test data. We will then use supervised learning methods to train several tree-based predictive models, including a Decision Tree, Random Forest, and XG Boost classification models. While training the models, we will select the ML features to optimize predictive performance. We consider feature importance and multi-collinearity for selecting the ML features. The training performance is measured in the form of Accuracy, Recall, and Precision.
 
 The ML models achieve a high degree of accuracy, where XG Boost, the best performing model, achieves accuracy above 99% and recall and precision above 98%. Next, the financial performance is gauged with financial backtesting. The levels of accuracy achieved are successful for anticipating all historical bear markets going back to 1957. The models provide a significant improvement in investment performance when compared to an S&P 500 index. In addition to the raw model output, a smoothed prediction is generated to avoid short-term buying and selling, such as sell one day and buy the next. A 5-day smoothing is sufficient for eliminating short-term trading over the market history going back to 1957. This article and the article series is concluded with a summary of all three articles.
 
@@ -284,7 +284,7 @@ Table 1: Prediction signals summary during the 2020 Bear market cycle.
 | *p_1*: 1 to 0    | Feb 21, 2020    | 2-days           | 22-days before   |
 | *p_1_s*: 1 to 0   | Feb 24, 2020   | 4-days           | 20-days before   |
 | *mkt_1*: -1 to 1  | Mar 23, 2020   | 24-days        | 0-days after      |
-| *p_1*: 0 to 1    | Mar 24, 2020    | 25-days        | 1-days after      |
+| *p_1*: 0 to 1    | Mar 24, 2020    | 25-days        | 1-day after      |
 | *p_1_s*: 0 to 1    | Mar 26, 2020  | 29-days        | 5-days after      |
 
 # Feature Importance

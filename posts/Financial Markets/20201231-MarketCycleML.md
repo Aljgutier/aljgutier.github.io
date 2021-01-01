@@ -364,7 +364,7 @@ dftsummary.T
 |r_strategy	|0.2677|
 
 
-We next look at the performance over several years, from 2000 to 2020-11-4. Investing \$1469.25 in a market index at the beginning of the year 2000 results in \$3,443.44 by November 4, 2020. If the investment is managed with the *p* buy signal, the ending value is \$24,281. The year 2000 experienced a Bear market cycle, and S&P 500 lost 10% while the ML (*p*) returned 3.07%. The ML return is greater than the S&P 500 return for each year there is a Bear cycle - 2000, 2001, 2002, 2008, 2009, and 2020. For years without a Bear cycle, the S&P 500 market return, r, is identical to the strategy (ML) return, r_strategy.
+We next look at the performance over several years, from 2000 to 2020-11-4. Investing 1469.25 in a market index at the beginning of the year 2000 results in 3,443.44 by November 4, 2020. If the investment is managed with the *p* buy signal, the ending value is 24,281. The year 2000 experienced a Bear market cycle, and S&P 500 lost 10% while the ML (*p*) returned 3.07%. The ML return is greater than the S&P 500 return for each year there is a Bear cycle - 2000, 2001, 2002, 2008, 2009, and 2020. For years without a Bear cycle, the S&P 500 market return, r, is identical to the strategy (ML) return, r_strategy.
 
 ```python
     se=(dt.datetime(2000,1,1),dt.datetime(2020,12,31))
@@ -402,8 +402,8 @@ Table 2: Backtesting XGB Model prediction, *p*, 2000 - 2020-11-4
 * 2020 data up to 2020-11-4
 
 
-Similarly, investing with the smoothed prediction signal *p_s* results in a gain relative to the S&P 500 index. The strategy return is always greater than the S&P 500 index return for years with a Bear cycle and equal to the S&P 500 index return for years without a Bear cycle. Investing \$1,469.25
-in a market index on January 1, 2000 results in a value of \$16,885.39 on November 4, 2020, while the S&P 500 achieves a value of \$3,443.44.
+Similarly, investing with the smoothed prediction signal *p_s* results in a gain relative to the S&P 500 index. The strategy return is always greater than the S&P 500 index return for years with a Bear cycle and equal to the S&P 500 index return for years without a Bear cycle. Investing 1,469.25
+in a market index on January 1, 2000 results in a value of 16,885.39 on November 4, 2020, while the S&P 500 achieves a value of 3,443.44.
 
 ```python
     se=(dt.datetime(2000,1,1),dt.datetime(2020,12,31))

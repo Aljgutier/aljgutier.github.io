@@ -457,7 +457,7 @@ Figure 4 (a - d) illustrate the performance of the XGB model (*p* and *p_s*) pre
 
 # Summary and Conclusions
 
-This article is the last of a 3-part series. The key objectives are to develop an ML model for predicting Bear and Bull market cycles, build the model based on open-source data, and contribute the corresponding software to open-source. Addressing these objectives is described in three articles, summarized below.  
+The key objectives of this exercise are to develop an ML model for predicting Bear and Bull market cycles, build the model based on open-source data, and contribute the corresponding software to open-source. Addressing these objectives is described in three articles, summarized below.  
 
 First Article - [Analyzing Bear and Bull Markets in Python](https://aljgutier.github.io/posts/Financial%20Markets/20200930-MarketCycle/).  In this article, the *fmcycles()* function for analyzing Bear and Bull market cycles is introduced. The Bear (downward trending) and Bull (upward trending) cycles are identified from daily stock data. A classic Bull and Bear market annotated chart with normalized market cycle returns are graphed with the *fmplot()* function. Several variables useful as ML are derived by the *fmplot()* function, including *mkt* the market cycle truth variable (dependent variable, label), *mcupm* a delayed version of *mkt* useful, *mdcup* the price percent increase from the previous market low during a Bear cycle, and *mucdown* the price percent decrease from the previous market high during a Bull cycle.
 

@@ -8,10 +8,6 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
-## Financial Markets
 
-[Market Cycle Analysis with Python](20200930-MarketCycle.md)  
+[Data Science Modeling Process](20201019DataScienceModelingProcess.md)  
 
-[Market Cycle Prediction Model - Objectives and Data Analysis](20201031-MarketCycleDataAnalysis.md)
-
-[Market Cycle Prediction Model](20201231-MarketCycleML.md)

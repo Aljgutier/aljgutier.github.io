@@ -11,4 +11,4 @@
 
 ### [Product Marketing](posts/Product Marketing/index.md)
 
-### [Data Science Modeling Process](posts/DataScienceModelingProcess/20201019DataScienceModelingProcess.md)
+### [Data Science Modeling Process](posts/DataScienceModelingTopics/index.md)

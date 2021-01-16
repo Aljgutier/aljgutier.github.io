@@ -60,11 +60,18 @@ Table 1. provides a summary overview simple forecasting methods.$1,2$ For these 
 \
 \
 Table 1. Summary of simple time-series forecasting models.
+<table>
+<tr>
+<th>Model</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Naïve Methods  </td>
+<td> • In the Naïve forecasting method all future forecasts are equal to the last observation. $\hat{y}_{T+n/T}=y_T$. This method is for the simplest of use cases. <br/>• A variation of the Naïve forecasting method is the Drift Method, which adds trending to the model, $\hat{y}_{T+n/T}=y_T+n(\frac{y_T - y_1}{T-1})$. The forecast is the equivalent of drawing a line between the first and last observations and extrapolating it to the future. <br/>• Another popular variant is the Seasonal Naïve method, where the forecast is equal to the last observed value of the same season. The forecast is given by $\hat{y}_{T+n/T}=y_{T-(n-km)/T}$, where $km$ corresponds to a time-shift back to the previous observed season $m$ corresponding to the season at time $t=T+n/T$.  <br/>• It is not too difficult to imagine how to combine the Drift and Seasonal Naïve methods. | </td>
+</tr>
+</table>
 
-|Model | Description |
-|-----|-------|
-| Naïve Methods |• In the Naïve forecasting method all future forecasts are equal to the last observation. $\hat{y}_{T+n/T}=y_T$. This method is for the simplest of use cases.  <br/> A variation of the Naïve forecasting method is the Drift Method, which adds trending to the model, $\hat{y}_{T+n/T}=y_T+n(\frac{y_T - y_1}{T-1})$ |
-| Average |• In the Average method all future values are equal to the average ("mean") of the past observations. $\hat{y}_{T+n/T}=(y_1,\dots,y_T)/T$. <br/>•  This method is useful for short-term simple forecasts without seasonal or trend variations. It is also useful for assessing the effectiveness of more sophisticated models relative to a simple average. |
+
 
 ## ARIMA and Regresson Models
 

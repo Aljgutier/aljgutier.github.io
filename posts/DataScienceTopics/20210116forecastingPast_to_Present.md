@@ -59,12 +59,12 @@ Below is a non-exhaustive list of medium to large-scale time-series forecasting 
 Table 1. provides a summary overview simple forecasting methods.$1,2$ For these methods and ARIMA methods (Table 2.) we rely on the Hyndman online text ([2]) as a reference and use similar notation. Simple models are useful for simple use cases and are often implemented in spreadsheets.
 \
 \
-Table 1. Summary of simple time-series forecasting models.</caption>
+Table 1. Summary of simple time-series forecasting models.
 
 |Model | Description |
 |-----|-------|
-| Naïve Methods |• In the Naïve forecasting method all future forecasts are equal to the last observation. $\hat{y}_{T+n/T}=y_T$. This method is for the simplest of use cases.  <br/>• A variation of the Naïve forecasting method is the Drift Method, which adds trending to the model, $\hat{y}_{T+n/T}=y_T+n(\frac{y_T - y_1}{T-1})$. |
-| Average |• In the Average method all future values are equal to the average ("mean") of the past observations. $\hat{y}_{T+n/T}=(y_1,\dots,y_T)/T$. <br/>• This method is useful for short-term simple forecasts without seasonal or trend variations. It is also useful for assessing the effectiveness of more sophisticated models relative to a simple average. |
+| Naïve Methods |• In the Naïve forecasting method all future forecasts are equal to the last observation. $\hat{y}_{T+n/T}=y_T$. This method is for the simplest of use cases.  <br/>• A variation of the Naïve forecasting method is the Drift Method, which adds trending to the model, $\hat{y}_{T+n/T}=y_T+n(\frac{y_T - y_1}{T-1})$ |
+| Average |• In the Average method all future values are equal to the average ("mean") of the past observations. $\hat{y}_{T+n/T}=(y_1,\dots,y_T)/T$. <br/>•  This method is useful for short-term simple forecasts without seasonal or trend variations. It is also useful for assessing the effectiveness of more sophisticated models relative to a simple average. |
 
 ## ARIMA and Regresson Models
 

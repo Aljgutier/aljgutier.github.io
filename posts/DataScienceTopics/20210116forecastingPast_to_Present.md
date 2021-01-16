@@ -180,10 +180,8 @@ Next, a collaboration between Facebook and Stanford University introduced the "N
 
 ## Where to Apply Forecasting Models
 
-Figure 1. Where to apply forecasting models</center>
-
 <figure>
- <img alt="Where to apply models" src="/images/DataScienceTopicsForecasting/WhereToApplyForecastModels.png" width="635">
+ <img alt="Where to apply models" src="/images/DataScienceTopicsForecasting/WhereToApplyForecastModels2.png" width="635">
  <figcaption><center>Figure 1. Where to apply forecasting models </center></figcaption>
  </figure>
 

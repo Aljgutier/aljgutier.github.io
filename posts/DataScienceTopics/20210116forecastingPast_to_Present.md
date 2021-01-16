@@ -117,7 +117,7 @@ Data scientists schooled in machine learning predictive analytics methods often 
 
 
 <table>
-<caption>Table 3. Forecasting with Predictive Analytics Regression Models >
+<caption>Table 3. Forecasting with Predictive Analytics Regression Models </caption>
 <tr>
 <th>Model</th>
 <th>Description</th>

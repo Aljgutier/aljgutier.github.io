@@ -144,7 +144,9 @@ Facebook open-sourced Prophet in 2017. The model is a radical departure from cla
 <td> Prophet </td>
 <td> • Prophet is a significant departure from the classical methods and claims to be a scalable, human in the loop model. Scalability, according to [4], does not mean scalability of the size of data but instead 1) a large number of people making forecasts since the model is usable by non-forecast experts (e.g., human interpretable parameters), 2) application to a large number of forecasting problems, and 3) easily and automatically evaluating a large number of forecasts, comparing them, and detecting when they are performing poorly. <br /> • Prophet is an additive regression model with components based on a decomposition of trend, seasonality, and holidays.  <br /> <center> $y(t)=g(t)+s(t)+h(t)+\epsilon_t$ </center> <br /> • The trend methods employed and include: capacity limited logistic growth model or liner trends with change points and with automatic change point selection. <br /> • Seasonal effects are found with a Fourier series including parameter estimation for modeling multiple seasonality effects. <br /> • Holidays and events can provide large, somewhat predictable shocks. Therefore, the analyst can provide a custom list of past and future events.</td>
 </tr>
-</table>
+</table>  
+
+
 
 
 ## Neural Network Models  
@@ -171,20 +173,20 @@ Next, a collaboration between Facebook and Stanford University introduced the "N
 </tr>
 <tr>
 <td>NeuralProphet </td>
-<td> • Neural prophet is an open-source deep-learning forecasting model built on top of the the PyTorch AI framework   <br />•  The architecture is inspired by the popular Prophet model in combination with AR-Net, a non-LSTM feed-forward auto-regression deep-learning neural network <br /> • Because NeuralProphet is not recursive, it is likely to exhibit significantly faster training performance than recursive models.  </td
+<td> • Neural prophet is an open-source deep-learning forecasting model built on top of the the PyTorch AI framework   <br />•  The architecture is inspired by the popular Prophet model in combination with AR-Net, a non-LSTM feed-forward auto-regression deep-learning neural network <br /> • Because NeuralProphet is not recursive, it is likely to exhibit significantly faster training performance than recursive models.  </td>
 </tr>
 </table>
 
 
 ## Where to Apply Forecasting Models
 
-
- ![Where to apply forecast models](/images/DataScienceTopicsForecasting/WhereToApplyForecastModels.png)
-
 Figure 1. Where to apply forecasting models</center>
-\
-\
-\
+
+<figure>
+ <img alt="Where to apply models" src="/images/DataScienceTopicsForecasting/WhereToApplyForecastModels.png" width="635">
+ <figcaption><center>Figure 1. Where to apply forecasting models </center></figcaption>
+ </figure>
+
 With all these options, businesses are challenged to choose the most effective model and technology for their forecasting applications. For example, countless technical publications argue the merits of one model over another, reporting better performance, such as ARIMA methods over Prophet, DeepAR, and ML algorithms, or visa versa. There is no one best model for all scenarios. For human-in-the-loop analysis, analysts often pick a model based on ease of use and the model's ability to solve the problem but don't worry too much about optimizing model efficiency. However, as automation and problem complexity scale, picking an effective and efficient model becomes a key concern. Ultimately, considerations based on the time-series data complexity, computational load, and forecasting accuracy will determine the model selection.  
 
 Based on the review of model characteristics, Figure 1 provides simplified guidance for applying the models. For example, for low complexity time-series, a few covariates, simple trend, and seasonality, ARIMA-based models are likely to be the most efficient and provide good accuracy. The Prophet model handles low to medium complexity cases, including tens of covariates, with complex trend and seasonality. For medium to large-scale cases, including tens of covariates, complex trend, and seasonality, ML models such as Random Forest and XGB models can solve the problem. However, they do not explicitly exploit temporal nature. Therefore, to ensure achieving the ultimate predictive performance, they should be compared to deep-learning models or Prophet.  

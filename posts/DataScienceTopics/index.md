@@ -11,4 +11,4 @@ description: Large-scale forecasting, Data science process
 
 [Data Science Modeling Process](20201019DataScienceModelingProcess.md)  
 
-[Time-series forecasting from classical models to large-scale AI models]([Data Science Modeling Process](20201019DataScienceModelingProcess.md)  
+[Time-series forecasting from classical models to large-scale AI models](20201019DataScienceModelingProcess.md)  

@@ -57,10 +57,9 @@ Below is a non-exhaustive list of medium to large-scale time-series forecasting 
 ## Simple models $^{1,2}$
 
 Table 1. provides a summary overview simple forecasting methods.$1,2$ For these methods and ARIMA methods (Table 2.) we rely on the Hyndman online text ([2]) as a reference and use similar notation. Simple models are useful for simple use cases and are often implemented in spreadsheets.
-\
-\
-Table 1. Summary of simple time-series forecasting models.
+
 <table>
+<caption>Table 1. Summary of simple time-series forecasting models.</caption>
 <tr>
 <th>Model</th>
 <th>Description</th>
@@ -75,7 +74,7 @@ Table 1. Summary of simple time-series forecasting models.
 </tr>
 <tr>
 <td>Exponential Smoothing (EMA)$2,3$ </td>
-<td>• Simple exponential smoothing, without trend and without seasonality (weighted average form) is given by $\hat{y}_{T + 1/T} = \alpha y_T + (1-\alpha)\hat{y}_{T - 1/T}$. The forecast one step forward is the weighted average of the most recent observation and the previous forecast. The smoothing parameter $\alpha$ takes on values between zero and 1.  <br/>• Parameter determination for exponential smoothing methods require determination of the smoothing parameter, $\alpha$, and the initial value, $\hat{y}_{-1/T}$. These can be chosen either as an optimization problem, such as minimizing the error term, or an empirical process. <br/>• The choice of $\alpha$ is often related to the window size N corresponding to a simple moving average (SMA). This is simply a convenient way to relate two, where the weights between EMA and SMA have the same center of mass, and $\alpha_{EMA}=2/(N_{EMA}+1)$.  <br/>• Double exponential smoothing accounts for the trend and includes two smoothing functions - trend smoothing, and the smoothed forecast which now includes the smoothed trend. The forecast is given by the following equations $\hat{y}_{T + 1/T} = \alpha y_T + (1-\alpha)(\hat{y}_{T - 1/T} + \hat{b}_{T-1/T})$, $\hat{b}_{T + 1/T}=\beta(y_{T} - y_{T-1/T})+(1-\beta)\hat{b}_{T-1/T}$. <br/>• Triple exponential smoothing, known as the Holt-Winters methods, applies smoothing three times, adding seasonality smoothing to the previous method. Seasonality can be represented as "multiplicative" or "additive." Multiplicative is used when the Seasonality changes are proportional, and additive is used when the Seasonality is a constant additive number between seasons. Reference [2] provides a succinct set of equations for additive and multiplicative triple exponential smoothing similar to the equations above. 
+<td>• Simple exponential smoothing, without trend and without seasonality (weighted average form) is given by $\hat{y}_{T + 1/T} = \alpha y_T + (1-\alpha)\hat{y}_{T - 1/T}$. The forecast one step forward is the weighted average of the most recent observation and the previous forecast. The smoothing parameter $\alpha$ takes on values between zero and 1.  <br/>• Parameter determination for exponential smoothing methods require determination of the smoothing parameter, $\alpha$, and the initial value, $\hat{y}_{-1/T}$. These can be chosen either as an optimization problem, such as minimizing the error term, or an empirical process. <br/>• The choice of $\alpha$ is often related to the window size N corresponding to a simple moving average (SMA). This is simply a convenient way to relate two, where the weights between EMA and SMA have the same center of mass, and $\alpha_{EMA}=2/(N_{EMA}+1)$.  <br/>• Double exponential smoothing accounts for the trend and includes two smoothing functions - trend smoothing, and the smoothed forecast which now includes the smoothed trend. The forecast is given by the following equations $\hat{y}_{T + 1/T} = \alpha y_T + (1-\alpha)(\hat{y}_{T - 1/T} + \hat{b}_{T-1/T})$, $\hat{b}_{T + 1/T}=\beta(y_{T} - y_{T-1/T})+(1-\beta)\hat{b}_{T-1/T}$. <br/>• Triple exponential smoothing, known as the Holt-Winters methods, applies smoothing three times, adding seasonality smoothing to the previous method. Seasonality can be represented as "multiplicative" or "additive." Multiplicative is used when the Seasonality changes are proportional, and additive is used when the Seasonality is a constant additive number between seasons. Reference [2] provides a succinct set of equations for additive and multiplicative triple exponential smoothing similar to the equations above.
  </td>
 </tr>
 </table>
@@ -87,15 +86,30 @@ Table 1. Summary of simple time-series forecasting models.
 **ARIMA Models**$^2$  
 Forecasting experts often employ classical models such as ARIMA. Traditionally, the practical application of the ARIMA models requires advanced statistical expertise to analyze and configure. For example, the configuration includes setting parameters such as lag order, degree of differencing, moving average window, analyzing autocorrelations, and partial autocorrelations. Innovations to the ARMA models improve ease of use and accuracy with automatic ML-based discovery of the ARIMA model parameters. Popular open-source models are readily available in the R "auto.arima" and Python "pmdarima" packages. However, these classic models are appropriate for time-series processes with limited complexity regarding seasonality and the number of multi-variate time-series. For small-scale problems, they can be significantly more efficient and effective than other models.
 
-\
-\
-Table 2 - Summary of ARIMA and Regression based forecasting models.
-|Model | Description |
-|-----|-------|
-|ARIMA(p,d,q) |$y^{\prime} = c +\phi_1 y^{\prime}_{t-1}+\cdots + \phi_p y^{\prime}_{t-p}+\theta_1 \epsilon_{t-1} + \cdots+\theta_p \epsilon_{t-q} + \epsilon_t$ <br /> • ARIMA(p,d,q) model includes three parameters: p = the order of the autoregressive part (lags), d = degree of differencing part, q = order of the moving average part (MA window size) <br /> •  ACF (Auto Correlation Function) and PACF (Partial Auto Correlation Function) plots are useful for determining the p and q, respectively. |
-|SARIMA | $SARIMA (p,d,q)(P,D,Q)m$ <br />• In addition to ARIMA $p,d,q$, SARIMA models include seasonality parameters. The $P,D,Q$ parameters characterize the seasonal part of the model and are analogous to the non-seasonal (lower-case) parameters. $P$ is the seasonal lag order, $D$ seasonal difference, and $Q$ the seasonal window length. The parameter $m$ indicates how many seasons per year, for example $m=12$ indicates monthly seasonality. <br /> •The most popular Seasonal ARIMA models are available in the R auto.arima package and in the pmdarima Python package. These packages automatically determine the ARIMA and the Seasonal ARIMA parameters.  |
-|SARIMAX | • The SARIMA function in Python and ARIMAX function in R handle seasonality (or not) and exogenous variables.|
-|VAR | • VAR also takes as input exogenous variables but does not include moving-average (MA) terms and thus approximates any existing MA patterns with autoregressives lags.<br />•  Whether VAR or (S)ARIMAX provide a better representation of the underlying process in a specific application is an empirical question.  |
+
+<table>
+<caption>Table 2. Summary of ARIMA and Regression based forecasting models.</caption>
+<tr>
+<th>Model</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>ARIMA</td>
+<td>$y^{\prime} = c +\phi_1 y^{\prime}_{t-1}+\cdots + \phi_p y^{\prime}_{t-p}+\theta_1 \epsilon_{t-1} + \cdots+\theta_p \epsilon_{t-q} + \epsilon_t$ <br /> • ARIMA(p,d,q) model includes three parameters: p = the order of the autoregressive part (lags), d = degree of differencing part, q = order of the moving average part (MA window size) <br /> •  ACF (Auto Correlation Function) and PACF (Partial Auto Correlation Function) plots are useful for determining the p and q, respectively. </td>
+</tr>
+<tr>
+<td>SARIMA</td>
+<td> $SARIMA (p,d,q)(P,D,Q)m$ <br />• In addition to ARIMA $p,d,q$, SARIMA models include seasonality parameters. The $P,D,Q$ parameters characterize the seasonal part of the model and are analogous to the non-seasonal (lower-case) parameters. $P$ is the seasonal lag order, $D$ seasonal difference, and $Q$ the seasonal window length. The parameter $m$ indicates how many seasons per year, for example $m=12$ indicates monthly seasonality. <br /> •The most popular Seasonal ARIMA models are available in the R auto.arima package and in the pmdarima Python package. These packages automatically determine the ARIMA and the Seasonal ARIMA parameters.  </td>
+</tr>
+<tr>
+<td>SARIMAX</td>
+<td> • The SARIMA function in Python and ARIMAX function in R handle seasonality (or not) and exogenous variables.</td>
+</tr>
+<tr>
+<td>VAR</td>
+<td>• VAR also takes as input exogenous variables but does not include moving-average (MA) terms and thus approximates any existing MA patterns with autoregressives lags.<br />•  Whether VAR or (S)ARIMAX provide a better representation of the underlying process in a specific application is an empirical question.  </td>
+</tr>
+</table>
 
 
 **Predictive Analytics Models - Regression Models**  

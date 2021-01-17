@@ -417,7 +417,7 @@ predictions
 
 <h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
-In summary, two time-series regression models (ML and DL) for forecasting the future grocery store sales were compared. The deep learning with embeddings model produces world-class predictive performance on the Rossmann data set. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
+In summary, two time-series regression models (ML and DL) for forecasting future grocery store sales were compared. The deep learning with embeddings model produces world-class predictive performance on the Rossmann data set. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
 
 <table>
  <caption> Table 1. Summary of Deep Learning time-series forecasting model</caption>

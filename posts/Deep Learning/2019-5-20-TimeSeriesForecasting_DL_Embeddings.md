@@ -11,16 +11,18 @@ description: Time series forecasting, Deep Learning, Embeddings, Random Forest, 
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
-<h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings</h1>
-by Alberto Gutierrez  May 20, 2019
+<h1 style="color:	#115BDC;">Time Series Forecasting with Deep Learning and Embeddings: Time-series regression with a Random Forest and Feed-Forward Neural Network</h1>
+
 <figure>
  <img alt="Time-series graph, Rosmmann, top and bottom store sales" title="Time-series graph, Rosmmann, top and bottom store sales" src="/images/TimeSeriesForecasting/TSeriesChart.png" width="635">
  <figcaption><center>Rossmann Top (Store 262) and Bottom (Store 307) Store Sales Time-Series</center></figcaption>
  </figure>
 
-In this article we study a state-of-the-art predictive analytics pipeline for time series structured data. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP, it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
+published  May 20, 2019  
+last updated January 17, 2021
 
-In this post we compare the performance of a best in class ML model and a Deep learning model. Performance of other traditional forecasting methods, such as, ARIMA and VAR are out of scope of this article. The purpose of this article is to understand best in class forecasting for a problem with a rich set of exogenous variables.
+In this article we study a state-of-the-art predictive analytics pipeline for time-series structured data. In the parlance of time-series forecasting the approach we take is application a regression model and compare the performance of a deep-learning (DL) feed-forward neural network with a random forest (RF) ML model. Structured data is also known as "tabular data" and represents the most common data format in the industry. Though it is well-known that deep learning has achieved significant breakthroughs for unstructured data, such as computer vision and NLP (Natural Language Processing), it is not as widely known that deep learning, with the use of [embeddings](https://www.fast.ai/2018/04/29/categorical-embeddings/), can provide significant predictive performance improvement for structured data.
+
 
 Below, we walk through the Python code based on the [Fastai](https://www.fast.ai/) library demonstrating how to set up a predictive analytics pipeline based on deep learning with embeddings. We utilize the Kaggle, Rossmann data set, discuss the deep-learning architecture, training, performance, and compare the performance to a machine learning tree-based model (Random Forest).
 
@@ -415,7 +417,7 @@ predictions
 
 <h1 style="color:	#115BDC;">Summary and Conclusions</h1>
 
-In summary, the deep learning with embeddings model produces world-class predictive performance on the Rossmann data set. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
+In summary, two time-series regression models (ML and DL) for forecasting the future grocery store sales were compared. The deep learning with embeddings model produces world-class predictive performance on the Rossmann data set. The model achieves a significant improvement as compared to a Random Forest (RF) model, the next best model as reported in [Entity Embeddings of Categorical Variables](https://arxiv.org/pdf/1604.06737.pdf). The RSMSPE performance of the two models are listed in Table 1, below, where the Deep Learning model achieves a an 8% improvement in RSMPE score as compared to the RF model.
 
 <table>
  <caption> Table 1. Summary of Deep Learning time-series forecasting model</caption>

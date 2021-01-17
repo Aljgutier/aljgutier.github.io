@@ -17,7 +17,8 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
  <img alt="Data Science Modeling Process" title="Data Science Modeling Process" src="/images/DataScienceModelingProcess/Data Science Modeling Process.png" width="700">
  </figure>
 
-by Alberto Gutierrez, October 19, 2020
+published October 19, 2020  
+last updated January 17, 2021
 
 # Introduction
 
@@ -30,7 +31,7 @@ To achieve consistent and effective results, developing a machine learning model
 # Key Phases in Developing, Deploying, and Managing a Machine Learning Model
 
 ### Objective  
-The first step is to delineate the business and technical objectives. The business objective is rarely to develop a predictive model. Instead, the technical goals are usually one part of broader business goals. Understanding the business goals helps define technical objectives, how the model will be used, and provides project guidance.
+The first step is to delineate the business and technical objectives. The business objective is rarely to develop a predictive model. Instead, the technical goals are usually one part of broader business goals. Understanding the business goals helps define technical objectives, how the model will be used, and provides project guidance. A key output of this step is to identify the KPIs, measures and the targets that will define success of the project.
 
 ### Data Wrangling
 The next step is to gather the data needed for developing the model. This step requires some domain expertise and collaboration between the data scientist and business domain expert to understand what types of data are useful or required to generate a successful model. Gathering the data will require some initial data manipulation, software coding for downloading, processing, and API (Application Programming Interface) access of data sources. At this and the next stage, it is essential to establish the requirements for necessary data. Too often, machine learning models are based on insufficient data, and thereby after very significant effort, it may ultimately lead to costly failure.

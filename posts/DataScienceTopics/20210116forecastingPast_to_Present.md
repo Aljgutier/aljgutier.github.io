@@ -14,7 +14,8 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
 <h1 style="color:	#115BDC;">Time-series Forecasting: from Classical Models to Large-Scale AI Models </h1>
 
-last update: January 16, 2021
+published January 15, 2021  
+last updated January 17, 2021
 
 # Introduction
 
@@ -66,7 +67,7 @@ Table 1. provides a summary overview simple forecasting methods.$1,2$ For these 
 </tr>
 <tr>
 <td>Naïve Methods  </td>
-<td> • In the Naïve forecasting method all future forecasts are equal to the last observation. $\hat{y}_{T+n/T}=y_T$. This method is for the simplest of use cases. <br/>• A variation of the Naïve forecasting method is the Drift Method, which adds trending to the model, $\hat{y}_{T+1/T}=y_T+n(\frac{y_T - y_1}{T-1})$. The forecast is the equivalent of drawing a line between the first and last observations and extrapolating it to the future. <br/>• Another popular variant is the Seasonal Naïve method, where the forecast is equal to the last observed value of the same season. The forecast is given by $\hat{y}_{T+n/T}=y_{T-(n-km)/T}$, where $km$ corresponds to a time-shift back to the previous observed season $m$ corresponding to the season at time $t=T+n/T$. <br/>• It is not too difficult to imagine how to combine the Drift and Seasonal Naïve methods.  </td>
+<td> • In the Naïve forecasting method all future forecasts are equal to the last observation. $\hat{y}_{T+n/T}=y_T$. <br/>• A variation of the Naïve forecasting method is the Drift Method, which adds trending to the model, $\hat{y}_{T+1/T}=y_T+n(\frac{y_T - y_1}{T-1})$. The forecast is the equivalent of drawing a line between the first and last observations and extrapolating it to the future. <br/>• Another popular variant is the Seasonal Naïve method, where the forecast is equal to the last observed value of the same season. The forecast is given by $\hat{y}_{T+n/T}=y_{T-(n-km)/T}$, where $km$ corresponds to a time-shift back to the previous observed season $m$ corresponding to the season at time $t=T+n/T$. <br/>• It is not too difficult to imagine how to combine the Drift and Seasonal Naïve methods.  </td>
 </tr>
 <tr>
 <td>  Average  </td>
@@ -124,7 +125,8 @@ Data scientists schooled in machine learning predictive analytics methods often 
 </tr>
 <tr>
 <td> Regression Models </td>
-<td>  • Time-series regression models treat foreasting as regression problem with variable $y_{T+n}$ being the dependent variable and the previous observations plus exogenous predictors (i.e., ML feature variables) as the dependent variables. <br /> • In this case, well known predictive analytics models such as linear regression, Random Forest, Boosting Models (such as XGB), and SVM (support vector machine) are employed for predicting the dependent variable, at each time-step $n$. <br />• In addition, neural network deep-learning regression models can be applied as time-series forecast solutions, for example as in this blog post [Time-series forecasting with Deep-Learning and ML](https://aljgutier.github.io/posts/Deep%20Learning/2019-5-20-TimeSeriesForecasting_DL_Embeddings/). <br />• Time series regression models based on these predictive analytics algorithms are suitable for larger scale and more complex problems than the traditional ARIMA or Exponential Smoothing based solutions. </td>
+<td>  • Time-series regression models treat foreasting as regression problem with variable $y_{T+n}$ being the dependent variable and the previous observations plus exogenous predictors (i.e., ML feature variables) as the dependent variables. <br /> • In this case, well known predictive analytics models such as linear regression, Random Forest, Boosting Models (such as XGB), and SVM (support vector machine) are employed for predicting the dependent variable, at each time-step $n$. <br />• In addition, neural network deep-learning regression models can be applied as time-series forecast solutions, for example as in this blog post
+<a href="https://aljgutier.github.io/posts/Deep%20Learning/2019-5-20-TimeSeriesForecasting_DL_Embeddings/">Time-series forecasting with Deep-Learning Feed-Forward NN</a> . <br />• Time series regression models based on these predictive analytics algorithms are suitable for larger scale and more complex problems than the traditional ARIMA or Exponential Smoothing based solutions. </td>
 </tr>
 </table>
 

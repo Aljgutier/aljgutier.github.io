@@ -18,7 +18,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
  </figure>
 
-by Alberto Gutierrez,  October 31, 2020
+published October 31, 2020
 # Introduction
 
 This article is the second part of a three-part series of articles with the overriding goal of developing an ML model for predicting market cycles. The model is useful on its own as a buy/sell signal, as input to broader investment strategy, or for use as an input to another model. Such a market cycle prediction model is not available to the open-source community. Thus, an additional goal is to publish the model and methods to the open-source software community. Furthermore, the same process used here to model the S&P 500 works for individual securities.

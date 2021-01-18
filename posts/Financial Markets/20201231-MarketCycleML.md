@@ -17,7 +17,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
  <img alt="Strategy Backtest 2020" title="Strategy Backtest 2020" src="/images/FinancialMarkets/StrategyBacktest.png" width="700">
  </figure>
 
-by Alberto Gutierrez, December 31, 2020
+published December 31, 2020
 
 # Introduction
 

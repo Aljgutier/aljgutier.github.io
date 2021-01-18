@@ -18,7 +18,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
  </figure>
 
-by Alberto Gutierrez, September 30, 2020
+published September 30, 2020
 
 # Introduction
 

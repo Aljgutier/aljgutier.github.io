@@ -96,7 +96,7 @@ Forecasting experts often employ classical models such as ARIMA. Traditionally, 
 </tr>
 <tr>
 <td>ARIMA</td>
-<td>$y^{\prime} = c +\phi_1 y^{\prime}_{t-1}+\cdots + \phi_p y^{\prime}_{t-p}+\theta_1 \epsilon_{t-1} + \cdots+\theta_p \epsilon_{t-q} + \epsilon_t$ <br /> • ARIMA(p,d,q) model includes three parameters: p = the order of the autoregressive part (lags), d = degree of differencing part, q = order of the moving average part (MA window size) <br /> •  ACF (Auto Correlation Function) and PACF (Partial Auto Correlation Function) plots are useful for determining the p and q, respectively. </td>
+<td>$y^{\prime} = c +\phi_1 y^{\prime}_{t-1}+\cdots + \phi_p y^{\prime}_{t-p}+\theta_1 \epsilon_{t-1} + \cdots+\theta_p \epsilon_{t-q} + \epsilon_t$  <br /> $y^{\prime} indicates a differenced series (potentially more than once).  <br /> • ARIMA(p,d,q) model includes three parameters: p = the order of the autoregressive part (lags), d = degree of differencing part, q = order of the moving average part (MA window size) <br /> •  ACF (Auto Correlation Function) and PACF (Partial Auto Correlation Function) plots are useful for determining the p and q, respectively. </td>
 </tr>
 <tr>
 <td>SARIMA</td>
@@ -125,7 +125,7 @@ Data scientists schooled in machine learning predictive analytics methods often 
 </tr>
 <tr>
 <td> Regression Models </td>
-<td>  • Time-series regression models treat foreasting as regression problem with variable $y_{T+n}$ being the dependent variable and the previous observations plus exogenous predictors (i.e., ML feature variables) as the dependent variables. <br /> • In this case, well known predictive analytics models such as linear regression, Random Forest, Boosting Models (such as XGB), and SVM (support vector machine) are employed for predicting the dependent variable, at each time-step $n$. <br />• In addition, neural network deep-learning regression models can be applied as time-series forecast solutions, for example as in this blog post
+<td>  • Time-series regression models treat foreasting as regression problem with variable $y_{T+n}$ being the dependent variable and the previous observations plus exogenous predictors (i.e., ML feature variables) as the dependent variables. <br /> • In this case, well known predictive analytics models such as linear regression, Random Forest (RF), Boosting Models (such as XGB), and SVM (Support Vector Machine) are employed for predicting the dependent variable, at each time-step $n$. <br />• In addition, neural network deep-learning regression models can be applied as time-series forecast solutions, for example as in this blog post
 <a href="https://aljgutier.github.io/posts/Deep%20Learning/2019-5-20-TimeSeriesForecasting_DL_Embeddings/">Time-series forecasting with Deep-Learning Feed-Forward NN</a> . <br />• Time series regression models based on these predictive analytics algorithms are suitable for larger scale and more complex problems than the traditional ARIMA or Exponential Smoothing based solutions. </td>
 </tr>
 </table>

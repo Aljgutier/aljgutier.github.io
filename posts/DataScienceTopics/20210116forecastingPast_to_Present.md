@@ -15,7 +15,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 <h1 style="color:	#115BDC;">Time-series Forecasting: from Classical Models to Large-Scale AI Models </h1>
 
 published January 15, 2021  
-last updated January 28, 2021
+last updated January 30, 2021
 
 # Introduction
 

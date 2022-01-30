@@ -5,6 +5,6 @@
 <br/>
 
 
-### [AI BI Analytics](posts/AI BI Analytics/index.md)
+### [AIBI Analytics](posts/AIBI_Analytics/index.md)
 
-### [AI BI Financial Markets](posts/AI BI Financial Markets/index.md)
+### [AIBI Financial Markets](posts/AIBI_Financial_Markets/index.md)

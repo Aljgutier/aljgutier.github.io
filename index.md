@@ -7,4 +7,4 @@
 
 ### [Deep Learning](posts/AI BI Analytics/index.md)
 
-### [Financial Markets](posts/Financial Markets/index.md)
+### [Financial Markets](posts/AI BI Financial Markets/index.md)

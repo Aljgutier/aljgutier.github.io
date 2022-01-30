@@ -9,8 +9,4 @@
 
 ### [Financial Markets](posts/Financial Markets/index.md)
 
-<!--
-### [Product Marketing](posts/Product Marketing/index.md)
--->
-
 ### [Data Science Topics](posts/DataScienceTopics/index.md)

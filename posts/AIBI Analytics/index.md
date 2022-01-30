@@ -8,7 +8,11 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
-## Deep Learning
+## AI BI Analytics
+
+[Time-series forecasting from classical models to large-scale AI models](20210116forecastingPast_to_Present.md)
+
+[Data Science Modeling Process](20201019DataScienceModelingProcess.md)
 
 [Timeseries Forecasting with Deep Learning and ML](2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
 

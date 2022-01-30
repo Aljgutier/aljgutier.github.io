@@ -5,6 +5,6 @@
 <br/>
 
 
-### [Deep Learning](posts/AI BI Analytics/index.md)
+### [AI BI Analytics](posts/AI BI Analytics/index.md)
 
-### [Financial Markets](posts/AI BI Financial Markets/index.md)
+### [AI BI Financial Markets](posts/AI BI Financial Markets/index.md)

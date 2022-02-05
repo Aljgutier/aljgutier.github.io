@@ -10,7 +10,7 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 
 ## AI BI Analytics
 
-[BI and Data-Intelligence Architecture](20220205_salesbi_and_architecture.md)
+[BI Reporting and Data-Intelligence Architecture](20220205_salesbi_and_architecture.md)
 
 [Time-series forecasting from classical models to large-scale AI models](20210116forecastingPast_to_Present.md)
 

@@ -11,10 +11,10 @@ description: Sales BI and Modern BI Architecture
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
-<h1 style="color:	#115BDC;">Sales BI reporting with a State-of-the-Art Data Intelligence Architecture</h1>
+<h1 style="color:	#115BDC;">BI Reporting with a State-of-the-Art Data Intelligence Architecture</h1>
 
-published February 6, 2022
-last updated February 6, 2022
+published February 5, 2022
+last updated February 5, 2022
 
 <iframe title="wmart_e5_bi" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
  <figcaption><center>Figure 1. Sales analysis BI Dashboard </center></figcaption>

@@ -5,6 +5,6 @@
 <br/>
 
 
-### [AI BI Analytics](posts/AI BI Analytics/index.md)
+### [AI BI Analytics](posts/AIBI Analytics/index.md)
 
 ### [Pyquant - Financial Market Model](posts/Pyquant Financial Market Model/index.md)

@@ -17,7 +17,7 @@ published February 5, 2022
 last updated February 5, 2022
 
 <iframe title="wmart_e5_bi" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
- <figcaption><center>Figure 1. Sales analysis BI Dashboard </center></figcaption>
+ <figcaption><center>Figure 1. Sales analysis BI Dashboard (live dashboard)</center></figcaption>
 
 
 # Introduction

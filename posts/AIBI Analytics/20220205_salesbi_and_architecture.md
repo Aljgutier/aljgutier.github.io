@@ -60,7 +60,7 @@ The output of data transformations (Jupyter Notebook) are tables that go into th
 
 |item_id|store_id|date|units|yearweek|price|revenue|
 | -- | -- | -- | -- | -- | -- | -- |
-| a | b | c | d| e| f| g|
+|HOBBIES_1_008 |CA_|	1/29/11| 12|	201104 |0.46|	5.52|
 
 * ItemDeptCat.csv
   * 3,049 rows (one row per unique item)
@@ -73,13 +73,15 @@ The output of data transformations (Jupyter Notebook) are tables that go into th
 
 |item_id|dept_id|cat_id|  
 | -- | -- | -- |
+|FOODS_1_001|FOODS_1|FOODS|
 
-* StoresState.csv
+* StoreState.csv
   * 11 rows
   * Hierarchy of store, to state, to country
 
 |state_id|store_id|country|state|
 | -- | -- | -- | -- |
+|CA|CA_1|	United States	|California|
 
 * cal_events_summary.csv
   * 7,557 rows
@@ -89,6 +91,7 @@ The output of data transformations (Jupyter Notebook) are tables that go into th
 
 |date|state|store_id|Cultural|National|Religious|SNAP|Sporting|
 | -- | -- | -- | -- | -- | -- | -- | -- |
+|2/1/11|California|CA_1|0	|0	|0	|1|	0|
 
 * cal_events_detail.csv
   * 7,557 rows
@@ -96,6 +99,7 @@ The output of data transformations (Jupyter Notebook) are tables that go into th
 
 |date|event_name|event_type|state|store_id|
 | -- | -- | -- | -- | -- |
+|2/6/11	| SuperBowl|	Sporting|	California|	CA_1|
 
 
 The data model often employed by BI technologies is known as a "star schema," in contrast to a single flat (wide) table, which is typicaly used for ML modeling. There are at least two significant reasons for this difference. The first reason is the star schema, consisting of a normalized set of data tables, and is significantly more memory efficient than a single flat table. Second, the Star Schema model contains two types of tables, Fact tables (e.g., Sales.csv, cal_events_details, cal_events_summary) and Dimension tables (e.g., ItemDeptCat, StoreState), which enable the BI technology to efficiently aggregate, filter, and execute drill-down operations.

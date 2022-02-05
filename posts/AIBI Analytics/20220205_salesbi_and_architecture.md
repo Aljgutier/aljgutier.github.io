@@ -18,7 +18,7 @@ last updated February 5, 2022
 
 <iframe title="wmart_e5_bi" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
  <figcaption><center>Figure 1. Sales analysis BI Dashboard </center></figcaption>
- </figure>
+
 
 # Introduction
 Transformation of manual business intelligence processes with data intelligence and automation is essential for business operations in the digital age. BI technologies are rapidly evolving to meet this need by incorporating advanced capabilities, such as predictive analytics, natural language queries, BI integration with applications, and AI storytelling. Hence, depending on the approach, the terminology "Death of the Dashboard" [1], "Decline of the Dashboard" [2], or "Long Live the Dashboard" [3].

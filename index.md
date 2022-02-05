@@ -7,4 +7,4 @@
 
 ### [AIBI Analytics](posts/AIBI Analytics/index.md)
 
-### [AIBI Financial Markets](posts/AIBI Financial Markets/index.md)
+### [Pyquant - Financial Market Model](posts/AIBI Financial Markets/index.md)

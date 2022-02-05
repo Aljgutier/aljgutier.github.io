@@ -60,6 +60,7 @@ The output of data transformations (Jupyter Notebook) are tables that go into th
 
 |item_id|store_id|date|units|yearweek|price|revenue|
 | -- | -- | -- | -- | -- | -- | -- |
+| a | b | c | d| e| f| g|
 
 * ItemDeptCat.csv
   * 3,049 rows (one row per unique item)

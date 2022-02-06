@@ -38,9 +38,9 @@ The following sections further discuss the process of creating BI reporting with
 The [M5 Walmart sales dataset](https://www.kaggle.com/c/m5-forecasting-accuracy) is chosen [4] because it's a real data set representing a mid-size retail department store. The dataset contains 3049 sales items (unique products) across several departments corresponding to 10 Walmart stores, with five-plus years of data. There are also several online analyses and discussions available.
 
 # Data Exploration and Preparation
-The first step to creating business insights is exploring the data and subsequently transforming it within a data intelligence system. A Python Jupyter notebook is often the data scientist's go-to tool for theis first step. The focus of this article will be on the BI dashboard, so we will not walk through the details of data analysis and transformations. However, the Jupyter notebook developed for this task is available on Github, [m5edabi.ipynb](https://github.com/Aljgutier/busintel/blob/main/m5_eda_bi.ipynb).
+The first step to creating business insights is exploring the data and subsequently transforming it and extracting intelligence. A Python Jupyter notebook is often the data scientist's go-to tool for this first step. The focus of this article will be on the BI dashboard, so we will not walk through the details of data analysis and transformations. However, the Jupyter notebook developed for this task is available on Github, [m5edabi.ipynb](https://github.com/Aljgutier/busintel/blob/main/m5_eda_bi.ipynb).
 
-For sales insights BI reporting, in concept, the data is simple, though, at first glance, it can appear complex. Two files from the Kaggle M5 Forecast page are used:
+For sales insights BI reporting, in concept, the data is simple, though, at first glance, it can appear complex. Only two files from the Kaggle M5 Forecast page are used:
 
 * sell_prices.csv
 * calendar.csv
@@ -49,7 +49,7 @@ In brief, the sell_prices.csv file contains daily sales transactions for corresp
  [Analytics Vidhya, M5 Forecasting Accuracy](
 https://medium.com/analytics-vidhya/m5-forecasting-accuracy-time-series-forecasting-using-walmart-sales-data-374765d3f1f7)[5], though the context of the article is from the perspective of forecasting analysis.
 
-As will be demonstrated, from these two simple files it is possible with data analytics to derive a rich set of insights for tracking, managing, and optimizing future sales.
+As will be demonstrated, from these two simple files, it is possible with data analytics to derive a rich set of insights for tracking, managing, and optimizing future sales.
 
 The output of data transformations (Jupyter Notebook) are tables that go into the BI layer. In some cases, the BI layer's input is the result of queries into transactional databases. For our purpose, the tables (CSV files) input to the BI layer (output from the Jupyter notebook) are as follows:
 

@@ -35,7 +35,7 @@ The following sections further discuss creating the Sales BI reporting and a sta
 * Conclusions and Summary
 
 # E5 Walmart Dataset
-The [M5 Walmart sales dataset](https://www.kaggle.com/c/m5-forecasting-accuracy) is chosen [4] because it's a real data set for representing a mid-size retail department store. The dataset contains 3049 sales items (unique products) across several departments corresponding to 10 Walmart stores, with five-plus years of data. Thus, it is useful for modeling medium size retail or grocery store chain and there are corresponding online analyses and discussions.
+The [M5 Walmart sales dataset](https://www.kaggle.com/c/m5-forecasting-accuracy) is chosen [4] because it's a real data set representing a mid-size retail department store. The dataset contains 3049 sales items (unique products) across several departments corresponding to 10 Walmart stores, with five-plus years of data. There are also several online analyses and discussions available.
 
 # Data Exploration and Preparation
 The first step to creating business insights is exploring the data and subsequently transforming it within a data intelligence system. A Python Jupyter notebook is often the data scientist's go-to tool for theis first step. The focus of this article will be on the BI dashboard, so we will not walk through the details of data analysis and transformations. However, the Jupyter notebook developed for this task is available on Github, [m5edabi.ipynb](https://github.com/Aljgutier/busintel/blob/main/m5_eda_bi.ipynb).

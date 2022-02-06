@@ -27,7 +27,7 @@ This article aims to describe the process of creating effective BI reporting wit
 
 Creating the BI solution began with analyzing the data in a Jupyter notebook for initial exploration and data transformation, then creating a sales BI reporting dashboard using Power BI. Often, these steps are followed by data automation using ETL processes, data storage within an analytics-capable data warehouse, and visualization & reporting within a BI layer. A modern BI architecture includes AI/ML processing, intelligent applications, data governance, and data security.
 
-The following sections further discuss creating the Sales BI reporting and a state-of-the-art data intelligence system.
+The following sections further discuss the process of creating BI reporting within a state-of-the-art data intelligence system.
 * Kaggle E5 Walmart Dataset
 * Data Exploration and Preparation
 * BI Dashboard

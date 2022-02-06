@@ -45,7 +45,7 @@ For sales insights BI reporting, in concept, the data is simple, though, at firs
 * sell_prices.csv
 * calendar.csv
 
-In brief, the sell_prices.csv file contains daily sales transactions for corresponding to years 2011 to 2016. Each transaction includes information on the item purchased, date, store id, state, department, and the store category (food, hobbies, and household). The calendar.csv file contains information about each day, and special events, such as a sporting event, religious or national holidays, etc. In addition to the Jupyter notebook used for this excercise (link above), the data is also explored in the article published by
+In brief, the sell_prices.csv file contains daily sales transactions corresponding to years 2011 through early 2016. Each transaction includes information on the item purchased, date, store id, state, department, and the store category (food, hobbies, and household). The calendar.csv file contains information about each day, and special events, such as a sporting event, religious or national holidays, etc. In addition to the Jupyter notebook used for this excercise (link above), the data is also explored in the article published by
  [Analytics Vidhya, M5 Forecasting Accuracy](
 https://medium.com/analytics-vidhya/m5-forecasting-accuracy-time-series-forecasting-using-walmart-sales-data-374765d3f1f7)[5], though the context of the article is from the perspective of forecasting analysis.
 

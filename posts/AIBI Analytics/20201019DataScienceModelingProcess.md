@@ -11,7 +11,7 @@ description: Data Science Process, DSM, Data Science Modeling Process, Machine l
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
-<h1 style="color:	#115BDC;">The Data Science Modeling Process - the key phases in developing, deploying, and managing a machine learning model </h1>
+<h1 style="color:	#115BDC;">The Data Science ML Modeling Process - the key phases in developing, deploying, and managing a machine learning model </h1>
 
 <figure>
  <img alt="Data Science Modeling Process" title="Data Science Modeling Process" src="/images/DataScienceModelingProcess/Data Science Modeling Process.png" width="700">

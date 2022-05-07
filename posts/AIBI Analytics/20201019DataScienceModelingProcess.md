@@ -66,7 +66,7 @@ Once the model is in production, it will need constant monitoring to ensure that
 
 
 ### Insights
-Finally, insights are generated in almost every step of the process. Insights are often visualized in charts or graphs, become powerful when they are timely, drive action, and are integrated into stories.$^{4}$ A useful tool for communicating and discovering insights is a data dashboard, with drill-downs that facilitate data exploration by a non-data scientist or domain expert. Insights can also be operationalized by delivering personalized alerts and reports to functional business managers and or customers.
+Finally, insights are generated in almost every step of the process. Insights are often visualized in charts or graphs, become powerful when they are timely, drive action, and are integrated into stories.$^{4}$ A useful tool for communicating and discovering insights is a data dashboard, with drill-downs that facilitate data exploration by a non-data scientist or a domain expert. Insights can also be operationalized by delivering personalized alerts and reports to functional business managers and or customers.
 
 
 # References

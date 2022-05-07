@@ -14,7 +14,7 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 
 [Time-series forecasting from classical models to large-scale AI models](20210116forecastingPast_to_Present.md)
 
-[Data Science Modeling Process](20201019DataScienceModelingProcess.md)
+[Data Science ML Modeling Process](20201019DataScienceModelingProcess.md)
 
 [Timeseries Forecasting with Deep Learning and ML](2019-5-20-TimeSeriesForecasting_DL_Embeddings.md)
 

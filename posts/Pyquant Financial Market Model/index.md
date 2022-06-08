@@ -14,4 +14,3 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 
 [Market Cycle Prediction Model - Data Analysis](20201031-MarketCycleDataAnalysis.md)
 
-[Market Cycle Prediction Model](20201231-MarketCycleML.md)

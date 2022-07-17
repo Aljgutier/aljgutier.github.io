@@ -12,16 +12,14 @@ description: Sentiment classificaiton with Deep Learning, Support Vector Machine
  <img src="/images/NLP_Sentiment_MLDL/CinemaImage.png"  width="635">
 </figure>
 
-
 <h1 style="color:	#115BDC; text-align:center;">State of the Art NLP Sentiment Classification with Deep Learning Language Models</h1>
 
 by Alberto Gutierrez, May 3, 2019
- 
+
 We compare two sentiment classifiers, one based on a standard machine learning (ML) architecture built with Python's NLTK and Sklearn libraries and the other a deep learning (DL) model based on the [ULMFiT architecture](https://arxiv.org/abs/1801.06146). This ULM Sentiment Classifier builds on the Fastai library, a library which in turn utilizes [PyTorch](https://pytorch.org/). The objective is not to say one classifier is better than the other, but to understand state-of-the-art classification performance and the critical differences between the two classifiers. The goal is to demonstrate how to achieve world-class performance (deep learning or machine learning). This exercise is useful to applied data scientists interested in an easily accessible reference implementation with established benchmark performance.
 
 ### Dataset: IMDb, Large Movie Reviews
-We use the [IMDb Large Movie Reviews](http://ai.stanford.edu/~amaas/data/sentiment/) dataset. The dataset has 3 classes positive, negative and unsupervised (sentiment unknown). There are 75k training reviews (12.5k positive sentiment, 12.5k negative sentiment, 50k unlabeled) and 25k validation reviews(12.5k positive, 12.5k). Refer to the README file in the IMDb corpus for further information about the dataset. 
-
+We use the [IMDb Large Movie Reviews](http://ai.stanford.edu/~amaas/data/sentiment/) dataset. The dataset has 3 classes positive, negative and unsupervised (sentiment unknown). There are 75k training reviews (12.5k positive sentiment, 12.5k negative sentiment, 50k unlabeled) and 25k validation reviews(12.5k positive, 12.5k). Refer to the README file in the IMDb corpus for further information about the dataset.
 
 ### Additional Use Cases
 
@@ -41,7 +39,7 @@ Sentiment classification is a well-known text, NLP use case. However, the method
  </figure>
 
 
-The ML sentiment classifier is illustrated in Figure 1, beginning with pre-processing, then Tokenization & Vectorization, followed by sentiment classification. The architecture references the following blog posts [Sentiment Analysis with Python, Part I](https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184) and [Sentiment Analysis with Python, Part II](https://towardsdatascience.com/sentiment-analysis-with-python-part-2-4f71e7bde59a). 
+The ML sentiment classifier is illustrated in Figure 1, beginning with pre-processing, then Tokenization & Vectorization, followed by sentiment classification. The architecture references the following blog posts [Sentiment Analysis with Python, Part I](https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184) and [Sentiment Analysis with Python, Part II](https://towardsdatascience.com/sentiment-analysis-with-python-part-2-4f71e7bde59a).
 
 We begin by importing the the necessary python packages.
 
@@ -73,7 +71,7 @@ def get_texts(path):
     return np.array(texts),np.array(labels)
 
 
-train_texts,train_labels = get_texts(PATH/'train') 
+train_texts,train_labels = get_texts(PATH/'train')
 val_texts,val_labels = get_texts(PATH/'test')       
 
 
@@ -94,7 +92,7 @@ train_labels = train_labels[idx]
 
 ```
 
-Next, punctuation and HTML fields are removed. The pre-processing results in two data frames `train_clean`, and `val_clean`. 
+Next, punctuation and HTML fields are removed. The pre-processing results in two data frames `train_clean`, and `val_clean`.
 
 ```python
 # htmlfix function
@@ -109,7 +107,7 @@ def htmlfix(x):
 punctuationfix = re.compile("[.;:!\'?,\"()\[\]]")
 
 # Remove punctuation
-# Remove html 
+# Remove html
 def preprocess_reviews(reviews):
     reviews = [punctuationfix.sub("", line.lower()) for line in reviews]
     reviews= [ htmlfix(line) for line in reviews]
@@ -148,7 +146,7 @@ print("vecctorized:", X.shape)
 
 ### Step 3: Sentiment Classification
 
-Following vectorization we train an SVM model (Support Vector Machine, linear kernel) on a MacBook Pro, 2.6 GHz Intel Core i7, with 32 G Ram.  The tokenization takes 14.1 s CPU time, and classification with the SKlearn linear SVM takes 6.1 s CPU time. 
+Following vectorization we train an SVM model (Support Vector Machine, linear kernel) on a MacBook Pro, 2.6 GHz Intel Core i7, with 32 G Ram.  The tokenization takes 14.1 s CPU time, and classification with the SKlearn linear SVM takes 6.1 s CPU time.
 
 ```python
 # Step 2:  Tokenize and Vectorize
@@ -173,7 +171,7 @@ print ("Accuracy: %s"  % accuracy_score(val_labels, msvc.predict(X_val)))
 
 	   Accuracy: 0.90024
 
-The model achieves 90% accuracy on the test set. 
+The model achieves 90% accuracy on the test set.
 
 <h2 style="color:	#115BDC;"> ULM  Sentiment Classifier </h2>
 
@@ -220,13 +218,13 @@ col_names = ['labels','text']
 
 ### Load, pre-process, tokenize
 
-The process starts with data preprocessing (HTML removed, and documents vectorized). This is a straightforward operation consisting of parsing with regexp then Spacy tokenizer. The processing is encapsulated in the `get_all()` helper functions (see Appendix, below). The Fastai library enhances the Spacy processing  ("Tokenizer") for multiprocessing, which significantly speeds up the processing. Any movie review document requires processing by `get_all()` prior to training of the ULM Sentiment Classifier or prior to Prediction. We also set the chunksize to 24,000 and pass it to Pandas to process a chunk of reviews at a time. This is especially necessary when training the LM (language model). 
+The process starts with data preprocessing (HTML removed, and documents vectorized). This is a straightforward operation consisting of parsing with regexp then Spacy tokenizer. The processing is encapsulated in the `get_all()` helper functions (see Appendix, below). The Fastai library enhances the Spacy processing  ("Tokenizer") for multiprocessing, which significantly speeds up the processing. Any movie review document requires processing by `get_all()` prior to training of the ULM Sentiment Classifier or prior to Prediction. We also set the chunksize to 24,000 and pass it to Pandas to process a chunk of reviews at a time. This is especially necessary when training the LM (language model).
 
-Next, the vocabulary is loaded, where `itos` is a dictionary mapping of integer (token) to string token for each word in the vocabulary. This mapping is created as part of the language modeling training process. Next, `stoi`, the reverse mapping is generated. Text for each document is extracted from the data frame into the Numpy array `trn_class` and `trn_val` with the use of comprehensions. Training and validation labels are contained in `trn_labels` and `val_labels`. 
+Next, the vocabulary is loaded, where `itos` is a dictionary mapping of integer (token) to string token for each word in the vocabulary. This mapping is created as part of the language modeling training process. Next, `stoi`, the reverse mapping is generated. Text for each document is extracted from the data frame into the Numpy array `trn_class` and `trn_val` with the use of comprehensions. Training and validation labels are contained in `trn_labels` and `val_labels`.
 
 ```python
  Code: DL Sentiment Classification Code
- 
+
 # Load Data
 df_trn = pd.read_csv(CLAS_PATH/'train.csv', header=None, chunksize=chunksize)
 df_val = pd.read_csv(CLAS_PATH/'test.csv', header=None, chunksize=chunksize)
@@ -258,7 +256,7 @@ A fastai `learner` object combines our data model loader (`md`) and RNN classifi
 ```python
 bptt,em_sz,nh,nl = 70,400,1150,3
 vs = len(itos)
-bs = 48 
+bs = 48
 
 md = make_ModelDataLoader(trn_clas, trn_labels, val_clas, val_labels, bs)
 print(bs, bptt)
@@ -268,7 +266,7 @@ dps = np.array([0.4,0.5,0.05,0.3,0.4])*0.5
 
 c=int(trn_labels.max())+1
 max_seq=10*bptt
-m = get_rnn_classifer(bptt, max_seq, c, vs, emb_sz=em_sz, n_hid=nh, 
+m = get_rnn_classifer(bptt, max_seq, c, vs, emb_sz=em_sz, n_hid=nh,
                       n_layers=nl, pad_token=1,
                       layers=[em_sz*3, 50, c], drops=[dps[4], 0.1],
                       dropouti=dps[0], wdrop=dps[1],        
@@ -300,7 +298,7 @@ learn.fit(lrs, 1, wds=wd, cycle_len=1, use_clr=(8,3))
 ```
 
            epoch      trn_loss   val_loss   accuracy                      
-             0          0.273541   0.182889   0.92888 
+             0          0.273541   0.182889   0.92888
 
 ***Learn - unfreeze one more layer***
 
@@ -310,7 +308,7 @@ We then unfreeze the next layer and train for an additional epoch, achieving a 9
 learn.freeze_to(-2)
 learn.fit(lrs, 1, wds=wd, cycle_len=1, use_clr=(8,3))
 # bs = 48, bptt = 70
-``` 
+```
 
            epoch      trn_loss   val_loss   accuracy                      
              0           0.230917   0.165796   0.93692  
@@ -319,7 +317,7 @@ learn.fit(lrs, 1, wds=wd, cycle_len=1, use_clr=(8,3))
 
 Unfreezing the entire classifier, allows for the adjustment of all weights, from the input to the output layer, and thereby acheiving state of the art accuracy of 94.8%.
 
-Training of the Language Model required on the order of 20 hours on a [Paperspace](https://www.paperspace.com) P4000 virtual desktop resource  consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time. 
+Training of the Language Model required on the order of 20 hours on a [Paperspace](https://www.paperspace.com) P4000 virtual desktop resource  consisting of an 8 Gbyte NVIDIA, P4000, GPU, and 30 GB, Intel Xeon E5-2623 v4 CPU. After loading the pre-trained language model, the ULM Sentiment Classifier required approximately 4 hours of additional training time.
 
 ```python
 learn.unfreeze()
@@ -334,18 +332,18 @@ learn.fit(lrs, 1, wds=wd, cycle_len=14, use_clr=(32,10))
 
 <h2 style="color:	#115BDC;">Summary of Results: DL vs ML Sentiment Classification </h2>
 
-In summary, we see a significant improvement in predictive performance provided by DL over ML sentiment classification. The salient characteristics of each classifier are summarized in the table below. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or Deep-Learning. 
+In summary, we see a significant improvement in predictive performance provided by DL over ML sentiment classification. The salient characteristics of each classifier are summarized in the table below. Each of the classification models achieved state-of-the-art performance on the respective domain, ML with NLTK and Sklearn, or Deep-Learning.
 
 Beginning with the ML Sentiment classifier, it cleans and processes the data followed by removing stop words, removing punctuation, and creating Ngrams (1, 2, 3 words). The resulting vectorized tokens are then used to train a linear SVM classifier. In contrast, the ULM Sentiment Classifier develops an understanding of the language so that stop words are not removed (or lemmatized). Punctuation characteristics are captured with tokens, such as "BOS" (Beginning of Sentence).
 
-Relative to the ML classifier, the ULM Sentiment classifier employs several novel methods, as presented in 
+Relative to the ML classifier, the ULM Sentiment classifier employs several novel methods, as presented in
 [ULMFit](https://arxiv.org/pdf/1801.06146.pdf).  
 
  * Language Model. A pre-trained language model, trained on a large general domain corpus, Wiki, then fine-tuned for the target task.  
  * Discrimitive fine-tuning. Different layers hold different types of information. Instead of tuning all layers at the same rate, discriminative learning is applied, that is, different layers are tuned at different rates.
- * Gradual Unfreezing. Tuning all layers at once risks catastrophic forgetting of the pre-trained information. Therefore, first, the last layer is unfrozen and trained, then the next to last layer, and so on. 
+ * Gradual Unfreezing. Tuning all layers at once risks catastrophic forgetting of the pre-trained information. Therefore, first, the last layer is unfrozen and trained, then the next to last layer, and so on.
  * Slanted Triangular Learning. This method allows the model to quickly adapt to quickly converge to a suitable region of the parameter space.
- * Concatenated Pooling. Since the signal in text classification is often contained in a few words, which may occur anywhere in the document, the method of concatenated pooling is employed. 
+ * Concatenated Pooling. Since the signal in text classification is often contained in a few words, which may occur anywhere in the document, the method of concatenated pooling is employed.
 
 The ULM Sentiment classifier achieves 94.8% accuracy, which outperforms the classification accuracy of all models published before the ULMFit model (94.1%). For instance A recent paper from Bradbury et al, [Learned in translation: contextualized word vectors](https://arxiv.org/pdf/1708.00107.pdf), has a handy summary of the latest academic research in solving this IMDB sentiment analysis problem, where many of the latest algorithms shown are tuned for this specific problem.
 
@@ -368,7 +366,7 @@ The State of the art ULMFit model adds one more technique for achieving even bet
         <td style="text-align:left;vertical-align:top;">
            - Data pre-processing: filter html <br>
            - Tokenization & Vectorization: punctuation markers (e.g., "BOS" and Capitilization) <br>
-           - Classifier: ULM Sentiment Classifier including Deep-Learning Language Model backbone + Artificial Neural Network Sentiment Classifier custom head 
+           - Classifier: ULM Sentiment Classifier including Deep-Learning Language Model backbone + Artificial Neural Network Sentiment Classifier custom head
         </td>
    </tr>
    <tr>
@@ -378,7 +376,7 @@ The State of the art ULMFit model adds one more technique for achieving even bet
         </td>
         <td>- Paperspace virtual desktop: NVIDIA P4000, 8 GB GPU, 1791 CUDA Cores <br>
            ~24 hours: ~20 hours ULM, ~4 hours ANN Classifier
-            
+
         </td>
     </tr>
    <tr>
@@ -414,7 +412,7 @@ def fixup(x):
         ' @-@ ','-').replace('\\', ' \\ ')
     return re1.sub(' ', html.unescape(x))
 
-    
+
 def get_texts(df, n_lbls=1):
     labels = df.iloc[:,range(n_lbls)].values.astype(np.int64)
     texts = f'\n{BOS} {FLD} 1 ' + df[n_lbls].astype(str)  # BOS beginning of text for a doc
@@ -427,11 +425,11 @@ def get_texts(df, n_lbls=1):
       #   e.g. we all have multicores on our laptops
     tok = Tokenizer().proc_all_mp(partition_by_cores(texts))
     return tok, list(labels)
-    
+
 def get_all(df, n_lbls):
     tok, labels = [], []
        # go through each chunck (each is a dataframe) and call get_texts
-       #    get_texts will grab labels make them into ints and grb texts 
+       #    get_texts will grab labels make them into ints and grb texts
        #    before including the text get_text includes BOS function.
     for i, r in enumerate(df):
         print(i)
@@ -461,4 +459,4 @@ def make_ModelDataLoader(trn_clas, trn_labels, val_clas, val_labels, bs):
 
 ```
 
-## 
+##

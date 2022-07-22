@@ -18,7 +18,7 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
  </figure>
 
-published September 30, 2020
+published September 30, 2020  
 updated July 22, 2022 (updated ML section for appropriate ML variables)
 
 # Introduction

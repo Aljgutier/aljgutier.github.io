@@ -21,7 +21,7 @@ last updated February 5, 2022
 
 
 # Introduction
-BI technologies are rapidly evolving to include AI capabilities, such as predictive analytics, natural language queries, BI integration with applications, and AI storytelling. Hence, the language "Death of the Dashboard" [1], "Decline of the Dashboard" [2], or "Long Live the Dashboard" [3], signify these significant innovations.
+BI technologies are rapidly evolving to include AI capabilities, such as predictive analytics, natural language queries, BI integration with applications, and AI storytelling. Hence, the language "Death of the Dashboard" [1], "Decline of the Dashboard" [2], or "Long Live the Dashboard" [3].
 
 This article aims to describe the process of creating a BI reporting dashboard within a state-of-the-art data intelligence system. For demonstration purposes a BI reporting dashboard is developed using the M5 Walmart sales dataset [4]. The BI report is published with the Power BI Service and is available within an iFrame in Figure 1 (at the top of this article). For convenience, the dashboard can be opened in a browser window with this, [Sales BI Dashbaord](https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9). Clicking or hovering over each visualization will produce drill-downs, tooltip pop-ups, and corresponding filter selections. In this case, BI reporting is designed for a store owner (or manager) and creating data insights and thus driving actionable decisions.
 

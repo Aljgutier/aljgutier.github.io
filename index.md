@@ -4,10 +4,10 @@
 
 <br>
 
-### <center>Articles</center>  
+### Articles
 
 ### [AI and BI](posts/AIBI Analytics/index.md)
 
 ### [Forecasting](posts/forecasting/index.md)
 
-### [Pyquant - Financial Market Modeling](posts/Pyquant Financial Market Model/index.md)
+### [Financial Market Modeling](posts/Pyquant Financial Market Model/index.md)

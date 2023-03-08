@@ -4,7 +4,7 @@
 
 <br>
 
-### Articles
+### <center>Articles</center>
 
 ### [AI and BI](posts/AIBI Analytics/index.md)
 

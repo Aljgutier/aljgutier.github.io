@@ -8,9 +8,13 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
-## Pyquant Financial Market Model
+## Financial Market Modeling
 
 [Market Cycle Analysis with Python](20200930-MarketCycle.md)  
 
 [Market Cycle Prediction Model - Data Analysis](20201031-MarketCycleDataAnalysis.md)
 
+
+[Market Cycle Prediction Model - Data Analysis](20201031-MarketCycleDataAnalysis.md)
+
+[Market Cycle Trading Model for Risk Aversion](https://github.com/Aljgutier/Pyquant/blob/main/SP500_MktCycle_ML_2.ipynb) - A market cycle MCUPM trading model derived from market cycle analysis. The model provides downside risk protection for Bear cycles and shows an overall trading gain when backtested to 1960.

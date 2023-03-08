@@ -2,12 +2,12 @@
 <span style="display:block; color:blue; margin-top:-90px;"> </span>
 [about me](about.md)
 
-<br/>
+<br>
 
-### <center>Articles</center>
+### <center>Articles</center>  
 
 ### [AI and BI](posts/AIBI Analytics/index.md)
 
-### [Forecasting](posts/Forecasting/index.md)
+### [Forecasting](posts/forecasting/index.md)
 
 ### [Pyquant - Financial Market Modeling](posts/Pyquant Financial Market Model/index.md)

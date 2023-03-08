@@ -31,7 +31,6 @@ This article implements the first three phases of the [data science modeling pro
 * EDA (Exploratory Data Analysis) - In the EDA stage, we explore the data, extract features useful for Machine Learning, and develop a hypothesis for the type of ML or AI model to solve the problem. In this article, the EDA process is performed in the "Data Transforms" and "Data Analysis Sections."
 
 #### Outline
-The sections of this article are listed below.
 * [Objectives](#objectives)
 * [Github Links](#github-links)
 * [Notebook Initialization](#notebook-initialization-and-data-import)
@@ -58,6 +57,7 @@ The software for this post is contained in the [Pyquant](https://github.com/Aljg
 * [fmtransforms](https://github.com/Aljgutier/Pyquant/blob/master/fmtransforms.py) - transformations to support market financial analytics
 * [fmcycle](https://github.com/Aljgutier/Pyquant/blob/master/fmcycle.py) - derive financial market cycles up and down trends ("Bull", "Bear") from stock data
 * [Initial Data for Each Data Source](https://github.com/Aljgutier/Pyquant/tree/master/data)
+* ["SP500_MktCycle_Data_2"](https://github.com/Aljgutier/Pyquant/blob/main/SP500_MktCycle_ML_2.ipynb) - Notebook with code for this article.
 
 # Notebook Initialization
 

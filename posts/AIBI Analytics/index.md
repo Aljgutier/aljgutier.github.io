@@ -12,7 +12,7 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 
 [BI Reporting and Data-Intelligence Architecture](20220205_salesbi_and_architecture.md) - BI reporting with the M5 dataset (Walmart) within a state-of-the-art data intelligence system.
 
-[Collaborative Filtering Deep Learning Model](20191108-CollaborativeFiltering.md) - Content recommendation with a matrix decomposition collaborative filter model and a deep-learning ANN model. 
+[Collaborative Filter Recommendations with ML and DL models](20191108-CollaborativeFiltering.md) - Content recommendation with a matrix decomposition collaborative filter model and a deep-learning ANN model. 
 
 [Data Science ML Modeling Process](20201019DataScienceModelingProcess.md) - Overview of the ML model SDLC and the Process of Developing an ML model.
 

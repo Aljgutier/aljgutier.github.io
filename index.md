@@ -8,7 +8,7 @@
 ### <center>Articles</center>
 
 <div align="center">
-    <table style="border: 0 width: 50%">
+    <table style="border: 0 width: 100%">
      <tr>
         <td><b><center>AI BI</center></b></td>
         <td><b><center>Forecasting</center></b></td>

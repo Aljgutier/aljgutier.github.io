@@ -1,12 +1,21 @@
 ---
 ---
 
+
+
+@import "{{ site.theme }}";
+
+.inner {
+  max-width: 75%;
+}
+<!--
 @import "{{ site.theme }}";
 
 
 body {
     margin: 0;
 }
+
 
 
 table, th, td {
@@ -35,3 +44,4 @@ table td {
 table td:last-child {
     border-right: none;
 }
+-->

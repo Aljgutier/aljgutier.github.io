@@ -17,4 +17,4 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 
 [Market Cycle Prediction Model - Data Analysis](20201031-MarketCycleDataAnalysis.md)
 
-[Market Cycle Trading Model for Risk Aversion](https://github.com/Aljgutier/Pyquant/blob/main/SP500_MktCycle_ML_2.ipynb) - A market cycle MCUPM trading model derived from market cycle analysis. The model provides downside risk protection for Bear cycles and shows an overall trading gain when backtested to 1960.
+[Market Cycle Trading Model for Risk Aversion](https://github.com/Aljgutier/Pyquant/blob/main/SP500_MktCycle_ML_2.ipynb) - A market cycle MCUPM trading model derived from market cycle analysis. The model provides downside risk protection for long and deep Bear cycles and shows an overall trading gain when backtested to 1960.

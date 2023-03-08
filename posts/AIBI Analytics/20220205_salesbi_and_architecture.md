@@ -16,25 +16,25 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 published February 5, 2022
 last updated February 5, 2022
 
-<iframe title="wmart_e5_bi" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
+<iframe title="wmart_m5_bi" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
  <figcaption><center>Figure 1. Sales analysis BI Dashboard (live dashboard)</center></figcaption>
 
 
 # Introduction
-In the digital age, transformation of manual business processes with data intelligence and automation is essential for survival and to compete effectively. BI technologies are rapidly evolving to meet this need by incorporating advanced capabilities, such as predictive analytics, natural language queries, BI integration with applications, and AI storytelling. Hence, the language "Death of the Dashboard" [1], "Decline of the Dashboard" [2], or "Long Live the Dashboard" [3], signify these significant innovations.
+BI technologies are rapidly evolving to include AI capabilities, such as predictive analytics, natural language queries, BI integration with applications, and AI storytelling. Hence, the language "Death of the Dashboard" [1], "Decline of the Dashboard" [2], or "Long Live the Dashboard" [3], signify these significant innovations.
 
-This article aims to describe the process of creating effective BI reporting within a state-of-the-art data intelligence system. For demonstration purposes a BI reporting dashboard is developed using the M5 Walmart sales dataset [4]. The BI report is published with the Power BI Service and is available within an iFrame in Figure 1 (at the top of this article). For convenience, the dashboard can be opened in a browser window with this, [Sales BI Dashbaord](https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9). Clicking or hovering over each visualization will produce drill-downs, tooltip pop-ups, and corresponding filter selections. In this case, BI reporting is designed for a store owner (or manager) and creating data insights and thus driving actionable decisions.
+This article aims to describe the process of creating a BI reporting dashboard within a state-of-the-art data intelligence system. For demonstration purposes a BI reporting dashboard is developed using the M5 Walmart sales dataset [4]. The BI report is published with the Power BI Service and is available within an iFrame in Figure 1 (at the top of this article). For convenience, the dashboard can be opened in a browser window with this, [Sales BI Dashbaord](https://app.powerbi.com/view?r=eyJrIjoiMzVhMDBiNTgtNGQ2Yy00YTc1LWExNTQtMDRlNmE4MGVjNmJmIiwidCI6IjFlZDQwOWJkLTZmZjQtNGEzMS04MTNiLTRiYmNjZjg1ODAzYSIsImMiOjZ9). Clicking or hovering over each visualization will produce drill-downs, tooltip pop-ups, and corresponding filter selections. In this case, BI reporting is designed for a store owner (or manager) and creating data insights and thus driving actionable decisions.
 
 Creating the BI solution began with analyzing the data in a Jupyter notebook for initial exploration and data transformation, then creating a sales BI reporting dashboard using Power BI. Often, these steps are followed by data automation using ETL processes, data storage within an analytics-capable data warehouse, and visualization & reporting within a BI layer. A modern BI architecture includes AI/ML processing, intelligent applications, data governance, and data security.
 
 The following sections further discuss the process of creating BI reporting within a state-of-the-art data intelligence system.
-* Kaggle E5 Walmart Dataset
+* Kaggle M5 Walmart Dataset
 * Data Exploration and Preparation
 * BI Dashboard
 * Modern Data Intelligence Architecture
 * Conclusions and Summary
 
-# E5 Walmart Dataset
+# M5 Walmart Dataset
 The [M5 Walmart sales dataset](https://www.kaggle.com/c/m5-forecasting-accuracy) is chosen [4] because it's a real data set representing a mid-size retail department store. The dataset contains 3049 sales items (unique products) across several departments corresponding to 10 Walmart stores, with five-plus years of data. There are also several online analyses and discussions available.
 
 # Data Exploration and Preparation

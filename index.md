@@ -4,18 +4,25 @@
 
 <br/>
 
-
 ### <center>Articles</center>
 
+### [AI and BI](posts/AIBI Analytics/index.md)
+
+### [Forecasting](posts/Forecasting/index.md)
+
+### [Pyquant - Financial Market Modeling](posts/Pyquant Financial Market Model/index.md)
+
+
+
 <div align="center">
-    <table style="border: 0 width: 100%">
+    <table border="0">
      <tr>
         <td><b><center>AI BI</center></b></td>
-        <td><b><center>Forecasting</center></b></td>
-        <td><b><center>PyQuant</center></b></td>
+        <td><b>Forecasting</b></td>
+        <td><b>PyQuant</b></td>
      </tr>
      <tr>
-      <td valign="top"> <!--** AI BI**  -->
+       <td valign="top"> <!--** AI BI**  -->
       <a href="posts/AIBI Analytics/20191108-CollaborativeFiltering.md">Deep Learning Collaborative Filtering  vs. Matrix Decomposition</a>  - a comparison of matrix decomposition and deep-learning-based collaborative filtering recommendation models.<br><br>
        <a href="posts/AIBI Analytics/2019-5-3-NLPSentimentMLDL.md">Sentiment Classification with Deep Learning ULMFIT and ML</a>  - Compare NLP sentiment classification with an ML (SVM) model vs. a DL model based on the ULMFIT/RNN/LSTM architecture.<br><br>
        <a href="posts/AIBI Analytics/20201019DataScienceModelingProcess.md">Data Science ML Modeling Process</a>  - an overview of the ML model SDLC and process of developing ML models.<br>
@@ -26,8 +33,8 @@
        </td >
        <td valign="top"> <!--** PyQuant**  -->
        <a href="posts/Pyquant Financial Market Model/20200930-MarketCycle.md">Analyzing Bull and Bear Market Cycles with Python</a>  - An overview of software and methods for analyzing stock data to identify and visualize bull and bear market cycles.<br><br>
-       <a href="posts/Pyquant Financial Market Model/20201031-MarketCycleDataAnalysis.md">Financial Market ML Feature Engineering</a>  - Development of ML features for for building a market predictive model including ADX variables, moving averages, P/E earnings, CPI, sentiment, volatility, and moving averages.<br><br>
-      </td>
+       <a href="posts/Pyquant Financial Market Model/20201031-MarketCycleDataAnalysis.md">Financial Market ML Feature Engineering</a>  - Development of ML features for for building an ML financial predictive model including market cycles, ADX variables, moving averages, P/E earnings, CPI, sentiment, volatility, and moving averages.<br><br>
+        </td>
      </tr>
     </table>
   </div>

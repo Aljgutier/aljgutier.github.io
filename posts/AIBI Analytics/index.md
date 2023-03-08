@@ -8,12 +8,12 @@ description: Deep Learning, Sentiment Classification, Forecasting, Recommendatio
 <span style="display:block; color:blue; margin-top:-40px;"> </span>
 [about me](../../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
 
-## AI BI Analytics
+## AI and BI
 
-[BI Reporting and Data-Intelligence Architecture](20220205_salesbi_and_architecture.md)
+[BI Reporting and Data-Intelligence Architecture](20220205_salesbi_and_architecture.md) - BI reporting with the M5 dataset (Walmart) within a state-of-the-art data intelligence system.
 
-[Data Science ML Modeling Process](20201019DataScienceModelingProcess.md)
+[Collaborative Filtering Deep Learning Model](20191108-CollaborativeFiltering.md) - Content recommendation with a matrix decomposition collaborative filter model and a deep-learning ANN model. 
 
-[Sentiment Classification with Deep Learning ULMFIT and ML](2019-5-3-NLPSentimentMLDL.md)
+[Data Science ML Modeling Process](20201019DataScienceModelingProcess.md) - Overview of the ML model SDLC and the Process of Developing an ML model.
 
-[Collaborative Filtering Deep Learning Model](20191108-CollaborativeFiltering.md)
+[Sentiment Classification with Deep Learning ULMFIT and ML](2019-5-3-NLPSentimentMLDL.md) - Performance comparison of NLP Sentiment classification with an ML (SVM) model vs. DL-ULMFIT (RNN/LSTM) model.

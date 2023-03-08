@@ -8,11 +8,11 @@
 ### <center>Articles</center>
 
 <div align="center">
-    <table border="0">
+    <table border="0" width=100%>
      <tr>
         <td><b><center>AI BI</center></b></td>
-        <td><b>Forecasting</b></td>
-        <td><b>PyQuant</b></td>
+        <td><b><center>Forecasting</center></b></td>
+        <td><b><center>PyQuant</b></center></td>
      </tr>
      <tr>
        <td valign="top"> <!--** AI BI**  -->

@@ -1,5 +1,5 @@
 ---
-title: "Sales BI Reporting and Data Intelligence Architecture"
+title: "Sales BI Reporting with M5 Dataset and a Modern Data Intelligence Architecture"
 date: "2022-02-05"
 author: Alberto Gutierrez
 description: Sales BI and Modern BI Architecture
@@ -38,7 +38,7 @@ The following sections further discuss the process of creating BI reporting with
 The [M5 Walmart sales dataset](https://www.kaggle.com/c/m5-forecasting-accuracy) is chosen [4] because it's a real data set representing a mid-size retail department store. The dataset contains 3049 sales items (unique products) across several departments corresponding to 10 Walmart stores, with five-plus years of data. There are also several online analyses and discussions available.
 
 # Data Exploration and Preparation
-The first step to creating business insights is exploring the data and subsequently transforming it and extracting intelligence. A Python Jupyter notebook is often the data scientist's go-to tool for this first step. The focus of this article will be on the BI dashboard, so we will not walk through the details of data analysis and transformations. However, the Jupyter notebook developed for this task is available on Github, [m5edabi.ipynb](https://github.com/Aljgutier/busintel/blob/main/m5_eda_bi.ipynb).
+The first step to creating business insights is exploring the data and subsequently transforming it and extracting intelligence. A Python Jupyter notebook is often the data scientist's go-to tool for this first step. The focus of this article will be on the BI dashboard, so we will not walk through the details of data analysis and transformations. However, the Jupyter notebook developed for this task is available on Github, [m5edabi.ipynb](https://github.com/Aljgutier/sales_analytics/blob/main/m5_eda_bi.ipynb).
 
 For sales insights BI reporting, in concept, the data is simple, though, at first glance, it can appear complex. Only two files from the Kaggle M5 Forecast page are used:
 
@@ -108,7 +108,7 @@ In this case, a single wide (i.e., flat) table containing all the columns, equiv
 
 # BI Dashboard
 
-Designing a BI reporting dashboard requires a combination of business domain knowledge and technical expertise. This dashboard was designed to provide sales insights targeted to a retail store manager/owner. The dashboard is influenced by the following Power BI tutorial, [Comparative Analysis Dashboard in Power BI](https://www.youtube.com/watch?v=X7DsnK5bD-0) [6]. The tutorial is an excellent introduction to Power BI and provides instructions for how to build a report similar to the one displayed above.
+Designing a BI reporting dashboard requires a combination of business domain knowledge and technical expertise. This dashboard was designed to provide sales insights targeted to a retail store manager/owner. An excellent tutorial for developing such a Power BI tutorial is found at the following link [Comparative Analysis Dashboard in Power BI](https://www.youtube.com/watch?v=X7DsnK5bD-0) [6]. The tutorial is an excellent introduction to Power BI and provides instructions for how to build a report similar to the one displayed above.
 
 In the BI Visualizations overview below, each visual is described with corresponding business insights. Static screenshots are displayed in the supporting figures. These figures are reproducible in the live dashboard above (Figure 1). Next, for the benefit of the data professional, an overview of the BI Data Model is presented.
 

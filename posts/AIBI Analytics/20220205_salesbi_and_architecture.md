@@ -11,7 +11,7 @@ description: Sales BI and Modern BI Architecture
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 
-<h1 style="color:	#115BDC;">BI Reporting with a State-of-the-Art Data Intelligence Architecture</h1>
+<h1 style="color:	#115BDC;">Sales BI with the M5/Walmart dataset and a State-of-the-Art Data Intelligence Architecture</h1>
 
 published February 5, 2022
 last updated February 5, 2022

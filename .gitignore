@@ -1,3 +1,4 @@
+LICENSE
 _site
 .DS_Store
 .jekyll
@@ -8,3 +9,6 @@ Gemfile
 Gemfile.lock
 node_modules
 package.json
+images/*.jpg
+images/*.png
+

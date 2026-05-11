@@ -6,8 +6,12 @@
 
 ### <center>Articles</center>
 
-### [AI and BI](posts/AIBI Analytics/index.md)
+### [Econometrics](posts/econometrics/index.md)
 
 ### [Forecasting](posts/forecasting/index.md)
 
 ### [Financial Market Modeling](posts/Pyquant Financial Market Model/index.md)
+
+### [AI and BI](posts/AIBI Analytics/index.md)
+
+

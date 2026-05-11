@@ -1,0 +1,11 @@
+---
+title: "Econometrics"
+author: Alberto Gutierrez
+...
+
+<span style="display:block; color:blue; margin-top:-40px;"> </span>
+[about me](../../about.md)  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; [home](../../index.md)
+
+## Forecasting
+
+[Thompson Sampling Dynamic Pricing - from theory to practice ](TSDynamicPricing.pdf)

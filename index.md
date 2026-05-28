@@ -6,7 +6,7 @@
 
 ### <center>Articles</center>
 
-### [Econometrics](posts/econometrics/index.md)
+### [Pricing and Revenue](posts/pricing_revenue/index.md)
 
 ### [Forecasting](posts/forecasting/index.md)
 
